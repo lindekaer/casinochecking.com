@@ -1,0 +1,31 @@
+.button {
+  background-color: $green;
+  border: none;
+  color: $black;
+  text-transform: uppercase;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.content-page-button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#fixed-button {
+  position: fixed;
+  bottom: 64px;
+  left: 0;
+  width: 100%;
+  display: none;
+  border-radius: 0;
+}

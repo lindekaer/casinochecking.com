@@ -1,0 +1,59 @@
+section {
+  .casino-wrapper {
+    background: $white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    .section-padding {
+      padding: 10px;
+
+      p{
+        font-size: 10px;
+      }
+    }
+
+    .my-align-center {
+      display: flex;
+      align-items: center;
+    }
+
+    .button-padding-bottom {
+      padding: 0 10px 0 10px;
+    }
+
+    .section-padding-bottom {
+      padding: 10px 10px 0 10px;
+    }
+
+    .border-right {
+      border-right: 1px solid #eee;
+    }
+
+    .image-ratings {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .bonus-info {
+      text-align: center;
+
+    }
+    .user-rating {
+      font-size: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      border-top: 1px solid #eee;
+
+      h2 {
+        line-height: inherit;
+      }
+      img {
+        padding-top: 8px;
+        width: 16%;
+        height: auto;
+      }
+    }
+  }
+}
