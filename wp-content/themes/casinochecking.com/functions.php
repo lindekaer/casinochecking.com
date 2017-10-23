@@ -46,8 +46,7 @@ if ( ! function_exists( 'checkmate_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'desktop-menu-right' => esc_html__( 'Desktop - Right Menu', 'checkmate' ),
-			'desktop-menu-left' => esc_html__( 'Desktop - Left Menu', 'checkmate' ),
+			'desktop-menu' => esc_html__( 'Desktop - Header', 'checkmate' ),
 			'mobile-header' => esc_html__( 'Mobile Header', 'checkmate' ),
 		));
 
@@ -143,8 +142,7 @@ add_filter('upload_mimes', 'accept_svg');
  */
 function google_fonts() {
 	$query_args = array(
-		'family' => 'Lato|Open+Sans',
-		'subset' => 'latin,latin-ext',
+		'family' => 'Lato|Roboto'
 	);
 	wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
             }

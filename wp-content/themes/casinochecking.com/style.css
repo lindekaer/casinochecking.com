@@ -1861,33 +1861,51 @@ body { width: 100%; height: 100%; }
 /*Global*/
 p { margin: 0; font-family: 'Lato'; line-height: inherit; color: #636363; }
 
-h1, h2, h3, h4, h5, h6 { font-family: 'Lato'; margin: 0; line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-align: center; margin: 0; line-height: inherit; }
 
-section .casino-wrapper { background: #fff; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; }
+.headline-casino-h3 { text-align: center; text-transform: uppercase; }
 
-section .casino-wrapper .section-padding { padding: 10px; }
+section.bg-img { width: 100%; height: 100%; position: absolute; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; z-index: -1; }
 
-section .casino-wrapper .section-padding p { font-size: 10px; }
+section.bg-img:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, #3f3e46 0%, rgba(63, 62, 70, 0.1) 20%, #3f3e46 80%, #3f3e46 100%, #3f3e46 100%); }
 
-section .casino-wrapper .my-align-center { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+section.bg-img .padding-top { padding-top: 65px; height: 100%; }
 
-section .casino-wrapper .button-padding-bottom { padding: 0 10px 0 10px; }
+section.bg-img .wrapper-casino-comparison { margin-top: -8%; padding: 80px; }
 
-section .casino-wrapper .section-padding-bottom { padding: 10px 10px 0 10px; }
+section.bg-img .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; margin-top: -65px; }
 
-section .casino-wrapper .border-right { border-right: 1px solid #eee; }
+section.bg-img .welcome-row h1 { color: #fff; text-align: center; font-weight: 900; }
 
-section .casino-wrapper .image-ratings { text-transform: uppercase; text-align: center; font-size: 12px; }
+@media screen and (min-width: 40em) { section.bg-img .welcome-row h1 { font-size: 4rem; } }
 
-section .casino-wrapper .bonus-info { text-align: center; }
+section.bg-img .casino-wrapper { background: #fff; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; }
 
-section .casino-wrapper .user-rating { font-size: 10px; text-align: center; text-transform: uppercase; border-top: 1px solid #eee; }
+section.bg-img .casino-wrapper .section-padding { padding: 10px; }
 
-section .casino-wrapper .user-rating h2 { line-height: inherit; }
+section.bg-img .casino-wrapper .section-padding p { font-size: 10px; }
 
-section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height: auto; }
+section.bg-img .casino-wrapper .my-align-center { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
-.container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+section.bg-img .casino-wrapper .button-padding-bottom { padding: 0 10px 0 10px; }
+
+section.bg-img .casino-wrapper .section-padding-bottom { padding: 10px 10px 0 10px; }
+
+section.bg-img .casino-wrapper .border-right { border-right: 1px solid #eee; }
+
+section.bg-img .casino-wrapper .image-ratings { text-transform: uppercase; text-align: center; font-size: 12px; }
+
+section.bg-img .casino-wrapper .bonus-info { text-align: center; }
+
+section.bg-img .casino-wrapper .user-rating { font-size: 10px; text-align: center; text-transform: uppercase; border-top: 1px solid #eee; }
+
+section.bg-img .casino-wrapper .user-rating h2 { line-height: inherit; }
+
+section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height: auto; }
+
+.container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1200px; }
+
+@media screen and (min-width: 40em) { .bg-white { background: #fff; } }
 
 .single-casino .bg-white { background: #fff; border-radius: 4px; }
 
@@ -1899,34 +1917,36 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
 
 .single-casino .padding-casino { padding: 10px; }
 
-.single-casino .casino-info-wrapper { text-transform: uppercase; font-size: 10px; text-align: center; }
+.single-casino .casino-info-wrapper { text-transform: uppercase; font-size: 10px; text-align: center; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
 .single-casino .casino-info-wrapper .casino-title { text-transform: uppercase; }
 
 .single-casino .casino-info-wrapper img { width: 12%; height: auto; }
 
-.single-casino .casino-info-wrapper .our-score { padding-left: 8px; }
+.single-casino .casino-info-wrapper .our-score { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
 .single-casino .casino-info-wrapper .our-score h1 { color: #f81c1e; font-weight: 700; }
 
-.single-casino .casino-logo { margin-top: -2rem; }
-
 .single-casino .casino-logo img { border-radius: 4px; }
+
+.single-casino .casino-logo img { margin-top: -2rem; }
 
 .single-casino .desc { padding-top: 25px; padding-bottom: 25px; }
 
 /*Partials*/
-#bg-img { width: 100%; height: 100%; background: url("http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg") center center no-repeat; background-size: cover; z-index: -1; }
+header.site-header { position: absolute; top: 0; width: 100%; width: 100%; }
 
-#bg-img:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(99, 99, 9, 0) 0%, rgba(99, 99, 99, 0.6) 20%, #636363 40%, #636363 100%, #636363 100%); }
+@media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 0; } }
 
-@media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 10px 0px; } }
+header.site-header .desktop-row .menu-desktop-menu-container { text-align: right; }
+
+header.site-header .desktop-row .menu-desktop-menu-container a { color: #fff; text-transform: uppercase; }
 
 header.site-header .bg-black { background-color: transparent; }
 
 .single-casino header.site-header .bg-black { background: transparent; }
 
-@media screen and (min-width: 40em) { header.site-header { padding: 0 0 50px 0; } }
+@media screen and (min-width: 40em) { header.site-header { padding: 0; } }
 
 header.site-header .flex-header { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 

@@ -1,29 +1,25 @@
-#bg-img {
-  width: 100%;
-  height: 100%;
-  background: url('http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') center center no-repeat;
-  background-size: cover;
-  z-index: -1;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    background-image: linear-gradient(to bottom, rgba(99, 99, 9, 0) 0%, rgba(99, 99, 99, 0.6) 20%, rgba(99, 99, 99, 1) 40%, rgba(99, 99, 99, 1) 100%, #636363 100%)
-  }
-}
 
 header.site-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  width: 100%;
   .mobile-row {
     @include breakpoint(medium down) {
-      padding: 10px 0px;
+      padding: 0;
     }
   }
+  .desktop-row {
+    .menu-desktop-menu-container {
+      text-align: right;
 
+      a {
+        color: $white;
+        text-transform: uppercase;
+      }
+    }
+
+  }
   .bg-black {
     background-color: transparent;
 
@@ -32,7 +28,7 @@ header.site-header {
     }
   }
   @include breakpoint(medium up) {
-    padding: 0 0 50px 0;
+    padding: 0;
   }
 
   .flex-header {

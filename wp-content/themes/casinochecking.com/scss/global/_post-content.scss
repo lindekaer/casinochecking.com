@@ -26,6 +26,8 @@
     text-transform: uppercase;
     font-size: 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
 
     .casino-title {
       text-transform: uppercase;
@@ -36,7 +38,8 @@
     }
 
     .our-score {
-      padding-left: 8px;
+      display: flex;
+      align-items: center;
 
       h1 {
         color: $red;
@@ -47,10 +50,13 @@
   }
 
   .casino-logo {
-    margin-top: -2rem;
-
     img {
       border-radius: 4px;
+    }
+    @include breakpoint(small up) {
+      img {
+        margin-top: -2rem;
+      }
     }
   }
 

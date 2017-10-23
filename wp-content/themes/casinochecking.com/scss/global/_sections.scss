@@ -1,58 +1,104 @@
+
 section {
-  .casino-wrapper {
-    background: $white;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-
-    .section-padding {
-      padding: 10px;
-
-      p{
-        font-size: 10px;
-      }
+  &.bg-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    z-index: -1;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-image: linear-gradient(to bottom, rgba(63, 62, 70, 1) 0%, rgba(63, 62, 70, 0.1) 20%, $black 80%, $black 100%, $black 100%)
     }
 
-    .my-align-center {
+    .padding-top {
+      padding-top: 65px;
+      height: 100%;
+    }
+
+    .wrapper-casino-comparison {
+      margin-top: -8%;
+      padding: 80px;
+    }
+
+    .welcome-row {
+      height: 100%;
       display: flex;
       align-items: center;
-    }
-
-    .button-padding-bottom {
-      padding: 0 10px 0 10px;
-    }
-
-    .section-padding-bottom {
-      padding: 10px 10px 0 10px;
-    }
-
-    .border-right {
-      border-right: 1px solid #eee;
-    }
-
-    .image-ratings {
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    .bonus-info {
-      text-align: center;
-
-    }
-    .user-rating {
-      font-size: 10px;
-      text-align: center;
-      text-transform: uppercase;
-      border-top: 1px solid #eee;
-
-      h2 {
-        line-height: inherit;
+      margin-top: -65px;
+      h1 {
+        color: $white;
+        text-align: center;
+        font-weight: 900;
+        @include breakpoint(medium up) {
+          font-size: 4rem;
+        }
       }
-      img {
-        padding-top: 8px;
-        width: 16%;
-        height: auto;
+    }
+    .casino-wrapper {
+      background: $white;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+
+      .section-padding {
+        padding: 10px;
+
+        p {
+          font-size: 10px;
+        }
+      }
+
+      .my-align-center {
+        display: flex;
+        align-items: center;
+      }
+
+      .button-padding-bottom {
+        padding: 0 10px 0 10px;
+      }
+
+      .section-padding-bottom {
+        padding: 10px 10px 0 10px;
+      }
+
+      .border-right {
+        border-right: 1px solid #eee;
+      }
+
+      .image-ratings {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .bonus-info {
+        text-align: center;
+
+      }
+      .user-rating {
+        font-size: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        border-top: 1px solid #eee;
+
+        h2 {
+          line-height: inherit;
+        }
+        img {
+          padding-top: 8px;
+          width: 16%;
+          height: auto;
+        }
       }
     }
   }

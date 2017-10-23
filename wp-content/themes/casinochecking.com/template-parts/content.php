@@ -29,25 +29,29 @@ $imageSize = 'full';
                                 <?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
                             </div>
                             <div class="small-7 columns casino-info-wrapper">
-                                <div class="row padding-casino">
-                                    <div class="small-8 border-right">
-                                        <h2 class="casino-title"><?php echo $name; ?></h2>
-                                        <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
-                                    </div>
-                                    <div class="small-4 our-score">
-                                        <h1><?php echo $ourScore; ?></h1>
-                                        <p>Score</p>
-                                    </div>
-                                </div>
-                                <div class="further-casino-info">
-                                    <div class="row">
-                                        <div class="small-6">
-                                            <h2><?php echo $signUpBonus ?>$</h2>
-                                            <p>Signup bonus</p>
+                                <div>
+                                    <div class="row padding-casino">
+                                        <div class="small-8 border-right columns">
+                                            <h2 class="casino-title"><?php echo $name; ?></h2>
+                                            <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
                                         </div>
-                                        <div class="small-6">
-                                            <h2><?php echo $minimumDeposit; ?>$</h2>
-                                            <p>Deposit</p>
+                                        <div class="small-4 our-score columns">
+                                            <div style="width: 100%;">
+                                                <h1><?php echo $ourScore; ?></h1>
+                                                <p>Score</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="further-casino-info">
+                                        <div class="row">
+                                            <div class="small-6 columns">
+                                                <h4><?php echo $signUpBonus ?>$</h4>
+                                                <p>Signup bonus</p>
+                                            </div>
+                                            <div class="small-6 columns">
+                                                <h4><?php echo $minimumDeposit; ?>$</h4>
+                                                <p>Deposit</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

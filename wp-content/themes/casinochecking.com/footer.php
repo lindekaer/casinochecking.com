@@ -14,7 +14,7 @@
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer">
-    <div class="row hidden-medium-up" id="mobile-footer">
+    <div class="row show-for-medium-down hide-for-large" id="mobile-footer">
         <div class="small-3 footer-section">
             <a href="/blackjack">
                 <div class="icon">

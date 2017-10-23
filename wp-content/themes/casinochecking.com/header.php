@@ -17,29 +17,27 @@
     <?php include(locate_template('inc/meta-tags.php')); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Lato:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Lato:300,400" rel="stylesheet">
 
     <?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?> id="bg-img">
+<body <?php body_class(); ?>>
 <div id="page" class="site">
     <header id="masthead" class="site-header">
-        <div class="row flex-header show-for-large">
-            <div class="large-5 columns site-navigation" id="menu-left">
-                <?php wp_nav_menu(array('theme_location' => 'header-left')); ?>
-            </div><!-- .site-branding -->
-            <div class="large-2 float-center columns">
-                <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                    <?php include(locate_template('template-parts/parts/logo.php')); ?>
-                </a>
+        <div class="container show-for-large">
+            <div class="row flex-header desktop-row">
+                <div class="large-4 columns site-navigation" id="menu-left">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                        <?php include(locate_template('template-parts/parts/logo.php')); ?>
+                    </a>
+                </div><!-- .site-branding -->
+                <div id="menu-right" class="site-navigation columns large-6 large-offset-2">
+                    <?php wp_nav_menu(array('theme_location' => 'desktop-menu')); ?>
+                </div><!-- #site-navigation -->
             </div>
-            <div id="menu-right" class="site-navigation columns large-5">
-                <?php wp_nav_menu(array('theme_location' => 'header-right')); ?>
-            </div><!-- #site-navigation -->
         </div>
-        <div class="container bg-black">
-            <div class="row show-for-medium-down hide-for-large mobile-row flex-header">
+        <div class="container show-for-medium-down hide-for-large">
+            <div class="row  mobile-row flex-header">
                 <div class="mobile-logo small-8 medium-2 columns">
                     <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                         <?php include(locate_template('template-parts/parts/logo.php')); ?>
