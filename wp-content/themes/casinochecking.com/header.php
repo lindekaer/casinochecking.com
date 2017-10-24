@@ -21,9 +21,9 @@
 
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="fade-in">
 <div id="page" class="site">
-    <header id="masthead" class="site-header">
+    <header id="masthead" class="site-header slide-down">
         <div class="container show-for-large">
             <div class="row flex-header desktop-row">
                 <div class="large-4 columns site-navigation" id="menu-left">

@@ -69,7 +69,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-
 @import 'global/mixins';
 
 body {
@@ -79,10 +78,10 @@ body {
 
 /*Global*/
 @import 'global/fonts';
-@import 'global/sections';
+@import 'global/_comparison';
 @import 'global/containers';
-@import 'global/post-content';
-
+@import 'global/_casino-content';
+@import 'global/_effects';
 
 /*Partials*/
 @import 'partials/header';

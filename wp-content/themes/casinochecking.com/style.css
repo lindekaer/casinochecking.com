@@ -344,7 +344,7 @@ html { box-sizing: border-box; font-size: 100%; }
 
 *, *::before, *::after { box-sizing: inherit; }
 
-body { margin: 0; padding: 0; background: #3f3e46; font-family: "Open sans", Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: 1.5; color: #3f3e46; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; padding: 0; background: #eee; font-family: "Open sans", Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: 1.5; color: #3f3e46; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 img { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic; }
 
@@ -1865,13 +1865,13 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .headline-casino-h3 { text-align: center; text-transform: uppercase; }
 
-section.bg-img { width: 100%; height: 100%; position: absolute; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; z-index: -1; }
-
-section.bg-img:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, #3f3e46 0%, rgba(63, 62, 70, 0.1) 20%, #3f3e46 80%, #3f3e46 100%, #3f3e46 100%); }
+section.bg-img { width: 100%; height: 100%; position: absolute; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; z-index: -1; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
 
 section.bg-img .padding-top { padding-top: 65px; height: 100%; }
 
-section.bg-img .wrapper-casino-comparison { margin-top: -8%; padding: 80px; }
+section.bg-img .wrapper-casino-comparison { margin-top: -8%; border-radius: 4px; }
+
+@media screen and (min-width: 40em) { section.bg-img .wrapper-casino-comparison { padding: 80px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); } }
 
 section.bg-img .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; margin-top: -65px; }
 
@@ -1879,7 +1879,9 @@ section.bg-img .welcome-row h1 { color: #fff; text-align: center; font-weight: 9
 
 @media screen and (min-width: 40em) { section.bg-img .welcome-row h1 { font-size: 4rem; } }
 
-section.bg-img .casino-wrapper { background: #fff; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; }
+section.bg-img .casino-wrapper { background: rgba(238, 238, 238, 0.3); padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+section.bg-img .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
 
 section.bg-img .casino-wrapper .section-padding { padding: 10px; }
 
@@ -1909,7 +1911,7 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 .single-casino .bg-white { background: #fff; border-radius: 4px; }
 
-.single-casino .minus-margin { margin-top: 4rem; }
+.single-casino .minus-margin { margin-top: 6rem; }
 
 .single-casino .further-casino-info { border-top: 1px solid #eee; padding-top: 10px; padding-bottom: 10px; }
 
@@ -1933,18 +1935,34 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 .single-casino .desc { padding-top: 25px; padding-bottom: 25px; }
 
-/*Partials*/
-header.site-header { position: absolute; top: 0; width: 100%; width: 100%; }
+@keyframes fadeIn { from { opacity: 0; }
+  to { opacity: 1; } }
 
-@media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 0; } }
+@keyframes fadeInUp { from { transform: translate3d(0, 40px, 0); }
+  to { transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@keyframes fadeInDown { from { opacity: 0;
+    transform: translatey(-40px); }
+  to { opacity: 1;
+    transform: translatey(0); } }
+
+#fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 0.8s; }
+
+.slide-up { opacity: 0; animation-delay: 1.2s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
+
+.slide-down { animation-name: fadeInDown; animation-fill-mode: both; animation-duration: 2s; animation-delay: 1.6s; }
+
+.fade-in-slow { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 2s; }
+
+/*Partials*/
+header.site-header { position: fixed; top: 0; width: 100%; }
+
+@media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 3% 0 0 0; } }
 
 header.site-header .desktop-row .menu-desktop-menu-container { text-align: right; }
 
 header.site-header .desktop-row .menu-desktop-menu-container a { color: #fff; text-transform: uppercase; }
-
-header.site-header .bg-black { background-color: transparent; }
-
-.single-casino header.site-header .bg-black { background: transparent; }
 
 @media screen and (min-width: 40em) { header.site-header { padding: 0; } }
 
@@ -2009,7 +2027,7 @@ header.site-header .menu-mobile-header-container { position: fixed; top: 0px; ri
 .mobile-row #hamburger-9.is-active .line:nth-child(3) { -ms-transform: translateY(-13px) rotate(90deg); transform: translateY(-13px) rotate(90deg); }
 
 /*PARTS*/
-.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 0; font-weight: 600; cursor: pointer; }
+.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin: 0; font-weight: 600; cursor: pointer; }
 
 .content-page-button { width: 100%; margin-top: 10px; }
 

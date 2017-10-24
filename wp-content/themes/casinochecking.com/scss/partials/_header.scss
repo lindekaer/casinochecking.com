@@ -1,12 +1,11 @@
 
 header.site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
-  width: 100%;
   width: 100%;
   .mobile-row {
     @include breakpoint(medium down) {
-      padding: 0;
+      padding: 3% 0 0 0;
     }
   }
   .desktop-row {
@@ -19,13 +18,6 @@ header.site-header {
       }
     }
 
-  }
-  .bg-black {
-    background-color: transparent;
-
-    .single-casino & {
-      background: transparent;
-    }
   }
   @include breakpoint(medium up) {
     padding: 0;

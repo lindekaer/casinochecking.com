@@ -7,15 +7,15 @@ $the_query = new WP_Query($args);
 <section class="bg-img" style="background: url('http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') no-repeat center center fixed;">
     <div class="container padding-top">
         <div class="row welcome-row">
-            <div class="small-12 columns">
-                <h1>Best bonus.</h1>
+            <div class="small-12 columns fade-in-slow">
+                <h1 >Best bonus.</h1>
                 <h1>Largest profit.</h1>
             </div>
         </div>
-        <div class="container bg-white wrapper-casino-comparison">
+        <div class="container bg-white wrapper-casino-comparison slide-up">
             <div class="row">
                 <div class="small-12 columns">
-                    <h3 class="headline-casino-h3">Top-rated online casinos</h3>
+                    <h2 class="headline-casino-h2">Top-rated online casinos</h2>
                 </div>
                 <div class="small-12 medium-4 columns">
                 </div><?php

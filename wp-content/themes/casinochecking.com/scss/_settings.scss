@@ -78,6 +78,7 @@ $foundation-palette: (
         warning: #ffae00,
         alert: #cc4b37,
 );
+$gray: #eee;
 $light-gray: #aaa6a7;
 $medium-gray: #cacaca;
 $dark-gray: #636363;
@@ -86,7 +87,7 @@ $black-footer: #333238;
 $white: #fff;
 $red: #f81c1e;
 $green: #36d47d;
-$body-background: $black;
+$body-background: $gray;
 $body-font-color: $black;
 $body-font-family: 'Open sans', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
