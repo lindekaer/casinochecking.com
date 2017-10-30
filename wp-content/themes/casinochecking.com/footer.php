@@ -15,11 +15,11 @@
 
 <footer id="colophon" class="site-footer">
     <div class="row show-for-medium-down hide-for-large" id="mobile-footer">
-        <?php if( have_rows('footer_repeater') ):
-        while ( have_rows('footer_repeater') ) : the_row();
-            $name = get_sub_field('footer_name');
-            $link = get_sub_field('footer_link');
-            $icon = get_sub_field('footer_icon');?>
+        <?php if( have_rows('footer_repeater', 'options') ):
+        while ( have_rows('footer_repeater', 'options') ) : the_row();
+            $name = get_sub_field('footer_name', 'options');
+            $link = get_sub_field('footer_link', 'options');
+            $icon = get_sub_field('footer_icon', 'options'); ?>
             <div class="small-3 footer-section">
                 <a href="<?php echo $link; ?>">
                     <div class="icon">
