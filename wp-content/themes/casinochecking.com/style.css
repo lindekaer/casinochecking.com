@@ -1949,7 +1949,7 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 #fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 0.8s; }
 
-.slide-up { opacity: 0; animation-delay: 1.2s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
+.slide-up { opacity: 0; animation-delay: 1s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
 
 .slide-down { animation-name: fadeInDown; animation-fill-mode: both; animation-duration: 2s; animation-delay: 1.6s; }
 
