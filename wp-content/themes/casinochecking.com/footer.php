@@ -15,47 +15,27 @@
 
 <footer id="colophon" class="site-footer">
     <div class="row show-for-medium-down hide-for-large" id="mobile-footer">
-        <div class="small-3 footer-section">
-            <a href="/blackjack">
-                <div class="icon">
-                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
+        <?php
+        // check if the repeater field has rows of data
+        if (have_rows('footer_repeater')):
+            // loop through the rows of data
+            while (have_rows('footer_repeater')) : the_row();
+                // display a sub field value
+                $name = get_sub_field('name');
+                $link = get_sub_field('link');
+                $icon = get_sub_field('icon'); ?>
+                <div class="small-3 footer-section">
+                    <a href="<?php echo $link; ?>">
+                        <div class="icon">
+                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>"/>
+                        </div>
+                        <div class="footer-text">
+                            <p><?php echo $name; ?></p>
+                        </div>
+                    </a>
                 </div>
-                <div class="footer-text">
-                    <p>  <?php _e('Blackjack', 'casinochecking.com'); ?></p>
-                </div>
-            </a>
-        </div>
-        <div class="small-3 footer-section">
-            <a href="http://localhost:3000/casinochecking.com/poker">
-                <div class="icon">
-                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
-                </div>
-                <div class="footer-text">
-                    <p>  <?php _e('Poker', 'casinochecking.com'); ?></p>
-                </div>
-            </a>
-        </div>
-        <div class="small-3 footer-section">
-            <a href="/Roulette">
-                <div class="icon">
-                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
-                </div>
-                <div class="footer-text">
-                    <p> <?php _e('Roulette', 'casinochecking.com'); ?></p>
-                </div>
-            </a>
-        </div>
-
-        <div class="small-3 footer-section">
-            <a href="/games">
-                <div class="icon">
-                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
-                </div>
-                <div class="footer-text">
-                    <p> <?php _e('Games', 'casinochecking.com'); ?></p>
-                </div>
-            </a>
-        </div>
+            <?php endwhile;
+        endif; ?>
     </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->

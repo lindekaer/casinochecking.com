@@ -9,6 +9,24 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+/* Adding new tab */
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+}
+
 if ( ! function_exists( 'checkmate_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
