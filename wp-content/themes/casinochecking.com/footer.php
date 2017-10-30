@@ -23,10 +23,10 @@
             <div class="small-3 footer-section">
                 <a href="<?php echo $link; ?>">
                     <div class="icon">
-                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt'] ?>" />
                     </div>
                     <div class="footer-text">
-                        <p>  <?php echo name; ?></p>
+                        <p>  <?php echo $name; ?></p>
                     </div>
                 </a>
             </div>
