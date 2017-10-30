@@ -4,7 +4,7 @@
 );
 $the_query = new WP_Query($args);
 ?>
-<section class="bg-img" style="background: url('http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') no-repeat center center fixed;">
+<section class="bg-img" style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') no-repeat center center fixed;">
     <div class="container padding-top">
         <div class="row welcome-row">
             <div class="small-12 columns fade-in-slow">

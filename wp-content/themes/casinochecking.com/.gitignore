@@ -10,6 +10,8 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 wp-content/themes/casinochecking.com/maps/style.css.map
+wp-content/languages/
+wp-content/wflogs
 
 /.htaccess
 /license.txt

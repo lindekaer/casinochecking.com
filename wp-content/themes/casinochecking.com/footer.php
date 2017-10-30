@@ -18,7 +18,7 @@
         <div class="small-3 footer-section">
             <a href="/blackjack">
                 <div class="icon">
-                    <img src="http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
+                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
                 </div>
                 <div class="footer-text">
                     <p>  <?php _e('Blackjack', 'casinochecking.com'); ?></p>
@@ -28,7 +28,7 @@
         <div class="small-3 footer-section">
             <a href="http://localhost:3000/casinochecking.com/poker">
                 <div class="icon">
-                    <img src="http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
+                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
                 </div>
                 <div class="footer-text">
                     <p>  <?php _e('Poker', 'casinochecking.com'); ?></p>
@@ -38,7 +38,7 @@
         <div class="small-3 footer-section">
             <a href="/Roulette">
                 <div class="icon">
-                    <img src="http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
+                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
                 </div>
                 <div class="footer-text">
                     <p> <?php _e('Roulette', 'casinochecking.com'); ?></p>
@@ -49,7 +49,7 @@
         <div class="small-3 footer-section">
             <a href="/games">
                 <div class="icon">
-                    <img src="http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
+                    <img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-icon.svg">
                 </div>
                 <div class="footer-text">
                     <p> <?php _e('Games', 'casinochecking.com'); ?></p>
