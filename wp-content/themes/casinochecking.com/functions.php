@@ -9,6 +9,24 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+/* Adding new tab */ 
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+}
+
 if ( ! function_exists( 'checkmate_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -98,6 +116,18 @@ function create_post_type() {
 			'dash-icon' => 'dashicons-chart-area',
 		)
 	);
+
+	register_post_type( 'blog',
+		array(
+			'labels' => array(
+				'name' => __( 'Blog' ),
+				'singular_name' => __( 'blogs' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'dash-icon' => 'dashicons-chart-area',
+		)
+	);
 }
 add_action( 'init', 'create_post_type' );
 
@@ -145,8 +175,8 @@ function google_fonts() {
 		'family' => 'Lato|Roboto'
 	);
 	wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
-            }
-            
+}
+
 add_action('wp_enqueue_scripts', 'google_fonts');
 
 /**
@@ -201,8 +231,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 /*Admin*/
 function login_logo() { 
-?> 
-<style type="text/css"> 
+	?> 
+	<style type="text/css"> 
 	body.login div#login h1 a {
 		background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);  //Add your own logo image in this url 
 		padding-bottom: 30px; 
