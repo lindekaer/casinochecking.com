@@ -16,7 +16,9 @@ jQuery(function ($) {
         });
 
         $('.casino-wrapper').after().click(function () {
-            $('.desc').slideToggle("slow");
+            console.log($('.casino-wrapper:after'));
+            $(this).toggleClass('active-desc');
+            $(this).find('.desc').slideToggle("slow");
         });
 
         $('.menu-mobile-header-container').click(function () {
