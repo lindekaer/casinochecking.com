@@ -1439,9 +1439,9 @@ abbr, abbr[title] { border-bottom: 1px dotted #3f3e46; cursor: help; text-decora
 
 figure { margin: 0; }
 
-code { padding: 0.125rem 0.3125rem 0.0625rem; border: 1px solid #cacaca; background-color: #aaa6a7; font-family: "Lato", "Liberation Mono", Courier, monospace; font-weight: normal; color: #3f3e46; }
+code { padding: 0.125rem 0.3125rem 0.0625rem; border: 1px solid #cacaca; background-color: #eee; font-family: "Lato", "Liberation Mono", Courier, monospace; font-weight: normal; color: #3f3e46; }
 
-kbd { margin: 0; padding: 0.125rem 0.25rem 0; background-color: #aaa6a7; font-family: "Lato", "Liberation Mono", Courier, monospace; color: #3f3e46; }
+kbd { margin: 0; padding: 0.125rem 0.25rem 0; background-color: #eee; font-family: "Lato", "Liberation Mono", Courier, monospace; color: #3f3e46; }
 
 .subheader { margin-top: 0.2rem; margin-bottom: 0.5rem; font-weight: normal; line-height: 1.4; color: #636363; }
 
@@ -1861,27 +1861,49 @@ body { width: 100%; height: 100%; }
 /*Global*/
 p { margin: 0; font-family: 'Lato'; line-height: inherit; color: #636363; }
 
+a:hover, a:focus { color: #3f3e46 !important; }
+
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-align: center; margin: 0; line-height: inherit; }
 
 .headline-casino-h3 { text-align: center; text-transform: uppercase; }
+
+.border-radius-right { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+
+.border-radius-left { border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
 section.bg-img { width: 100%; height: 100%; position: absolute; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; z-index: -1; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
 
 section.bg-img .padding-top { padding-top: 65px; height: 100%; }
 
-section.bg-img .wrapper-casino-comparison { margin-top: -8%; border-radius: 4px; }
+section.bg-img input[type=radio]:not(old) { width: 2em; margin: 0; padding: 0; font-size: 1em; opacity: 0; position: absolute; bottom: 0; top: 6px; left: -5px; right: 0; height: 1em; }
 
-@media screen and (min-width: 40em) { section.bg-img .wrapper-casino-comparison { padding: 80px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); } }
+section.bg-img input[type=radio]:not(old) + label { display: inline-block; line-height: 1.5em; }
+
+section.bg-img input[type=radio]:not(old) + label > span { display: inline-block; width: 0.875em; height: 0.875em; margin: 0.25em 0.5em 0.25em 0.25em; border: 0.0625em solid #DEE1E2; border-radius: 2px; background: transparent; vertical-align: bottom; }
+
+section.bg-img input[type=radio]:not(old):checked + label > span > span { display: block; width: 0.5em; height: 0.5em; margin: 0.125em; border: 0.0625em solid #3FB2D7; border-radius: 0.125em; background: #3FB2D7; }
+
+section.bg-img .our-score { width: 100%; display: inline-block; }
+
+section.bg-img .our-score .our-score-val { position: relative; display: inline-block; }
+
+section.bg-img .our-score .our-score-val p { line-height: inherit; font-size: 12px; }
+
+@media screen and (min-width: 40em) { section.bg-img .wrapper-casino-comparison { padding: 40px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); } }
+
+section.bg-img .headline-casino-h4 { text-align: left; padding-bottom: 20px; }
 
 section.bg-img .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; margin-top: -65px; }
 
 section.bg-img .welcome-row h1 { color: #ffffff; text-align: center; font-weight: 900; }
 
-@media screen and (min-width: 40em) { section.bg-img .welcome-row h1 { font-size: 4rem; } }
+@media screen and (min-width: 40em) { section.bg-img .welcome-row h1 { font-size: 3rem; } }
 
 section.bg-img .casino-wrapper { background: #ffffff; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 section.bg-img .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
+
+section.bg-img .casino-wrapper:after { font-family: FontAwesome; color: #eee; font-size: 16px; margin-left: 49%; cursor: pointer; position: relative; content: "\f107"; bottom: 5px; left: 0; right: 0; height: 0; }
 
 section.bg-img .casino-wrapper .section-padding { padding: 10px; }
 
@@ -1959,6 +1981,8 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 @media screen and (min-width: 40em) { .bg-dark-gray { background: #505050; } }
 
+@media screen and (min-width: 40em) { .bg-sidebar { background: #2d2d2d; } }
+
 /*Partials*/
 header.site-header { position: fixed; top: 0; width: 100%; }
 
@@ -1996,7 +2020,7 @@ header.site-header #menu-right { text-align: left; }
 
 header.site-header #menu-mobile-header { width: 100%; text-align: center; display: block; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; list-style-type: none; }
 
-header.site-header #menu-mobile-header li a { font-size: 2rem; color: #aaa6a7; }
+header.site-header #menu-mobile-header li a { font-size: 2rem; color: #eee; }
 
 header.site-header #menu-mobile-header li.current_page_item a { color: #f81c1e; }
 
@@ -2014,13 +2038,13 @@ header.site-header .menu-mobile-header-container { position: fixed; top: 0px; ri
 
 .mobile-row .hamburger .line:hover { cursor: pointer; }
 
-.is-active .mobile-row .hamburger .line { background-color: #aaa6a7; }
+.is-active .mobile-row .hamburger .line { background-color: #eee; }
 
 .mobile-row #hamburger-9 { position: relative; transition: all 0.3s ease-in-out; }
 
 .mobile-row #hamburger-9.is-active { -ms-transform: rotate(45deg); transform: rotate(45deg); }
 
-.mobile-row #hamburger-9.is-active:before { border: 3px solid #aaa6a7; }
+.mobile-row #hamburger-9.is-active:before { border: 3px solid #eee; }
 
 .mobile-row #hamburger-9.is-active .line { width: 30px; }
 
@@ -2040,7 +2064,7 @@ header.site-header .menu-mobile-header-container { position: fixed; top: 0px; ri
 /*Footer*/
 footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; z-index: 1; }
 
-footer #mobile-footer p { color: #aaa6a7; font-size: 10px; text-transform: uppercase; }
+footer #mobile-footer p { color: #eee; font-size: 10px; text-transform: uppercase; }
 
 footer #mobile-footer .icon { margin: 0 auto; width: 25%; padding-bottom: 6px; }
 

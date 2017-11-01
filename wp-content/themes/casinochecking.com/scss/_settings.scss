@@ -79,7 +79,7 @@ $foundation-palette: (
         alert: #cc4b37,
 );
 $gray: #eee;
-$light-gray: #aaa6a7;
+$light-gray: #eee;
 $medium-gray: #cacaca;
 $dark-gray: #636363;
 $black: #3f3e46;
@@ -867,5 +867,4 @@ $grid-margin-gutters: (
         medium: 30px
 );
 $grid-padding-gutters: $grid-margin-gutters;
-$block-grid-max: 8;
-
+$block-grid-max: 8; 
