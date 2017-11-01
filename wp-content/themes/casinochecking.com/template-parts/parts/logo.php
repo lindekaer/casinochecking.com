@@ -1,1 +1,1 @@
-<img src="http://localhost/casinochecking.com/wp-content/uploads/2017/10/casino-logo-white.png">
+<img src="http://casinochecking.com/wp-content/uploads/2017/10/casino-logo-white.png">

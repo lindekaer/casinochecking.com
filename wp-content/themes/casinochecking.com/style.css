@@ -344,7 +344,7 @@ html { box-sizing: border-box; font-size: 100%; }
 
 *, *::before, *::after { box-sizing: inherit; }
 
-body { margin: 0; padding: 0; background: #eee; font-family: "Open sans", Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: 1.5; color: #3f3e46; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; padding: 0; background: #505050; font-family: "Open sans", Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: 1.5; color: #3f3e46; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 img { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic; }
 
@@ -1875,11 +1875,11 @@ section.bg-img .wrapper-casino-comparison { margin-top: -8%; border-radius: 4px;
 
 section.bg-img .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; margin-top: -65px; }
 
-section.bg-img .welcome-row h1 { color: #fff; text-align: center; font-weight: 900; }
+section.bg-img .welcome-row h1 { color: #ffffff; text-align: center; font-weight: 900; }
 
 @media screen and (min-width: 40em) { section.bg-img .welcome-row h1 { font-size: 4rem; } }
 
-section.bg-img .casino-wrapper { background: rgba(238, 238, 238, 0.3); padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+section.bg-img .casino-wrapper { background: #ffffff; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 section.bg-img .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
 
@@ -1907,9 +1907,7 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1200px; }
 
-@media screen and (min-width: 40em) { .bg-white { background: #fff; } }
-
-.single-casino .bg-white { background: #fff; border-radius: 4px; }
+.single-casino .bg-white { background: #ffffff; border-radius: 4px; }
 
 .single-casino .minus-margin { margin-top: 6rem; }
 
@@ -1955,6 +1953,12 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 .fade-in-slow { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 2s; }
 
+@media screen and (min-width: 40em) { .bg-white { background: #ffffff; } }
+
+@media screen and (min-width: 40em) { .bg-gray { background: #f6f6f6; } }
+
+@media screen and (min-width: 40em) { .bg-dark-gray { background: #505050; } }
+
 /*Partials*/
 header.site-header { position: fixed; top: 0; width: 100%; }
 
@@ -1962,7 +1966,7 @@ header.site-header { position: fixed; top: 0; width: 100%; }
 
 header.site-header .desktop-row .menu-desktop-menu-container { text-align: right; }
 
-header.site-header .desktop-row .menu-desktop-menu-container a { color: #fff; text-transform: uppercase; }
+header.site-header .desktop-row .menu-desktop-menu-container a { color: #ffffff; text-transform: uppercase; }
 
 @media screen and (min-width: 40em) { header.site-header { padding: 0; } }
 
@@ -2006,7 +2010,7 @@ header.site-header .menu-mobile-header-container { position: fixed; top: 0px; ri
 
 .mobile-row .three { box-sizing: border-box; text-align: right; z-index: 9999999; }
 
-.mobile-row .hamburger .line { width: 40px; height: 4px; background-color: #fff; display: block; margin-top: 6px; margin-left: auto; transition: all 0.3s ease-in-out; }
+.mobile-row .hamburger .line { width: 40px; height: 4px; background-color: #ffffff; display: block; margin-top: 6px; margin-left: auto; transition: all 0.3s ease-in-out; }
 
 .mobile-row .hamburger .line:hover { cursor: pointer; }
 

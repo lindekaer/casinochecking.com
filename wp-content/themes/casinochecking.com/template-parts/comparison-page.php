@@ -8,19 +8,19 @@ $the_query = new WP_Query($args);
     <div class="container padding-top">
         <div class="row welcome-row">
             <div class="small-12 columns fade-in-slow">
-                <h1 >Best bonus.</h1>
+                <h1 >Best casino bonuses.</h1>
                 <h1>Largest profit.</h1>
             </div>
         </div>
-        <div class="container bg-white wrapper-casino-comparison slide-up">
+        <div class="container bg-gray wrapper-casino-comparison slide-up">
             <div class="row">
-                <div class="small-12 columns">
-                    <h2 class="headline-casino-h2">Top-rated online casinos</h2>
-                </div>
                 <div class="small-12 medium-4 columns">
-                </div><?php
-                if ($the_query->have_posts()): ?>
-                    <div class="small-12 medium-8 columns">
+                </div>
+                <div class="small-12 medium-8 columns">
+                    <h2 class="headline-casino-h2">Top-rated online casinos</h2>
+                    <?php
+                    if ($the_query->have_posts()): ?>
+                    <div class="small-12 columns">
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             <div class="row casino-wrapper">
                                 <?php

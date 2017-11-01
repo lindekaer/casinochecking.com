@@ -20,7 +20,7 @@ $imageSize = 'full';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="container minus-margin">
-        <div class="bg-white">
+        <div class="bg-gray">
             <div class="row">
                 <div class="small-12 columns" id="casino-outer-wrapper">
                     <div class="container">

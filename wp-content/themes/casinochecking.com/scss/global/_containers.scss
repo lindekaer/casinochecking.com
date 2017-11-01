@@ -5,10 +5,3 @@
   margin-left: auto;
   max-width: 1200px;
 }
-
-.bg-white {
-  @include breakpoint(medium up) {
-    background: $white;
-  }
-}
-

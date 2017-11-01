@@ -9,7 +9,6 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
-/* Adding new tab */
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
@@ -175,8 +174,8 @@ function google_fonts() {
 		'family' => 'Lato|Roboto'
 	);
 	wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
-            }
-            
+}
+
 add_action('wp_enqueue_scripts', 'google_fonts');
 
 /**
@@ -231,8 +230,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 /*Admin*/
 function login_logo() { 
-?> 
-<style type="text/css"> 
+	?> 
+	<style type="text/css"> 
 	body.login div#login h1 a {
 		background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);  //Add your own logo image in this url 
 		padding-bottom: 30px; 
