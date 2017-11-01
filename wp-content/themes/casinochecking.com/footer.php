@@ -12,7 +12,6 @@
 ?>
 
 </div><!-- #content -->
-
 <footer id="colophon" class="site-footer">
     <div class="row show-for-medium-down hide-for-large" id="mobile-footer">
         <?php if( have_rows('footer_repeater', 'options') ):
@@ -31,8 +30,7 @@
                 </a>
             </div>
         <?php  endwhile;
-    endif;
-    ?>
+    endif; ?>
 </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
