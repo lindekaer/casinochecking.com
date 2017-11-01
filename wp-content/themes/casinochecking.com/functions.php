@@ -116,6 +116,18 @@ function create_post_type() {
 			'dash-icon' => 'dashicons-chart-area',
 		)
 	);
+
+	register_post_type( 'blog',
+		array(
+			'labels' => array(
+				'name' => __( 'Blog' ),
+				'singular_name' => __( 'blogs' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'dash-icon' => 'dashicons-chart-area',
+		)
+	);
 }
 add_action( 'init', 'create_post_type' );
 
