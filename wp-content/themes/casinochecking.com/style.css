@@ -1903,7 +1903,7 @@ section.bg-img .casino-wrapper { background: #ffffff; padding-top: 15px; padding
 
 section.bg-img .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
 
-section.bg-img .casino-wrapper:after { font-family: FontAwesome; color: #eee; font-size: 16px; margin-left: 49%; cursor: pointer; position: relative; content: "\f107"; bottom: 5px; left: 0; right: 0; height: 0; }
+section.bg-img .casino-wrapper:after { font-family: FontAwesome; color: #eee; font-size: 16px; left: 50%; cursor: pointer; position: relative; content: "\f107"; bottom: 5px; right: 0; height: 0; -ms-transform: translateX(-50%); transform: translateX(-50%); }
 
 section.bg-img .casino-wrapper .section-padding { padding: 10px; }
 
@@ -1928,6 +1928,8 @@ section.bg-img .casino-wrapper .user-rating h2 { line-height: inherit; }
 section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height: auto; }
 
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1200px; }
+
+.hide-custom { display: none; }
 
 .single-casino .bg-white { background: #ffffff; border-radius: 4px; }
 

@@ -78,11 +78,11 @@ body {
 
 /*Global*/
 @import 'global/fonts';
-@import 'global/_comparison';
+@import 'global/archive-casino';
 @import 'global/containers';
-@import 'global/_casino-content';
-@import 'global/_effects';
-@import 'global/_bg-colors';
+@import 'global/casino-content';
+@import 'global/effects';
+@import 'global/bg-colors';
 
 /*Partials*/
 @import 'partials/header';

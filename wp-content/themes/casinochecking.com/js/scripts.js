@@ -15,6 +15,10 @@ jQuery(function ($) {
 
         });
 
+        $('.casino-wrapper').after().click(function () {
+            $('.desc').slideToggle("slow");
+        });
+
         $('.menu-mobile-header-container').click(function () {
             $('.hamburger').trigger('click')
         });
