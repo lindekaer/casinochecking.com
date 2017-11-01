@@ -21,7 +21,7 @@ jQuery(function ($) {
             $(this).find('.desc').slideToggle("slow");
         });
 
-        $('.menu-mobile-menu-container').click(function () {
+        $('.menu-mobile-header-container').click(function () {
             $('.hamburger').trigger('click');
         });
 
