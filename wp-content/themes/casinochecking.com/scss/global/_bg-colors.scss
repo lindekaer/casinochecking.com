@@ -1,0 +1,17 @@
+.bg-white {
+  @include breakpoint(medium up) {
+    background: $white;
+  }
+}
+
+.bg-gray {
+  @include breakpoint(medium up) {
+    background: #f6f6f6;
+  }
+}
+
+.bg-dark-gray {
+  @include breakpoint(medium up) {
+    background: $bg-color;
+  }
+}
