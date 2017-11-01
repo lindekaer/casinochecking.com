@@ -1,4 +1,3 @@
-Mads Lundholm, [Nov 1, 2017, 5:23:02 PM]:
 <?php
 /**
  * The template for displaying archive pages
@@ -9,8 +8,7 @@ Mads Lundholm, [Nov 1, 2017, 5:23:02 PM]:
  */
 
 get_header(); ?>
-<section class="bg-img"
-style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') no-repeat center center fixed;">
+<section class="bg-img" style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') no-repeat center center fixed;">
 <div class="container padding-top">
 	<div class="row welcome-row">
 		<div class="small-12 columns fade-in-slow">
