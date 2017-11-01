@@ -25,6 +25,7 @@ header.site-header {
 
   .flex-header {
     display: flex;
+    position: fixed;
     align-items: center;
   }
 
@@ -84,7 +85,7 @@ header.site-header {
     text-align: left;
   }
 
-  #menu-mobile-header {
+  #menu-mobile-menu {
     width: 100%;
     text-align: center;
     display: block;
@@ -92,7 +93,7 @@ header.site-header {
     text-transform: uppercase;
     padding: 100px 20px 100px;
     perspective: 1000px;
-    list-style-type: none;
+    lisst-style-type: none;
     li a {
       font-size: 2rem;
       color: $light-gray;
@@ -103,12 +104,9 @@ header.site-header {
     }
   }
 
-  .menu-mobile-header-container {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
+  .menu-mobile-menu-container {
+    position: relative;
+    height: 100vh;
     background: $black;
     opacity: 0;
     visibility: hidden;
@@ -125,8 +123,8 @@ header.site-header {
   }
 }
 
-.is-active .menu-mobile-header-container {
-  opacity: 0.9 !important;
+.is-active .menu-mobile-menu-container {
+  opacity: 0.96 !important;
   visibility: visible !important;
   transition: opacity .3s ease, visibility 0s ease !important;
 }
@@ -136,7 +134,6 @@ header.site-header {
     z-index: 99999999999999999999;
   }
 ;
-
   .nine {
     width: 74.6%;
   }

@@ -1933,6 +1933,8 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 .hide-custom { display: none; }
 
+.minus-row-margin { margin-top: -30px; }
+
 .single-casino .bg-white { background: #ffffff; border-radius: 4px; }
 
 .single-casino .minus-margin { margin-top: 6rem; }
@@ -1979,13 +1981,13 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
 
 .fade-in-slow { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 2s; }
 
-@media screen and (min-width: 40em) { .bg-white { background: #ffffff; } }
+.bg-white { background: #ffffff; }
 
-@media screen and (min-width: 40em) { .bg-gray { background: #f6f6f6; } }
+.bg-gray { background: #f6f6f6; }
 
-@media screen and (min-width: 40em) { .bg-dark-gray { background: #505050; } }
+.bg-dark-gray { background: #505050; }
 
-@media screen and (min-width: 40em) { .bg-sidebar { background: #2d2d2d; } }
+.bg-sidebar { background: #2d2d2d; }
 
 /*Partials*/
 header.site-header { position: fixed; top: 0; width: 100%; }
@@ -1998,7 +2000,7 @@ header.site-header .desktop-row .menu-desktop-menu-container a { color: #ffffff;
 
 @media screen and (min-width: 40em) { header.site-header { padding: 0; } }
 
-header.site-header .flex-header { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+header.site-header .flex-header { display: -ms-flexbox; display: flex; position: fixed; -ms-flex-align: center; align-items: center; }
 
 header.site-header li a.current-page { color: #f81c1e; }
 
@@ -2022,15 +2024,15 @@ header.site-header #menu-left { text-align: right; }
 
 header.site-header #menu-right { text-align: left; }
 
-header.site-header #menu-mobile-header { width: 100%; text-align: center; display: block; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; list-style-type: none; }
+header.site-header #menu-mobile-menu { width: 100%; text-align: center; display: block; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; lisst-style-type: none; }
 
-header.site-header #menu-mobile-header li a { font-size: 2rem; color: #eee; }
+header.site-header #menu-mobile-menu li a { font-size: 2rem; color: #eee; }
 
-header.site-header #menu-mobile-header li.current_page_item a { color: #f81c1e; }
+header.site-header #menu-mobile-menu li.current_page_item a { color: #f81c1e; }
 
-header.site-header .menu-mobile-header-container { position: fixed; top: 0px; right: 0px; left: 0px; bottom: 0px; background: #3f3e46; opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s 0s ease; overflow-y: scroll; -webkit-overflow-scrolling: touch; display: -ms-flexbox; display: flex; width: 100%; -ms-flex-flow: row wrap; flex-flow: row wrap; -ms-flex-align: center; align-items: center; }
+header.site-header .menu-mobile-menu-container { position: relative; height: 100vh; background: #3f3e46; opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s 0s ease; overflow-y: scroll; -webkit-overflow-scrolling: touch; display: -ms-flexbox; display: flex; width: 100%; -ms-flex-flow: row wrap; flex-flow: row wrap; -ms-flex-align: center; align-items: center; }
 
-.is-active .menu-mobile-header-container { opacity: 0.9 !important; visibility: visible !important; transition: opacity .3s ease, visibility 0s ease !important; }
+.is-active .menu-mobile-menu-container { opacity: 0.96 !important; visibility: visible !important; transition: opacity .3s ease, visibility 0s ease !important; }
 
 .mobile-row .z-index { z-index: 99999999999999999999; }
 

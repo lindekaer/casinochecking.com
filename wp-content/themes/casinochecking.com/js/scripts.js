@@ -21,8 +21,8 @@ jQuery(function ($) {
             $(this).find('.desc').slideToggle("slow");
         });
 
-        $('.menu-mobile-header-container').click(function () {
-            $('.hamburger').trigger('click')
+        $('.menu-mobile-menu-container').click(function () {
+            $('.hamburger').trigger('click');
         });
 
         var path = window.location.pathname;

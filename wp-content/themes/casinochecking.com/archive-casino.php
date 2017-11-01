@@ -15,7 +15,7 @@ get_header(); ?>
 				<h1>Largest profit.</h1>
 			</div>
 		</div>
-		<div class="row slide-up">
+		<div class="row slide-up minus-row-margin">
 			<div class="small-12 medium-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
 				<div class="border-radius-left">
 					<?php
