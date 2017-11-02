@@ -26,7 +26,6 @@ function filter_casino() {
 
     //Vars, minimum_deposit
     $filter_type_min_deposit = (isset($_POST['filter_type_min_deposit'])) ? $_POST['filter_type_min_deposit'] : null;
-    var_dump($filter_type_min_deposit);
     $min_min_deposit = $_POST['min_min_deposit'];
     $max_min_deposit = $_POST['max_min_deposit'];
 

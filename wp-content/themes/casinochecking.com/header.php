@@ -43,8 +43,8 @@
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>
                     </div>
-                    <div class="small-4 medium-3 medium-offset-7 z-index columns">
-                        <div class="three col z-index">
+                    <div class="small-4 medium-3 medium-offset-7 columns">
+                        <div class="three col">
                             <div class="hamburger" id="hamburger-9">
                                 <span class="line"></span>
                                 <span class="line"></span>

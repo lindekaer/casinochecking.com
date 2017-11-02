@@ -2044,11 +2044,9 @@ header.site-header .menu-mobile-header-container { position: relative; height: 1
 
 .is-active .menu-mobile-header-container { opacity: 0.96 !important; visibility: visible !important; transition: opacity .3s ease, visibility 0s ease !important; }
 
-.mobile-row .z-index { z-index: 3; }
-
 .mobile-row .nine { width: 74.6%; }
 
-.mobile-row .three { box-sizing: border-box; text-align: right; z-index: 2; }
+.mobile-row .three { box-sizing: border-box; text-align: right; }
 
 .mobile-row .hamburger .line { width: 40px; height: 4px; background-color: #ffffff; display: block; margin-top: 6px; margin-left: auto; transition: all 0.3s ease-in-out; }
 
