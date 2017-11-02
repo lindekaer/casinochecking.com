@@ -24,6 +24,65 @@ section {
       padding-top: 65px;
       height: 100%;
     }
+    
+    .load-wrapper {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      z-index: 20;
+      background: #fefefe;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .5s ease, 0s .5s ease;
+    }
+
+    .loading-posts {
+      .load-wrapper {
+        opacity: 0.9;
+        visibility: visible;
+        transition: opacity .5s ease;
+      }
+    }
+
+    .loader {
+      font-size: 10px;
+      margin: 50px auto;
+      text-indent: -9999em;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #2f4b5a;
+      background: linear-gradient(to right, #2f4b5a 10%, rgba(47, 75, 90, 0) 42%);
+      position: relative;
+      animation: load3 1s infinite ease-out;
+      -ms-transform: translatez(0);
+      transform: translatez(0);
+      &:after{
+        background: #fefefe;
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        content: '';
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      &:before {
+        width: 50%;
+        height: 50%;
+        background: #2f4b5a;
+        border-radius: 100% 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+      }
+    }
 
     input[type=radio]:not(old){
       width: 2em;
@@ -49,7 +108,7 @@ section {
       width: 0.875em;
       height: 0.875em;
       margin: 0.25em 0.5em 0.25em 0.25em;
-      border: 0.0625em solid #DEE1E2;
+      border: 0.0625em solid #dee1e2;
       border-radius: 2px;
       background: transparent;
       vertical-align: bottom;
@@ -60,9 +119,9 @@ section {
       width: 0.5em;
       height: 0.5em;
       margin: 0.125em;
-      border: 0.0625em solid #3FB2D7;
+      border: 0.0625em solid #3fb2d7;
       border-radius: 0.125em;
-      background: #3FB2D7;
+      background: #3fb2d7;
     }
 
     .our-score {
@@ -82,6 +141,7 @@ section {
     .wrapper-casino-comparison {
       @include breakpoint(medium up) {
         padding: 40px;
+        position: relative;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       }
@@ -120,22 +180,22 @@ section {
 
       &.active-desc {
         &:after {
-        font-family: FontAwesome;
-        color: #eee;
-        font-size: 25px;
-        left: 50%;
-        cursor: pointer;
-        position: relative;
-        content: "\f106";
-        bottom: 12px;
-        right: 0;
-        height: 0;
-        transform: translateX(-55%);
+          font-family: fontawesome;
+          color: #eee;
+          font-size: 25px;
+          left: 50%;
+          cursor: pointer;
+          position: relative;
+          content: "\f106";
+          bottom: 12px;
+          right: 0;
+          height: 0;
+          transform: translatex(-55%);
         }
       }
 
       &:after {
-        font-family: FontAwesome;
+        font-family: fontawesome;
         color: #eee;
         font-size: 25px;
         left: 50%;
@@ -145,7 +205,7 @@ section {
         bottom: 12px;
         right: 0;
         height: 0;
-        transform: translateX(-55%);
+        transform: translatex(-55%);
       }
       .section-padding {
         padding: 10px;

@@ -18,98 +18,43 @@ get_header(); ?>
 		<div class="row slide-up minus-row-margin">
 			<div class="small-12 medium-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
 				<div class="border-radius-left">
-					<?php
-					$our_score = get_field_object('our_score');
-					$user_votes = get_field_object('user_votes');
-					?>
-					<p>Our score</p>
-					<form class="our-score">
-						<?php foreach ($our_score["choices"] as $k => $v): ?>
-							<div class="our-score-val">
-								<input type="radio" name="radio" value="2">
-								<label for="radio2">
-									<span><span>
-										<div class="value"><?php echo $v; ?></div>
-									</label>
-								</div>
-							<?php endforeach; ?>
-						</form>
-						<?php
-						var_dump($user_votes);
-						?>
+					<!-- Our score -->
+					<?php $our_score = get_field_object('our_score'); ?>
+					<label class="<?php echo $our_score['name'];?>" data-filter-type="<?php echo $our_score['name'];?>" data-min="<?php echo $our_score['min'];?>" data-max="<?php echo $our_score['max'];?>" for="<?php echo $our_score['name'];?>"><?php echo $our_score['label'];?></label>
+					<input type="text" id="<?php echo $our_score['name'];?>" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					<div id="slider-range-our-score"></div>
+					<!-- User votes -->
+					<?php $user_votes = get_field_object('user_votes'); ?>
+					<label class="<?php echo $user_votes['name'];?>" data-filter-type="<?php echo $user_votes['name'];?>" data-min="<?php echo $user_votes['min'];?>" data-max="<?php echo $user_votes['max'];?>" for="<?php echo $user_votes['name'];?>"><?php echo $user_votes['label'];?></label>
+					<input type="text" id="<?php echo $user_votes['name'];?>" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					<div id="slider-range-user-votes"></div>
+					<div class="search-ajax">
+						<a class="button">Search</a>
 					</div>
 				</div>
-				<div class="small-12 medium-8 bg-gray columns border-radius-right wrapper-casino-comparison">
-					<div class="container">
-						<div class="row">
-							<div class="small-12 columns">
-								<h4 class="headline-casino-h4">Top-rated online casinos</h4>
-								<?php
-								if (have_posts()) : ?>
-								<div class="small-12 columns">
-									<?php while (have_posts()) : the_post(); ?>
-										<div class="row casino-wrapper">
-											<?php
-											$image = get_field('image');
-											$imageSize = 'thumbnail';
-											$deepUrl = get_field('deep_url');
-											$ourScore = get_field('our_score');
-											$userVotes = get_field('user_votes');
-											$signUpBonus = get_field('signup_bonus');
-											$minimumDeposit = get_field('minimum_deposit'); ?>
-											<div class="small-6 columns border-right my-align-center">
-												<div style="width: 100%;">
-													<div class="image section-padding">
-														<a href="<?php echo the_permalink(); ?>">
-															<?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
-														</a>
-													</div>
-													<div class="user-rating section-padding-bottom">
-														<div class="row">
-															<div class="small-6 columns">
-																<p>User rating</p>
-																<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
-															</div>
-															<div class="small-6 columns">
-																<p>score</p>
-																<h2><?php echo $ourScore; ?></h2>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="small-6 columns my-align-center">
-												<div style="width: 100%;">
-													<div class="image-ratings section-padding">
-														<div class="row">
-															<div class="small-6 border-right">
-																<p>Bonus</p>
-																<h4><?php echo $signUpBonus; ?>$</h4>
-															</div>
-															<div class="small-6">
-																<p>Deposit</p>
-																<h4><?php echo $minimumDeposit; ?>$</h4>
-															</div>
-														</div>
-													</div>
-													<div class="bonus-info button-padding-bottom">
-														<a href="<?php echo $deepUrl; ?>" class="button">Get
-														Bonus</a>
-													</div>
-												</div>
-											</div>
-											<div class="small-12 hide-custom desc columns">
-												<?php the_field('description'); ?>
-											</div>
-										</div>
-									<?php endwhile; ?>
+			</div>
+			<div class="small-12 medium-8 bg-gray columns border-radius-right wrapper-casino-comparison">
+				<div class="container">
+					<div class="row">
+						<div class="small-12"><h4 class="headline-casino-h4">Top-rated online casinos</h4></div>
+						<div class="small-12 columns load-casino">
+							<?php
+							if (have_posts()) : ?>
+							<div class="small-12 columns ">
+								<div class="load-wrapper">
+									<div class="loader">
+									</div></div>
 								</div>
-							<?php endif; ?>
-						</div>
+								<?php while (have_posts()) : the_post(); ?>
+									<?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+								<?php endwhile; ?>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<?php
-	get_footer();
+	</div>
+</section>
+<?php
+get_footer();

@@ -9,10 +9,59 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
+add_action('wp_ajax_filter_casino', 'filter_casino');
+
+
+function filter_casino() {
+    $filter_type = (isset($_POST['filter_type'])) ? $_POST['filter_type'] : null;
+    $min = $_POST['min_our_score'];
+    $max = $_POST['max_our_score'];
+
+    $args = array(
+        'numberposts'   => -1,
+        'post_type'     => 'casino',
+    );
+
+    if($filter_type == 'our_score') {
+        $our_score_vars = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "our_score",
+                'compare' => '>=',
+                'value' => intval($min),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "our_score",
+                'compare' => '<=',
+                'value' => intval($max),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'] = array("relation" => 'AND');
+        $args['meta_query'][] = $our_score_vars;
+    }
+
+    if($filter_type == 'user_votes'){
+        echo 'equals user votes';
+    }
+
+    $the_query = new WP_Query( $args );
+
+    if($the_query->have_posts()) {
+        while( $the_query->have_posts() ) : $the_query->the_post();
+          include(locate_template('template-parts/parts/casino-teaser.php')); 
+      endwhile;
+  }
+  wp_reset_query();
+  die();
+}
+
+
 add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query)
 {
-    //Ensure this filter isn't applied to the admin area
     if (is_admin()) {
         return;
     }
@@ -20,10 +69,8 @@ function custom_front_page($wp_query)
     if ($wp_query->get('page_id') == get_option('page_on_front')):
 
         $wp_query->set('post_type', 'casino');
-        $wp_query->set('page_id', ''); //Empty
+        $wp_query->set('page_id', ''); 
 
-        //Set properties that describe the page to reflect that
-        //we aren't really displaying a static page
         $wp_query->is_page = 0;
         $wp_query->is_singular = 0;
         $wp_query->is_post_type_archive = 1;
@@ -216,7 +263,9 @@ add_action('wp_enqueue_scripts', 'google_fonts');
  */
 function checkmate_scripts()
 {
+
     wp_enqueue_style('checkmate-style', get_stylesheet_uri());
+    wp_enqueue_style('smoothness-jquery', '//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 
     // jquery
     wp_deregister_script('jquery');
@@ -228,7 +277,13 @@ function checkmate_scripts()
 
     // theme scripts
     wp_enqueue_script('checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false);
+    wp_enqueue_script('checkmate-ui', '//code.jquery.com/ui/1.11.2/jquery-ui.js');
     wp_enqueue_script('checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    wp_localize_script( 'checkmate-scripts', 'site_vars', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'theme_url' => get_template_directory_uri()
+    ));
+
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -269,15 +324,15 @@ function login_logo()
 {
     ?>
     <style type="text/css">
-        body.login div#login h1 a {
-            background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);
+    body.login div#login h1 a {
+        background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);
         / / Add your own logo image in this url padding-bottom: 30 px;
-            background-size: 100%;
-            width: 320px;
-            height: 240px;
-        }
-    </style>
-    <?php
+        background-size: 100%;
+        width: 320px;
+        height: 240px;
+    }
+</style>
+<?php
 }
 
 add_action('login_enqueue_scripts', 'login_logo');
