@@ -24,13 +24,38 @@ function filter_casino() {
     $min_user_votes = $_POST['min_user_votes'];
     $max_user_votes = $_POST['max_user_votes'];
 
+    //Vars, minimum_deposit
+    $filter_type_min_deposit = (isset($_POST['filter_type_min_deposit'])) ? $_POST['filter_type_min_deposit'] : null;
+    var_dump($filter_type_min_deposit);
+    $min_min_deposit = $_POST['min_min_deposit'];
+    $max_min_deposit = $_POST['max_min_deposit'];
+
     $args = array(
         'numberposts'   => -1,
         'post_type'     => 'casino',
         'post_status' => 'publish',
     );
 
-    if($filter_type_user_votes == 'user_votes'){
+    if($filter_type_min_deposit == 'minimum_deposit'){
+       $query_vars_min_deposit = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "minimum_deposit",
+            'compare' => '>=',
+            'value' => intval($min_min_deposit),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "minimum_deposit",
+            'compare' => '<=',
+            'value' => intval($max_min_deposit),
+            'type' => 'numeric'
+        )
+    );
+       $args['meta_query'][] = $query_vars_min_deposit;
+   }
+
+   if($filter_type_user_votes == 'user_votes'){
        $query_vars_user_votes = array(
         "relation" => 'AND', 
         array(
@@ -283,36 +308,34 @@ add_action('wp_enqueue_scripts', 'google_fonts');
 /**
  * Enqueue scripts and styles.
  */
-function checkmate_scripts()
-{
-
-    wp_enqueue_style('checkmate-style', get_stylesheet_uri());
-    wp_enqueue_style('smoothness-jquery', '//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
+function checkmate_scripts() {
+    
+    wp_enqueue_style( 'checkmate-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css' );
+    wp_enqueue_style( 'checkmate-style', get_stylesheet_uri() );
 
     // jquery
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+    wp_enqueue_script('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array(), null, true);
+    
 
     // foundation scripts
-    wp_enqueue_script('checkmate-what-input', get_template_directory_uri() . '/bower_components/what-input/dist/what-input.js', array(), '20151215', true);
-    wp_enqueue_script('checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true);
+    wp_enqueue_script( 'checkmate-what-input', get_template_directory_uri() . '/bower_components/what-input/dist/what-input.js', array(), '20151215', true );
+    wp_enqueue_script( 'checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true );
 
     // theme scripts
-    wp_enqueue_script('checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false);
-    wp_enqueue_script('checkmate-ui', '//code.jquery.com/ui/1.11.2/jquery-ui.js');
-    wp_enqueue_script('checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    wp_enqueue_script( 'checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false );
+    wp_enqueue_script( 'checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
     wp_localize_script( 'checkmate-scripts', 'site_vars', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         'theme_url' => get_template_directory_uri()
     ));
 
-
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
     }
 }
-
-add_action('wp_enqueue_scripts', 'checkmate_scripts');
+add_action( 'wp_enqueue_scripts', 'checkmate_scripts' );
 
 /**
  * Implement the Custom Header feature.

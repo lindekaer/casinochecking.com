@@ -28,6 +28,12 @@ get_header(); ?>
 					<label class="<?php echo $user_votes['name'];?>" data-filter-type="<?php echo $user_votes['name'];?>" data-min="<?php echo $user_votes['min'];?>" data-max="<?php echo $user_votes['max'];?>" for="<?php echo $user_votes['name'];?>"><?php echo $user_votes['label'];?></label>
 					<input type="text" id="<?php echo $user_votes['name'];?>" readonly style="border:0; color:#f6931f; font-weight:bold;">
 					<div id="slider-range-user-votes"></div>
+					<!-- Minimum deposit -->
+					<?php $min_deposit = get_field_object('minimum_deposit'); ?>
+					<label class="<?php echo $min_deposit['name'];?>" data-filter-type="<?php echo $min_deposit['name'];?>" for="<?php echo $min_deposit['name'];?>"><?php echo $min_deposit['label'];?>
+					</label>
+					<input type="text" id="<?php echo $min_deposit['name'];?>" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					<div id="slider-range-min-deposit"></div>
 					<div class="search-ajax">
 						<a class="button">Search</a>
 					</div>
