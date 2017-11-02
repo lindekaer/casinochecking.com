@@ -131,7 +131,7 @@ header.site-header {
 
 .mobile-row {
   .z-index {
-    z-index: 99999999999999999999;
+    z-index: 3;
   }
 ;
   .nine {
@@ -142,7 +142,7 @@ header.site-header {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     text-align: right;
-    z-index: 9999999;
+    z-index: 2;
   }
   .hamburger .line {
     width: 40px;
