@@ -52,7 +52,7 @@ jQuery(function ($) {
             var max_range_our_score = $( "#slider-range-our-score" ).slider( "values", 1 );
             var min_range_user_votes = $( "#slider-range-user-votes" ).slider( "values", 0 );
             var max_range_user_votes = $( "#slider-range-user-votes" ).slider( "values", 1 );
-            
+
             //Only fires if something has changed, adds our_score as filter_type
             if(default_min_our_score !== min_range_our_score || default_max_our_score !== max_range_our_score){
                 var filter_type = $('.our_score').attr("data-filter-type");
@@ -61,11 +61,11 @@ jQuery(function ($) {
 
             //Only fires if something has changed, adds user_votes as filter_type
             if(default_min_user_votes !== min_range_user_votes || default_max_user_votes !== max_range_user_votes){
-                var filter_type = $('.user_votes').attr("data-filter-type");
+                var filter_type_user_votes = $('.user_votes').attr("data-filter-type");
                 console.log('user votes not equals.. something has changed');
             }
 
-            if (typeof filter_type !== 'undefined') {
+            if (typeof filter_type !== 'undefined' || typeof filter_type_user_votes !== 'undefined') {
                 $('.load-casino').addClass("loading-posts");
                 $.ajax({
                     url: site_vars.ajax_url,
@@ -73,12 +73,11 @@ jQuery(function ($) {
                     data: {
                         action: 'filter_casino',
                         filter_type: filter_type,
+                        filter_type_user_votes: filter_type_user_votes,
                         min_our_score: min_range_our_score,
                         max_our_score: max_range_our_score,
                         min_user_votes: min_range_user_votes,
                         max_user_votes: max_range_user_votes,
-                    },
-                    beforeSend: function() { 
                     },
                     success: function(result) {
                         $('.load-casino').removeClass("loading-posts");

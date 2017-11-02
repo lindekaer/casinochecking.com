@@ -14,48 +14,70 @@ add_action('wp_ajax_filter_casino', 'filter_casino');
 
 
 function filter_casino() {
+    //Vars, our_score
     $filter_type = (isset($_POST['filter_type'])) ? $_POST['filter_type'] : null;
     $min = $_POST['min_our_score'];
     $max = $_POST['max_our_score'];
 
+    //Vars, user_votes
+    $filter_type_user_votes = (isset($_POST['filter_type_user_votes'])) ? $_POST['filter_type_user_votes'] : null;
+    $min_user_votes = $_POST['min_user_votes'];
+    $max_user_votes = $_POST['max_user_votes'];
+
     $args = array(
         'numberposts'   => -1,
         'post_type'     => 'casino',
+        'post_status' => 'publish',
     );
 
-    if($filter_type == 'our_score') {
-        $our_score_vars = array(
-            "relation" => 'AND', 
-            array(
-                "key" => "our_score",
-                'compare' => '>=',
-                'value' => intval($min),
-                'type' => 'numeric'
-            ),
-            array(
-                "key" => "our_score",
-                'compare' => '<=',
-                'value' => intval($max),
-                'type' => 'numeric'
-            )
-        );
-        $args['meta_query'] = array("relation" => 'AND');
-        $args['meta_query'][] = $our_score_vars;
-    }
+    if($filter_type_user_votes == 'user_votes'){
+       $query_vars_user_votes = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "user_votes",
+            'compare' => '>=',
+            'value' => intval($min_user_votes),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "user_votes",
+            'compare' => '<=',
+            'value' => intval($max_user_votes),
+            'type' => 'numeric'
+        )
+    );
+       $args['meta_query'][] = $query_vars_user_votes;
+   }
 
-    if($filter_type == 'user_votes'){
-        echo 'equals user votes';
-    }
+   if($filter_type == 'our_score') {
+    $query_vars_our_score = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "our_score",
+            'compare' => '>=',
+            'value' => intval($min),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "our_score",
+            'compare' => '<=',
+            'value' => intval($max),
+            'type' => 'numeric'
+        )
+    );
+    $args['meta_query'][] = $query_vars_our_score;
+}
 
-    $the_query = new WP_Query( $args );
+$the_query = new WP_Query( $args );
+var_dump($args);
 
-    if($the_query->have_posts()) {
-        while( $the_query->have_posts() ) : $the_query->the_post();
-          include(locate_template('template-parts/parts/casino-teaser.php')); 
-      endwhile;
-  }
-  wp_reset_query();
-  die();
+if($the_query->have_posts()) {
+    while( $the_query->have_posts() ) : $the_query->the_post();
+      include(locate_template('template-parts/parts/casino-teaser.php')); 
+  endwhile;
+}
+wp_reset_query();
+die();
 }
 
 
