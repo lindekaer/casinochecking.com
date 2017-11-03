@@ -29,14 +29,38 @@ function filter_casino() {
     $min_min_deposit = $_POST['min_min_deposit'];
     $max_min_deposit = $_POST['max_min_deposit'];
 
+    //Vars, minimum_deposit
+    $filter_type_signup_bonus = (isset($_POST['filter_type_signup_bonus'])) ? $_POST['filter_type_signup_bonus'] : null;
+    $min_signup_bonus = $_POST['min_signup_bonus'];
+    $max_signup_bonus = $_POST['max_signup_bonus'];
+
     $args = array(
         'numberposts'   => -1,
         'post_type'     => 'casino',
         'post_status' => 'publish',
     );
 
-    if($filter_type_min_deposit == 'minimum_deposit'){
-       $query_vars_min_deposit = array(
+    if($filter_type_signup_bonus == 'signup_bonus'){
+     $query_vars_signup_bonus = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "signup_bonus",
+            'compare' => '>=',
+            'value' => intval($min_signup_bonus),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "signup_bonus",
+            'compare' => '<=',
+            'value' => intval($max_signup_bonus),
+            'type' => 'numeric'
+        )
+    );
+     $args['meta_query'][] = $query_vars_signup_bonus;
+ }
+
+ if($filter_type_min_deposit == 'minimum_deposit'){
+     $query_vars_min_deposit = array(
         "relation" => 'AND', 
         array(
             "key" => "minimum_deposit",
@@ -51,11 +75,11 @@ function filter_casino() {
             'type' => 'numeric'
         )
     );
-       $args['meta_query'][] = $query_vars_min_deposit;
-   }
+     $args['meta_query'][] = $query_vars_min_deposit;
+ }
 
-   if($filter_type_user_votes == 'user_votes'){
-       $query_vars_user_votes = array(
+ if($filter_type_user_votes == 'user_votes'){
+     $query_vars_user_votes = array(
         "relation" => 'AND', 
         array(
             "key" => "user_votes",
@@ -70,10 +94,10 @@ function filter_casino() {
             'type' => 'numeric'
         )
     );
-       $args['meta_query'][] = $query_vars_user_votes;
-   }
+     $args['meta_query'][] = $query_vars_user_votes;
+ }
 
-   if($filter_type == 'our_score') {
+ if($filter_type == 'our_score') {
     $query_vars_our_score = array(
         "relation" => 'AND', 
         array(
@@ -102,7 +126,6 @@ if($the_query->have_posts()) {
 wp_reset_query();
 die();
 }
-
 
 add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query)
@@ -307,7 +330,7 @@ add_action('wp_enqueue_scripts', 'google_fonts');
  * Enqueue scripts and styles.
  */
 function checkmate_scripts() {
-    
+
     wp_enqueue_style( 'checkmate-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css' );
     wp_enqueue_style( 'checkmate-style', get_stylesheet_uri() );
 

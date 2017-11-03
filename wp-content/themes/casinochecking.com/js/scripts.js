@@ -19,9 +19,10 @@ jQuery(function ($) {
         var default_min_user_votes = $('.user_votes').data("min");
         var default_max_user_votes = $('.user_votes').data("max");
         var default_min_min_deposit = 0;
-        var default_max_min_deposit = 5000;
+        var default_max_min_deposit = 200;
+        var default_min_signup_bonus = 0;
+        var default_max_signup_bonus = 400;
         $(function() {
-
             $( "#slider-range-our-score" ).slider({
                 range: true,
                 min: default_min_our_score,
@@ -62,6 +63,20 @@ jQuery(function ($) {
                 " - " + $( "#slider-range-min-deposit" ).slider( "values", 1 ) );
         });
 
+        $(function() {
+            $( "#slider-range-signup-bonus" ).slider({
+                range: true,
+                min: default_min_signup_bonus,
+                max: default_max_signup_bonus,
+                values: [ default_min_signup_bonus, default_max_signup_bonus],
+                slide: function( event, ui ) {
+                    $( "#signup_bonus" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                }
+            });
+            $( "#signup_bonus" ).val($( "#slider-range-signup-bonus" ).slider( "values", 0 ) +
+                " - " + $( "#slider-range-signup-bonus" ).slider( "values", 1 ) );
+        });
+
         $('.search-ajax').click(function(e){
             e.preventDefault();
             var min_range_our_score = $( "#slider-range-our-score" ).slider( "values", 0 );
@@ -70,6 +85,8 @@ jQuery(function ($) {
             var max_range_user_votes = $( "#slider-range-user-votes" ).slider( "values", 1 );
             var min_range_min_deposit = $( "#slider-range-min-deposit" ).slider( "values", 0 );
             var max_range_min_deposit = $( "#slider-range-min-deposit" ).slider( "values", 1 );
+            var min_range_signup_bonus = $( "#slider-range-signup-bonus" ).slider( "values", 0 );
+            var max_range_signup_bonus = $( "#slider-range-signup-bonus" ).slider( "values", 1 );
             console.log(min_range_min_deposit + '<br>' + max_range_min_deposit + '<br>' + $('.user_votes').attr("data-filter-type"))
 
             //Only fires if something has changed, adds our_score as filter_type
@@ -84,38 +101,46 @@ jQuery(function ($) {
                 console.log('user votes not equals.. something has changed');
             }
 
+             //Only fires if something has changed, adds min_deposit as filter_type
             if(default_min_min_deposit !== min_range_min_deposit || default_max_min_deposit !== max_range_min_deposit){
                 var filter_type_min_deposit = $('.minimum_deposit').attr("data-filter-type");
                 console.log('minimum_deposit not equals.. something has changed');
             }
-
-            if (typeof filter_type !== 'undefined' || typeof filter_type_user_votes !== 'undefined' || typeof filter_type_min_deposit !== 'undefined') {
-                $('.load-casino').addClass("loading-posts");
-                $.ajax({
-                    url: site_vars.ajax_url,
-                    type: "post",
-                    data: {
-                        action: 'filter_casino',
-                        filter_type: filter_type,
-                        filter_type_user_votes: filter_type_user_votes,
-                        filter_type_min_deposit: filter_type_min_deposit,
-                        min_our_score: min_range_our_score,
-                        max_our_score: max_range_our_score,
-                        min_user_votes: min_range_user_votes,
-                        max_user_votes: max_range_user_votes,
-                        min_min_deposit: min_range_min_deposit,
-                        max_min_deposit: max_range_min_deposit
-                    },
-                    success: function(result) {
-                        $('.load-casino').removeClass("loading-posts");
-                        $('.load-casino').html(result);
-                        console.log(result);
-                    },
-                    error: function(errorThrown){
-                       console.log(errorThrown);
-                   } 
-               });
+             //Only fires if something has changed, adds min_deposit as filter_type
+            if(default_min_signup_bonus !== min_range_signup_bonus || default_max_signup_bonus !== max_range_signup_bonus){
+                var filter_type_signup_bonus = $('.signup_bonus').attr("data-filter-type");
+                console.log('signup_bonus not equals.. something has changed');
             }
+
+            $('.load-casino').addClass("loading-posts");
+            $.ajax({
+                url: site_vars.ajax_url,
+                type: "post",
+                data: {
+                    action: 'filter_casino',
+                    filter_type: filter_type,
+                    filter_type_signup_bonus: filter_type_signup_bonus,
+                    filter_type_user_votes: filter_type_user_votes,
+                    filter_type_min_deposit: filter_type_min_deposit,
+                    min_our_score: min_range_our_score,
+                    max_our_score: max_range_our_score,
+                    min_user_votes: min_range_user_votes,
+                    max_user_votes: max_range_user_votes,
+                    min_min_deposit: min_range_min_deposit,
+                    max_min_deposit: max_range_min_deposit,
+                    min_signup_bonus: min_range_signup_bonus,
+                    max_signup_bonus: max_range_signup_bonus
+                },
+                success: function(result) {
+                    $('.load-casino').removeClass("loading-posts");
+                    $('.load-casino').html(result);
+                    console.log(result);
+                },
+                error: function(errorThrown){
+                   console.log(errorThrown);
+               } 
+           });
+            
         });
 
         $('.casino-wrapper').after().click(function () {
