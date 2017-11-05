@@ -72,7 +72,7 @@ function start() {
             sliderSelector: '#slider-range-min-deposit',
             displaySelector: '#minimum_deposit',
             min: 0,
-            max: 200,
+            max: 400,
         },
         'signup-bonus': {
             sliderSelector: '#slider-range-signup-bonus',
@@ -98,14 +98,14 @@ function start() {
         $(metric.displaySelector).val(displayString);
     });
 
-    $('.filter').click(function(){
+    $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
     });
 
     // Attach event handler for AJAX submit
     $('.search-ajax, .filter').click((e) => {
         e.preventDefault();
-        
+
         // Data to submit in request
         const data = {
             action: 'filter_casino',        
@@ -113,6 +113,7 @@ function start() {
 
         $('.load-casino').addClass('loading-posts');   
         data.active = $('.filter-active').data('filter');
+        $('.load-casino').addClass('loading-posts');
 
         Object.keys(metrics).forEach(type => {
             const metric = metrics[type]
