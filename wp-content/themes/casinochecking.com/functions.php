@@ -12,116 +12,128 @@ ini_set('display_errors', 1);
 add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
 add_action('wp_ajax_filter_casino', 'filter_casino');
 
-
 function filter_casino() {
-    //Vars, our_score
-    $filter_type = (isset($_POST['filter_type'])) ? $_POST['filter_type'] : null;
-    $min = $_POST['min_our_score'];
-    $max = $_POST['max_our_score'];
+    $arrayPosts = Array(
+        'filter_type_score' => 'filter_type_score', 
+        'filter_type_votes' => 'filter_type_votes', 
+        'filter_type_deposit' => 'filter_type_deposit', 
+        'filter_type_signup-bonus' => 'filter_type_signup-bonus',
+        'sort-active' => 'active',
+    );
 
-    //Vars, user_votes
-    $filter_type_user_votes = (isset($_POST['filter_type_user_votes'])) ? $_POST['filter_type_user_votes'] : null;
-    $min_user_votes = $_POST['min_user_votes'];
-    $max_user_votes = $_POST['max_user_votes'];
-
-    //Vars, minimum_deposit
-    $filter_type_min_deposit = (isset($_POST['filter_type_min_deposit'])) ? $_POST['filter_type_min_deposit'] : null;
-    $min_min_deposit = $_POST['min_min_deposit'];
-    $max_min_deposit = $_POST['max_min_deposit'];
-
-    //Vars, minimum_deposit
-    $filter_type_signup_bonus = (isset($_POST['filter_type_signup_bonus'])) ? $_POST['filter_type_signup_bonus'] : null;
-    $min_signup_bonus = $_POST['min_signup_bonus'];
-    $max_signup_bonus = $_POST['max_signup_bonus'];
+    //If filter is not set, then add null   
+    foreach ($arrayPosts as $key => $value){
+        $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
+    }
 
     $args = array(
         'numberposts'   => -1,
         'post_type'     => 'casino',
         'post_status' => 'publish',
-    );
-
-    if($filter_type_signup_bonus == 'signup_bonus'){
-     $query_vars_signup_bonus = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "signup_bonus",
-            'compare' => '>=',
-            'value' => intval($min_signup_bonus),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "signup_bonus",
-            'compare' => '<=',
-            'value' => intval($max_signup_bonus),
-            'type' => 'numeric'
+        'orderby' => array(
+            'our_score' => 'DESC',
         )
     );
-     $args['meta_query'][] = $query_vars_signup_bonus;
- }
 
- if($filter_type_min_deposit == 'minimum_deposit'){
-     $query_vars_min_deposit = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "minimum_deposit",
-            'compare' => '>=',
-            'value' => intval($min_min_deposit),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "minimum_deposit",
-            'compare' => '<=',
-            'value' => intval($max_min_deposit),
-            'type' => 'numeric'
-        )
-    );
-     $args['meta_query'][] = $query_vars_min_deposit;
- }
+    if($filterArr['sort-active']) {
+        $sortType = $filterArr['sort-active'];
+        $args['orderby'] = array( $sortType => 'DESC');
+    }
 
- if($filter_type_user_votes == 'user_votes'){
-     $query_vars_user_votes = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "user_votes",
-            'compare' => '>=',
-            'value' => intval($min_user_votes),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "user_votes",
-            'compare' => '<=',
-            'value' => intval($max_user_votes),
-            'type' => 'numeric'
-        )
-    );
-     $args['meta_query'][] = $query_vars_user_votes;
- }
+    if($filterArr['filter_type_signup-bonus'] == 'signup_bonus'){
+        $min_signup_bonus = $_POST['min_signup-bonus'];
+        $max_signup_bonus = $_POST['max_signup-bonus'];
+        $query_vars_signup_bonus = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "signup_bonus",
+                'compare' => '>=',
+                'value' => intval($min_signup_bonus),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "signup_bonus",
+                'compare' => '<=',
+                'value' => intval($max_signup_bonus),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'] = $query_vars_signup_bonus;
+    }
 
- if($filter_type == 'our_score') {
-    $query_vars_our_score = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "our_score",
-            'compare' => '>=',
-            'value' => intval($min),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "our_score",
-            'compare' => '<=',
-            'value' => intval($max),
-            'type' => 'numeric'
-        )
-    );
-    $args['meta_query'][] = $query_vars_our_score;
-}
+    if($filterArr['filter_type_deposit'] == 'minimum_deposit'){
+        $min_deposit = $_POST['min_deposit'];
+        $max_deposit = $_POST['max_deposit'];
+        $query_vars_deposit = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "minimum_deposit",
+                'compare' => '>=',
+                'value' => intval($min_deposit),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "minimum_deposit",
+                'compare' => '<=',
+                'value' => intval($max_deposit),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_deposit;
+    }
 
-$the_query = new WP_Query( $args );
+    if($filterArr['filter_type_votes'] == 'user_votes'){
+        $min_votes = $_POST['min_votes'];
+        $max_votes = $_POST['max_votes'];
+        $query_vars_votes = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "user_votes",
+                'compare' => '>=',
+                'value' => intval($min_votes),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "user_votes",
+                'compare' => '<=',
+                'value' => intval($max_votes),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_votes;
+    }
 
-if($the_query->have_posts()) {
-    while( $the_query->have_posts() ) : $the_query->the_post();
-      include(locate_template('template-parts/parts/casino-teaser.php')); 
-  endwhile;
+    if($filterArr['filter_type_score'] == 'our_score') {
+        $min_score = $_POST['min_score'];
+        $max_score = $_POST['max_score'];
+        $query_vars_score = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "our_score",
+                'compare' => '>=',
+                'value' => intval($min_score),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "our_score",
+                'compare' => '<=',
+                'value' => intval($max_score),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_score;
+    }
+
+    print_r($args);
+    $the_query = new WP_Query( $args );
+
+    if($the_query->have_posts()) {
+        while( $the_query->have_posts() ) : $the_query->the_post();
+          include(locate_template('template-parts/parts/casino-teaser.php')); 
+      endwhile;
+  }
+  else {
+    echo '<h2>No results.. please adjust your criterias.</h2>';
 }
 wp_reset_query();
 die();
@@ -397,8 +409,8 @@ function login_logo()
         width: 320px;
         height: 240px;
     }
-</style>
-<?php
+    </style>
+    <?php
 }
 
 add_action('login_enqueue_scripts', 'login_logo');

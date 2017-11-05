@@ -43,7 +43,7 @@ get_header(); ?>
 						<input type="text" id="<?php echo $min_deposit['name'];?>" readonly>
 					</div>
 					<!-- Signup bonus -->
-					<div class="filter-inner-wrapper no-border">
+					<div class="filter-inner-wrapper no-borders">
 						<?php $signup_bonus = get_field_object('signup_bonus'); ?>
 						<p><label class="<?php echo $signup_bonus['name'];?>" data-filter-type="<?php echo $signup_bonus['name'];?>" for="<?php echo $signup_bonus['name'];?>"><?php echo $signup_bonus['label'];?>
 						</label></p>
@@ -63,26 +63,29 @@ get_header(); ?>
 							<h4 class="headline-casino-h4">Top-rated online casinos</h4>
 						</div>
 						<div class="small-4 columns align-right">
-							<div class="filter">
-								<p>Deposit</p>
-								<p>Bonus</p>
-								<p>Score</p>
+							<div class="filter-wrapper">
+								<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
+								<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
+								<p class="filter-score filter" data-filter="our_score">Score</p>
 							</div>
 						</div>
 					</div>
+
 					<div class="small-12 columns load-casino">
-						<?php
-						if (have_posts()) : ?>
-						<div class="small-12 columns ">
-							<div class="load-wrapper">
-								<div class="loader">
-								</div></div>
-							</div>
-							<?php while (have_posts()) : the_post(); ?>
-								<?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-							<?php endwhile; ?>
+						<div class="load-wrapper">
+							<div class="loader">
+							</div></div>
 						</div>
-					<?php endif; ?>
+						<div class="loaded-posts">
+							<?php
+							if (have_posts()) : ?>
+							<div class="small-12 columns ">
+								<?php while (have_posts()) : the_post(); ?>
+									<?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+								<?php endwhile; ?>
+							</div>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		</div>

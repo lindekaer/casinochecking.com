@@ -24,7 +24,7 @@ section {
       height: 100%;
     }
 
-    .filter {
+    .filter-wrapper {
       display: inline-flex;
       p {
         padding-left: 10px;
@@ -35,6 +35,10 @@ section {
 
     .align-right {
       text-align: right;
+    }
+
+    .filter {
+      cursor: pointer;
     }
     
     .load-wrapper {
@@ -52,9 +56,9 @@ section {
 
     .loading-posts {
       .load-wrapper {
-        opacity: 0.9;
-        visibility: visible;
-        transition: opacity .5s ease;
+        opacity: 0.9 !important;
+        visibility: visible !important;
+        transition: opacity .5s ease !important;
       }
     }
 
@@ -179,7 +183,6 @@ section {
         padding-top: 15px;
         color: #f6f6f6;
         font-size: 14px;
-        font-family: 'Lato';
         font-weight: 400;
       }
 
