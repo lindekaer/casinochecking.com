@@ -400,6 +400,7 @@ function my_change_sort_order($query){
 
 //Image crop
 add_image_size( 'logo-casino-content', 400, 400, true ); 
+add_image_size( 'logo-casino-archive', 50, 260, true ); 
 
 /*Admin*/
 function login_logo()
