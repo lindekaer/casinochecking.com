@@ -120,3 +120,14 @@
   animation-duration: 0.8s;
   animation-delay: 2s;
 }
+
+.slide-up-casino {
+  opacity: 0;
+  animation-delay: 0s;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+}

@@ -30,101 +30,94 @@ function filter_casino() {
         'numberposts'   => -1,
         'post_type'     => 'casino',
         'post_status' => 'publish',
-        'orderby' => array(
-            'our_score' => 'DESC',
-        )
+        'orderby' => 'signup_bonus',
+        'order' => 'DESC'
     );
 
     if($filterArr['sort-active']) {
         $sortType = $filterArr['sort-active'];
-        $args['orderby'] = array( $sortType => 'DESC');
+        $args['orderby'] = $sortType;
     }
+        //Bonus
+    $min_signup_bonus = $_POST['min_signup-bonus'];
+    $max_signup_bonus = $_POST['max_signup-bonus'];
+    $query_vars_signup_bonus = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "signup_bonus",
+            'compare' => '>=',
+            'value' => intval($min_signup_bonus),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "signup_bonus",
+            'compare' => '<=',
+            'value' => intval($max_signup_bonus),
+            'type' => 'numeric'
+        )
+    );
+    $args['meta_query'] = $query_vars_signup_bonus;
 
-    if($filterArr['filter_type_signup-bonus'] == 'signup_bonus'){
-        $min_signup_bonus = $_POST['min_signup-bonus'];
-        $max_signup_bonus = $_POST['max_signup-bonus'];
-        $query_vars_signup_bonus = array(
-            "relation" => 'AND', 
-            array(
-                "key" => "signup_bonus",
-                'compare' => '>=',
-                'value' => intval($min_signup_bonus),
-                'type' => 'numeric'
-            ),
-            array(
-                "key" => "signup_bonus",
-                'compare' => '<=',
-                'value' => intval($max_signup_bonus),
-                'type' => 'numeric'
-            )
-        );
-        $args['meta_query'] = $query_vars_signup_bonus;
-    }
+        //Deposit
+    $min_deposit = $_POST['min_deposit'];
+    $max_deposit = $_POST['max_deposit'];
+    $query_vars_deposit = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "minimum_deposit",
+            'compare' => '>=',
+            'value' => intval($min_deposit),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "minimum_deposit",
+            'compare' => '<=',
+            'value' => intval($max_deposit),
+            'type' => 'numeric'
+        )
+    );
+    $args['meta_query'][] = $query_vars_deposit;
 
-    if($filterArr['filter_type_deposit'] == 'minimum_deposit'){
-        $min_deposit = $_POST['min_deposit'];
-        $max_deposit = $_POST['max_deposit'];
-        $query_vars_deposit = array(
-            "relation" => 'AND', 
-            array(
-                "key" => "minimum_deposit",
-                'compare' => '>=',
-                'value' => intval($min_deposit),
-                'type' => 'numeric'
-            ),
-            array(
-                "key" => "minimum_deposit",
-                'compare' => '<=',
-                'value' => intval($max_deposit),
-                'type' => 'numeric'
-            )
-        );
-        $args['meta_query'][] = $query_vars_deposit;
-    }
+        //Votes
+    $min_votes = $_POST['min_votes'];
+    $max_votes = $_POST['max_votes'];
+    $query_vars_votes = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "user_votes",
+            'compare' => '>=',
+            'value' => intval($min_votes),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "user_votes",
+            'compare' => '<=',
+            'value' => intval($max_votes),
+            'type' => 'numeric'
+        )
+    );
+    $args['meta_query'][] = $query_vars_votes;
 
-    if($filterArr['filter_type_votes'] == 'user_votes'){
-        $min_votes = $_POST['min_votes'];
-        $max_votes = $_POST['max_votes'];
-        $query_vars_votes = array(
-            "relation" => 'AND', 
-            array(
-                "key" => "user_votes",
-                'compare' => '>=',
-                'value' => intval($min_votes),
-                'type' => 'numeric'
-            ),
-            array(
-                "key" => "user_votes",
-                'compare' => '<=',
-                'value' => intval($max_votes),
-                'type' => 'numeric'
-            )
-        );
-        $args['meta_query'][] = $query_vars_votes;
-    }
+    //Score
+    $min_score = $_POST['min_score'];
+    $max_score = $_POST['max_score'];
+    $query_vars_score = array(
+        "relation" => 'AND', 
+        array(
+            "key" => "our_score",
+            'compare' => '>=',
+            'value' => intval($min_score),
+            'type' => 'numeric'
+        ),
+        array(
+            "key" => "our_score",
+            'compare' => '<=',
+            'value' => intval($max_score),
+            'type' => 'numeric'
+        )
+    );
+    $args['meta_query'][] = $query_vars_score;
 
-    if($filterArr['filter_type_score'] == 'our_score') {
-        $min_score = $_POST['min_score'];
-        $max_score = $_POST['max_score'];
-        $query_vars_score = array(
-            "relation" => 'AND', 
-            array(
-                "key" => "our_score",
-                'compare' => '>=',
-                'value' => intval($min_score),
-                'type' => 'numeric'
-            ),
-            array(
-                "key" => "our_score",
-                'compare' => '<=',
-                'value' => intval($max_score),
-                'type' => 'numeric'
-            )
-        );
-        $args['meta_query'][] = $query_vars_score;
-    }
-
-    print_r($args);
     $the_query = new WP_Query( $args );
 
     if($the_query->have_posts()) {
@@ -331,7 +324,7 @@ add_filter('upload_mimes', 'accept_svg');
 function google_fonts()
 {
     $query_args = array(
-        'family' => 'Lato|Roboto'
+        'family' => 'Lato|Roboto|Varela'
     );
     wp_register_style('google_fonts', add_query_arg($query_args, "//fonts.googleapis.com/css"), array(), null);
 }
@@ -397,6 +390,17 @@ if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
 }
 
+add_action( 'pre_get_posts', 'my_change_sort_order'); 
+function my_change_sort_order($query){
+    if(is_archive()):
+       $query->set( 'orderby', 'signup_bonus' );
+       $query->set( 'order', 'ASC' );
+   endif;    
+};    
+
+//Image crop
+add_image_size( 'logo-casino-content', 400, 400, true ); 
+
 /*Admin*/
 function login_logo()
 {
@@ -409,8 +413,8 @@ function login_logo()
         width: 320px;
         height: 240px;
     }
-    </style>
-    <?php
+</style>
+<?php
 }
 
-add_action('login_enqueue_scripts', 'login_logo');
+add_action('login_enqueue_scripts', 'login_logo');?>

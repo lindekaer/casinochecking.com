@@ -52,7 +52,10 @@ get_header(); ?>
 						<input type="text" id="<?php echo $signup_bonus['name'];?>" readonly>
 					</div>
 					<div class="search-ajax">
-						<a class="button">Search</a>
+						<a class="button">Search casinos</a>
+					</div>
+					<div class="reset-filter">
+						<p>Reset search</p>
 					</div>
 				</div>
 			</div>
@@ -64,8 +67,8 @@ get_header(); ?>
 						</div>
 						<div class="small-4 columns align-right">
 							<div class="filter-wrapper">
+								<p class="filter-bonus filter active-sort" data-filter="signup_bonus">Bonus</p>
 								<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
-								<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
 								<p class="filter-score filter" data-filter="our_score">Score</p>
 							</div>
 						</div>

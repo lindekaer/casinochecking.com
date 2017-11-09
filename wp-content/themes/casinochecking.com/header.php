@@ -26,7 +26,7 @@
         <header id="masthead" class="site-header slide-down">
             <div class="container show-for-large">
                 <div class="row flex-header desktop-row">
-                    <div class="large-4 columns site-navigation" id="menu-left">
+                    <div class="large-3 columns site-navigation" id="menu-left">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>

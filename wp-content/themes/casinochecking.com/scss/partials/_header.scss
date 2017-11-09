@@ -1,7 +1,7 @@
-
 header.site-header {
   position: fixed;
   top: 0;
+  z-index: 1;
   width: 100%;
   .mobile-row {
     @include breakpoint(medium down) {
@@ -45,10 +45,6 @@ header.site-header {
     justify-content: center;
   }
 
-  #menu-left li:first-child {
-    margin-left: 0;
-  }
-
   #menu-right li:last-child {
     margin-right: 0;
   }
@@ -72,23 +68,21 @@ header.site-header {
     }
 
     a {
-      color: $theme-color;
+      color: $white;
       font-size: 22px;
+      text-transform: uppercase;
     }
   }
 
-  #menu-left {
-    text-align: right;
-  }
-
   #menu-right {
-    text-align: left;
+    text-align: right;
   }
 
   #menu-mobile-menu {
     width: 100%;
     text-align: center;
     display: block;
+    display: none;
     margin: 0px;
     text-transform: uppercase;
     padding: 100px 20px 100px;

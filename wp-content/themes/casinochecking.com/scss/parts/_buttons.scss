@@ -14,11 +14,26 @@
   margin: 0;
   font-weight: 600;
   cursor: pointer;
+
+  &:hover {
+  opacity: 0.9;
+    }
+}
+
+.read-more-btn {
+  color: $slider-red;
+
+  &:hover {
+    text-decoration: underline;
+    color: $slider-red;
+  }
 }
 
 .content-page-button {
   width: 100%;
   margin-top: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 #fixed-button {

@@ -18,8 +18,12 @@ function initDom() {
         $("#menu-mobile-menu li a[href*='" + path + "']").addClass("current-page");
     });
 
-    $('.casino-wrapper').after().click(function () {
-        console.log($('.casino-wrapper:after'));
+    $('.filter-bonus, .filter-deposit, .filter-score').click(function(){
+        $('.filter').removeClass('active-sort');
+        $(this).addClass('active-sort');
+    });
+
+    $('.casino-wrapper').click(function () {
         $(this).toggleClass('active-desc');
         $(this).find('.desc').slideToggle("slow");
     });
@@ -83,27 +87,46 @@ function start() {
     }
 
     // Instantiate sliders for each metric
-    Object.keys(metrics).forEach(type => {
-        const metric = metrics[type]
-        $(metric.sliderSelector).slider({
-            range: true,
-            min: metric.min,
-            max: metric.max,
-            values: [ metric.min, metric.max ],
-            slide: function( event, ui ) {
-                $(metric.displaySelector).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-            }
-        }); 
-        const displayString = `${$(metric.sliderSelector).slider( "values", 0 )} - ${$(metric.sliderSelector).slider( "values", 1 )}`
-        $(metric.displaySelector).val(displayString);
-    });
+    function instantiateSlider() {
+        Object.keys(metrics).forEach(type => {
+            const metric = metrics[type]
+            $(metric.sliderSelector).slider({
+                range: true,
+                min: metric.min,
+                max: metric.max,
+                values: [ metric.min, metric.max ],
+                slide: function( event, ui ) {
+                    $(metric.displaySelector).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                }
+            }); 
+            const displayString = `${$(metric.sliderSelector).slider( "values", 0 )} - ${$(metric.sliderSelector).slider( "values", 1 )}`
+            $(metric.displaySelector).val(displayString);
+        });
+    }
+    instantiateSlider()
 
     $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
     });
 
+    $('.reset-filter').click(function(e){
+        e.preventDefault();
+        const data = {
+            action: 'filter_casino',        
+        }
+        Object.keys(metrics).forEach(type => {
+            const metric = metrics[type]
+            data[`min_${type}`] = metric.min
+            data[`max_${type}`] = metric.max
+        })
+        ajax(data);
+        instantiateSlider()
+        $('.filter').removeClass('active-sort');
+        $('.filter-bonus').addClass('active-sort');
+    });
+
     // Attach event handler for AJAX submit
-    $('.search-ajax, .filter').click((e) => {
+    $('.search-ajax, .filter-bonus, .filter-score, .filter-deposit').click((e) => {
         e.preventDefault();
 
         // Data to submit in request
@@ -119,18 +142,13 @@ function start() {
             const metric = metrics[type]
             metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
             metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
-            if (metric.min !== metric['currentMin'] || metric.max !== metric['currentMax']) {
-                metric.filterType = elements[type].attr('data-filter-type');
-            }
+            metric.filterType = elements[type].attr('data-filter-type');
             console.log(metrics[type]['currentMin'])
         });
 
-
         Object.keys(metrics).forEach(type => {
             const metric = metrics[type]
-            if (metric.filterType) {
-                data[`filter_type_${type}`] = metric.filterType
-            }
+            data[`filter_type_${type}`] = metric.filterType
             data[`min_${type}`] = metric.currentMin
             data[`max_${type}`] = metric.currentMax
         })
@@ -154,8 +172,8 @@ function start() {
                 console.log(result);
             },
             error: function(errorThrown){
-               console.log(errorThrown);
-           } 
-       });
+             console.log(errorThrown);
+         } 
+     });
     }
 }

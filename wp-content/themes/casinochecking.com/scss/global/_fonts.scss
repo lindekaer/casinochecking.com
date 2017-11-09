@@ -3,10 +3,17 @@ p {
   font-family: 'Lato';
   line-height: inherit;
   color: $dark-gray;
+  &:hover {
+    color: $dark-gray;
+  }
+}
+
+.number {
+  font-family: 'Lato';
 }
 
 a:hover, a:focus {
-  color: $black !important;
+  color: $black;
 }
 
 h1, h2, h3, h4, h5, h6 {

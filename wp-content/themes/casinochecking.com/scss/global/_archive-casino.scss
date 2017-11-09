@@ -24,6 +24,29 @@ section {
       height: 100%;
     }
 
+    .active-sort {
+      font-weight: 800;
+    }
+
+    .reset-filter {
+
+      p {
+        cursor: pointer;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 12px;
+        padding-top: 15px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .no-borders {
+      border-bottom: 0 !important;
+    }
+
     .filter-wrapper {
       display: inline-flex;
       p {
@@ -39,6 +62,9 @@ section {
 
     .filter {
       cursor: pointer;
+      &:hover {
+        font-weight: 800;
+      }
     }
     
     .load-wrapper {
@@ -69,8 +95,8 @@ section {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: #2f4b5a;
-      background: linear-gradient(to right, #2f4b5a 10%, rgba(47, 75, 90, 0) 42%);
+      background: $slider-red;
+      background: linear-gradient(to right, $slider-red 10%, rgba(47, 75, 90, 0) 42%);
       position: relative;
       animation: load3 1s infinite ease-out;
       -ms-transform: translatez(0);
@@ -91,7 +117,7 @@ section {
       &:before {
         width: 50%;
         height: 50%;
-        background: #2f4b5a;
+        background: $slider-red;
         border-radius: 100% 0 0 0;
         position: absolute;
         top: 0;
@@ -155,10 +181,16 @@ section {
     }
 
     .search-ajax {
-      text-align: right;
+      text-align: center;
       .button {
-        background-color: $slider-red !important;
+        background-color: $slider-red;
         color: $white;
+        padding: 15px 30px;
+
+        &:hover {
+          color: $white;
+          opacity: 0.9;
+        }
       }
     }
     .filter-inner-wrapper:first-child {
@@ -166,13 +198,13 @@ section {
     }
 
     .filter-inner-wrapper {
-      padding-bottom: 40px;
-      padding-top: 40px;
+      padding-bottom: 20px;
+      padding-top: 20px;
       border-bottom: 1px dotted #393939;
       p {
         margin-left: -10px;
         text-transform: uppercase;
-        padding-bottom: 20px;
+        padding-bottom: 25px;
       }
 
       input {
@@ -180,8 +212,8 @@ section {
         border: 0;
         width: 100%;
         text-align: center;
-        padding-top: 15px;
-        color: #f6f6f6;
+        padding-top: 12px;
+        color: $gray;
         font-size: 14px;
         font-weight: 400;
       }
@@ -203,11 +235,15 @@ section {
         height: 4px;
         background: $slider-gray;
         .ui-slider-handle {
-          top: -8px;
-          width: 18px;
-          height: 18px;
+          top: -10px;
+          width: 22px;
+          height: 22px;
           cursor: pointer;
           outline: none;
+
+          // &:hover {
+          //   outline: $slider-red auto 2px;       
+          // }
         }
       }
 
@@ -218,15 +254,6 @@ section {
 
     .no-border {
       border: 0 !important;
-    }
-
-    .wrapper-casino-comparison {
-      @include breakpoint(medium up) {
-        padding: 80px;
-        position: relative;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      }
     }
 
     .headline-casino-h4 {
@@ -252,6 +279,7 @@ section {
     }
   }
   .casino-wrapper {
+    cursor: pointer;
     background: $white;
     padding-top: 15px;
     padding-bottom: 15px;
