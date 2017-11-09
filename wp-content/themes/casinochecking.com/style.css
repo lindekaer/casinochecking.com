@@ -1969,6 +1969,8 @@ section.bg-img .casino-wrapper:after { font-family: fontawesome; color: #eee; fo
 
 section.bg-img .casino-wrapper .section-padding { padding: 10px; }
 
+section.bg-img .casino-wrapper .section-padding img { width: 100%; }
+
 section.bg-img .casino-wrapper .section-padding p { font-size: 10px; }
 
 section.bg-img .casino-wrapper .my-align-center { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
