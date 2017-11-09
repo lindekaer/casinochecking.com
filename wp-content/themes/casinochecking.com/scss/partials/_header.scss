@@ -1,7 +1,6 @@
 header.site-header {
   position: fixed;
   top: 0;
-  z-index: 1;
   width: 100%;
   .mobile-row {
     @include breakpoint(medium down) {

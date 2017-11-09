@@ -2067,7 +2067,7 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
     transform: rotate(360deg); } }
 
 /*Partials*/
-header.site-header { position: fixed; top: 0; z-index: 1; width: 100%; }
+header.site-header { position: fixed; top: 0; width: 100%; }
 
 @media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 3% 0 0 0; } }
 
