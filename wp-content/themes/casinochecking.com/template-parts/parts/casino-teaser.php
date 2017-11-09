@@ -19,8 +19,8 @@
 						<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
 					</div>
 					<div class="small-6 columns">
-						<p>score</p>
-						<h2><?php echo $ourScore; ?></h2>
+						<p>Our score</p>
+						<h4><?php echo $ourScore; ?></h4>
 					</div>
 				</div>
 			</div>
@@ -31,11 +31,11 @@
 			<div class="image-ratings section-padding">
 				<div class="row">
 					<div class="small-6 border-right">
-						<p>Bonus</p>
+						<p>Signup Bonus</p>
 						<h3><?php echo $signUpBonus; ?>$</h3>
 					</div>
 					<div class="small-6">
-						<p>Deposit</p>
+						<p>Minimum Deposit</p>
 						<h3><?php echo $minimumDeposit; ?>$</h3>
 					</div>
 				</div>
