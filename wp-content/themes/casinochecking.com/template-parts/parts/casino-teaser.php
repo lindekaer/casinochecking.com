@@ -1,7 +1,7 @@
 <div class="row casino-wrapper slide-up-casino">
 	<?php
 	$image = get_field('image');
-	$imageSize = 'thumbnail';
+	$imageSize = 'logo-casino-archive';
 	$deepUrl = get_field('deep_url');
 	$ourScore = get_field('our_score');
 	$userVotes = get_field('user_votes');
