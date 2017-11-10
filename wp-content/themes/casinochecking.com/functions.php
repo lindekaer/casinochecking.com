@@ -392,15 +392,17 @@ if (defined('JETPACK__VERSION')) {
 add_action( 'pre_get_posts', 'my_change_sort_order'); 
 function my_change_sort_order($query){
     if(is_archive()):
-       $query->set( 'orderby', 'signup_bonus' );
-       $query->set( 'order', 'ASC' );
-   endif;    
+     $query->set( 'orderby', 'signup_bonus' );
+     $query->set( 'order', 'ASC' );
+ endif;    
 };    
 
 //Image crop
 add_image_size( 'logo-casino-content', 400, 400, true ); 
 add_image_size( 'logo-casino-archive', 260, 50, true );
 add_image_size( 'logo-blog-archive', 400, 300, true ); 
+add_image_size( 'bg-img', 2000, 9999 ); 
+
 
 
 /*Admin*/
