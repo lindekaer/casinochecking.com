@@ -25,7 +25,7 @@ get_header(); ?>
 											<div class="blog-img-wrapper">
 												<?php 
 												$image = get_field('blog_image');
-											$size = 'logo-casino-content'; // (thumbnail, medium, large, full or custom size)
+											$size = 'logo-blog-archive'; // (thumbnail, medium, large, full or custom size)
 											if( $image ) {
 												echo wp_get_attachment_image( $image, $size );
 											}
