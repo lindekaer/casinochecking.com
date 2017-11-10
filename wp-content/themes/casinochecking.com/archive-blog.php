@@ -48,7 +48,7 @@ get_header(); ?>
 											?>
 										</div>
 										<div class="blog-text">
-											<?php echo substr(get_the_content(), 0, 100) . '...'; ?>
+											<p><?php echo substr(get_the_content(), 0, 100) . '...'; ?></p>
 										</div>
 									</a>
 								</div>
