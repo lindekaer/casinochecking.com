@@ -83,7 +83,15 @@
   animation: fadeIn ease-in 1;
   animation-fill-mode: forwards;
   animation-duration: 0.8s;
-  animation-delay: 0.8s;
+  animation-delay: 2s;
+}
+
+.fade-in-casino {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-delay: 0s;
 }
 
 .slide-up {

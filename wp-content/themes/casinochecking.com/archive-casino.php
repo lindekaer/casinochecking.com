@@ -73,7 +73,6 @@ get_header(); ?>
 							</div>
 						</div>
 					</div>
-
 					<div class="small-12 columns load-casino">
 						<div class="load-wrapper">
 							<div class="loader">

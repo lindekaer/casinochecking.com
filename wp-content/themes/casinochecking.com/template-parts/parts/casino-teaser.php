@@ -1,4 +1,4 @@
-<div class="row casino-wrapper slide-up-casino">
+<div class="row casino-wrapper fade-in-casino">
 	<?php
 	$image = get_field('image');
 	$imageSize = 'logo-casino-archive';
@@ -48,7 +48,7 @@
 	<div class="small-12 hide-custom desc columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<?php echo substr(get_field('description'), 0, 250) . '... <a href="'. get_permalink() .'" class="read-more-btn"> Read more</a>' ?>
+				<?php echo substr(get_field('description'), 0, 250) . '... <a href="'. get_permalink() .'" class="read-more-btn"> Read more</a>'; ?>
 			</div>
 		</div>
 	</div>

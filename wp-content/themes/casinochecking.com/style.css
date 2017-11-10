@@ -1865,6 +1865,8 @@ p:hover { color: #636363; }
 
 .number { font-family: 'Lato'; }
 
+.cursive-headline { font-family: 'Cormorant Garamond'; }
+
 a:hover, a:focus { color: #3f3e46; }
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-align: center; margin: 0; line-height: inherit; }
@@ -2035,7 +2037,9 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
   to { opacity: 1;
     transform: translatey(0); } }
 
-#fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 0.8s; }
+#fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 2s; }
+
+.fade-in-casino { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 0s; }
 
 .slide-up { opacity: 0; animation-delay: 1s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
 
@@ -2067,6 +2071,22 @@ section.bg-img .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; 
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+.text-wrapper { padding: 40px; text-align: center; }
+
+.blog-img-wrapper img { width: 100%; }
+
+.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin-bottom: 30px; }
+
+.blog-content:hover { box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1), 7px 4px 4px rgba(0, 0, 0, 0.12); }
+
+.category { text-transform: uppercase; font-size: 12px; font-family: 'Lato'; }
+
+.blog-headline { text-transform: uppercase; font-family: "Cormorant Garamond"; color: #e65352; }
+
+.blog-icon { padding-bottom: 10px; }
+
+.blog-icon img { height: 14px; width: auto; }
 
 /*Partials*/
 header.site-header { position: fixed; top: 0; width: 100%; }
