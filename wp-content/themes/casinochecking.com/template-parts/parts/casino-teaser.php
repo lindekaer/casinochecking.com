@@ -32,11 +32,11 @@
 				<div class="row">
 					<div class="small-6 border-right">
 						<p>Signup Bonus</p>
-						<h3><?php echo $signUpBonus; ?>$</h3>
+						<h4><?php echo $signUpBonus; ?>$</h4>
 					</div>
 					<div class="small-6">
 						<p>Minimum Deposit</p>
-						<h3><?php echo $minimumDeposit; ?>$</h3>
+						<h4><?php echo $minimumDeposit; ?>$</h4>
 					</div>
 				</div>
 			</div>

@@ -16,6 +16,17 @@ get_header(); ?>
 			</div>
 			<div class="small-12 medium-8 bg-gray columns border-radius-right wrapper-casino-comparison">
 				<div class="container">
+					<div class="row align-middle padding-bottom">
+						<div class="small-8 columns">
+							<h4 class="headline-casino-h4">Casino-news and guides</h4>
+						</div>
+						<div class="small-4 columns align-right">
+							<div class="filter-wrapper">
+								<p class="filter-bonus filter active-sort" data-filter="newest">Newest</p>
+								<p class="filter-deposit filter" data-filter="minimum_deposit">Category</p>
+							</div>
+						</div>
+					</div>
 					<?php if(have_posts()): ?>
 						<div class="row">
 							<?php while (have_posts()) : the_post(); ?>
