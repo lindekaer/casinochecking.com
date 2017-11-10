@@ -15,7 +15,7 @@ $userVotes = get_field('user_votes');
 $signUpBonus = get_field('signup_bonus');
 $minimumDeposit = get_field('minimum_deposit');
 $description = get_field('description');
-$imageSize = 'logo-casino-content';
+$imageSize = 'logo-blog-archive';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

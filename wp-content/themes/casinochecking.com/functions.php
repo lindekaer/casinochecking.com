@@ -399,7 +399,9 @@ function my_change_sort_order($query){
 
 //Image crop
 add_image_size( 'logo-casino-content', 400, 400, true ); 
-add_image_size( 'logo-casino-archive', 260, 50, true ); 
+add_image_size( 'logo-casino-archive', 260, 50, true );
+add_image_size( 'logo-blog-archive', 400, 250, true ); 
+
 
 /*Admin*/
 function login_logo()
