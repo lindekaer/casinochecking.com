@@ -403,8 +403,6 @@ add_image_size( 'logo-casino-archive', 260, 50, true );
 add_image_size( 'logo-blog-archive', 400, 300, true ); 
 add_image_size( 'bg-img', 2000, 9999 ); 
 
-
-
 /*Admin*/
 function login_logo()
 {
