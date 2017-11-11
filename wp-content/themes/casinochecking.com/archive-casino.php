@@ -17,7 +17,7 @@ get_header(); ?>
 		</div>
 		<div class="row slide-up minus-row-margin">
 			<div class="small-12 medium-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
-				<div class="border-radius-left">
+				<div class="border-radius-left casino-sidebar">
 					<!-- Our score -->
 					<div class="filter-inner-wrapper">
 						<?php $our_score = get_field_object('our_score'); ?>
@@ -29,7 +29,6 @@ get_header(); ?>
 					<div class="filter-inner-wrapper">
 						<?php $user_votes = get_field_object('user_votes'); ?>
 						<p><label class="<?php echo $user_votes['name'];?>" data-filter-type="<?php echo $user_votes['name'];?>" data-min="<?php echo $user_votes['min'];?>" data-max="<?php echo $user_votes['max'];?>" for="<?php echo $user_votes['name'];?>"><?php echo $user_votes['label'];?></label></p>
-						
 						<div id="slider-range-user-votes"></div>
 						<input type="text" id="<?php echo $user_votes['name'];?>" readonly>
 					</div>

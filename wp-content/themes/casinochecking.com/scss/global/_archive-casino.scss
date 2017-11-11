@@ -24,6 +24,19 @@ section {
       height: 100%;
     }
 
+    .blog-category {
+      width: 1rem;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .blog-name {
+      display: inline-block;
+      margin-left: 10px;
+      padding-bottom: 0;
+      text-transform: uppercase;
+    }
+
     .active-sort {
       font-weight: 800;
     }
@@ -125,75 +138,8 @@ section {
         content: '';
       }
     }
-
-    input[type=radio]:not(old){
-      width: 2em;
-      margin: 0;
-      padding: 0;
-      font-size: 1em;
-      opacity: 0;
-      position: absolute;
-      bottom: 0;
-      top: 6px;
-      left: -5px;
-      right: 0;
-      height:1em;
-    }
-
-    input[type=radio]:not(old) + label{
-      display: inline-block;
-      line-height: 1.5em;
-    }
-
-    input[type=radio]:not(old) + label > span{
-      display: inline-block;
-      width: 0.875em;
-      height: 0.875em;
-      margin: 0.25em 0.5em 0.25em 0.25em;
-      border: 0.0625em solid #dee1e2;
-      border-radius: 2px;
-      background: transparent;
-      vertical-align: bottom;
-    }
-
-    input[type=radio]:not(old):checked +  label > span > span{
-      display: block;
-      width: 0.5em;
-      height: 0.5em;
-      margin: 0.125em;
-      border: 0.0625em solid #3fb2d7;
-      border-radius: 0.125em;
-      background: #3fb2d7;
-    }
-
-    .our-score {
-      width: 100%;
-      display: inline-block;
-
-      .our-score-val {
-        position: relative;
-        display: inline-block;
-        p {
-          line-height: inherit;
-          font-size: 12px;
-        }
-      }
-    }
-
-    .search-ajax {
-      text-align: center;
-      .button {
-        background-color: $slider-red;
-        color: $white;
-        padding: 15px 30px;
-
-        &:hover {
-          color: $white;
-          opacity: 0.9;
-        }
-      }
-    }
-    .filter-inner-wrapper:first-child {
+    .casino-sidebar {
+      .filter-inner-wrapper:first-child {
       padding-top: 0;
     }
 
@@ -205,17 +151,6 @@ section {
         margin-left: -10px;
         text-transform: uppercase;
         padding-bottom: 25px;
-      }
-
-      input {
-        background: transparent;
-        border: 0;
-        width: 100%;
-        text-align: center;
-        padding-top: 12px;
-        color: $gray;
-        font-size: 14px;
-        font-weight: 400;
       }
 
       .ui-widget-header {
@@ -251,6 +186,86 @@ section {
         border-radius: 10px;
       }
     }
+      input[type=radio]:not(old){
+        width: 2em;
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        top: 6px;
+        left: -5px;
+        right: 0;
+        height:1em;
+      }
+
+      input[type=radio]:not(old) + label{
+        display: inline-block;
+        line-height: 1.5em;
+      }
+
+      input[type=radio]:not(old) + label > span{
+        display: inline-block;
+        width: 0.875em;
+        height: 0.875em;
+        margin: 0.25em 0.5em 0.25em 0.25em;
+        border: 0.0625em solid #dee1e2;
+        border-radius: 2px;
+        background: transparent;
+        vertical-align: bottom;
+      }
+
+      input[type=radio]:not(old):checked +  label > span > span{
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        margin: 0.125em;
+        border: 0.0625em solid #3fb2d7;
+        border-radius: 0.125em;
+        background: #3fb2d7;
+      }
+
+      input {
+        background: transparent;
+        border: 0;
+        width: 100%;
+        text-align: center;
+        padding-top: 12px;
+        color: $gray;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+
+    .our-score {
+      width: 100%;
+      display: inline-block;
+
+      .our-score-val {
+        position: relative;
+        display: inline-block;
+        p {
+          line-height: inherit;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .search-ajax {
+      text-align: center;
+      .button {
+        background-color: $slider-red;
+        color: $white;
+        padding: 15px 30px;
+
+        &:hover {
+          color: $white;
+          opacity: 0.9;
+        }
+      }
+    }
+    
 
     .no-border {
       border: 0 !important;

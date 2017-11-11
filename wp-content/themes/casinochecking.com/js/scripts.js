@@ -5,6 +5,7 @@ $(document).foundation();
 jQuery(function ($) {
     $(document).ready(() => {
         initDom()
+        ajaxBlog()
         start()
     })
 })
@@ -47,6 +48,14 @@ function initDom() {
         });
     }
 }
+
+function ajaxBlog() {
+    $('.blog-ajax').click(function(){
+        var blogType = $('[name="blog-category"]:checked').val().toLowerCase().split(' ').join('-');
+        console.log(blogType)
+    });
+}
+
 
 function start() {
     const elements = {
