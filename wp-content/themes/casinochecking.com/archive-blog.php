@@ -80,7 +80,7 @@ get_header(); ?>
 												<p><?php the_field('blog_category'); ?></p>
 											</div>
 											<div class="blog-headline">
-												<h2 class="cursive-headline"><?php the_title();?></h2>
+												<h3 class="cursive-headline"><?php the_title();?></h3>
 											</div>
 											<div class="blog-icon">
 												<?php 
