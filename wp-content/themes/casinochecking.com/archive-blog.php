@@ -7,14 +7,16 @@
  * @package checkmate
  */
 get_header(); ?>
-<section class="bg-img" style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casino-bg.jpg') no-repeat center center fixed;">
-	<div class="container padding-top">
-		<div class="row welcome-row">
-			<div class="small-12 columns fade-in-slow">
-				<h1>Casino news & guides</h1>
-				<h1>.. and much more</h1>
-			</div>
+<section class="bg-img" style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casinocheckingcom-2000x1329.jpg') no-repeat center center fixed;">
+	<div class="row welcome-row">
+		<div class="small-12 columns fade-in-slow">
+			<h1>News, guides, how to</h1>
+			<h1>.. and much more</h1>
 		</div>
+	</div>
+</section>
+<section>
+	<div class="container">
 		<div class="row slide-up minus-row-margin">
 			<div class="small-12 medium-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
 				<div class="border-radius-left">
@@ -55,6 +57,7 @@ get_header(); ?>
 						</div>
 						<div class="small-4 columns align-right">
 							<div class="filter-wrapper">
+								<p>SORT BY: </p>
 								<p class="filter-bonus filter active-sort" data-filter="newest">Newest</p>
 								<p class="filter-deposit filter" data-filter="minimum_deposit">Category</p>
 							</div>
@@ -92,7 +95,7 @@ get_header(); ?>
 											?>
 										</div>
 										<div class="blog-text">
-											<p><?php echo substr(get_the_content(), 0, 100) . '...'; ?></p>
+											<p><?php echo substr(get_the_content(), 0, 100) . ' [...]'; ?></p>
 										</div>
 									</a>
 								</div>
@@ -103,6 +106,7 @@ get_header(); ?>
 			<?php endif; ?>
 		</div>
 	</div>
+</div>
 </div>
 </div>
 </section>

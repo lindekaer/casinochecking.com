@@ -23,14 +23,14 @@
 <body <?php body_class(); ?> id="fade-in">
     <div id="page" class="site">
         <header id="masthead" class="site-header slide-down">
-            <div class="container show-for-large">
+            <div class="container show-for-large height">
                 <div class="row flex-header desktop-row">
                     <div class="large-3 columns site-navigation" id="menu-left">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>
                     </div><!-- .site-branding -->
-                    <div id="menu-right" class="site-navigation columns large-6 large-offset-2">
+                    <div id="menu-right" class="site-navigation columns large-6 large-offset-3">
                         <?php wp_nav_menu(array('theme_location' => 'desktop-menu')); ?>
                     </div><!-- #site-navigation -->
                 </div>
