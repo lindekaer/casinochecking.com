@@ -1,4 +1,4 @@
-.single-casino {
+article {
   .bg-white {
     background: $white;
     border-radius: 4px;
@@ -50,7 +50,22 @@
         font-weight: 700;
       }
     }
+  }
 
+  .casino-info-wrapper {
+    text-align: center;
+
+    h1 {
+      color: $slider-red;
+    }
+
+    .icon-blog {
+      img {
+        height: 25px;
+        padding-top: 0;
+        width: auto;
+      }
+    }
   }
 
   .casino-logo {
