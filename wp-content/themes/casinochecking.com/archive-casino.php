@@ -8,8 +8,8 @@
  */
 get_header(); ?>
 <section class="bg-img" style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casinocheckingcom-2000x1329.jpg') no-repeat center center fixed;">
-	<div class="row welcome-row">
-		<div class="small-12 columns fade-in-slow">
+	<div class="row welcome-row z-index">
+		<div class="small-12 columns fade-in-slow z-index">
 			<h1>Best casino bonuses.</h1>
 			<h1>Largest profit.</h1>
 		</div>

@@ -13,3 +13,18 @@
 .bg-sidebar {
     background: $sidebar;
 }
+
+.bg-img {
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: #0a0a0a;
+    opacity: 0.5;
+    z-index: 0;
+  }
+}

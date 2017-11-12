@@ -1879,6 +1879,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .border-radius-left { border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
+.z-index { z-index: 2; }
+
 section.bg-img { width: 100%; height: 100vh; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
 
 section.comparison-section { padding-bottom: 80px; }
@@ -2072,6 +2074,8 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 .bg-dark-gray { background: #505050; }
 
 .bg-sidebar { background: #2d2d2d; }
+
+.bg-img:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #0a0a0a; opacity: 0.5; z-index: 0; }
 
 .load-wrapper { position: absolute; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #ffffff; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
 
