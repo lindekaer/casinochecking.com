@@ -60,18 +60,15 @@ $imageSize = 'logo-casino-content';
                             </div>
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="small-12 columns desc">
-                                <?php echo $description; ?>
-                            </div>
+                    <div class="row">
+                        <div class="small-12 columns desc">
+                            <?php echo $description; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-
             <a href="<?php echo $deepUrl; ?>" class="button content-page-button" id="fixed-button">Get Bonus</a>
         </div>
     </div>

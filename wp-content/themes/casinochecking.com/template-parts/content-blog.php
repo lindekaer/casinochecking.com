@@ -47,26 +47,20 @@ $icon = get_field('blog_icon');
                                          $size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
                                          if( $image ) {
                                           echo wp_get_attachment_image( $icon, $iconSize );
-                                             }
-                                         ?>                            
-                        </div>
+                                      }
+                                      ?>                            
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="small-12 columns desc">
+                        <?php echo $description; ?>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="small-12 columns desc">
-                    <?php echo $description; ?>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-</div>
-<div class="container">
-
-    <a href="<?php echo $deepUrl; ?>" class="button content-page-button" id="fixed-button">Get Bonus</a>
-</div>
 </div>
 </article><!-- #post-<?php the_ID(); ?> -->
