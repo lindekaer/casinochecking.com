@@ -1,5 +1,11 @@
 .text-wrapper {
-	padding: 40px;
+	@include breakpoint(large up) {
+		padding: 40px;
+		
+	}
+	@include breakpoint (medium down) {
+		padding: 20px 10px;
+	}
 	text-align: center;
 }
 

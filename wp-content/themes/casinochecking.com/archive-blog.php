@@ -15,10 +15,10 @@ get_header(); ?>
 		</div>
 	</div>
 </section>
-<section>
+<section class="comparison-section">
 	<div class="container">
 		<div class="row slide-up minus-row-margin">
-			<div class="small-12 medium-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
+			<div class="hide-for-medium-down large-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
 				<div class="border-radius-left">
 					<div class="filter-inner-wrapper">
 						<?php $blog_category = get_field_object('blog_category'); ?>
@@ -49,13 +49,13 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
-			<div class="small-12 medium-8 bg-gray columns border-radius-right wrapper-casino-comparison">
+			<div class="small-12 large-8 bg-gray columns border-radius-right wrapper-casino-comparison">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
-						<div class="small-8 columns">
+						<div class="small-12 large-7 columns">
 							<h4 class="headline-casino-h4">Casino-news and guides</h4>
 						</div>
-						<div class="small-4 columns align-right">
+						<div class="small-12 large-5 columns align-right">
 							<div class="filter-wrapper">
 								<p>SORT BY: </p>
 								<p class="filter-bonus filter active-sort" data-filter="newest">Newest</p>

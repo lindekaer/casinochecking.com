@@ -20,6 +20,11 @@ get_header(); ?>
 		<div class="row slide-up minus-row-margin">
 			<div class="hide-for-small-only medium-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">
 				<div class="border-radius-left casino-sidebar">
+					<div class="row">
+						<div class="small-12 columns">
+							<h4 class="headline-casino-h4">Filters</h4>
+						</div>
+					</div>
 					<!-- Our score -->
 					<div class="filter-inner-wrapper">
 						<?php $our_score = get_field_object('our_score'); ?>
@@ -63,7 +68,7 @@ get_header(); ?>
 			<div class="small-12 medium-8 bg-gray columns border-radius-right wrapper-casino-comparison">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
-						<div class="small-12 large-8 columns">
+						<div class="small-12 large-7 columns">
 							<h4 class="headline-casino-h4">Best online casinos</h4>
 						</div>
 						<div class="small-12 large-5 columns align-right">

@@ -1875,6 +1875,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .border-radius-right { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
+@media screen and (max-width: 63.9375em) { .border-radius-right { border-bottom-left-radius: 4px; border-top-left-radius: 4px; } }
+
 .border-radius-left { border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
 section.bg-img { width: 100%; height: 100vh; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
@@ -1894,6 +1896,8 @@ section .reset-filter p:hover { text-decoration: underline; }
 section .no-borders { border-bottom: 0 !important; }
 
 section .filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
+
+section .filter-wrapper p:first-child { padding-left: 0; }
 
 section .filter-wrapper p { padding-left: 10px; text-transform: uppercase; font-size: 12px; }
 
@@ -1917,9 +1921,11 @@ section .loader:before { width: 50%; height: 50%; background: #e65352; border-ra
 
 section .casino-sidebar .filter-inner-wrapper:first-child { padding-top: 0; }
 
+section .casino-sidebar .headline-casino-h4 { color: #cacaca; margin-left: -10px; }
+
 section .casino-sidebar .filter-inner-wrapper { padding-bottom: 20px; padding-top: 20px; border-bottom: 1px dotted #393939; }
 
-section .casino-sidebar .filter-inner-wrapper p { color: #f6f6f6; margin-left: -10px; text-transform: uppercase; padding-bottom: 25px; }
+section .casino-sidebar .filter-inner-wrapper p { color: #cacaca; margin-left: -10px; text-transform: uppercase; padding-bottom: 25px; }
 
 section .casino-sidebar .filter-inner-wrapper .ui-widget-header { background: #e65352; }
 
@@ -2076,7 +2082,11 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
   100% {
     transform: rotate(360deg); } }
 
-.text-wrapper { padding: 40px; text-align: center; }
+.text-wrapper { text-align: center; }
+
+@media screen and (min-width: 64em) { .text-wrapper { padding: 40px; } }
+
+@media screen and (max-width: 63.9375em) { .text-wrapper { padding: 20px 10px; } }
 
 .blog-img-wrapper img { width: 100%; }
 

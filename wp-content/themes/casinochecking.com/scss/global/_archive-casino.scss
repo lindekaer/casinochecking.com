@@ -61,6 +61,10 @@ section {
 
   .filter-wrapper {
     display: inline-flex;
+
+    p:first-child {
+      padding-left: 0;
+    }
     p {
       padding-left: 10px;
       text-transform: uppercase;
@@ -147,12 +151,17 @@ section {
       padding-top: 0;
     }
 
+    .headline-casino-h4 {
+      color: $medium-gray;
+      margin-left: -10px;
+    }
+
     .filter-inner-wrapper {
       padding-bottom: 20px;
       padding-top: 20px;
       border-bottom: 1px dotted #393939;
       p {
-        color: $gray;
+        color: $medium-gray;
         margin-left: -10px;
         text-transform: uppercase;
         padding-bottom: 25px;
