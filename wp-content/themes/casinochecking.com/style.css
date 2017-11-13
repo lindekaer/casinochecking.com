@@ -1881,9 +1881,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .z-index { z-index: 2; }
 
-section.bg-img { width: 100%; height: 100vh; background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
-
-section.comparison-section { padding-bottom: 80px; }
+section.bg-img { width: 100%; height: calc(100vh + 65px); background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
 
 section .blog-category { width: 1rem; text-align: center; z-index: 2; }
 
@@ -2009,11 +2007,15 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
 
 .hide-custom { display: none; }
 
-.minus-row-margin { margin-top: -30px; }
+.minus-row-margin { margin-top: -25vh; }
+
+section.bg-img.content-casino { height: 100vh; }
 
 article .bg-white { background: #ffffff; border-radius: 4px; }
 
 article .minus-margin { margin-top: 20rem; }
+
+article.blog, article.casino { position: relative; margin-top: -75vh; }
 
 article .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
 
@@ -2037,9 +2039,11 @@ article .casino-info-wrapper h1 { color: #e65352; }
 
 article .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
 
+@media screen and (max-width: 63.9375em) { article #casino-outer-wrapper { padding-top: 25px; padding-bottom: 25px; } }
+
 article .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-article .casino-logo img { margin-top: -4rem; }
+@media screen and (min-width: 64em) { article .casino-logo img { margin-top: -4rem; } }
 
 article .desc { padding-top: 25px; padding-bottom: 25px; }
 
@@ -2075,7 +2079,9 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .bg-sidebar { background: #2d2d2d; }
 
-.bg-img:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #0a0a0a; opacity: 0.5; z-index: 0; }
+.overlay:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #0a0a0a; opacity: 0.5; z-index: 0; }
+
+.comparison-section { padding-bottom: 80px; }
 
 .load-wrapper { position: absolute; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #ffffff; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
 
@@ -2094,7 +2100,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .text-wrapper { text-align: center; }
 
-@media screen and (min-width: 64em) { .text-wrapper { padding: 40px; } }
+@media screen and (min-width: 64em) { .text-wrapper { padding: 20px; } }
 
 @media screen and (max-width: 63.9375em) { .text-wrapper { padding: 20px 10px; } }
 

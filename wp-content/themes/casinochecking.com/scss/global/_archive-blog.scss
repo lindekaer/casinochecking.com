@@ -1,7 +1,6 @@
 .text-wrapper {
 	@include breakpoint(large up) {
-		padding: 40px;
-		
+		padding: 20px;
 	}
 	@include breakpoint (medium down) {
 		padding: 20px 10px;

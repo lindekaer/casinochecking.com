@@ -14,7 +14,7 @@
     background: $sidebar;
 }
 
-.bg-img {
+.overlay{
   &:after {
     content: '';
     display: block;
@@ -26,5 +26,9 @@
     background: #0a0a0a;
     opacity: 0.5;
     z-index: 0;
-  }
+    }
+}
+
+.comparison-section {
+    padding-bottom: 80px;
 }

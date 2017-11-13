@@ -27,35 +27,38 @@ get_header(); ?>
 					</div>
 					<!-- Our score -->
 					<div class="filter-inner-wrapper">
+						<?php $user_votes = get_field_object('user_votes'); ?>
+						<p><label class="<?php echo $user_votes['name'];?>" data-filter-type="<?php echo $user_votes['name'];?>" data-min="<?php echo $user_votes['min'];?>" data-max="<?php echo $user_votes['max'];?>" for="<?php echo $user_votes['name'];?>"><?php echo $user_votes['label'];?></label></p>
+						<div id="slider-range-user-votes"></div>
+						<input type="text" id="<?php echo $user_votes['name'];?>" readonly>
+					</div>
+					<div class="filter-inner-wrapper">
 						<?php $our_score = get_field_object('our_score'); ?>
 						<p><label class="<?php echo $our_score['name'];?>" data-filter-type="<?php echo $our_score['name'];?>" data-min="<?php echo $our_score['min'];?>" data-max="<?php echo $our_score['max'];?>" for="<?php echo $our_score['name'];?>"><?php echo $our_score['label'];?></label></p>
 						<div id="slider-range-our-score"></div>
 						<input type="text" id="<?php echo $our_score['name'];?>" readonly>
 					</div>
 					<!-- User votes -->
-					<div class="filter-inner-wrapper">
-						<?php $user_votes = get_field_object('user_votes'); ?>
-						<p><label class="<?php echo $user_votes['name'];?>" data-filter-type="<?php echo $user_votes['name'];?>" data-min="<?php echo $user_votes['min'];?>" data-max="<?php echo $user_votes['max'];?>" for="<?php echo $user_votes['name'];?>"><?php echo $user_votes['label'];?></label></p>
-						<div id="slider-range-user-votes"></div>
-						<input type="text" id="<?php echo $user_votes['name'];?>" readonly>
-					</div>
-					<!-- Minimum deposit -->
-					<div class="filter-inner-wrapper">
-						<?php $min_deposit = get_field_object('minimum_deposit'); ?>
-						<p><label class="<?php echo $min_deposit['name'];?>" data-filter-type="<?php echo $min_deposit['name'];?>" for="<?php echo $min_deposit['name'];?>"><?php echo $min_deposit['label'];?>
-						</label></p>
 
-						<div id="slider-range-min-deposit"></div>
-						<input type="text" id="<?php echo $min_deposit['name'];?>" readonly>
-					</div>
 					<!-- Signup bonus -->
-					<div class="filter-inner-wrapper no-borders">
+					<div class="filter-inner-wrapper">
 						<?php $signup_bonus = get_field_object('signup_bonus'); ?>
 						<p><label class="<?php echo $signup_bonus['name'];?>" data-filter-type="<?php echo $signup_bonus['name'];?>" for="<?php echo $signup_bonus['name'];?>"><?php echo $signup_bonus['label'];?>
 						</label></p>
 
 						<div id="slider-range-signup-bonus"></div>
 						<input type="text" id="<?php echo $signup_bonus['name'];?>" readonly>
+					</div>
+
+
+					<!-- Minimum deposit -->
+					<div class="filter-inner-wrapper no-borders">
+						<?php $min_deposit = get_field_object('minimum_deposit'); ?>
+						<p><label class="<?php echo $min_deposit['name'];?>" data-filter-type="<?php echo $min_deposit['name'];?>" for="<?php echo $min_deposit['name'];?>"><?php echo $min_deposit['label'];?>
+						</label></p>
+
+						<div id="slider-range-min-deposit"></div>
+						<input type="text" id="<?php echo $min_deposit['name'];?>" readonly>
 					</div>
 					<div class="search-ajax">
 						<a class="button">Search casinos</a>

@@ -16,21 +16,24 @@ $signUpBonus = get_field('signup_bonus');
 $minimumDeposit = get_field('minimum_deposit');
 $description = get_field('description');
 $imageSize = 'logo-casino-content';
+$sectionBg = get_field('section_bg');
+$activateOverlay = get_field('activate_overlay');
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="container minus-margin">
+<section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
+</section>
+<article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index'); ?>>
+    <div class="container">
         <div class="row">
-            <div class="small-4 columns bg-sidebar wrapper-casino-comparison border-radius-left">
+            <div class="small-12 large-4 small-order-2 large-order-1 columns bg-sidebar wrapper-casino-comparison border-radius-left">
                 <?php echo get_sidebar(); ?>
             </div>
-            <div class="small-8 columns bg-gray border-radius-right" id="casino-outer-wrapper">
+            <div class="small-12 large-8 small-order-1 large-order-2 columns bg-gray border-radius-right" id="casino-outer-wrapper">
                 <div class="container">
                     <div class="row">
-                        <div class="small-5 columns casino-logo">
+                        <div class="small-6 large-5 columns casino-logo">
                             <?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
                         </div>
-                        <div class="small-7 columns casino-info-wrapper">
+                        <div class="small-6 large-7 columns casino-info-wrapper">
                             <div>
                                 <div class="row padding-casino">
                                     <div class="small-3 columns">
