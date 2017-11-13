@@ -18,6 +18,8 @@ $description = get_field('description');
 $imageSize = 'logo-casino-content';
 $sectionBg = get_field('section_bg');
 $activateOverlay = get_field('activate_overlay');
+$imageLong = get_field('image');
+$imageSizeLong = 'logo-casino-archive';
 ?>
 <section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
 </section>
@@ -30,14 +32,17 @@ $activateOverlay = get_field('activate_overlay');
             <div class="small-12 large-8 small-order-1 large-order-2 columns bg-gray border-radius-right" id="casino-outer-wrapper">
                 <div class="container">
                     <div class="row">
-                        <div class="small-6 large-5 columns casino-logo">
+                        <div class="medium-6 hide-for-small-only large-5 columns casino-logo">
                             <?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
                         </div>
-                        <div class="small-6 large-7 columns casino-info-wrapper">
+                        <div class="small-12 show-for-small-only logo-wrapper-small columns text-center">
+                            <?php echo wp_get_attachment_image($imageLong['id'], $imageSizeLong); ?>
+                        </div>
+                        <div class="small-12 medium-6 large-7 columns casino-info-wrapper">
                             <div>
                                 <div class="row padding-casino">
                                     <div class="small-3 columns">
-                                        <p>Signup bonus</p>
+                                        <p><span class="hide-for-small-only">Signup </span>bonus</p>
                                         <h4 class="number"><?php echo $signUpBonus ?>$</h4>
                                     </div>
                                     <div class="small-3 columns ">
