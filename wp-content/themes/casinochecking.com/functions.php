@@ -410,24 +410,18 @@ add_image_size( 'logo-casino-archive', 260, 50, true );
 add_image_size( 'logo-blog-archive', 400, 300, true ); 
 add_image_size( 'bg-img', 2000, 9999 ); 
 
-function google_analytics_tracking_code(){
-    $propertyID = 'UA-108087950-2';
-    if ($options['ga_enable']) { ?>
-        <script type="text/javascript">
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', '<?php echo $propertyID; ?>']);
-          _gaq.push(['_trackPageview']);
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-        </script>
-<?php }
-}
+<?php add_action('wp_head', 'add_google_analytics');
+function add_google_analytics() { ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108087950-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-// include GA tracking code before the closing head tag
-add_action('wp_head', 'google_analytics_tracking_code');
+  gtag('config', 'UA-108087950-2');
+</script>
+<?php } ?>
 
 
 
