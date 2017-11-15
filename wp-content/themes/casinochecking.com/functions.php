@@ -356,6 +356,7 @@ function checkmate_scripts() {
 
     // theme scripts
     wp_enqueue_script( 'checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false );
+    wp_enqueue_script( 'smartlook', get_template_directory_uri() . '/js/vendor/smartlook.js', array(), '20151215', true );
     wp_enqueue_script( 'checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
     wp_localize_script( 'checkmate-scripts', 'site_vars', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -398,9 +399,9 @@ if (defined('JETPACK__VERSION')) {
 add_action( 'pre_get_posts', 'my_change_sort_order'); 
 function my_change_sort_order($query){
     if(is_archive()):
-     $query->set( 'orderby', 'signup_bonus' );
-     $query->set( 'order', 'ASC' );
- endif;    
+       $query->set( 'orderby', 'signup_bonus' );
+       $query->set( 'order', 'ASC' );
+   endif;    
 };    
 
 //Image crop
