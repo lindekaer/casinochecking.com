@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="bonus-info button-padding-bottom">
-				<a href="<?php echo $deepUrl; ?>" class="button">Get Bonus</a>
+				<a target="_blank" href="<?php echo $deepUrl; ?>" class="button">Get Bonus</a>
 			</div>
 		</div>
 	</div>

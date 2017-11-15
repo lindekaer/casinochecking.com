@@ -1873,15 +1873,9 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .headline-casino-h3 { text-align: center; text-transform: uppercase; }
 
-.border-radius-right { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
-
-@media screen and (max-width: 63.9375em) { .border-radius-right { border-bottom-left-radius: 4px; border-top-left-radius: 4px; } }
-
-.border-radius-left { border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
-
 .z-index { z-index: 2; }
 
-section.bg-img { width: 100%; height: calc(100vh + 65px); background-size: cover !important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
+section.bg-img { width: auto; background-repeat: no-repeat !important; height: calc(100vh + 65px); background-size: cover !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background-image: linear-gradient(to bottom, rgba(238, 238, 238, 0.01) 60%, rgba(238, 238, 238, 0.6) 80%, rgba(238, 238, 238, 1) 100%, rgba(238, 238, 238, 1) 100%); }*/ }
 
 section .blog-category { width: 1rem; text-align: center; z-index: 2; }
 
@@ -1967,7 +1961,7 @@ section .no-border { border: 0 !important; }
 
 @media screen and (max-width: 63.9375em) { section .headline-casino-h4 { text-align: center; font-size: 1.5rem; padding-bottom: 10px; } }
 
-section .padding-bottom { padding-bottom: 20px; }
+section .padding-bottom { padding-bottom: 15px; }
 
 section .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; margin-top: -65px; }
 
@@ -2008,6 +2002,8 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
 .hide-custom { display: none; }
 
 .minus-row-margin { margin-top: -25vh; }
+
+@media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
 
 section.bg-img.content-casino { height: 100vh; }
 
@@ -2191,7 +2187,7 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .wrapper-casino-comparison { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-@media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 80px; position: relative; } }
+@media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 60px; position: relative; } }
 
 @media screen and (max-width: 63.9375em) { .wrapper-casino-comparison { padding: 40px 0 25px 0; } }
 
