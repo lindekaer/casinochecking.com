@@ -7,15 +7,16 @@
  * @package checkmate
  */
 get_header(); ?>
-<section class="bg-img" style="background: url('http://casinochecking.com/wp-content/uploads/2017/11/blog-content.jpg') no-repeat center center fixed;">
-	<div class="row welcome-row z-index">
+<?php $activateOverlay = get_field('activate_overlay_blog', 'options'); ?>
+<section class="bg-img <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('http://casinochecking.com/wp-content/uploads/2017/10/casinocheckingcom-2000x1329.jpg') no-repeat center center fixed;">
+	<div class="row welcome-row">
 		<div class="small-12 columns fade-in-slow z-index">
 			<h1>News, guides, how to</h1>
 			<h1>.. and much more</h1>
 		</div>
 	</div>
 </section>
-<section class="comparison-section">
+<section>
 	<div class="container">
 		<div class="row slide-up minus-row-margin">
 			<div class="hide-for-medium-down large-4 bg-sidebar columns border-radius-left wrapper-casino-comparison">

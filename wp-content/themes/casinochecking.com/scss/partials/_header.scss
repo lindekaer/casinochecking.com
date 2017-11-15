@@ -1,6 +1,6 @@
 header.site-header {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   height: 70px;
   top: 0;
   width: 100%;
@@ -36,13 +36,6 @@ header.site-header {
 
   li a.current-page {
     color: $red;
-  }
-
-  #city-apartment-logo {
-    width: 100%;
-    min-width: 70px;
-    max-width: 100px;
-    height: auto;
   }
 
   .float-center {
@@ -81,7 +74,7 @@ header.site-header {
     text-align: right;
   }
 
-  #menu-mobile-menu {
+  #menu-mobile-header {
     width: 100%;
     text-align: center;
     display: block;
@@ -102,10 +95,12 @@ header.site-header {
   }
 
   .menu-mobile-header-container {
-    position: relative;
+    position: absolute;
+    top: 0;
     height: 100vh;
     background: $black;
     opacity: 0;
+    overflow: hidden;
     visibility: hidden;
     transition: opacity .3s ease, visibility .3s 0s ease;
     overflow-y: scroll;

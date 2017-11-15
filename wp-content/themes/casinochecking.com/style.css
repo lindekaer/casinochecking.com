@@ -2125,7 +2125,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 .blog-icon img { height: 14px; width: auto; }
 
 /*Partials*/
-header.site-header { position: absolute; z-index: 1; height: 70px; top: 0; width: 100%; }
+header.site-header { position: absolute; z-index: 3; height: 70px; top: 0; width: 100%; }
 
 @media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 3% 0 0 0; } }
 
@@ -2141,8 +2141,6 @@ header.site-header .flex-header { display: -ms-flexbox; display: flex; -ms-flex-
 
 header.site-header li a.current-page { color: #f81c1e; }
 
-header.site-header #city-apartment-logo { width: 100%; min-width: 70px; max-width: 100px; height: auto; }
-
 header.site-header .float-center { display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; }
 
 header.site-header #menu-right li:last-child { margin-right: 0; }
@@ -2157,13 +2155,13 @@ header.site-header .site-navigation a { color: #ffffff; font-size: 22px; text-tr
 
 header.site-header #menu-right { text-align: right; }
 
-header.site-header #menu-mobile-menu { width: 100%; text-align: center; display: block; display: none; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; lisst-style-type: none; }
+header.site-header #menu-mobile-header { width: 100%; text-align: center; display: block; display: none; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; lisst-style-type: none; }
 
-header.site-header #menu-mobile-menu li a { font-size: 2rem; color: #eee; }
+header.site-header #menu-mobile-header li a { font-size: 2rem; color: #eee; }
 
-header.site-header #menu-mobile-menu li.current_page_item a { color: #f81c1e; }
+header.site-header #menu-mobile-header li.current_page_item a { color: #f81c1e; }
 
-header.site-header .menu-mobile-header-container { position: relative; height: 100vh; background: #3f3e46; opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s 0s ease; overflow-y: scroll; -webkit-overflow-scrolling: touch; display: -ms-flexbox; display: flex; width: 100%; -ms-flex-flow: row wrap; flex-flow: row wrap; -ms-flex-align: center; align-items: center; }
+header.site-header .menu-mobile-header-container { position: absolute; top: 0; height: 100vh; background: #3f3e46; opacity: 0; overflow: hidden; visibility: hidden; transition: opacity .3s ease, visibility .3s 0s ease; overflow-y: scroll; -webkit-overflow-scrolling: touch; display: -ms-flexbox; display: flex; width: 100%; -ms-flex-flow: row wrap; flex-flow: row wrap; -ms-flex-align: center; align-items: center; }
 
 .is-active .menu-mobile-header-container { opacity: 0.96 !important; visibility: visible !important; transition: opacity .3s ease, visibility 0s ease !important; }
 
