@@ -1973,7 +1973,7 @@ section .casino-wrapper { cursor: pointer; background: #ffffff; padding-top: 15p
 
 section .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
 
-section .casino-wrapper .section-padding { padding: 10px; }
+section .casino-wrapper .section-padding { padding-bottom: 8px; }
 
 section .casino-wrapper .section-padding img { width: 100%; }
 

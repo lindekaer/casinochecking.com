@@ -14,7 +14,7 @@
 			</div>
 			<div class="user-rating section-padding-bottom">
 				<div class="row">
-					<div class="small-6 columns">
+					<div class="small-6">
 						<p><span class="hide-for-small-only">User </span>rating</p>
 						<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
 					</div>
