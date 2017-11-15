@@ -121,11 +121,13 @@ function filter_casino() {
     $the_query = new WP_Query( $args );
 
     if($the_query->have_posts()) {
-        while( $the_query->have_posts() ) : $the_query->the_post();
-          include(locate_template('template-parts/parts/casino-teaser.php')); 
-      endwhile;
-  }
-  else {
+        while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+        <div class="small-12 columns">
+        <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+        </div>
+    <?php endwhile;
+}
+else {
     echo '<h2>No results.. please adjust your criterias.</h2>';
 }
 wp_reset_query();
@@ -399,9 +401,9 @@ if (defined('JETPACK__VERSION')) {
 add_action( 'pre_get_posts', 'my_change_sort_order'); 
 function my_change_sort_order($query){
     if(is_archive()):
-       $query->set( 'orderby', 'signup_bonus' );
-       $query->set( 'order', 'ASC' );
-   endif;    
+     $query->set( 'orderby', 'signup_bonus' );
+     $query->set( 'order', 'ASC' );
+ endif;    
 };    
 
 //Image crop

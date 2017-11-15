@@ -16,39 +16,14 @@ get_header(); ?>
 		</div>
 	</div>
 </section>
-<section>
+<section class="comparison-section">
 	<div class="container">
 		<div class="row slide-up minus-row-margin">
 			<div class="hide-for-medium-down large-4 bg-sidebar columns wrapper-casino-comparison">
 				<div class="filter-inner-wrapper">
-					<?php $blog_category = get_field_object('blog_category'); ?>
-					<p>
-						<label class="<?php echo $blog_category['name'];?>">
-							<?php echo $blog_category['label'];?>
-						</label>
-					</p>
-
-					<?php 
-					if( $blog_category )
-					{
-						echo '<form action="">';
-						echo '<input type="radio" class="blog-category" value="all" name="blog-category"><p class="blog-name">All</p></br>';
-						foreach( $blog_category['choices'] as $k => $v )
-						{
-							echo '<input type="radio" value="' . $k . '" class="blog-category" name="blog-category"><p class="blog-name">' . $v . '</p></br>';
-						}
-						echo '</form>';
-					}
-					?>
-				</div>
-				<div class="blog-ajax">
-					<a class="button" id="search-blog">Search</a>
-				</div>
-				<div class="reset-filter">
-					<p>Reset search</p>
 				</div>
 			</div>
-			<div class="small-12 large-8 bg-gray columns 	wrapper-casino-comparison">
+			<div class="small-12 large-8 bg-gray columns wrapper-casino-comparison">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-7 columns">
