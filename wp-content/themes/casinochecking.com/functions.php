@@ -410,7 +410,8 @@ add_image_size( 'logo-casino-archive', 260, 50, true );
 add_image_size( 'logo-blog-archive', 400, 300, true ); 
 add_image_size( 'bg-img', 2000, 9999 ); 
 
-<?php add_action('wp_head', 'add_google_analytics');
+
+add_action('wp_head', 'add_google_analytics');
 function add_google_analytics() { ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108087950-2"></script>
@@ -421,7 +422,7 @@ function add_google_analytics() { ?>
 
   gtag('config', 'UA-108087950-2');
 </script>
-<?php } ?>
+<?php }
 
 
 
