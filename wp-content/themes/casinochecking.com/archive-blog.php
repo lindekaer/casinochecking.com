@@ -52,7 +52,7 @@ get_header(); ?>
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-7 columns">
-							<h4 class="headline-casino-h4">Casino-news and guides</h4>
+							<h4 class="headline-casino-h4"><?php the_field('heading_blog_comparison', 'options'); ?></h4>
 						</div>
 						<div class="small-12 large-5 columns align-right">
 							<div class="filter-wrapper">
