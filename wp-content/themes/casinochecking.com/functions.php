@@ -124,14 +124,10 @@ function filter_casino() {
 
     $the_query = new WP_Query( $args );
 
-    echo'<pre>';
-    print_r($args);
-    echo'</pre>';
-
     $count = $the_query->found_posts;
     echo $count;
 
-    if($filterArr['posts_per_page'] <= $count){
+    if($filterArr['posts_per_page'] <= 11111){
         if($the_query->have_posts()) {
             while( $the_query->have_posts() ) : $the_query->the_post(); ?>
             <div class="small-12 columns">
