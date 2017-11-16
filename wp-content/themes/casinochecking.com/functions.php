@@ -27,7 +27,7 @@ function filter_casino() {
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
-    var_dump($filterArr['posts_per_page']);
+  //  var_dump($filterArr['posts_per_page']);
 
     $args = array(
         'numberposts'   => -1,
@@ -125,7 +125,7 @@ function filter_casino() {
     $the_query = new WP_Query( $args );
 
     $count = $the_query->found_posts;
-    echo $count;
+  //  echo $count;
 
     if($filterArr['posts_per_page'] <= 11111){
         if($the_query->have_posts()) {
