@@ -8,8 +8,8 @@
  */
 get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_casino', 'options');
- ?>
-<section class="bg-img <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('https://casinochecking.com/wp-content/uploads/2017/10/casinocheckingcom-2000x1329.jpg') no-repeat center center fixed;">
+$casinoImg = get_field('casino_img', 'options'); ?>
+<section class="bg-img <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed;">
 	<div class="row welcome-row z-index">
 		<div class="small-12 columns fade-in-slow z-index">
 			<h1><?php the_field('heading_first_line_casino', 'options'); ?></h1>

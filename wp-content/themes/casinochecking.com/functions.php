@@ -123,7 +123,7 @@ function filter_casino() {
     if($the_query->have_posts()) {
         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div class="small-12 columns">
-        <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+            <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
         </div>
     <?php endwhile;
 }
@@ -167,6 +167,12 @@ if (function_exists('acf_add_options_page')) {
     acf_add_options_sub_page(array(
         'page_title' => 'Archive Settings',
         'menu_title' => 'Archive',
+        'parent_slug' => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => 'Theme Header Settings',
+        'menu_title' => 'Header',
         'parent_slug' => 'theme-general-settings',
     ));
 
@@ -401,9 +407,9 @@ if (defined('JETPACK__VERSION')) {
 add_action( 'pre_get_posts', 'my_change_sort_order'); 
 function my_change_sort_order($query){
     if(is_archive()):
-     $query->set( 'orderby', 'signup_bonus' );
-     $query->set( 'order', 'ASC' );
- endif;    
+       $query->set( 'orderby', 'signup_bonus' );
+       $query->set( 'order', 'ASC' );
+   endif;    
 };    
 
 //Image crop
