@@ -5,7 +5,6 @@ $(document).foundation();
 jQuery(function ($) {
     $(document).ready(() => {
         initDom()
-        ajaxBlog()
         start()
     })
 })
@@ -48,14 +47,6 @@ function initDom() {
         });
     }
 }
-
-function ajaxBlog() {
-    $('.blog-ajax').click(function(){
-        var blogType = $('[name="blog-category"]:checked').val().toLowerCase().split(' ').join('-');
-        console.log(blogType)
-    });
-}
-
 
 function start() {
     const elements = {
@@ -168,6 +159,74 @@ function start() {
         // Send AJAX request
         ajax(data);
     });
+
+    if ($('.casinos').length) {
+        var timer;
+        if ( timer ) clearTimeout(timer);
+
+        $(window).scroll(function() {
+           if ( timer ) clearTimeout(timer);
+           var shownPosts = 10;
+           var docHeight = $(document).height();
+           var windowHeight = $(window).height();
+           var footerHeight = $('footer').height();
+           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+           var headerHeight = 65;
+           var totalPosts = $('.loaded-posts').attr('data-count');
+
+           //Check whether scrolled to bottom
+           console.log(totalPosts)
+           if (docHeight - windowHeight - footerHeight - sectionPaddingBottom <= $(window).scrollTop() + headerHeight) {
+            //Sends ajax if there are more total posts than shownPosts
+            if(totalPosts >= shownPosts) {
+                $('.load-more').addClass('loading-posts');
+                //Sets timeout on Ajax call to avoid Ajax request on each scrolled pixel 
+                timer = setTimeout(function(){  
+                    const data = {
+                        action: 'filter_casino',        
+                    }
+
+                    Object.keys(metrics).forEach(type => {
+                        const metric = metrics[type]
+                        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
+                        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
+                        metric.filterType = elements[type].attr('data-filter-type');
+                        console.log(metrics[type]['currentMin'])
+                    });
+
+                    Object.keys(metrics).forEach(type => {
+                        const metric = metrics[type]
+                        data[`filter_type_${type}`] = metric.filterType
+                        data[`min_${type}`] = metric.currentMin
+                        data[`max_${type}`] = metric.currentMax
+                    });
+                    data['posts_per_page'] = shownPosts;
+
+                    morePosts(data);
+                }, 200);
+            }
+        } 
+        else {
+            console.log('not the end')
+        }
+    });
+    }
+
+    function morePosts(data){
+        $.ajax({
+            url: site_vars.ajax_url,
+            type: 'post',
+            data: data,
+            success: function(result) {
+                $('.loaded-posts').append(result);
+                $('.load-more').removeClass('loading-posts'); 
+                console.log(result);
+            },
+            error: function(errorThrown){
+             console.log(errorThrown);
+         } 
+     });
+    }
 
     function ajax(data) {
         $.ajax({

@@ -19,6 +19,7 @@ function filter_casino() {
         'filter_type_deposit' => 'filter_type_deposit', 
         'filter_type_signup-bonus' => 'filter_type_signup-bonus',
         'sort-active' => 'active',
+        'posts_per_page' => 'posts_per_page'
     );
 
     //If filter is not set, then add null   
@@ -26,19 +27,22 @@ function filter_casino() {
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
+    var_dump($filterArr['posts_per_page']);
+
     $args = array(
         'numberposts'   => -1,
         'post_type'     => 'casino',
         'post_status' => 'publish',
         'orderby' => 'signup_bonus',
-        'order' => 'DESC'
+        'order' => 'DESC',
+        'posts_per_page' => $filterArr['posts_per_page']
     );
 
     if($filterArr['sort-active']) {
         $sortType = $filterArr['sort-active'];
         $args['orderby'] = $sortType;
     }
-        //Bonus
+     //Bonus
     $min_signup_bonus = $_POST['min_signup-bonus'];
     $max_signup_bonus = $_POST['max_signup-bonus'];
     $query_vars_signup_bonus = array(
@@ -120,15 +124,27 @@ function filter_casino() {
 
     $the_query = new WP_Query( $args );
 
-    if($the_query->have_posts()) {
-        while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-        <div class="small-12 columns">
-            <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-        </div>
-    <?php endwhile;
+    echo'<pre>';
+    print_r($args);
+    echo'</pre>';
+
+    $count = $the_query->found_posts;
+    echo $count;
+
+    if($filterArr['posts_per_page'] <= $count){
+        if($the_query->have_posts()) {
+            while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+            <div class="small-12 columns">
+                <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+            </div>
+        <?php endwhile;
+    }
+    else {
+        echo '<h2>No results.. please adjust your criterias.</h2>';
+    }
 }
 else {
-    echo '<h2>No results.. please adjust your criterias.</h2>';
+    echo '<h6>All results are already shown</h6>';
 }
 wp_reset_query();
 die();
@@ -407,9 +423,9 @@ if (defined('JETPACK__VERSION')) {
 add_action( 'pre_get_posts', 'my_change_sort_order'); 
 function my_change_sort_order($query){
     if(is_archive()):
-       $query->set( 'orderby', 'signup_bonus' );
-       $query->set( 'order', 'ASC' );
-   endif;    
+     $query->set( 'orderby', 'signup_bonus' );
+     $query->set( 'order', 'ASC' );
+ endif;    
 };    
 
 //Image crop

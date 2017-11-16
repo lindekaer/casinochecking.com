@@ -1877,6 +1877,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 section.bg-img { width: auto; background-repeat: no-repeat !important; height: calc(100vh + 65px); background-size: cover !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%); } */ }
 
+section .load-more { position: relative; }
+
 section .blog-category { width: 1rem; text-align: center; z-index: 2; }
 
 section .blog-name { display: inline-block; margin-left: 10px; padding-bottom: 0; text-transform: uppercase; }

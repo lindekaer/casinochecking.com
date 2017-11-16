@@ -9,7 +9,7 @@
 get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_casino', 'options');
 $casinoImg = get_field('casino_img', 'options'); ?>
-<section class="bg-img <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed;">
+<section class="bg-img casinos <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed;">
 	<div class="row welcome-row z-index">
 		<div class="small-12 columns fade-in-slow z-index">
 			<h1><?php the_field('heading_first_line_casino', 'options'); ?></h1>
@@ -90,15 +90,20 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 							<div class="loader">
 							</div></div>
 						</div>
-						<div class="loaded-posts">
-							<?php
-							if (have_posts()) : ?>
+						<div class="loaded-posts" data-count="<?php echo $wp_query->found_posts;?>">
+							<?php if (have_posts()) : ?>
 							<div class="small-12 columns ">
 								<?php while (have_posts()) : the_post(); ?>
 									<?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
 								<?php endwhile; ?>
 							</div>
 						<?php endif; ?>
+					</div>
+					<div class="load-more">
+						<div class="load-wrapper">
+							<div class="loader">
+							</div></div>
+						</div>
 					</div>
 				</div>
 			</div>
