@@ -23,13 +23,13 @@ $imageSizeLong = 'logo-casino-archive';
 ?>
 <section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
 </section>
-<article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index bg-dark-gray'); ?>>
     <div class="container">
         <div class="row">
-            <div class="small-12 large-4 small-order-2 large-order-1 columns bg-sidebar wrapper-casino-comparison border-radius-left">
+            <div class="small-12 large-4 small-order-2 large-order-1 columns bg-sidebar slide-up wrapper-casino-comparison minus-content">
                 <?php echo get_sidebar(); ?>
             </div>
-            <div class="small-12 large-8 small-order-1 large-order-2 columns bg-gray border-radius-right" id="casino-outer-wrapper">
+            <div class="small-12 large-8 small-order-1 large-order-2 columns bg-gray slide-up minus-content" id="casino-outer-wrapper">
                 <div class="container">
                     <div class="row">
                         <div class="medium-6 hide-for-small-only large-5 columns casino-logo">

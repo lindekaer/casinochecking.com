@@ -2,23 +2,16 @@ section {
   &.bg-img.content-casino {
     height: 100vh;
   }
-
-
 }
 
-article {
-  .bg-white {
-    background: $white;
-    border-radius: 4px;
-  }
-
-  .minus-margin {
-    margin-top: 20rem;
-  }
-
-  &.blog, &.casino {
+  .minus-content {
     position: relative;
     margin-top: -75vh;
+  }
+
+article {
+  .minus-margin {
+    margin-top: 20rem;
   }
 
   .further-casino-info {

@@ -17,10 +17,10 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 		</div>
 	</div>
 </section>
-<section class="comparison-section">
+<section class="comparison-section bg-dark-gray">
 	<div class="container mobile-full-width">
-		<div class="row slide-up minus-row-margin">
-			<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison">
+		<div class="row">
+			<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="casino-sidebar">
 					<div class="row">
 						<div class="small-12 columns">
@@ -70,7 +70,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					</div>
 				</div>
 			</div>
-			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison">
+			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-7 columns">

@@ -15,14 +15,14 @@ $blogImg = get_field('blog_img', 'options');  ?>
 		</div>
 	</div>
 </section>
-<section class="comparison-section">
+<section class="comparison-section bg-dark-gray">
 	<div class="container">
-		<div class="row slide-up minus-row-margin">
-			<div class="hide-for-medium-down large-4 bg-sidebar columns wrapper-casino-comparison">
+		<div class="row">
+			<div class="hide-for-medium-down large-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="filter-inner-wrapper">
 				</div>
 			</div>
-			<div class="small-12 large-8 bg-gray columns wrapper-casino-comparison">
+			<div class="small-12 large-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-7 columns">

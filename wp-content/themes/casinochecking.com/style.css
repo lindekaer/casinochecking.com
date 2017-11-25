@@ -1973,11 +1973,9 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
 
 section.bg-img.content-casino { height: 100vh; }
 
-article .bg-white { background: #ffffff; border-radius: 4px; }
+.minus-content { position: relative; margin-top: -75vh; }
 
 article .minus-margin { margin-top: 20rem; }
-
-article.blog, article.casino { position: relative; margin-top: -75vh; }
 
 article .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
 
@@ -2033,7 +2031,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .slide-up { opacity: 0; animation-delay: 1s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
 
-.slide-down { animation-name: fadeInDown; animation-fill-mode: both; animation-duration: 2s; animation-delay: 1.6s; }
+.slide-down { animation-name: fadeInDown; animation-fill-mode: both; animation-duration: 2s; animation-delay: 2.4s; }
 
 .fade-in-slow { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 2s; }
 
