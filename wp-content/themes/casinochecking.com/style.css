@@ -1967,7 +1967,7 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
 
 .hide-custom { display: none; }
 
-@media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vw; } }
+@media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
 
 @media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
 
