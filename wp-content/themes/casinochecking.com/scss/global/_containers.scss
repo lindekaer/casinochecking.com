@@ -1,17 +1,18 @@
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1200px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1200px;
 }
 
 .hide-custom {
 	display: none;
 }
-
-.minus-row-margin {
-	margin-top: -25vw;
+@include breakpoint (medium up) {
+	.minus-row-margin {
+		margin-top: -25vw;
+	}
 }
 
 .mobile-full-width {

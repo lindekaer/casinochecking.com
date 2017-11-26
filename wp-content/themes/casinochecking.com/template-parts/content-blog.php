@@ -20,7 +20,7 @@ $activateOverlay = get_field('activate_overlay');
 <section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg['url']; ?>') no-repeat center center fixed;">
 </section>
 <article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index bg-dark-gray'); ?>>
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="small-12 large-4 small-order-2 large-order-1 columns slide-up minus-content bg-sidebar wrapper-casino-comparison">
                 <?php echo get_sidebar(); ?>

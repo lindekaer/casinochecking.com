@@ -38,14 +38,14 @@ $imageSizeLong = 'logo-casino-archive';
                         <div class="small-12 show-for-small-only logo-wrapper-small columns text-center">
                             <?php echo wp_get_attachment_image($imageLong['id'], $imageSizeLong); ?>
                         </div>
-                        <div class="small-12 medium-6 large-7 columns casino-info-wrapper">
-                            <div>
-                                <div class="row padding-casino">
-                                    <div class="small-3 columns">
+                        <div class="small-12 medium-6 large-7 columns">
+                            <div class="container">
+                                <div class="row padding-casino casino-info-wrapper">
+                                    <div class="small-3">
                                         <p><span class="hide-for-small-only">Signup </span>bonus</p>
                                         <h4 class="number"><?php echo $signUpBonus ?>$</h4>
                                     </div>
-                                    <div class="small-3 columns ">
+                                    <div class="small-3">
                                         <p>Deposit</p>
                                         <h4 class="number"><?php echo $minimumDeposit; ?>$</h4>
                                     </div>
@@ -53,7 +53,7 @@ $imageSizeLong = 'logo-casino-archive';
                                         <p>User rating</p>
                                         <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
                                     </div>
-                                    <div class="small-3 columns">
+                                    <div class="small-3">
                                         <p>Score</p>
                                         <h4 class="number"><?php echo $ourScore; ?></h4>
                                     </div>
