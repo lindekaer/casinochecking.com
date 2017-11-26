@@ -151,8 +151,6 @@ section {
       content: '';
     }
   }
-  
-
 
   .no-border {
     border: 0 !important;
@@ -240,12 +238,6 @@ section {
     }
   }
 
-  img.star {
-    padding-top: 8px;
-    width: 16%;
-    height: auto;
-  }
-
   .my-align-center {
     display: flex;
     align-items: center;
@@ -267,6 +259,12 @@ section {
     text-transform: uppercase;
     text-align: center;
     font-size: 12px;
+
+    img {
+    padding-top: 8px;
+    width: 16%;
+    height: auto;
+  }
   }
 
   .bonus-info {
@@ -281,7 +279,7 @@ section {
 
     h2 {
       line-height: inherit;
-      
+
     }
   }
 }
