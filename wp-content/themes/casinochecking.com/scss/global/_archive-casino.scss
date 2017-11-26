@@ -6,13 +6,8 @@ section {
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-
-    @include breakpoint(large up) {
-    background-attachment: fixed !important;
-    }
-    @include breakpoint(medium down) {
-    background-attachment: scroll !important;
-    }
+    background-attachment: scroll !important;  
+    transform: none !important;
     /*&:before {
       content: '';
       position: absolute;

@@ -9,6 +9,18 @@ jQuery(function ($) {
     })
 })
 
+//Works, also after Ajax-call
+$( document ).ajaxStop(function() {
+    showDescCasino();
+})
+
+function showDescCasino() {
+    $('.casino-wrapper').click(function () {
+        $(this).toggleClass('active-desc');
+        $(this).find('.desc').slideToggle("slow");
+    });
+}
+
 function initDom() {
     $(".hamburger").click(function () {
         $(this).toggleClass("is-active");
@@ -23,10 +35,7 @@ function initDom() {
         $(this).addClass('active-sort');
     });
 
-    $('.casino-wrapper').click(function () {
-        $(this).toggleClass('active-desc');
-        $(this).find('.desc').slideToggle("slow");
-    });
+    showDescCasino();
 
     $('.menu-mobile-header-container').click(function () {
         $('.hamburger').trigger('click');
@@ -165,14 +174,14 @@ function start() {
         if ( timer ) clearTimeout(timer);
 
         $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var shownPosts = 10;
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
-           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-           var headerHeight = 65;
-           var totalPosts = $('.loaded-posts').attr('data-count');
+         if ( timer ) clearTimeout(timer);
+         var shownPosts = 10;
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
+         var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+         var headerHeight = $('header').height();
+         var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
            console.log(totalPosts)
@@ -223,9 +232,9 @@ function start() {
                 console.log(result);
             },
             error: function(errorThrown){
-             console.log(errorThrown);
-         } 
-     });
+               console.log(errorThrown);
+           }
+       });
     }
 
     function ajax(data) {
@@ -240,8 +249,8 @@ function start() {
                 console.log(result);
             },
             error: function(errorThrown){
-             console.log(errorThrown);
-         } 
-     });
+               console.log(errorThrown);
+           } 
+       });
     }
 }

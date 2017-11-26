@@ -1877,11 +1877,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .z-index { z-index: 2; }
 
-section.bg-img { height: 100vh; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%); } */ }
-
-@media screen and (min-width: 64em) { section.bg-img { background-attachment: fixed !important; } }
-
-@media screen and (max-width: 63.9375em) { section.bg-img { background-attachment: scroll !important; } }
+section.bg-img { height: 100vh; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll !important; -ms-transform: none !important; transform: none !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%); } */ }
 
 section .load-more { position: relative; }
 
@@ -1966,8 +1962,6 @@ section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height:
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1200px; }
 
 .hide-custom { display: none; }
-
-.minus-row-margin { margin-top: -25vh; }
 
 @media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
 
@@ -2228,11 +2222,5 @@ footer #desktop-footer .icon-footer img { height: 40px; width: auto; }
 footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; z-index: 1; }
 
 footer #mobile-footer p { color: #eee; font-size: 10px; text-transform: uppercase; }
-
-footer #mobile-footer .icon { margin: 0 auto; width: 25%; padding-bottom: 6px; }
-
-footer #mobile-footer .footer-section { padding: 10px 0; text-align: center; }
-
-footer #mobile-footer .current-page .footer-text p { color: #f81c1e; }
 
 /*# sourceMappingURL=maps/style.css.map */
