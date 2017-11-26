@@ -197,36 +197,7 @@ section {
   &:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12);
   }
-
- /* &.active-desc {
-    &:after {
-      font-family: fontawesome;
-      color: #eee;
-      font-size: 25px;
-      left: 50%;
-      cursor: pointer;
-      position: relative;
-      content: "\f106";
-      bottom: 12px;
-      right: 0;
-      height: 0;
-      transform: translatex(-55%);
-    }
-  }
-
-  &:after {
-    font-family: fontawesome;
-    color: #eee;
-    font-size: 25px;
-    left: 50%;
-    cursor: pointer;
-    position: relative;
-    content: "\f107";
-    bottom: 12px;
-    right: 0;
-    height: 0;
-    transform: translatex(-55%);
-  }*/
+  
   .section-padding {  
     padding-bottom: 8px;
     img {
@@ -261,10 +232,10 @@ section {
     font-size: 12px;
 
     img {
-    padding-top: 8px;
-    width: 16%;
-    height: auto;
-  }
+      padding-top: 8px;
+      width: 16%;
+      height: auto;
+    }
   }
 
   .bonus-info {
@@ -282,4 +253,5 @@ section {
 
     }
   }
+}
 }
