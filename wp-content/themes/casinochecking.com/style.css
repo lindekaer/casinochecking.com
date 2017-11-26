@@ -1856,9 +1856,11 @@ ul.no-bullet, ol.no-bullet { margin-left: 0; list-style: none; }
 
 .long-delay { animation-delay: 700ms !important; }
 
-body, html, #page, #content { width: 100%; min-height: 100%; }
+body, html { height: 100%; }
 
-#page { background: #fff; max-width: 100%; margin: 0 auto; overflow-x: hidden; }
+#content { height: 100%; }
+
+#page { background: #ffffff; width: 100%; min-height: 100vh; max-width: 100%; margin: 0 auto; overflow-x: hidden; }
 
 /*Global*/
 p { margin: 0; font-family: 'Lato'; line-height: inherit; color: #636363; }

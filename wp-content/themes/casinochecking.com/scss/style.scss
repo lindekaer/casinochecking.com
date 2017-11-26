@@ -71,13 +71,18 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import 'global/mixins';
 
-body, html, #page, #content {
-	width: 100%;
-	min-height: 100%;
+body, html {
+	height: 100%;
+}
+
+#content {
+	height: 100%;
 }
 
 #page {
-	background: #fff;
+	background: $white;
+	width: 100%;
+	min-height: 100vh;
 	max-width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
