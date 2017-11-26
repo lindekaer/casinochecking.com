@@ -1975,7 +1975,7 @@ section.bg-img.content-casino { height: 100vw; }
 
 .minus-content { position: relative; margin-top: -75vw; }
 
-.casino .casino-info-wrapper { margin-top: 30px; }
+@media screen and (min-width: 40em) { .casino .casino-info-wrapper { margin-top: 30px; } }
 
 article .minus-margin { margin-top: 20rem; }
 

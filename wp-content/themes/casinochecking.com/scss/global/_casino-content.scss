@@ -10,7 +10,9 @@ section {
 }
 
 .casino .casino-info-wrapper {
-  margin-top: 30px;
+  @include breakpoint(medium up){
+    margin-top: 30px;
+  }
 }
 
 article {
