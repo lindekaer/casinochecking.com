@@ -2051,6 +2051,8 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .comparison-section { padding-bottom: 80px; }
 
+@media screen and (max-width: 39.9375em) { .comparison-section { padding-bottom: 15px; } }
+
 .load-wrapper { position: absolute; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #ffffff; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
 
 .loading-posts .load-wrapper { opacity: 0.9; visibility: visible; transition: opacity .5s ease; }

@@ -15,12 +15,12 @@
 			<div class="user-rating section-padding-bottom">
 				<div class="row">
 					<div class="small-6">
-						<p><span class="hide-for-small-only">User </span>rating</p>
-						<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
+						<p><span class="hide-for-small-only">Signup </span>Bonus</p>
+						<h4><?php echo $signUpBonus; ?>$</h4>
 					</div>
-					<div class="small-6 columns">
-						<p><span class="hide-for-small-only">Our </span>score</p>
-						<h4><?php echo $ourScore; ?></h4>
+					<div class="small-6">
+						<p><span class="hide-for-small-only">Minimum </span>Deposit</p>
+						<h4><?php echo $minimumDeposit; ?>$</h4>
 					</div>
 				</div>
 			</div>
@@ -31,12 +31,12 @@
 			<div class="image-ratings section-padding">
 				<div class="row">
 					<div class="small-6 border-right">
-						<p><span class="hide-for-small-only">Signup </span>Bonus</p>
-						<h4><?php echo $signUpBonus; ?>$</h4>
+						<p><span class="hide-for-small-only">User </span>rating</p>
+						<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
 					</div>
-					<div class="small-6">
-						<p><span class="hide-for-small-only">Minimum </span>Deposit</p>
-						<h4><?php echo $minimumDeposit; ?>$</h4>
+					<div class="small-6 columns">
+						<p><span class="hide-for-small-only">Our </span>score</p>
+						<h4><?php echo $ourScore; ?></h4>
 					</div>
 				</div>
 			</div>
