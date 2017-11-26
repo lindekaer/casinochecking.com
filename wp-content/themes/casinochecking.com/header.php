@@ -15,7 +15,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <?php include(locate_template('inc/meta-tags.php')); ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400" rel="stylesheet">
     <?php wp_head(); ?>
