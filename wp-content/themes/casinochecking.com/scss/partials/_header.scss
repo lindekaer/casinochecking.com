@@ -1,19 +1,13 @@
 header.site-header {
   position: fixed;
   z-index: 3;
-  height: 70px;
+  height: 60px;
   top: 0;
   width: 100%;
 
   &.scroll-active {
-    background: $black-footer;
-    opacity: 0.5;
+    background: rgba(51, 50, 56, 0.85);
     transition: 1s;
-  }
-  .mobile-row {
-    @include breakpoint(medium down) {
-      padding: 3% 0 0 0;
-    }
   }
   .desktop-row {
     .menu-desktop-menu-container {

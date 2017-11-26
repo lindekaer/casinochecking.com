@@ -35,7 +35,7 @@
                     </div><!-- #site-navigation -->
                 </div>
             </div>
-            <div class="container bg-black">
+            <div class="container bg-black height">
                 <div class="row show-for-medium-down hide-for-large mobile-row flex-header">
                     <div class="mobile-logo small-8 medium-2 columns">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
