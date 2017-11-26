@@ -1961,7 +1961,7 @@ section .casino-wrapper .user-rating { font-size: 10px; text-align: center; text
 
 section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
-section .casino-wrapper .user-rating img { padding-top: 8px; width: 16%; height: auto; }
+section .casino-wrapper .user-rating img.star { padding-top: 8px; width: 16%; height: auto; }
 
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1200px; }
 
