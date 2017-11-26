@@ -1856,7 +1856,7 @@ ul.no-bullet, ol.no-bullet { margin-left: 0; list-style: none; }
 
 .long-delay { animation-delay: 700ms !important; }
 
-body { width: 100%; height: 100%; }
+body, html { width: 100%; height: 100%; }
 
 #page { background: #fff; width: 100%; min-height: 100vh; max-width: 100%; margin: 0 auto; overflow-x: hidden; }
 
@@ -2089,7 +2089,9 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 .blog-icon img { height: 14px; width: auto; }
 
 /*Partials*/
-header.site-header { position: absolute; z-index: 3; height: 70px; top: 0; width: 100%; }
+header.site-header { position: fixed; z-index: 3; height: 70px; top: 0; width: 100%; }
+
+header.site-header.scroll-active { background: #333238; opacity: 0.5; transition: 1s; }
 
 @media screen and (max-width: 63.9375em) { header.site-header .mobile-row { padding: 3% 0 0 0; } }
 

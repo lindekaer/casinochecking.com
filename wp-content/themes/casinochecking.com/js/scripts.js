@@ -41,6 +41,15 @@ function initDom() {
         $('.hamburger').trigger('click');
     });
 
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 50) {
+            $('header').addClass('scroll-active');
+        }
+        else {
+            $('header').removeClass('scroll-active');
+        }
+    });
+
     //Triggers get bonus fixed button
     if ($('article').length) {
         var heightThreshold = $("article").offset().top +$("#casino-outer-wrapper").height();

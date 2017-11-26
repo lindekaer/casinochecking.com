@@ -1,9 +1,15 @@
 header.site-header {
-  position: absolute;
+  position: fixed;
   z-index: 3;
   height: 70px;
   top: 0;
   width: 100%;
+
+  &.scroll-active {
+    background: $black-footer;
+    opacity: 0.5;
+    transition: 1s;
+  }
   .mobile-row {
     @include breakpoint(medium down) {
       padding: 3% 0 0 0;
