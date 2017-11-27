@@ -18,12 +18,7 @@ $blogImg = get_field('blog_img', 'options');  ?>
 <section class="comparison-section bg-dark-gray">
 	<div class="container mobile-full-width">
 		<div class="row">
-			<div class="hide-for-medium-down large-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
-				<div class="filter-inner-wrapper">
-					<?php echo get_sidebar(); ?>
-				</div>
-			</div>
-			<div class="small-12 large-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">
+			<div class="small-12 large-order-2 large-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-7 columns">
@@ -78,6 +73,11 @@ $blogImg = get_field('blog_img', 'options');  ?>
 					<?php endwhile;?>
 				</div>
 			<?php endif; ?>
+		</div>
+	</div>
+	<div class="small-12 large-order-1 large-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin-sidebar">
+		<div class="filter-inner-wrapper">
+			<?php echo get_sidebar(); ?>
 		</div>
 	</div>
 </div>

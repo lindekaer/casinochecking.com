@@ -25,19 +25,19 @@ $imageSizeLong = 'logo-casino-archive';
 <article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index bg-dark-gray'); ?>>
     <div class="container">
         <div class="row">
-            <div class="small-12 large-4 small-order-2 large-order-1 columns bg-sidebar slide-up wrapper-casino-comparison minus-content">
+            <div class="small-12 large-4 small-order-2 large-order-1 columns bg-sidebar slide-up wrapper-casino-comparison minus-content-sidebar">
                 <?php echo get_sidebar(); ?>
             </div>
             <div class="small-12 large-8 small-order-1 large-order-2 columns bg-gray slide-up minus-content" id="casino-outer-wrapper">
                 <div class="container">
                     <div class="row">
-                        <div class="medium-6 hide-for-small-only large-5 columns casino-logo">
+                        <div class="medium-4 large-5 hide-for-small-only columns casino-logo">
                             <?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
                         </div>
                         <div class="small-12 show-for-small-only logo-wrapper-small columns text-center">
                             <?php echo wp_get_attachment_image($imageLong['id'], $imageSizeLong); ?>
                         </div>
-                        <div class="small-12 medium-6 large-7 columns">
+                        <div class="small-12 medium-8 large-7 columns">
                             <div class="container">
                                 <div class="row padding-casino casino-info-wrapper">
                                     <div class="small-3">

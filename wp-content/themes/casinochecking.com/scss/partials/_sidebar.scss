@@ -7,37 +7,56 @@
 	}
 
 	@include breakpoint(medium down) {
-		padding: 40px 0 25px 0;
+		padding: 60px 20px 40px 20px;
 	}
+
+  .large-disable-padding {
+  @include breakpoint(large up) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 }
 .favorites {
   &.padding-top-sidebar {
-  padding-top: 40px;  
-}
-
-.align-middle {
-  display: flex;
-  align-items: center;
-}
+    @include breakpoint(large up){
+      padding-top: 40px;  
+    }
+  }
+  .align-middle {
+    display: flex;
+    align-items: center;
+  }
 
   img {
-    width: auto;
-    height: 20px;
+    width: 20%;
+    max-width: 20px;
+    height: auto;
   }
   h4 {
    color: $medium-gray;
  }
  h5 {
   color: $medium-gray;
-  text-align: left;
 }
 
+.our_score {
+  text-align: right;
+
+  p {
+    width: 100%;
+  }
+}
+
+.heading {
+  text-align: left;
+}
 
 .fav-casino:last-of-type {
   padding-bottom: 0;
 }
 .fav-casino {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   .score-count {
     font-size: 20px;
   }
@@ -48,13 +67,20 @@
   }
 }
 .border-bottom {
-  border-bottom: 1px dotted #393939;
+  @include breakpoint (large up){
+    border-bottom: 1px dotted #393939;
+  }
+}
+
+.padding-sidebar-bottom:last-child {
+  padding-bottom: 40px;
 }
 
 .padding-sidebar-bottom {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 }
+
 
 .casino-sidebar {
   .filter-inner-wrapper:first-child {

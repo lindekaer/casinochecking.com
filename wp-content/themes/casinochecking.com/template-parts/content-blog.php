@@ -22,9 +22,6 @@ $activateOverlay = get_field('activate_overlay');
 <article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index bg-dark-gray'); ?>>
     <div class="container">
         <div class="row">
-            <div class="small-12 large-4 small-order-2 large-order-1 columns slide-up minus-content bg-sidebar wrapper-casino-comparison">
-                <?php echo get_sidebar(); ?>
-            </div>
             <div class="small-12 large-8 small-order-1 large-order-2 columns bg-gray slide-up minus-content" id="casino-outer-wrapper">
                 <div class="container">
                     <div class="row">
@@ -64,6 +61,9 @@ $activateOverlay = get_field('activate_overlay');
                 </div>
             </div>
         </div>
+                    <div class="small-12 large-4 small-order-2 large-order-1 columns slide-up minus-content-sidebar bg-sidebar wrapper-casino-comparison">
+                <?php echo get_sidebar(); ?>
+            </div>
     </div>
 </div>
 </article><!-- #post-<?php the_ID(); ?> -->

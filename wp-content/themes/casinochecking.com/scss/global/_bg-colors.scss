@@ -31,8 +31,8 @@
 }
 
 .comparison-section {
-    @include breakpoint(small only) {
-        padding-bottom: 15px;
+    @include breakpoint(medium down) {
+        padding-bottom: 0px;
     }
     padding-bottom: 80px;
 }

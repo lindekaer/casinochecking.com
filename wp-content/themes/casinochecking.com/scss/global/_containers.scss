@@ -15,6 +15,12 @@
 	}
 }
 
+@include breakpoint(large up) {
+		.minus-row-margin-sidebar {
+		margin-top: -25vh;
+	}
+}
+
 .mobile-full-width {
 	@include breakpoint(small only) {
 		padding-right: 0;

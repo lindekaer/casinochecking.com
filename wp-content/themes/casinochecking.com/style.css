@@ -1969,9 +1969,13 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
 
+@media screen and (min-width: 64em) { .minus-row-margin-sidebar { margin-top: -25vh; } }
+
 @media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
 
 section.bg-img.content-casino { height: 100vw; }
+
+@media screen and (min-width: 64em) { .minus-content-sidebar { position: relative; margin-top: -75vw; } }
 
 .minus-content { position: relative; margin-top: -75vw; }
 
@@ -2001,7 +2005,7 @@ article .casino-info-wrapper h1 { color: #e65352; }
 
 article .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
 
-@media screen and (max-width: 63.9375em) { article #casino-outer-wrapper { padding-top: 25px; padding-bottom: 25px; } }
+@media screen and (max-width: 63.9375em) { article #casino-outer-wrapper { padding-top: 40px; } }
 
 article .logo-wrapper-small { padding-bottom: 15px; }
 
@@ -2051,7 +2055,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .comparison-section { padding-bottom: 80px; }
 
-@media screen and (max-width: 39.9375em) { .comparison-section { padding-bottom: 15px; } }
+@media screen and (max-width: 63.9375em) { .comparison-section { padding-bottom: 0px; } }
 
 .load-wrapper { position: absolute; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #ffffff; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
 
@@ -2157,29 +2161,39 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 @media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 60px; position: relative; } }
 
-@media screen and (max-width: 63.9375em) { .wrapper-casino-comparison { padding: 40px 0 25px 0; } }
+@media screen and (max-width: 63.9375em) { .wrapper-casino-comparison { padding: 60px 20px 40px 20px; } }
 
-.favorites.padding-top-sidebar { padding-top: 40px; }
+@media screen and (min-width: 64em) { .wrapper-casino-comparison .large-disable-padding { padding-right: 0; padding-left: 0; } }
+
+@media screen and (min-width: 64em) { .favorites.padding-top-sidebar { padding-top: 40px; } }
 
 .favorites .align-middle { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
-.favorites img { width: auto; height: 20px; }
+.favorites img { width: 20%; max-width: 20px; height: auto; }
 
 .favorites h4 { color: #cacaca; }
 
-.favorites h5 { color: #cacaca; text-align: left; }
+.favorites h5 { color: #cacaca; }
+
+.favorites .our_score { text-align: right; }
+
+.favorites .our_score p { width: 100%; }
+
+.favorites .heading { text-align: left; }
 
 .favorites .fav-casino:last-of-type { padding-bottom: 0; }
 
-.favorites .fav-casino { padding-bottom: 10px; }
+.favorites .fav-casino { padding-bottom: 20px; }
 
 .favorites .fav-casino .score-count { font-size: 20px; }
 
 .favorites .fav-casino p { color: #cacaca; display: inline-block; text-transform: uppercase; }
 
-.favorites .border-bottom { border-bottom: 1px dotted #393939; }
+@media screen and (min-width: 64em) { .favorites .border-bottom { border-bottom: 1px dotted #393939; } }
 
-.favorites .padding-sidebar-bottom { padding-bottom: 40px; }
+.favorites .padding-sidebar-bottom:last-child { padding-bottom: 40px; }
+
+.favorites .padding-sidebar-bottom { padding-bottom: 20px; }
 
 .casino-sidebar .filter-inner-wrapper:first-child { padding-top: 0; }
 
