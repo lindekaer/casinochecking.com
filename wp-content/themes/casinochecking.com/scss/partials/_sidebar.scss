@@ -10,50 +10,95 @@
 		padding: 40px 0 25px 0;
 	}
 }
+.favorites {
+  &.padding-top-sidebar {
+  padding-top: 40px;  
+}
+
+.align-middle {
+  display: flex;
+  align-items: center;
+}
+
+  img {
+    width: auto;
+    height: 20px;
+  }
+  h4 {
+   color: $medium-gray;
+ }
+ h5 {
+  color: $medium-gray;
+  text-align: left;
+}
+
+
+.fav-casino:last-of-type {
+  padding-bottom: 0;
+}
+.fav-casino {
+  padding-bottom: 10px;
+  .score-count {
+    font-size: 20px;
+  }
+  p {
+    color: $medium-gray;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+}
+.border-bottom {
+  border-bottom: 1px dotted #393939;
+}
+
+.padding-sidebar-bottom {
+  padding-bottom: 40px;
+}
+}
 
 .casino-sidebar {
-    .filter-inner-wrapper:first-child {
-      padding-top: 0;
-    }
+  .filter-inner-wrapper:first-child {
+    padding-top: 0;
+  }
 
-    .headline-casino-h4 {
+  .headline-casino-h4 {
+    color: $medium-gray;
+    margin-left: -10px;
+  }
+
+  .filter-inner-wrapper {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px dotted #393939;
+    p {
       color: $medium-gray;
       margin-left: -10px;
+      text-transform: uppercase;
+      padding-bottom: 25px;
     }
 
-    .filter-inner-wrapper {
-      padding-bottom: 20px;
-      padding-top: 20px;
-      border-bottom: 1px dotted #393939;
-      p {
-        color: $medium-gray;
-        margin-left: -10px;
-        text-transform: uppercase;
-        padding-bottom: 25px;
-      }
+    .ui-widget-header {
+      background: $slider-red;
+    }
 
-      .ui-widget-header {
-        background: $slider-red;
-      }
+    .ui-widget.ui-widget-content {
+      border: 0;
+    }
 
-      .ui-widget.ui-widget-content {
-        border: 0;
-      }
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+      border: 1px solid $white;
+      background: $slider-red;
+    }
 
-      .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-        border: 1px solid $white;
-        background: $slider-red;
-      }
-
-      .ui-slider-horizontal {
-        height: 4px;
-        background: $slider-gray;
-        .ui-slider-handle {
-          top: -10px;
-          width: 22px;
-          height: 22px;
-          cursor: pointer;
-          outline: none;
+    .ui-slider-horizontal {
+      height: 4px;
+      background: $slider-gray;
+      .ui-slider-handle {
+        top: -10px;
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        outline: none;
 
           // &:hover {
           //   outline: $slider-red auto 2px;       

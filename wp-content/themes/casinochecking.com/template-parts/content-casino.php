@@ -11,7 +11,6 @@ $name = get_field('name');
 $image = get_field('image_post');
 $deepUrl = get_field('deep_url');
 $ourScore = get_field('our_score');
-$userVotes = get_field('user_votes');
 $signUpBonus = get_field('signup_bonus');
 $minimumDeposit = get_field('minimum_deposit');
 $description = get_field('description');
@@ -80,4 +79,4 @@ $imageSizeLong = 'logo-casino-archive';
             <a href="<?php echo $deepUrl; ?>" class="button content-page-button" id="fixed-button">Get Bonus</a>
         </div>
     </div>
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-<?php the_ID(); ?> 
