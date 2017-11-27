@@ -20,8 +20,7 @@ $blogImg = get_field('blog_img', 'options');  ?>
 		<div class="row">
 			<div class="hide-for-medium-down large-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="filter-inner-wrapper">
-					                <?php echo get_sidebar(); ?>
-
+					<?php echo get_sidebar(); ?>
 				</div>
 			</div>
 			<div class="small-12 large-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">

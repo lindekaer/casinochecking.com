@@ -2047,7 +2047,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .bg-sidebar { background: #2d2d2d; }
 
-.overlay:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #0a0a0a; opacity: 0.5; z-index: 0; }
+.overlay:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #0a0a0a; opacity: 0.5; z-index: 0; height: 100vw; }
 
 .comparison-section { padding-bottom: 80px; }
 
