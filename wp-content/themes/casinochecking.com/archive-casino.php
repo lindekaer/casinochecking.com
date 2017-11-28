@@ -92,24 +92,26 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						</div>
 						<div class="loaded-posts" data-count="<?php echo $wp_query->found_posts;?>">
 							<?php if (have_posts()) : ?>
-							<div class="small-12 columns ">
-								<?php while (have_posts()) : the_post(); ?>
-									<?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-								<?php endwhile; ?>
+								<div class="small-12 columns ">
+									<?php $i=1; ?>
+									<?php while (have_posts()) : the_post(); ?>
+										<?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
+										<?php $i++; ?>
+									<?php endwhile; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+						<div class="load-more">
+							<div class="load-wrapper">
+								<div class="loader">
+								</div></div>
 							</div>
-						<?php endif; ?>
-					</div>
-					<div class="load-more">
-						<div class="load-wrapper">
-							<div class="loader">
-							</div></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
 <?php
 get_footer();

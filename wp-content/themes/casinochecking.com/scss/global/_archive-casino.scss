@@ -168,6 +168,30 @@ section {
   }
 }
 
+
+.first {
+  position: absolute;
+  top: 12px;
+  margin-left: -20px;
+  padding: 2px;
+  width: 50px;
+  background: $slider-red;
+  text-indent: 20px;
+  box-shadow: 1px 1px 2px #000;
+  color: $white;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 101%;
+    border-right: 19px solid $srib;
+    border-bottom: 10px solid transparent;
+  }
+}
+
 .padding-bottom {
  padding-bottom: 15px;
 }
@@ -188,6 +212,7 @@ section {
 .casino-wrapper {
   cursor: pointer;
   background: $white;
+  position: relative;
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 15px;
@@ -234,6 +259,7 @@ section {
     img {
       padding-top: 8px;
       width: 16%;
+      max-width: 20px;
       height: auto;
     }
   }

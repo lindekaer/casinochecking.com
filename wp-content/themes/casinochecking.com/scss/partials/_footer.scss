@@ -45,6 +45,15 @@ footer {
        color: $medium-gray;
     }
 
+    .extra-info {
+      display: none;
+      padding-top: 10px;
+    }
+
+    .red-color {
+      color: $slider-red;
+    }
+
     .footer-score {
       img {
         width: 12px;
@@ -54,6 +63,11 @@ footer {
         display: inline-block;
         padding-left: 2px;
       }
+    }
+
+    h5 {
+      color: $medium-gray;
+      font-size: 14px;
     }
 
     p {

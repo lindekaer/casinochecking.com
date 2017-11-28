@@ -30,6 +30,10 @@ function initDom() {
         $("#menu-mobile-menu li a[href*='" + path + "']").addClass("current-page");
     });
 
+    $('#mobile-footer').click(function(){
+        $('.extra-info').slideToggle();
+    });
+
     $('.filter-bonus, .filter-deposit, .filter-score').click(function(){
         $('.filter').removeClass('active-sort');
         $(this).addClass('active-sort');

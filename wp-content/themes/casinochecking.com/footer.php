@@ -57,22 +57,22 @@
 <div class="row show-for-medium-down hide-for-large" id="mobile-footer">
     <?php
     $selectedCasinoID = get_field('choose_selected_casino', 'options')->ID;
-
-    $args_user_votes = array(
+    // get_the_ID()
+    $args = array(
         'post_type'      => 'casino',
-        'p'               => $selectedCasinoID
+        'p'               => $selectedCasinoID 
     );
 
     ?>
     <div class="small-12 columns">
         <?php 
-        $the_query_user_votes = new WP_Query( $args_user_votes );
-        if($the_query_user_votes->have_posts()) {
-           while( $the_query_user_votes->have_posts() ) : $the_query_user_votes->the_post(); ?>
-           <div class="row">
-               <div class="footer-casino-name small-6 columns text-center">
+        $the_query = new WP_Query( $args );
+        if($the_query->have_posts()) {
+         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+         <div class="row">
+             <div class="footer-casino-name small-6 columns text-center">
                 <div class="footer-name">
-                    <p><?php echo the_field('name'); ?></p>
+                    <p><span class="red-color">Popular:</span> <?php echo the_field('name'); ?></p>
                 </div>
                 <div class="footer-score">
                     <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
@@ -81,6 +81,22 @@
             </div>
             <div class="get-bonus small-6 columns align-middle">
                 <a target="_blank" href="<?php the_field('deep_url') ?>" class="button footer-page-button">Get Bonus</a>
+            </div>
+        </div>
+        <div class="extra-info">
+            <div class="row">
+                <div class="small-6 columns">
+                    <div class="footer-bonus text-center">
+                        <p>SIGN-UP BONUS</p>
+                        <h5><?php the_field('signup_bonus'); ?>$</h5>
+                    </div>
+                </div>
+                <div class="small-6 columns">
+                    <div class="footer-deposit text-center">
+                        <p>MINIMUM DEPOSIT</p>
+                        <h5><?php the_field('minimum_deposit'); ?>$</h5>
+                    </div>
+                </div>
             </div>
         </div>
     <?php endwhile; 
