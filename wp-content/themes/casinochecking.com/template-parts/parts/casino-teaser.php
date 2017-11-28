@@ -36,7 +36,7 @@
 					</div>
 					<div class="small-6 columns">
 						<p><span class="hide-for-small-only">Our </span>score</p>
-						<h4><?php echo $ourScore; ?></h4>
+						<h4><?php echo $ourScore; ?>/10</h4>
 					</div>
 				</div>
 			</div>
