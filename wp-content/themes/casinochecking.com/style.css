@@ -1973,6 +1973,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
 
+.align-middle { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+
 section.bg-img.content-casino { height: 100vw; }
 
 @media screen and (min-width: 64em) { .minus-content-sidebar { position: relative; margin-top: -75vw; } }
@@ -2269,8 +2271,14 @@ footer #desktop-footer .icon-footer { text-align: center; padding-bottom: 10px; 
 
 footer #desktop-footer .icon-footer img { height: 40px; width: auto; }
 
-footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; z-index: 1; }
+footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; z-index: 1; padding-top: 10px; padding-bottom: 10px; }
 
-footer #mobile-footer p { color: #eee; font-size: 10px; text-transform: uppercase; }
+footer #mobile-footer .footer-page-button { width: 100%; background: transparent; border: 1px solid #505050; color: #cacaca; }
+
+footer #mobile-footer .footer-score img { width: 12px; height: auto; }
+
+footer #mobile-footer .footer-score p { display: inline-block; padding-left: 2px; }
+
+footer #mobile-footer p { color: #cacaca; font-size: 12px; text-transform: uppercase; }
 
 /*# sourceMappingURL=maps/style.css.map */

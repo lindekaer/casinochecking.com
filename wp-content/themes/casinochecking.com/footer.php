@@ -55,23 +55,39 @@
 
 
 <div class="row show-for-medium-down hide-for-large" id="mobile-footer">
-    <?php if( have_rows('footer_repeater', 'options') ):
-    while ( have_rows('footer_repeater', 'options') ) : the_row();
-        $name = get_sub_field('footer_name', 'options');
-        $link = get_sub_field('footer_link', 'options');
-        $icon = get_sub_field('footer_icon', 'options'); ?>
-        <div class="small-3 footer-section">
-            <a href="<?php echo $link; ?>">
-                <div class="icon">
-                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt'] ?>" />
+    <?php
+    $selectedCasinoID = get_field('choose_selected_casino', 'options')->ID;
+
+    $args_user_votes = array(
+        'post_type'      => 'casino',
+        'p'               => $selectedCasinoID
+    );
+
+    ?>
+    <div class="small-12 columns">
+        <?php 
+        $the_query_user_votes = new WP_Query( $args_user_votes );
+        if($the_query_user_votes->have_posts()) {
+           while( $the_query_user_votes->have_posts() ) : $the_query_user_votes->the_post(); ?>
+           <div class="row">
+               <div class="footer-casino-name small-6 columns text-center">
+                <div class="footer-name">
+                    <p><?php echo the_field('name'); ?></p>
                 </div>
-                <div class="footer-text">
-                    <p>  <?php echo $name; ?></p>
+                <div class="footer-score">
+                    <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
+                    <p class="align-middle"><?php echo the_field('our_score'); ?>/10</p>
                 </div>
-            </a>
+            </div>
+            <div class="get-bonus small-6 columns align-middle">
+                <a target="_blank" href="<?php the_field('deep_url') ?>" class="button footer-page-button">Get Bonus</a>
+            </div>
         </div>
-    <?php  endwhile;
-    endif; ?>
+    <?php endwhile; 
+}
+wp_reset_query();
+?>
+</div>
 </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
