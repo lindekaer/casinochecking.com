@@ -1981,7 +1981,11 @@ section.bg-img.content-casino { height: 100vw; }
 
 @media screen and (min-width: 40em) { .casino .casino-info-wrapper { margin-top: 30px; } }
 
+@media screen and (max-width: 63.9375em) { article.type-casino, article.type-blog { padding-bottom: 15px; } }
+
 article .minus-margin { margin-top: 20rem; }
+
+article.type-blog .casino-info-wrapper { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
 article .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
 
