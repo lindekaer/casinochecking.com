@@ -1927,7 +1927,7 @@ section .no-border { border: 0 !important; }
 
 @media screen and (max-width: 63.9375em) { section .headline-casino-h4 { text-align: center; font-size: 1.5rem; padding-bottom: 10px; } }
 
-section .first { position: absolute; top: 12px; margin-left: -20px; padding: 2px; width: 35px; background: #e65352; text-indent: 11px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+section .first { position: absolute; top: 12px; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
 
 section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; }
 
@@ -2133,7 +2133,9 @@ header.site-header .site-navigation a { color: #ffffff; font-size: 22px; text-tr
 
 header.site-header #menu-right { text-align: right; }
 
-header.site-header #menu-mobile-header { width: 100%; text-align: center; display: block; display: none; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; lisst-style-type: none; }
+header.site-header.is-active #menu-mobile-header { display: block; }
+
+header.site-header #menu-mobile-header { width: 100%; text-align: center; display: none; margin: 0px; text-transform: uppercase; padding: 100px 20px 100px; perspective: 1000px; lisst-style-type: none; }
 
 header.site-header #menu-mobile-header li a { font-size: 2rem; color: #eee; }
 
@@ -2143,29 +2145,31 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .is-active .menu-mobile-header-container { opacity: 0.96 !important; visibility: visible !important; transition: opacity .3s ease, visibility 0s ease !important; }
 
+.mobile-row { position: relative; }
+
 .mobile-row .nine { width: 74.6%; }
+
+.mobile-row .hamburger { position: absolute; top: 49%; z-index: 100; right: 10%; }
 
 .mobile-row .three { box-sizing: border-box; text-align: right; }
 
-.mobile-row .hamburger .line { width: 40px; height: 4px; background-color: #ffffff; display: block; margin-top: 6px; margin-left: auto; transition: all 0.3s ease-in-out; }
+.mobile-row #nav-toggle { cursor: pointer; }
 
-.mobile-row .hamburger .line:hover { cursor: pointer; }
+.mobile-row #nav-toggle span, .mobile-row #nav-toggle span:before, .mobile-row #nav-toggle span:after { cursor: pointer; border-radius: 1px; height: 3px; width: 30px; background: white; position: absolute; display: block; content: ''; }
 
-.is-active .mobile-row .hamburger .line { background-color: #eee; }
+.mobile-row #nav-toggle span:before { top: -8px; }
 
-.mobile-row #hamburger-9 { position: relative; transition: all 0.3s ease-in-out; }
+.mobile-row #nav-toggle span:after { bottom: -8px; }
 
-.mobile-row #hamburger-9.is-active { -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.mobile-row #nav-toggle span, .mobile-row #nav-toggle span:before, .mobile-row #nav-toggle span:after { transition: all 500ms ease-in-out; }
 
-.mobile-row #hamburger-9.is-active:before { border: 3px solid #eee; }
+.mobile-row #nav-toggle.active span { background-color: transparent; }
 
-.mobile-row #hamburger-9.is-active .line { width: 30px; }
+.mobile-row #nav-toggle.active span:before, .mobile-row #nav-toggle.active span:after { top: 0; }
 
-.mobile-row #hamburger-9.is-active .line:nth-child(2) { opacity: 0; }
+.mobile-row #nav-toggle.active span:before { -ms-transform: rotate(45deg); transform: rotate(45deg); }
 
-.mobile-row #hamburger-9.is-active .line:nth-child(1) { -ms-transform: translateY(8px); transform: translateY(8px); }
-
-.mobile-row #hamburger-9.is-active .line:nth-child(3) { -ms-transform: translateY(-13px) rotate(90deg); transform: translateY(-13px) rotate(90deg); }
+.mobile-row #nav-toggle.active span:after { -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
 
 .wrapper-casino-comparison { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 

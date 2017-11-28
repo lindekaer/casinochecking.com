@@ -42,17 +42,11 @@
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>
                     </div>
-                    <div class="small-4 medium-3 medium-offset-7 columns">
-                        <div class="three col">
-                            <div class="hamburger" id="hamburger-9">
-                                <span class="line"></span>
-                                <span class="line"></span>
-                                <span class="line"></span>
-                            </div>
-                        </div>
+                    <div class="hamburger">
+                        <a id="nav-toggle" href="#"><span></span></a>
                     </div>
                 </div>
             </div>
-            <?php wp_nav_menu(array('theme_location' => 'mobile-header')); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
         </header><!-- #masthead -->
         <div id="content" class="site-content">

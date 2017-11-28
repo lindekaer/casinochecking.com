@@ -234,7 +234,7 @@ if (!function_exists('checkmate_setup')) :
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
             'desktop-menu' => esc_html__('Desktop - Header', 'checkmate'),
-            'mobile-header' => esc_html__('Mobile Header', 'checkmate'),
+            'mobile-header' => esc_html__('mobile-header', 'checkmate'),
         ));
 
         /*

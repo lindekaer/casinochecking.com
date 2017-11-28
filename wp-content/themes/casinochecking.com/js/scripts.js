@@ -34,6 +34,10 @@ function initDom() {
         $('.extra-info').slideToggle();
     });
 
+    $('.menu-mobile-header-container').click(function(){
+        $('.hamburger').trigger('click');
+    })
+
     $('.filter-bonus, .filter-deposit, .filter-score').click(function(){
         $('.filter').removeClass('active-sort');
         $(this).addClass('active-sort');
@@ -41,8 +45,8 @@ function initDom() {
 
     showDescCasino();
 
-    $('.menu-mobile-header-container').click(function () {
-        $('.hamburger').trigger('click');
+    $('#nav-toggle').click(function () {
+        $(this).toggleClass('active');
     });
 
     $(window).scroll(function(){
