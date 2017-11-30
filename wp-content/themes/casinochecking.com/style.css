@@ -2223,7 +2223,7 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .casino-sidebar .filter-inner-wrapper .ui-widget.ui-widget-content { border: 0; }
 
-.casino-sidebar .filter-inner-wrapper .ui-state-default, .casino-sidebar .filter-inner-wrapper .ui-widget-content .ui-state-default, .casino-sidebar .filter-inner-wrapper .ui-widget-header .ui-state-default, .casino-sidebar .filter-inner-wrapper .ui-button, .casino-sidebar .filter-inner-wrapper html .ui-button.ui-state-disabled:hover, .casino-sidebar .filter-inner-wrapper html .ui-button.ui-state-disabled:active { border: 1px solid #ffffff; background: #e65352; }
+.casino-sidebar .filter-inner-wrapper .ui-state-default, .casino-sidebar .filter-inner-wrapper .ui-widget-content .ui-state-default, .casino-sidebar .filter-inner-wrapper .ui-widget-header .ui-state-default, .casino-sidebar .filter-inner-wrapper .ui-button, .casino-sidebar .filter-inner-wrapper html .ui-button.ui-state-disabled:hover, .casino-sidebar .filter-inner-wrapper html .ui-button.ui-state-disabled:active { border: 1px solid #cacaca; background: #e65352; }
 
 .casino-sidebar .filter-inner-wrapper .ui-slider-horizontal { height: 4px; background: #4c4c4c; }
 
@@ -2249,9 +2249,9 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .search-ajax { text-align: center; }
 
-.search-ajax .button { background-color: #e65352; color: #ffffff; padding: 15px 30px; }
+.search-ajax .button { background-color: #e65352; color: #eee; padding: 15px 30px; }
 
-.search-ajax .button:hover { color: #ffffff; opacity: 0.9; }
+.search-ajax .button:hover { color: #eee; opacity: 0.9; }
 
 /*PARTS*/
 .button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin: 0; font-weight: 600; cursor: pointer; }

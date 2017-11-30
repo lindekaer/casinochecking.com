@@ -117,7 +117,7 @@
     }
 
     .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-      border: 1px solid $white;
+      border: 1px solid $medium-gray;
       background: $slider-red;
     }
 
@@ -211,11 +211,11 @@
     text-align: center;
     .button {
       background-color: $slider-red;
-      color: $white;
+      color: #eee;
       padding: 15px 30px;
 
       &:hover {
-        color: $white;
+        color: #eee;
         opacity: 0.9;
       }
     }
