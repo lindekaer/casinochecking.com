@@ -42,7 +42,7 @@ $imageSizeLong = 'logo-casino-archive';
                                 <div class="row padding-casino casino-info-wrapper">
                                     <div class="small-3">
                                         <p><span class="hide-for-small-only">Signup </span>bonus</p>
-                                        <h4 class="number"><?php echo $signUpBonus ?>$</h4>
+                                        <h4 class="number"><?php echo $signUpBonus ?>%</h4>
                                     </div>
                                     <div class="small-3">
                                         <p>Deposit</p>

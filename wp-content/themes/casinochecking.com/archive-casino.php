@@ -79,9 +79,9 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						<div class="small-12 large-5 columns align-right">
 							<div class="filter-wrapper">
 								<p>SORT BY: </p>
-								<p class="filter-bonus filter active-sort" data-filter="signup_bonus">Bonus</p>
+								<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
+								<p class="filter-bonus filter " data-filter="signup_bonus">Bonus</p>
 								<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
-								<p class="filter-score filter" data-filter="our_score">Score</p>
 							</div>
 						</div>
 					</div>
@@ -90,11 +90,23 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 							<div class="loader">
 							</div></div>
 						</div>
-						<div class="loaded-posts" data-count="<?php echo $wp_query->found_posts;?>">
-							<?php if (have_posts()) : ?>
+						<?php  				
+						$args = array(
+							'numberposts'   => -1,
+							'post_type'     => 'casino',
+							'post_status' => 'publish',
+							'meta_key' => 'our_score',
+							'orderby' => 'meta_value_num',
+							'order' => 'DESC',
+						);
+
+						$the_query = new WP_Query( $args );
+						?>
+						<div class="loaded-posts" data-count="<?php echo $the_query->found_posts;?>">
+							<?php if ($the_query->have_posts()) : ?>
 								<div class="small-12 columns ">
 									<?php $i=1; ?>
-									<?php while (have_posts()) : the_post(); ?>
+									<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 										<?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
 										<?php $i++; ?>
 									<?php endwhile; ?>

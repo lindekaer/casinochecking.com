@@ -33,14 +33,19 @@ function filter_casino() {
         'numberposts'   => -1,
         'post_type'     => 'casino',
         'post_status' => 'publish',
-        'orderby' => 'signup_bonus',
+        'meta_key' => 'our_score',
+        'orderby' => 'meta_value_num',
         'order' => 'DESC',
         'posts_per_page' => $filterArr['posts_per_page']
     );
 
     if($filterArr['sort-active']) {
         $sortType = $filterArr['sort-active'];
-        $args['orderby'] = $sortType;
+
+        if($sortType == 'minimum_deposit') {
+            $args['order'] = 'ASC';
+        }
+        $args['meta_key'] = $sortType;
     }
      //Bonus
     $min_signup_bonus = $_POST['min_signup-bonus'];
@@ -123,21 +128,22 @@ function filter_casino() {
     $args['meta_query'][] = $query_vars_score;
 
     $the_query = new WP_Query( $args );
-
     $count = $the_query->found_posts;
-  //  echo $count;
 
     if($filterArr['posts_per_page'] <= 11111){
         if($the_query->have_posts()) {
-            while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-            <div class="small-12 columns">
-                <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-            </div>
-        <?php endwhile;
-    }
-    else {
-        echo '<h2>No results.. please adjust your criterias.</h2>';
-    }
+         $i = 1; 
+         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+         <div class="small-12 columns">
+            <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
+        </div>
+        <?php 
+        $i++; 
+    endwhile;
+}
+else {
+    echo '<h2>No results.. please adjust your criterias.</h2>';
+}
 }
 else {
     echo '<h6>All results are already shown</h6>';
@@ -145,26 +151,6 @@ else {
 wp_reset_query();
 die();
 }
-
-add_action("pre_get_posts", "custom_front_page");
-function custom_front_page($wp_query)
-{
-    if (is_admin()) {
-        return;
-    }
-
-    if ($wp_query->get('page_id') == get_option('page_on_front')):
-
-        $wp_query->set('post_type', 'casino');
-        $wp_query->set('page_id', ''); 
-
-        $wp_query->is_page = 0;
-        $wp_query->is_singular = 0;
-        $wp_query->is_post_type_archive = 1;
-        $wp_query->is_archive = 1;
-    endif;
-}
-
 
 if (function_exists('acf_add_options_page')) {
 
@@ -414,15 +400,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
-}
-
-add_action( 'pre_get_posts', 'my_change_sort_order'); 
-function my_change_sort_order($query){
-    if(is_archive()):
-     $query->set( 'orderby', 'signup_bonus' );
-     $query->set( 'order', 'ASC' );
- endif;    
-};    
+} 
 
 //Image crop
 add_image_size( 'logo-casino-content', 400, 400, true ); 

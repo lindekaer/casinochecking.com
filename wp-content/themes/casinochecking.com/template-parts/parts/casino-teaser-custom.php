@@ -7,7 +7,7 @@
 	$userVotes = get_field('user_votes');
 	$signUpBonus = get_field('signup_bonus');
 	$minimumDeposit = get_field('minimum_deposit'); ?>
-												<p class="first"><?php echo $i; ?></p>
+	<p class="first"><?php echo $i; ?></p>
 
 	<div class="small-6 columns border-right my-align-center">
 		<div style="width: 100%;">
@@ -18,11 +18,11 @@
 				<div class="row">
 					<div class="small-6">
 						<p><span class="hide-for-small-only">Signup </span>Bonus</p>
-						<h4><?php echo $signUpBonus; ?>$</h4>
+						<h4><?php echo $signUpBonus; ?>%</h4>
 					</div>
 					<div class="small-6">
 						<p><span class="hide-for-small-only">Minimum </span>Deposit</p>
-						<h4><?php echo $minimumDeposit; ?>$</h4>
+						<h4><?php echo $minimumDeposit; ?>£</h4>
 					</div>
 				</div>
 			</div>

@@ -18,8 +18,9 @@
  					'numberposts'   => -1,
  					'post_type'     => 'casino',
  					'post_status' => 'publish',
- 					'orderby' => 'our_score',
- 					'order' => 'ASC',
+ 					'meta_key' => 'our_score',
+ 					'orderby' => 'meta_value_num',
+ 					'order' => 'DESC',
  				);
 
  				$the_query = new WP_Query( $args );
@@ -63,10 +64,9 @@
  						'posts_per_page' => -1, 
  						'offset'         => 0,    
  						'post_type'      => 'casino',
- 						'meta_key'       => (int)'user_votes',
- 						'orderby' => array(
- 							'user_votes' => 'ASC'
- 						)
+ 						'meta_key' => 'user_votes',
+ 						'orderby' => 'meta_value_num',
+ 						'order' => 'DESC',
  					);
 
  					$the_query_user_votes = new WP_Query( $args_user_votes );
