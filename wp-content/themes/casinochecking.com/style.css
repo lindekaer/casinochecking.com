@@ -1891,10 +1891,6 @@ section .blog-name { display: inline-block; margin-left: 10px; padding-bottom: 0
 
 section .active-sort { font-weight: 800; }
 
-section .reset-filter p { cursor: pointer; text-transform: uppercase; text-align: center; font-size: 12px; padding-top: 15px; }
-
-section .reset-filter p:hover { text-decoration: underline; }
-
 section .no-borders { border-bottom: 0 !important; }
 
 section .filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
@@ -2211,6 +2207,10 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .favorites .padding-sidebar-bottom { padding-bottom: 20px; }
 
+.casino-sidebar .reset-filter p { cursor: pointer; text-transform: uppercase; text-align: center; font-size: 12px; padding-top: 12px; }
+
+.casino-sidebar .reset-filter p:hover { text-decoration: underline; }
+
 .casino-sidebar .filter-inner-wrapper:first-child { padding-top: 0; }
 
 .casino-sidebar .headline-casino-h4 { color: #cacaca; margin-left: -10px; }
@@ -2249,7 +2249,7 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .search-ajax { text-align: center; }
 
-.search-ajax .button { background-color: #e65352; color: #eee; padding: 15px 30px; }
+.search-ajax .button { background-color: transparent; color: #cacaca; padding: 10px 30px; font-weight: 500; border: 1px solid #cacaca; }
 
 .search-ajax .button:hover { color: #eee; opacity: 0.9; }
 

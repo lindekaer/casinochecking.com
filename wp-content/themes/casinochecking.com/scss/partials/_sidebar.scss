@@ -16,11 +16,11 @@
 	}
 
   .large-disable-padding {
-  @include breakpoint(large up) {
-    padding-right: 0;
-    padding-left: 0;
+    @include breakpoint(large up) {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
-}
 }
 .favorites {
   &.padding-top-sidebar {
@@ -88,6 +88,19 @@
 
 
 .casino-sidebar {
+  .reset-filter {
+    p {
+      cursor: pointer;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 12px;
+      padding-top: 12px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
   .filter-inner-wrapper:first-child {
     padding-top: 0;
   }
@@ -210,9 +223,11 @@
   .search-ajax {
     text-align: center;
     .button {
-      background-color: $slider-red;
-      color: #eee;
-      padding: 15px 30px;
+      background-color: transparent;
+      color: $medium-gray;
+      padding: 10px 30px;
+      font-weight: 500;
+      border: 1px solid $medium-gray;
 
       &:hover {
         color: #eee;
