@@ -37,7 +37,7 @@
             </div>
             <div class="container bg-black height">
                 <div class="row show-for-medium-down hide-for-large mobile-row flex-header">
-                    <div class="mobile-logo small-8 medium-2 columns">
+                    <div class="mobile-logo small-8 medium-4 large-2 columns">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>

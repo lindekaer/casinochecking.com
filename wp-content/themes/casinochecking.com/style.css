@@ -2129,7 +2129,7 @@ header.site-header .site-navigation ul { list-style: none; padding: 0; margin: 0
 
 header.site-header .site-navigation li { display: inline-block; margin: 0 3%; }
 
-header.site-header .site-navigation a { color: #ffffff; font-size: 22px; text-transform: uppercase; }
+header.site-header .site-navigation a { color: #ffffff; font-size: 18px; text-transform: uppercase; }
 
 header.site-header #menu-right { text-align: right; }
 
