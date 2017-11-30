@@ -2117,7 +2117,7 @@ header.site-header .height { height: 100%; }
 
 header.site-header .flex-header { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; height: 100%; }
 
-header.site-header li a.current-page { color: #f81c1e; }
+header.site-header li a.current-page { color: #e65352 !important; }
 
 header.site-header .float-center { display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; }
 

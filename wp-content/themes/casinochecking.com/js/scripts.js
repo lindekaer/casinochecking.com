@@ -23,11 +23,10 @@ function showDescCasino() {
 
 function initDom() {
     $(".hamburger").click(function () {
-        $(this).toggleClass("is-active");
         $('header').toggleClass("is-active");
-        $('#menu-mobile-menu li').toggleClass('show-menu');
+       // $('#menu-mobile-menu li').toggleClass('show-menu');
         var path = window.location.pathname;
-        $("#menu-mobile-menu li a[href*='" + path + "']").addClass("current-page");
+        $("#menu-mobile-header li a[href*='" + path + "']").addClass("current-page");
     });
 
     $('#mobile-footer').click(function(){
