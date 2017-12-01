@@ -168,9 +168,9 @@ function filter_casino() {
     $args['meta_query'][] = $query_vars_score;
 
 
- //   echo '<pre>';
- //   print_r($args);
- //   echo '</pre>';
+    echo '<pre>';
+    print_r($args);
+    echo '</pre>';
 
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
