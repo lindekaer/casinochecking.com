@@ -29,15 +29,15 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					</div>
 					<div class="filter-inner-wrapper">
 						<?php
-						$countries = get_field('available_countries');
+						$countries_available = get_field('available_countries');
 						echo '<pre>';
-						print_r($countries);
+						print_r($countries_available);
 						echo '</pre>';
-						if( $countries ): ?>
+						if( $countries_available ): ?>
 						<p>Country</p>
 						<select id="countrySelect">
-							<?php foreach( $countries as $country): ?>
-								<option value="<?php echo $country['value']; ?>"><?php echo $country['label']; ?></option>
+							<?php foreach( $countries_available as $country_available): ?>
+								<option value="<?php echo $country_available['value']; ?>"><?php echo $country_available['label']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					<?php endif; ?>
