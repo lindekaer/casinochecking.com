@@ -18,9 +18,7 @@ $imageSize = 'logo-casino-content';
 $sectionBg = get_field('section_bg');
 $activateOverlay = get_field('activate_overlay');
 $imageLong = get_field('image');
-$imageSizeLong = 'logo-casino-archive';
-echo the_field('available_countries');
-?>
+$imageSizeLong = 'logo-casino-archive'; ?>
 <section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
 </section>
 <article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index bg-dark-gray'); ?>>

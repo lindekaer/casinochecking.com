@@ -223,6 +223,8 @@ function start() {
                 data[`min_${type}`] = metric.min
                 data[`max_${type}`] = metric.max
             })
+            data['country'] = $('body').attr('data-user-country')
+
             ajax(data);
             instantiateSlider()
             $('.filter').removeClass('active-sort');
@@ -237,7 +239,7 @@ function start() {
         action: 'filter_casino',        
     }
 
-    data['country'] = $('body').attr('data-user-country');
+    data['country'] = $('#countrySelect').val();
     console.log(data['country'])
 
     $('.load-casino').addClass('loading-posts');   
