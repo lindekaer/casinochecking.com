@@ -79,12 +79,6 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						<div class="small-12 large-5 columns align-right">
 							<div class="filter-wrapper">
 								<p>Currency</p>
-								<?php 
-								$field = get_field('currency');
-								foreach ($field as $value){
-									echo $value;
-								}
-								?>
 								<p>SORT BY: </p>
 								<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
 								<p class="filter-bonus filter " data-filter="signup_bonus">Bonus</p>
