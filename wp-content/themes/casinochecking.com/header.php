@@ -21,14 +21,10 @@
     <?php wp_head(); ?>  
 </head>
 <?php 
-
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $details = ip_details("$IPaddress");
-echo '<pre>';
-print_r($details);
-echo '</pre>';
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="<?php echo $details->country; ?>">
+<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if($details): echo $details->country; endif; ?>">
     <div id="page" class="site">
         <header id="masthead" class="site-header slide-down">
             <div class="container show-for-large height">

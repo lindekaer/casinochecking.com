@@ -9,16 +9,13 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+//Requests for user-country
 function ip_details($IPaddress) 
 {
     $json       = file_get_contents("http://ipinfo.io/{$IPaddress}");
     $details    = json_decode($json);
     return $details;
 }
-    //echo $details->city;   #Tamilnadu  
-    //echo $details->country;  
-    //echo $details->org;      
-    //echo $details->hostname; 
 
 add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query){
@@ -50,7 +47,8 @@ function filter_casino() {
         'filter_type_deposit' => 'filter_type_deposit', 
         'filter_type_signup-bonus' => 'filter_type_signup-bonus',
         'sort-active' => 'active',
-        'posts_per_page' => 'posts_per_page'
+        'posts_per_page' => 'posts_per_page',
+        'country' => 'country'
     );
 
     //If filter is not set, then add null   
@@ -58,7 +56,7 @@ function filter_casino() {
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
-  //  var_dump($filterArr['posts_per_page']);
+    
 
     $args = array(
         'numberposts'   => -1,
@@ -78,6 +76,17 @@ function filter_casino() {
         }
         $args['meta_key'] = $sortType;
     }
+
+    //Available countries
+    $query_vars_country = array (
+        'relation' => 'AND', 
+        array ( 
+            'key' => 'available_countries', 
+            'value' => $filterArr['country'],
+            'compare' => 'LIKE'
+        )
+    ); 
+    $args['meta_query'][] = $query_vars_country;
      //Bonus
     $min_signup_bonus = $_POST['min_signup-bonus'];
     $max_signup_bonus = $_POST['max_signup-bonus'];
@@ -96,9 +105,9 @@ function filter_casino() {
             'type' => 'numeric'
         )
     );
-    $args['meta_query'] = $query_vars_signup_bonus;
+    $args['meta_query'][] = $query_vars_signup_bonus;
 
-        //Deposit
+    //Deposit
     $min_deposit = $_POST['min_deposit'];
     $max_deposit = $_POST['max_deposit'];
     $query_vars_deposit = array(
@@ -118,7 +127,7 @@ function filter_casino() {
     );
     $args['meta_query'][] = $query_vars_deposit;
 
-        //Votes
+    //Votes
     $min_votes = $_POST['min_votes'];
     $max_votes = $_POST['max_votes'];
     $query_vars_votes = array(
@@ -158,6 +167,11 @@ function filter_casino() {
     );
     $args['meta_query'][] = $query_vars_score;
 
+
+    echo '<pre>';
+    print_r($args);
+    echo '</pre>';
+
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
 
@@ -173,7 +187,7 @@ function filter_casino() {
     endwhile;
 }
 else {
-    echo '<h2>No results.. please adjust your criterias.</h2>';
+    echo '<h4>No results. Please adjust your criterias.</h4>';
 }
 }
 else {
