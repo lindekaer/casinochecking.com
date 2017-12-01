@@ -30,6 +30,9 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					<div class="filter-inner-wrapper">
 						<?php
 						$countries = get_field('available_countries');
+						echo '<pre>';
+						print_r($countries);
+						echo '</pre>';
 						if( $countries ): ?>
 						<p>Country</p>
 						<select id="countrySelect">

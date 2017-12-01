@@ -223,7 +223,9 @@ function start() {
                 data[`min_${type}`] = metric.min
                 data[`max_${type}`] = metric.max
             })
-            data['country'] = $('body').attr('data-user-country')
+            var usersCountry = $('body').attr('data-user-country');
+            data['country'] = usersCountry;
+            $('#countrySelect').val(usersCountry);
 
             ajax(data);
             instantiateSlider()
