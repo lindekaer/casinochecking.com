@@ -4,15 +4,15 @@ $(document).foundation();
 
 jQuery(function ($) {
     $(document).ready(() => {
-        initDom()
-        start()
-    })
-})
+        initDom();
+        start();
+    });
+});
 
 //Works, also after Ajax-call
 $( document ).ajaxStop(function() {
     showDescCasino();
-})
+});
 
 function showDescCasino() {
     $('.casino-wrapper').click(function () {
@@ -43,7 +43,7 @@ function initDom() {
 
     $('.menu-mobile-header-container').click(function(){
         $('.hamburger').trigger('click');
-    })
+    });
 
     $('.filter-bonus, .filter-deposit, .filter-score').click(function(){
         $('.filter').removeClass('active-sort');
@@ -97,7 +97,7 @@ function infiniteScroll () {
            var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
-           console.log(totalPosts)
+           console.log(totalPosts);
            if (docHeight - windowHeight - footerHeight - sectionPaddingBottom <= $(window).scrollTop() + headerHeight) {
             //Sends ajax if there are more total posts than shownPosts
             if(totalPosts >= shownPosts) {
@@ -109,18 +109,18 @@ function infiniteScroll () {
                     }
 
                     Object.keys(metrics).forEach(type => {
-                        const metric = metrics[type]
-                        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
-                        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
+                        const metric = metrics[type];
+                        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 );
+                        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 );
                         metric.filterType = elements[type].attr('data-filter-type');
-                        console.log(metrics[type]['currentMin'])
+                        console.log(metrics[type]['currentMin']);
                     });
 
                     Object.keys(metrics).forEach(type => {
-                        const metric = metrics[type]
-                        data[`filter_type_${type}`] = metric.filterType
-                        data[`min_${type}`] = metric.currentMin
-                        data[`max_${type}`] = metric.currentMax
+                        const metric = metrics[type];
+                        data[`filter_type_${type}`] = metric.filterType;
+                        data[`min_${type}`] = metric.currentMin;
+                        data[`max_${type}`] = metric.currentMax;
                     });
                     data['posts_per_page'] = shownPosts;
 
@@ -129,7 +129,7 @@ function infiniteScroll () {
             }
         } 
         else {
-            console.log('not the end')
+            console.log('not the end');
         }
     });
     }
@@ -164,7 +164,7 @@ function start() {
         filterDeposit: $('.filter-deposit'),
         filterBonus: $('.filter-bonus'),
         filterScore: $('.filter-score'),
-    }
+    };
 
     const metrics = {
         score: {
@@ -196,7 +196,7 @@ function start() {
     // Instantiate sliders for each metric
     function instantiateSlider() {
         Object.keys(metrics).forEach(type => {
-            const metric = metrics[type]
+            const metric = metrics[type];
             $(metric.sliderSelector).slider({
                 range: true,
                 min: metric.min,
@@ -206,29 +206,29 @@ function start() {
                     $(metric.displaySelector).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
                 }
             }); 
-            const displayString = `${$(metric.sliderSelector).slider( "values", 0 )} - ${$(metric.sliderSelector).slider( "values", 1 )}`
+            const displayString = `${$(metric.sliderSelector).slider( "values", 0 )} - ${$(metric.sliderSelector).slider( "values", 1 )}`;
             $(metric.displaySelector).val(displayString);
         });
     }
-    instantiateSlider()
+    instantiateSlider();
 
     function resetFilter() {
         $('.reset-filter').click(function(e){
             e.preventDefault();
             const data = {
                 action: 'filter_casino',        
-            }
+            };
             Object.keys(metrics).forEach(type => {
                 const metric = metrics[type]
-                data[`min_${type}`] = metric.min
-                data[`max_${type}`] = metric.max
-            })
+                data[`min_${type}`] = metric.min;
+                data[`max_${type}`] = metric.max;
+            });
             var usersCountry = $('body').attr('data-user-country');
             data['country'] = usersCountry;
             $('#countrySelect').val(usersCountry);
 
             ajax(data);
-            instantiateSlider()
+            instantiateSlider();
             $('.filter').removeClass('active-sort');
             $('.filter-bonus').addClass('active-sort');
         });
