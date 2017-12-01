@@ -28,6 +28,11 @@ section {
     position: relative;
   }
 
+  .up-to {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
   .blog-category {
     width: 1rem;
     text-align: center;
@@ -242,7 +247,7 @@ section {
 
     img {
       padding-top: 8px;
-      width: 16%;
+      width: 14%;
       max-width: 20px;
       height: auto;
     }

@@ -8,6 +8,24 @@ ini_set('display_errors', 1);
  *
  * @package checkmate
  */
+
+function ip_details($IPaddress) 
+{
+    $json       = file_get_contents("http://ipinfo.io/{$IPaddress}");
+    $details    = json_decode($json);
+    return $details;
+}
+
+$IPaddress  =   $_SERVER['REMOTE_ADDR'];
+$details    =   ip_details("$IPaddress");
+echo '<pre>';
+print_r($details);
+echo '</pre>';
+    //echo $details->city;   #Tamilnadu  
+    //echo $details->country;  
+    //echo $details->org;      
+    //echo $details->hostname; 
+
 add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query){
     //Ensure this filter isn't applied to the admin area
@@ -19,7 +37,7 @@ function custom_front_page($wp_query){
 
         $wp_query->set('post_type', 'casino');
         $wp_query->set('page_id', ''); 
-        
+
         $wp_query->is_page = 0;
         $wp_query->is_singular = 0;
         $wp_query->is_post_type_archive = 1;
@@ -151,9 +169,9 @@ function filter_casino() {
 
     if($filterArr['posts_per_page'] <= 11111){
         if($the_query->have_posts()) {
-         $i = 1; 
-         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-         <div class="small-12 columns">
+           $i = 1; 
+           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+           <div class="small-12 columns">
             <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
         </div>
         <?php 
