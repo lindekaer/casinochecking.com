@@ -15,12 +15,6 @@ function ip_details($IPaddress)
     $details    = json_decode($json);
     return $details;
 }
-
-$IPaddress = $_SERVER['REMOTE_ADDR'];
-$details = ip_details("$IPaddress");
-//echo '<pre>';
-//print_r($details);
-//echo '</pre>';
     //echo $details->city;   #Tamilnadu  
     //echo $details->country;  
     //echo $details->org;      

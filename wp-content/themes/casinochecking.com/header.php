@@ -18,9 +18,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400" rel="stylesheet">
-    <?php wp_head(); ?>
+    <?php wp_head(); ?>  
 </head>
-<body <?php body_class(); ?> id="fade-in">
+<?php 
+
+$IPaddress = $_SERVER['REMOTE_ADDR'];
+$details = ip_details("$IPaddress");
+echo '<pre>';
+print_r($details);
+echo '</pre>';
+?>
+<body <?php body_class(); ?> id="fade-in" data-user-country="<?php echo $details->country; ?>">
     <div id="page" class="site">
         <header id="masthead" class="site-header slide-down">
             <div class="container show-for-large height">
