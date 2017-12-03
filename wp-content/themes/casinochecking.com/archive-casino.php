@@ -85,22 +85,22 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 		<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">
 			<div class="container">
 				<div class="row align-middle padding-bottom">
-					<div class="small-12 large-7 columns">
+					<div class="small-12 large-6 columns">
 						<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
 					</div>
-					<div class="small-12 large-5 columns align-right filter-wrapper">
+					<div class="small-12 large-6 columns align-right filter-wrapper">
 						<div class="row">
-							<div class="small-12">
+							<div class="small-12 columns">
 								<div class="row">
 									<div class="small-4 small-offset-1">
 										<p>Currency</p>	
 									</div>
-									<div class="small-7">
+									<div class="small-7 columns">
 										<p>SORT BY</p>	
 									</div>
 								</div>
 							</div>
-							<div class="small-12">
+							<div class="small-12 columns">
 								<div class="row position-relative">
 									<div class="small-4 small-offset-1 position-relative">
 										<div class="selected-currency">
@@ -112,7 +112,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 											</select>
 										</div>
 									</div>
-									<div class="small-7">
+									<div class="small-7 columns">
 										<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
 										<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
 										<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
