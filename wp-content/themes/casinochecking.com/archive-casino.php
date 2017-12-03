@@ -30,9 +30,6 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					<div class="filter-inner-wrapper">
 						<?php
 						$countries_available = get_field('available_countries');
-						//echo '<pre>';
-						//print_r($countries_available);
-						//echo '</pre>';
 						if( $countries_available ): ?>
 						<p>Country</p>
 						<select id="countrySelect">
@@ -91,12 +88,40 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					<div class="small-12 large-7 columns">
 						<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
 					</div>
-					<div class="small-12 large-5 columns align-right">
-						<div class="filter-wrapper">
-							<p>SORT BY: </p>
-							<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
-							<p class="filter-bonus filter " data-filter="signup_bonus">Bonus</p>
-							<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
+					<div class="small-12 large-5 columns align-right filter-wrapper">
+						<div class="row">
+							<div class="small-12">
+								<div class="row">
+									<div class="small-4 small-offset-1">
+										<p>Currency</p>	
+									</div>
+									<div class="small-7">
+										<p>SORT BY</p>	
+									</div>
+								</div>
+							</div>
+							<div class="small-12">
+								<div class="row position-relative">
+									<div class="small-4 small-offset-1 position-relative">
+										<div class="selected-currency">
+											<select id="currencySelect">
+												<option value="USD" data-currency="$">USD ($)</option>
+												<option value="EUR" data-currency="€">EUR (€)</option>
+												<option value="GBP" data-currency="£">GBP (£)</option>
+												<option value="DKK" data-currency="DKK">DKK</option>
+											</select>
+										</div>
+									</div>
+									<div class="small-7">
+										<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
+										<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
+										<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="">
+
 						</div>
 					</div>
 				</div>

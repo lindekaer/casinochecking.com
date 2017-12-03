@@ -37,6 +37,84 @@ function custom_front_page($wp_query){
     endif;
 
 }
+
+add_action('wp_ajax_nopriv_currency_update', 'currency_update');
+add_action('wp_ajax_currency_update', 'currency_update');
+
+function currency_update() {
+    $previousCurrency = $_POST['previous'];
+    $afterCurrency = $_POST['after'];
+
+    //echo $previousCurrency . 'fromCurrency';
+    //echo $afterCurrency . 'toCurrency';
+
+    if ($previousCurrency == 'USD'){
+        if ($afterCurrency == 'USD') {
+            $currency = 1; 
+        }
+        if ($afterCurrency == 'EUR') {
+            $currency = 0.1; 
+        }
+        if ($afterCurrency == 'DKK') {
+            $currency = 0.2; 
+        }
+        if ($afterCurrency == 'GBP') {
+            $currency = 0.3; 
+        }
+    }
+
+    if ($previousCurrency == 'EUR'){
+        if ($afterCurrency == '1') {
+            $currency = 1; 
+        }
+        if ($afterCurrency == 'USD') {
+            $currency = 0.1; 
+        }
+        if ($afterCurrency == 'DKK') {
+            $currency = 0.2; 
+        }
+        if ($afterCurrency == 'GBP') {
+            $currency = 0.3; 
+        }
+    }
+
+    if ($previousCurrency == 'DKK'){
+                if ($afterCurrency == 'DKK') {
+            $currency = 1; 
+        }
+        if ($afterCurrency == 'EUR') {
+            $currency = 0.1; 
+        }
+        if ($afterCurrency == 'USD') {
+            $currency = 0.2; 
+        }
+        if ($afterCurrency == 'GBP') {
+            $currency = 0.3; 
+        }
+    }
+
+    if ($previousCurrency == 'GBP'){
+        if ($afterCurrency == 'GBP') {
+            $currency = 1; 
+        }        
+        if ($afterCurrency == 'EUR') {
+            $currency = 0.1; 
+        }
+        if ($afterCurrency == 'USD') {
+            $currency = 0.2; 
+        }
+        if ($afterCurrency == 'DKK') {
+            $currency = 0.3; 
+        }
+    }
+
+    echo $currency;
+    //echo $toCurrency;
+
+
+  //  echo $currency;
+}
+
 add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
 add_action('wp_ajax_filter_casino', 'filter_casino');
 
@@ -175,19 +253,23 @@ function filter_casino() {
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
 
-    if($filterArr['posts_per_page'] <= 11111){
-        if($the_query->have_posts()) {
-           $i = 1; 
-           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="small-12 columns">
-            <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
-        </div>
-        <?php 
-        $i++; 
-    endwhile;
+    if($filterArr['country'] == NULL) {
+       echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';   
+   }
+
+   else if($filterArr['posts_per_page'] <= 11111){
+    if($the_query->have_posts()) {
+     $i = 1; 
+     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+     <div class="small-12 columns">
+        <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
+    </div>
+    <?php 
+    $i++; 
+endwhile;
 }
 else {
-    echo '<h4>No results. Please adjust your criterias.</h4>';
+    echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';
 }
 }
 else {
@@ -195,6 +277,18 @@ else {
 }
 wp_reset_query();
 die();
+}
+
+function currencyConverter($currencyNumeric, $currencyType) {
+    $euro = 1;
+    $usdInEur = 0.840526842;
+    $dkkInEur = 0.134299379;
+    $poundInEur = 1.13239138;
+
+    if($currencyType == 'dollar')
+
+
+        return $currency; 
 }
 
 if (function_exists('acf_add_options_page')) {
@@ -222,6 +316,12 @@ if (function_exists('acf_add_options_page')) {
     acf_add_options_sub_page(array(
         'page_title' => 'Theme Footer Settings',
         'menu_title' => 'Footer',
+        'parent_slug' => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => 'Currency Settings',
+        'menu_title' => 'Currency',
         'parent_slug' => 'theme-general-settings',
     ));
 }

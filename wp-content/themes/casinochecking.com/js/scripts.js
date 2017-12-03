@@ -9,9 +9,23 @@ jQuery(function ($) {
     });
 });
 
-//Works, also after Ajax-call
 $( document ).ajaxStop(function() {
     showDescCasino();
+
+    //Not that beautiful. The purpose is to only run this on inital document-load. 
+
+    if(!$('#currencySelect').hasClass('run-one-time')) {
+
+        var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+        var chosenCurrency = $('#currencySelect').find(":selected").attr('data-currency');
+        $('.currency-type').text(chosenCurrencyVal)
+        $('.currency-type').attr('data-currency', chosenCurrency)
+
+        //Add class
+        $('#currencySelect').addClass('run-one-time')
+        console.log('skal helst kun vises en gang')
+    }
+
 });
 
 function showDescCasino() {
@@ -24,7 +38,50 @@ function showDescCasino() {
 function initDom() {
     $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
-    });    
+    });
+
+    var previous;
+
+    $('#currencySelect').on('focus', function() {
+        previous = this.value; 
+        //console.log('previous')
+       // console.log(fromCurrencyVal)
+   }).change(function(){
+        //First get the value from currency
+        console.log('before ' + previous)
+        var after = this.value;
+        console.log('after' + after)
+        $('.currency-type').attr('data-currency', after)
+
+        const data = {
+            action: 'currency_update',
+            previous: previous,
+            after: after,        
+        } 
+        currencyUpdate(data); 
+    });
+
+   function currencyUpdate(data){
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function(result) {
+            console.log(result);
+            var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+            $('.currency-type').text(chosenCurrencyVal)
+            $('.signup_numeric').each(function(index) {
+                var signup = $( this ).html();
+                var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(2);
+                $(this).text(calc);
+                console.log( calc );
+            });
+        },
+        error: function(errorThrown){
+         console.log(errorThrown);
+     }
+ });
+}
 
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
@@ -33,9 +90,9 @@ function initDom() {
     $(".hamburger").click(function () {
         $('header').toggleClass("is-active");
        // $('#menu-mobile-menu li').toggleClass('show-menu');
-       var path = window.location.pathname;
-       $("#menu-mobile-header li a[href*='" + path + "']").addClass("current-page");
-   });
+    /*   var path = window.location.pathname;
+    $("#menu-mobile-header li a[href*='" + path + "']").addClass("current-page"); */ 
+});
 
     $('#mobile-footer').click(function(){
         $('.extra-info').slideToggle();
@@ -152,7 +209,6 @@ function morePosts(data){
 }
 
 function start() {
-
     //Infinite scroll with ajax-calls
     infiniteScroll();
 
@@ -288,7 +344,13 @@ function start() {
                 $('.filter').removeClass('filter-active');
                 $('.load-casino').removeClass("loading-posts");
                 $('.loaded-posts').html(result);
-                console.log(result);
+
+                //Update the currency on each casino-post
+                var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+                var chosenCurrency = $('#currencySelect').find(":selected").val();
+                $('.currency-type').text(chosenCurrencyVal);
+                $('.currency-type').attr('data-currency', chosenCurrency);
+                //console.log(result);
             },
             error: function(errorThrown){
              console.log(errorThrown);

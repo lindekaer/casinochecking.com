@@ -22,11 +22,11 @@
 				<div class="row">
 					<div class="small-6">
 						<p><span class="hide-for-small-only">Signup </span>Bonus</p>
-						<h5 class="inline"><?php echo $signUpBonus; ?>%</h5><p class="inline up-to hide-for-small-only">up to</p><h5 class="inline hide-for-small-only"><?php echo $upToBonus; ?>$</h5>
+						<h5 class="inline"><?php echo $signUpBonus; ?>%</h5><p class="inline up-to hide-for-small-only">up to</p><h5 class="inline hide-for-small-only"><span class="signup_numeric"><?php echo $upToBonus; ?></span><span class="currency-type"></span></h5>
 						</div>
 						<div class="small-6">
 							<p><span class="hide-for-small-only">Minimum </span>Deposit</p>
-							<h5><?php echo $minimumDeposit; ?>$</h5>
+							<h5><?php echo $minimumDeposit; ?><span class="currency-type"></span></h5>
 						</div>
 					</div>
 				</div>
