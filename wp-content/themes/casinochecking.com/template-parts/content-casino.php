@@ -61,7 +61,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                         <div class="small-12">
                                             <a href="<?php echo $deepUrl; ?>" class="button content-page-button">Get Bonus</a>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
