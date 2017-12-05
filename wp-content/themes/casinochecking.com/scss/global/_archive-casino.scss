@@ -77,111 +77,103 @@ section {
   }
 
   #currencySelect{
-   -webkit-appearance: button;
-   border: 1px solid $medium-gray;
-   color: $dark-gray;
-   text-transform: uppercase;
-   font-size: 12px;
-   overflow: hidden;
-   padding: 4px 8px;
-   text-overflow: ellipsis;
-   white-space: nowrap;
-   width: 100%;
- }
-
- .selected-currency {
-   &:after { 
-    margin-left: 4px;
-    font-family: 'FontAwesome';
-    content: "\f107";
-    position: absolute;
-    top: 1px;
-    right: 8px;
-    color: $medium-gray;
+    -webkit-appearance: button;
+    border: 1px solid #cacaca;
+    color: $dark-gray;
+    text-transform: uppercase;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 4px 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 76px;
+    background-image: linear-gradient(45deg, transparent 50%, $dark-gray 50%), linear-gradient(135deg, $dark-gray 50%, transparent 50%);
+    background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 5px) calc(1em + -3px);
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
   }
-}
 
-.filter {
-  cursor: pointer;
-  display: inline-block;
-  &:hover {
-    font-weight: 800;
+  .filter {
+    cursor: pointer;
+    display: inline-block;
+    &:hover {
+      font-weight: 800;
+    }
   }
-}
 
-.load-wrapper {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 20;
-  background: #fefefe;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s ease, 0s .5s ease;
-}
-
-.loading-posts {
   .load-wrapper {
-    opacity: 0.9 !important;
-    visibility: visible !important;
-    transition: opacity .5s ease !important;
-  }
-}
-
-.loader {
-  font-size: 10px;
-  margin: 50px auto;
-  text-indent: -9999em;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: $slider-red;
-  background: linear-gradient(to right, $slider-red 10%, rgba(47, 75, 90, 0) 42%);
-  position: relative;
-  animation: load3 1s infinite ease-out;
-  -ms-transform: translatez(0);
-  transform: translatez(0);
-  &:after{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 20;
     background: #fefefe;
-    width: 75%;
-    height: 75%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease, 0s .5s ease;
+  }
+
+  .loading-posts {
+    .load-wrapper {
+      opacity: 0.9 !important;
+      visibility: visible !important;
+      transition: opacity .5s ease !important;
+    }
+  }
+
+  .loader {
+    font-size: 10px;
+    margin: 50px auto;
+    text-indent: -9999em;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    content: '';
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-  &:before {
-    width: 50%;
-    height: 50%;
     background: $slider-red;
-    border-radius: 100% 0 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
+    background: linear-gradient(to right, $slider-red 10%, rgba(47, 75, 90, 0) 42%);
+    position: relative;
+    animation: load3 1s infinite ease-out;
+    -ms-transform: translatez(0);
+    transform: translatez(0);
+    &:after{
+      background: #fefefe;
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      content: '';
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    &:before {
+      width: 50%;
+      height: 50%;
+      background: $slider-red;
+      border-radius: 100% 0 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+    }
   }
-}
 
-.no-border {
-  border: 0 !important;
-}
+  .no-border {
+    border: 0 !important;
+  }
 
-.headline-casino-h4 {
- @include breakpoint(large up) {
-  text-align: left;
-}
+  .headline-casino-h4 {
+   @include breakpoint(large up) {
+    text-align: left;
+  }
 
-@include breakpoint(medium down) {
-  text-align: center;
-  font-size: 1.5rem;
-  padding-bottom: 10px;
-}
+  @include breakpoint(medium down) {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+  }
 }
 
 

@@ -79,7 +79,7 @@ function currency_update() {
     }
 
     if ($previousCurrency == 'DKK'){
-                if ($afterCurrency == 'DKK') {
+        if ($afterCurrency == 'DKK') {
             $currency = 1; 
         }
         if ($afterCurrency == 'EUR') {
@@ -120,6 +120,7 @@ add_action('wp_ajax_filter_casino', 'filter_casino');
 
 function filter_casino() {
     $arrayPosts = Array(
+        'categories' => 'categories',
         'filter_type_score' => 'filter_type_score', 
         'filter_type_votes' => 'filter_type_votes', 
         'filter_type_deposit' => 'filter_type_deposit', 
@@ -134,7 +135,6 @@ function filter_casino() {
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
-    
 
     $args = array(
         'numberposts'   => -1,
@@ -146,6 +146,7 @@ function filter_casino() {
         'posts_per_page' => $filterArr['posts_per_page']
     );
 
+    //Checks if sort is chosen, and overwrites meta_key from $args
     if($filterArr['sort-active']) {
         $sortType = $filterArr['sort-active'];
 
@@ -155,103 +156,123 @@ function filter_casino() {
         $args['meta_key'] = $sortType;
     }
 
-    //Available countries
-    $query_vars_country = array (
-        'relation' => 'AND', 
-        array ( 
+    /*if($filterArr['categories']) {
+        $trimmed_array = array_map('trim',$filterArr['categories']);        
+        $query_vars_category = array ( 
+            'key' => 'categories_casino', 
+            'value' => $trimmed_array,
+            'compare' => 'IN'
+        ); 
+        $args['meta_query'][] = $query_vars_category;
+    }*/
+
+        //Available countries
+    if($filterArr['country']) {
+        $query_vars_country = array ( 
             'key' => 'available_countries', 
             'value' => $filterArr['country'],
             'compare' => 'LIKE'
-        )
-    ); 
-    $args['meta_query'][] = $query_vars_country;
+        ); 
+        $args['meta_query'][] = $query_vars_country;
+    }
+
+
      //Bonus
-    $min_signup_bonus = $_POST['min_signup-bonus'];
-    $max_signup_bonus = $_POST['max_signup-bonus'];
-    $query_vars_signup_bonus = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "signup_bonus",
-            'compare' => '>=',
-            'value' => intval($min_signup_bonus),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "signup_bonus",
-            'compare' => '<=',
-            'value' => intval($max_signup_bonus),
-            'type' => 'numeric'
-        )
-    );
-    $args['meta_query'][] = $query_vars_signup_bonus;
+    if ($filterArr['filter_type_signup-bonus']) {
+        $min_signup_bonus = $_POST['min_signup-bonus'];
+        $max_signup_bonus = $_POST['max_signup-bonus'];
+        $query_vars_signup_bonus = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "signup_bonus",
+                'compare' => '>=',
+                'value' => intval($min_signup_bonus),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "signup_bonus",
+                'compare' => '<=',
+                'value' => intval($max_signup_bonus),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_signup_bonus;
+    }
 
     //Deposit
-    $min_deposit = $_POST['min_deposit'];
-    $max_deposit = $_POST['max_deposit'];
-    $query_vars_deposit = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "minimum_deposit",
-            'compare' => '>=',
-            'value' => intval($min_deposit),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "minimum_deposit",
-            'compare' => '<=',
-            'value' => intval($max_deposit),
-            'type' => 'numeric'
-        )
-    );
-    $args['meta_query'][] = $query_vars_deposit;
+    if ($filterArr['filter_type_deposit']) {
+        $min_deposit = $_POST['min_deposit'];
+        $max_deposit = $_POST['max_deposit'];
+        $query_vars_deposit = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "minimum_deposit",
+                'compare' => '>=',
+                'value' => intval($min_deposit),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "minimum_deposit",
+                'compare' => '<=',
+                'value' => intval($max_deposit),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_deposit;
+    }
 
     //Votes
-    $min_votes = $_POST['min_votes'];
-    $max_votes = $_POST['max_votes'];
-    $query_vars_votes = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "user_votes",
-            'compare' => '>=',
-            'value' => intval($min_votes),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "user_votes",
-            'compare' => '<=',
-            'value' => intval($max_votes),
-            'type' => 'numeric'
-        )
-    );
-    $args['meta_query'][] = $query_vars_votes;
+    if ($filterArr['filter_type_votes']) {
+        $min_votes = $_POST['min_votes'];
+        $max_votes = $_POST['max_votes'];
+        $query_vars_votes = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "user_votes",
+                'compare' => '>=',
+                'value' => intval($min_votes),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "user_votes",
+                'compare' => '<=',
+                'value' => intval($max_votes),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_votes;
+    }
 
     //Score
-    $min_score = $_POST['min_score'];
-    $max_score = $_POST['max_score'];
-    $query_vars_score = array(
-        "relation" => 'AND', 
-        array(
-            "key" => "our_score",
-            'compare' => '>=',
-            'value' => intval($min_score),
-            'type' => 'numeric'
-        ),
-        array(
-            "key" => "our_score",
-            'compare' => '<=',
-            'value' => intval($max_score),
-            'type' => 'numeric'
-        )
-    );
-    $args['meta_query'][] = $query_vars_score;
-
+    if ($filterArr['filter_type_score']) {
+        $min_score = $_POST['min_score'];
+        $max_score = $_POST['max_score'];
+        $query_vars_score = array(
+            "relation" => 'AND', 
+            array(
+                "key" => "our_score",
+                'compare' => '>=',
+                'value' => intval($min_score),
+                'type' => 'numeric'
+            ),
+            array(
+                "key" => "our_score",
+                'compare' => '<=',
+                'value' => intval($max_score),
+                'type' => 'numeric'
+            )
+        );
+        $args['meta_query'][] = $query_vars_score; 
+    }
 
    // echo '<pre>';
-   // print_r($args);
+  //  print_r($args);
    // echo '</pre>';
 
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
+
+ //   echo $count;
 
     if($filterArr['country'] == NULL) {
        echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';   
@@ -262,11 +283,10 @@ function filter_casino() {
      $i = 1; 
      while( $the_query->have_posts() ) : $the_query->the_post(); ?>
      <div class="small-12 columns">
-        <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
-    </div>
-    <?php 
-    $i++; 
-endwhile;
+         <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
+     </div>
+     <?php $i++; 
+ endwhile;
 }
 else {
     echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';
@@ -558,11 +578,11 @@ function add_google_analytics() { ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108087950-2"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-108087950-2');
+    gtag('config', 'UA-108087950-2');
 </script>
 <?php }
 

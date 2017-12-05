@@ -16,7 +16,7 @@
 }
 
 @include breakpoint(large up) {
-		.minus-row-margin-sidebar {
+	.minus-row-margin-sidebar {
 		margin-top: -25vh;
 	}
 }
@@ -39,4 +39,7 @@
 
 .position-relative {
 	position: relative;
+}
+.z-index-high {
+	z-index: 60;
 }

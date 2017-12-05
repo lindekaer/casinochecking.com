@@ -15,7 +15,6 @@ $( document ).ajaxStop(function() {
     //Not that beautiful. The purpose is to only run this on inital document-load. 
 
     if(!$('#currencySelect').hasClass('run-one-time')) {
-
         var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
         var chosenCurrency = $('#currencySelect').find(":selected").attr('data-currency');
         $('.currency-type').text(chosenCurrencyVal)
@@ -41,7 +40,6 @@ function initDom() {
     });
 
     var previous;
-
     $('#currencySelect').on('focus', function() {
         previous = this.value; 
         //console.log('previous')
@@ -58,7 +56,8 @@ function initDom() {
             previous: previous,
             after: after,        
         } 
-        currencyUpdate(data); 
+        currencyUpdate(data);
+        $('.load-casino').addClass("loading-posts");
     });
 
    function currencyUpdate(data){
@@ -68,9 +67,10 @@ function initDom() {
         data: data,
         success: function(result) {
             console.log(result);
+            $('.load-casino').removeClass("loading-posts");
             var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
             $('.currency-type').text(chosenCurrencyVal)
-            $('.signup_numeric').each(function(index) {
+            $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
                 var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(2);
                 $(this).text(calc);
@@ -83,9 +83,29 @@ function initDom() {
  });
 }
 
+
+
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
     $('#countrySelect').val(usersCountry);
+
+    //Sets default currency based on the country
+    if(usersCountry == 'DK'){
+        $('#currencySelect').val('DKK');
+        console.log($('#currencySelect').val('DKK'))
+    }
+
+    else if(usersCountry == 'GB'){
+        $('#currencySelect').val('GBP');
+    }
+
+    else if(usersCountry == 'USA'){
+        $('#currencySelect').val('USD');
+    }
+
+    else {
+        $('#currencySelect').val('EUR');
+    }
 
     $(".hamburger").click(function () {
         $('header').toggleClass("is-active");
@@ -115,7 +135,7 @@ function initDom() {
 
     $(window).scroll(function(){
         if($(window).scrollTop() > 50) {
-            $('header').addClass('scroll-active');
+            $('.background-header').addClass('scroll-active');
         }
         else {
             $('header').removeClass('scroll-active');
@@ -228,24 +248,28 @@ function start() {
             displaySelector: '#our_score',
             min: elements.score.data("min"),
             max: elements.score.data("max"),
+            currency: ''
         },
         votes: {
             sliderSelector: '#slider-range-user-votes',
             displaySelector: '#user_votes',
             min: elements.votes.data("min"),
             max: elements.votes.data("max"),
+            currency: ''
         },
         deposit: {
             sliderSelector: '#slider-range-min-deposit',
             displaySelector: '#minimum_deposit',
             min: 0,
             max: 400,
+            currency: $('#currencySelect').find(":selected").attr('data-currency')
         },
         'signup-bonus': {
             sliderSelector: '#slider-range-signup-bonus',
             displaySelector: '#signup_bonus',
             min: 0,
             max: 400,
+            currency: '%'
         }
     }
 
@@ -259,10 +283,10 @@ function start() {
                 max: metric.max,
                 values: [ metric.min, metric.max ],
                 slide: function( event, ui ) {
-                    $(metric.displaySelector).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                    $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
                 }
             }); 
-            const displayString = `${$(metric.sliderSelector).slider( "values", 0 )} - ${$(metric.sliderSelector).slider( "values", 1 )}`;
+            const displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
             $(metric.displaySelector).val(displayString);
         });
     }
@@ -298,7 +322,11 @@ function start() {
     }
 
     data['country'] = $('#countrySelect').val();
-    console.log(data['country'])
+
+    data['categories'] = [];
+    $('#checkbox-input:checked').each(function(index) {
+        data['categories'].push(this.value);
+    })
 
     $('.load-casino').addClass('loading-posts');   
     data.active = $('.filter-active').data('filter');
@@ -333,7 +361,9 @@ function start() {
     });
 
     //Loads ajax on load
+    if($('.post-type-archive-casino').length){
     ajaxParams();
+    }
 
     function ajax(data) {
         $.ajax({
