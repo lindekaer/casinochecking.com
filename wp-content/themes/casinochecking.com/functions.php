@@ -53,13 +53,13 @@ function currency_update() {
             $currency = 1; 
         }
         if ($afterCurrency == 'EUR') {
-            $currency = 0.1; 
+            $currency = get_field('usd_in_eur', 'options'); 
         }
         if ($afterCurrency == 'DKK') {
-            $currency = 0.2; 
+            $currency = get_field('usd_in_dkk', 'options'); 
         }
         if ($afterCurrency == 'GBP') {
-            $currency = 0.3; 
+            $currency = get_field('usd_in_gbp', 'options'); 
         }
     }
 
@@ -68,13 +68,13 @@ function currency_update() {
             $currency = 1; 
         }
         if ($afterCurrency == 'USD') {
-            $currency = 0.1; 
+            $currency = get_field('eur_in_usd', 'options'); 
         }
         if ($afterCurrency == 'DKK') {
-            $currency = 0.2; 
+            $currency = get_field('eur_in_dkk', 'options');
         }
         if ($afterCurrency == 'GBP') {
-            $currency = 0.3; 
+            $currency = get_field('eur_in_gbp', 'options');
         }
     }
 
@@ -83,13 +83,13 @@ function currency_update() {
             $currency = 1; 
         }
         if ($afterCurrency == 'EUR') {
-            $currency = 0.1; 
+            $currency = get_field('dkk_in_eur', 'options');
         }
         if ($afterCurrency == 'USD') {
-            $currency = 0.2; 
+            $currency = get_field('dkk_in_usd', 'options');
         }
         if ($afterCurrency == 'GBP') {
-            $currency = 0.3; 
+            $currency = get_field('dkk_in_gbp', 'options');
         }
     }
 
@@ -98,13 +98,13 @@ function currency_update() {
             $currency = 1; 
         }        
         if ($afterCurrency == 'EUR') {
-            $currency = 0.1; 
+            $currency = get_field('gbp_in_eur', 'options');
         }
         if ($afterCurrency == 'USD') {
-            $currency = 0.2; 
+            $currency = get_field('gbp_in_usd', 'options');
         }
         if ($afterCurrency == 'DKK') {
-            $currency = 0.3; 
+            $currency = get_field('gbp_in_dkk', 'options'); 
         }
     }
 
@@ -272,7 +272,7 @@ function filter_casino() {
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
 
- //   echo $count;
+   //echo $count;
 
     if($filterArr['country'] == NULL) {
        echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';   
@@ -297,18 +297,6 @@ else {
 }
 wp_reset_query();
 die();
-}
-
-function currencyConverter($currencyNumeric, $currencyType) {
-    $euro = 1;
-    $usdInEur = 0.840526842;
-    $dkkInEur = 0.134299379;
-    $poundInEur = 1.13239138;
-
-    if($currencyType == 'dollar')
-
-
-        return $currency; 
 }
 
 if (function_exists('acf_add_options_page')) {

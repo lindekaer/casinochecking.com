@@ -51,6 +51,7 @@ function initDom() {
         console.log('after' + after)
         $('.currency-type').attr('data-currency', after)
 
+
         const data = {
             action: 'currency_update',
             previous: previous,
@@ -78,12 +79,10 @@ function initDom() {
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
-
-
 
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
@@ -164,14 +163,14 @@ function infiniteScroll () {
         if ( timer ) clearTimeout(timer);
 
         $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var shownPosts = 10;
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
-           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-           var headerHeight = $('header').height();
-           var totalPosts = $('.loaded-posts').attr('data-count');
+         if ( timer ) clearTimeout(timer);
+         var shownPosts = 10;
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
+         var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+         var headerHeight = $('header').height();
+         var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
            console.log(totalPosts);
@@ -223,9 +222,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 function start() {
@@ -283,7 +282,7 @@ function start() {
                 max: metric.max,
                 values: [ metric.min, metric.max ],
                 slide: function( event, ui ) {
-                    $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
+                    $(metric.displaySelector).val( ui.values[ 0 ]*10 + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
                 }
             }); 
             const displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
@@ -362,7 +361,7 @@ function start() {
 
     //Loads ajax on load
     if($('.post-type-archive-casino').length){
-    ajaxParams();
+        ajaxParams();
     }
 
     function ajax(data) {
@@ -383,8 +382,8 @@ function start() {
                 //console.log(result);
             },
             error: function(errorThrown){
-             console.log(errorThrown);
-         } 
-     });
+               console.log(errorThrown);
+           } 
+       });
     }
 }

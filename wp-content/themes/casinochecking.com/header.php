@@ -24,7 +24,7 @@
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $details = ip_details("$IPaddress");
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if($details): echo $details->country; endif; ?>">
+<body <?php body_class(); ?> id="fade-in" data-user-country="USA">
     <div id="page" class="site">
         <header id="masthead" class="site-header slide-down">
             <div class="background-header height">
