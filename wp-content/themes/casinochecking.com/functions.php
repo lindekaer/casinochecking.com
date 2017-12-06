@@ -42,77 +42,104 @@ add_action('wp_ajax_nopriv_currency_update', 'currency_update');
 add_action('wp_ajax_currency_update', 'currency_update');
 
 function currency_update() {
-    $previousCurrency = $_POST['previous'];
-    $afterCurrency = $_POST['after'];
 
-    //echo $previousCurrency . 'fromCurrency';
-    //echo $afterCurrency . 'toCurrency';
+    //Args for filter
+    $arrayPosts = Array(
+        'previous' => 'previous',
+        'after' => 'after', 
+        'updateCurrencyLoad' => 'updateCurrencyLoad',
+    );
 
-    if ($previousCurrency == 'USD'){
-        if ($afterCurrency == 'USD') {
-            $currency = 1; 
-        }
-        if ($afterCurrency == 'EUR') {
-            $currency = get_field('usd_in_eur', 'options'); 
-        }
-        if ($afterCurrency == 'DKK') {
-            $currency = get_field('usd_in_dkk', 'options'); 
-        }
-        if ($afterCurrency == 'GBP') {
-            $currency = get_field('usd_in_gbp', 'options'); 
-        }
+    //If filter is not set, then add null   
+    foreach ($arrayPosts as $key => $value){
+        $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
-    if ($previousCurrency == 'EUR'){
-        if ($afterCurrency == '1') {
+    //If the loaded country is not EU
+    $updateCurrencyLoad = $filterArr['updateCurrencyLoad'];
+
+    if (isset($updateCurrencyLoad)) {
+        if ($updateCurrencyLoad == 'EUR') {
             $currency = 1; 
         }
-        if ($afterCurrency == 'USD') {
-            $currency = get_field('eur_in_usd', 'options'); 
+        if ($updateCurrencyLoad == 'USD') {
+            $currency = 2; 
         }
-        if ($afterCurrency == 'DKK') {
-            $currency = get_field('eur_in_dkk', 'options');
+        if ($updateCurrencyLoad == 'DKK') {
+            $currency = 3;
         }
-        if ($afterCurrency == 'GBP') {
-            $currency = get_field('eur_in_gbp', 'options');
+        if ($updateCurrencyLoad == 'GBP') {
+            $currency = 2;
         }
+        echo $currency;
     }
 
-    if ($previousCurrency == 'DKK'){
-        if ($afterCurrency == 'DKK') {
-            $currency = 1; 
+
+    else {
+        if ($filterArr['previous'] == 'USD'){
+            if ($filterArr['after'] == 'USD') {
+                $currency = 1; 
+            }
+            if ($filterArr['after'] == 'EUR') {
+                $currency = get_field('usd_in_eur', 'options'); 
+            }
+            if ($filterArr['after'] == 'DKK') {
+                $currency = get_field('usd_in_dkk', 'options'); 
+            }
+            if ($filterArr['after'] == 'GBP') {
+                $currency = get_field('usd_in_gbp', 'options'); 
+            }
         }
-        if ($afterCurrency == 'EUR') {
-            $currency = get_field('dkk_in_eur', 'options');
+
+        if ($filterArr['previous']== 'EUR'){
+            if ($filterArr['after'] == '1') {
+                $currency = 1; 
+            }
+            if ($filterArr['after'] == 'USD') {
+                $currency = get_field('eur_in_usd', 'options'); 
+            }
+            if ($filterArr['after'] == 'DKK') {
+                $currency = get_field('eur_in_dkk', 'options');
+            }
+            if ($filterArr['after'] == 'GBP') {
+                $currency = get_field('eur_in_gbp', 'options');
+            }
         }
-        if ($afterCurrency == 'USD') {
-            $currency = get_field('dkk_in_usd', 'options');
+
+        if ($filterArr['previous'] == 'DKK'){
+            if ($filterArr['after'] == 'DKK') {
+                $currency = 1; 
+            }
+            if ($filterArr['after'] == 'EUR') {
+                $currency = get_field('dkk_in_eur', 'options');
+            }
+            if ($filterArr['after'] == 'USD') {
+                $currency = get_field('dkk_in_usd', 'options');
+            }
+            if ($filterArr['after'] == 'GBP') {
+                $currency = get_field('dkk_in_gbp', 'options');
+            }
         }
-        if ($afterCurrency == 'GBP') {
-            $currency = get_field('dkk_in_gbp', 'options');
+
+        if ($filterArr['previous'] == 'GBP'){
+            if ($filterArr['after'] == 'GBP') {
+                $currency = 1; 
+            }        
+            if ($filterArr['after'] == 'EUR') {
+                $currency = get_field('gbp_in_eur', 'options');
+            }
+            if ($filterArr['after'] == 'USD') {
+                $currency = get_field('gbp_in_usd', 'options');
+            }
+            if ($filterArr['after'] == 'DKK') {
+                $currency = get_field('gbp_in_dkk', 'options'); 
+            }
         }
+        echo $currency;
     }
 
-    if ($previousCurrency == 'GBP'){
-        if ($afterCurrency == 'GBP') {
-            $currency = 1; 
-        }        
-        if ($afterCurrency == 'EUR') {
-            $currency = get_field('gbp_in_eur', 'options');
-        }
-        if ($afterCurrency == 'USD') {
-            $currency = get_field('gbp_in_usd', 'options');
-        }
-        if ($afterCurrency == 'DKK') {
-            $currency = get_field('gbp_in_dkk', 'options'); 
-        }
-    }
+    die();
 
-    echo $currency;
-    //echo $toCurrency;
-
-
-  //  echo $currency;
 }
 
 add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
