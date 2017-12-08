@@ -31,17 +31,17 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						<div class="row">
 							<div class="small-12 columns">
 								<div class="row">
-									<div class="small-4 large-4">
+									<div class="small-4 large-5">
 										<p>Currency</p>	
 									</div>
-									<div class="small-8 large-8 columns">
+									<div class="small-8 large-7 columns">
 										<p>SORT BY</p>	
 									</div>
 								</div>
 							</div>
 							<div class="small-12 columns">
 								<div class="row position-relative">
-									<div class="small-4 large-4 position-relative">
+									<div class="small-4 large-5">
 										<div class="selected-currency">
 											<select id="currencySelect">
 												<option value="USD" data-currency="$">USD ($)</option>
@@ -51,7 +51,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 											</select>
 										</div>
 									</div>
-									<div class="small-8 large-8 columns">
+									<div class="small-8 large-7 columns">
 										<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
 										<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
 										<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>

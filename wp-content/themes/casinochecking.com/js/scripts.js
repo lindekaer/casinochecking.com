@@ -4,39 +4,14 @@ $(document).foundation();
 
 jQuery(function ($) {
     $(document).ready(() => {
-        initDom();
-        start();
         setCurrency();
-        resetFilter();
+        initDom();
     });
 });
 
-$( document ).ajaxStop(function() {
-    showDescCasino();
-
-    //Not that beautiful. The purpose is to only run this on inital document-load. 
-    if(!$('#currencySelect').hasClass('run-one-time')) {
-        var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
-        var chosenCurrency = $('#currencySelect').find(":selected").attr('data-currency');
-        $('.currency-type').text(chosenCurrencyVal)
-        $('.currency-type').attr('data-currency', chosenCurrency)
-
-        //If the currency is not equal to EUR
-        var updateCurrencyLoad = $('#currencySelect').val();
-        const data = {
-            action: 'currency_update',
-            updateCurrencyLoad: updateCurrencyLoad      
-        } 
-        currencyUpdate(data);
-        $('.load-casino').addClass("loading-posts");
-
-        //Add class
-        $('#currencySelect').addClass('run-one-time')
-        console.log('skal helst kun vises en gang')
-    }
-
-});
-
+/************************
+SET CURRENCY BASED ON THE VISITORS COUNTRY
+************************/
 function setCurrency() {
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
@@ -59,9 +34,52 @@ function setCurrency() {
     else {
         $('#currencySelect').val('EUR');
     }
+
+    var currencyOnLoad = $('#currencySelect').val();
+
+    const data = {
+        action: 'currency_update',
+        updateCurrencyLoad: currencyOnLoad      
+    } 
+    console.log('setCurrencyRate(): ' + JSON.stringify(data, null, 2))
+    setCurrencyRate(data);
 }
 
+/************************
+REQUEST THE CURRENCY RATE
+************************/
+function setCurrencyRate(data){
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function(result) {
 
+            //Saves the currency-rate in a data-attribute, so it can be used for AJAX-call
+            $('#currencySelect').attr('data-currency-rate', result);
+        },
+        complete: function(){
+            //When the currencyrate has been loaded, 
+            var currencyRate = $('#currencySelect').attr('data-currency-rate')
+            console.log('currencyRate: ' + currencyRate)
+            loadCasinoParams(currencyRate);
+        },
+        error: function(errorThrown){
+           console.log(errorThrown);
+       }
+   });
+}
+
+/************************
+AFTER EACH AJAX HAS STOPPED
+************************/
+$( document ).ajaxStop(function() {
+    showDescCasino();
+});
+
+/************************
+DROPDOWN ON EACH CASINO
+************************/
 function showDescCasino() {
     $('.casino-wrapper').click(function () {
         $(this).toggleClass('active-desc');
@@ -75,11 +93,8 @@ function initDom() {
     });
 
     $(".hamburger").click(function () {
-        $('header').toggleClass("is-active");
-       // $('#menu-mobile-menu li').toggleClass('show-menu');
-    /*   var path = window.location.pathname;
-    $("#menu-mobile-header li a[href*='" + path + "']").addClass("current-page"); */ 
-});
+        $('header').toggleClass("is-active"); 
+    });
 
     $('#mobile-footer').click(function(){
         $('.extra-info').slideToggle();
@@ -102,50 +117,60 @@ function initDom() {
     changeCurrency();
 }
 
+/************************
+WHEN USER CHANGE THE CURRENCY
+************************/
 function changeCurrency() {
     var previous;
     $('#currencySelect').on('focus', function() {
         previous = this.value; 
-        //console.log('previous')
-       // console.log(fromCurrencyVal)
-   }).change(function(){
-        //First get the value from currency
+    }).change(function(){
         console.log('before ' + previous)
         var after = this.value;
         console.log('after' + after)
         $('.currency-type').attr('data-currency', after)
 
+        //Update the currency, when the currency is being updated manually
         const data = {
             action: 'currency_update',
             previous: previous,
             after: after,        
-        } 
+        }
+        var currencyRate = $('#currencySelect').attr('data-currency-rate')
+        console.log('currencyUpdate: ' + JSON.stringify(data, null, 2))
+
         currencyUpdate(data);
+
         $('.load-casino').addClass("loading-posts");
     });
 }
 
+/************************
+UPDATE VALUE ON THE CASINO POST
+************************/
 function currencyUpdate(data){
     $.ajax({
         url: site_vars.ajax_url,
         type: 'post',
         data: data,
         success: function(result) {
-            console.log('result' + result);
             $('.load-casino').removeClass("loading-posts");
-           // var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
-           // $('.currency-type').text(chosenCurrencyVal);
-           $('.numeric_currency').each(function(index) {
-            var signup = $( this ).html();
-            var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(2);
-            $(this).text(calc);
-            console.log( 'fisse ' + calc );
-        });
-       },
-       error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+
+            //Update currency on each post: $, € etc.
+            var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+            $('.currency-type').text(chosenCurrencyVal);
+
+            //Multiply each casino's currency with the exchange rate
+            $('.numeric_currency').each(function(index) {
+                var signup = $( this ).html();
+                var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(2);
+                $(this).text(calc);
+            });
+        },
+        error: function(errorThrown){
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -164,14 +189,14 @@ function infiniteScroll () {
         if ( timer ) clearTimeout(timer);
 
         $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var shownPosts = 10;
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
-           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-           var headerHeight = $('header').height();
-           var totalPosts = $('.loaded-posts').attr('data-count');
+         if ( timer ) clearTimeout(timer);
+         var shownPosts = 10;
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
+         var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+         var headerHeight = $('header').height();
+         var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
            console.log(totalPosts);
@@ -200,13 +225,15 @@ function infiniteScroll () {
                         data[`max_${type}`] = metric.currentMax;
                     });
                     data['posts_per_page'] = shownPosts;
+                    console.log('morePosts: ' + JSON.stringify(data, null, 2))
+
 
                     morePosts(data);
                 }, 200);
             }
         } 
         else {
-            console.log('not the end');
+            //console.log('not the end');
         }
     });
     }
@@ -223,12 +250,137 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
-function start() {
+function loadCasinoParams(currencyRate) {
+    //Infinite scroll with ajax-calls
+    infiniteScroll();
+
+    const elements = {
+        score: $('.our_score'),
+        votes: $('.user_votes'),
+        deposit: $('.minimum_deposit'),
+        'signup-bonus': $('.signup_bonus'),
+        filterDeposit: $('.filter-deposit'),
+        filterBonus: $('.filter-bonus'),
+        filterScore: $('.filter-score'),
+    };
+
+    const metrics = {
+        score: {
+            sliderSelector: '#slider-range-our-score',
+            displaySelector: '#our_score',
+            min: elements.score.data("min"),
+            max: elements.score.data("max"),
+            currency: ''
+        },
+        votes: {
+            sliderSelector: '#slider-range-user-votes',
+            displaySelector: '#user_votes',
+            min: elements.votes.data("min"),
+            max: elements.votes.data("max"),
+            currency: ''
+        },
+        deposit: {
+            sliderSelector: '#slider-range-min-deposit',
+            displaySelector: '#minimum_deposit',
+            min: 0 * currencyRate,
+            max: 400 * currencyRate,
+            currency: $('#currencySelect').find(":selected").attr('data-currency')
+        },
+        'signup-bonus': {
+            sliderSelector: '#slider-range-signup-bonus',
+            displaySelector: '#signup_bonus',
+            min: 0,
+            max: 300,
+            currency: '%'
+        }
+    }
+
+    // Instantiate sliders for each metric
+    Object.keys(metrics).forEach(type => {
+        const metric = metrics[type];
+        $(metric.sliderSelector).slider({
+            range: true,
+            min: metric.min,
+            max: metric.max,
+            values: [ metric.min, metric.max ],
+            slide: function( event, ui ) {
+                $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
+            }
+        }); 
+        const displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
+        $(metric.displaySelector).val(displayString);
+    });
+
+     // Data to submit in request
+     const data = {
+        action: 'filter_casino',        
+    }
+
+    data['country'] = $('#countrySelect').val();
+
+    data['categories'] = [];
+    $('#checkbox-input:checked').each(function(index) {
+        data['categories'].push(this.value);
+    })
+
+    $('.load-casino').addClass('loading-posts');   
+    data.active = $('.filter-active').data('filter');
+
+    Object.keys(metrics).forEach(type => {
+        const metric = metrics[type]
+        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
+        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
+        metric.filterType = elements[type].attr('data-filter-type');
+        console.log(metrics[type]['currentMin'])
+    });
+
+    Object.keys(metrics).forEach(type => {
+        const metric = metrics[type]
+        data[`filter_type_${type}`] = metric.filterType
+        data[`min_${type}`] = metric.currentMin
+        data[`max_${type}`] = metric.currentMax
+    })
+
+    console.log('loadCasino: ' + JSON.stringify(data, null, 2))
+    loadCasino(data);
+
+        // Attach event handler for AJAX submit
+        $('.search-ajax, .filter').click((e) => {
+            e.preventDefault();
+            console.log('hey')
+            sidebarFilterCasino(currencyRate);
+        });
+
+        resetFilter()
+        function resetFilter() {
+            $('.reset-filter').click(function(e){
+                e.preventDefault();
+                const data = {
+                    action: 'filter_casino',        
+                };
+                Object.keys(metrics).forEach(type => {
+                    const metric = metrics[type]
+                    data[`min_${type}`] = metric.min;
+                    data[`max_${type}`] = metric.max;
+                });
+                var usersCountry = $('body').attr('data-user-country');
+                data['country'] = usersCountry;
+                $('#countrySelect').val(usersCountry);
+
+                console.log('ajax' + JSON.stringify(data, null, 2))
+                ajax(data);
+                $('.filter').removeClass('active-sort');
+                $('.filter-bonus').addClass('active-sort');
+            });
+        }
+    }
+
+    function sidebarFilterCasino() {
     //Infinite scroll with ajax-calls
     infiniteScroll();
 
@@ -268,7 +420,7 @@ function start() {
             sliderSelector: '#slider-range-signup-bonus',
             displaySelector: '#signup_bonus',
             min: 0,
-            max: 400,
+            max: 300,
             currency: '%'
         }
     }
@@ -289,6 +441,7 @@ function start() {
         $(metric.displaySelector).val(displayString);
     });
 
+    ajaxParams();
     function ajaxParams() {
      // Data to submit in request
      const data = {
@@ -304,7 +457,6 @@ function start() {
 
     $('.load-casino').addClass('loading-posts');   
     data.active = $('.filter-active').data('filter');
-    $('.load-casino').addClass('loading-posts');
 
     Object.keys(metrics).forEach(type => {
         const metric = metrics[type]
@@ -321,48 +473,44 @@ function start() {
         data[`max_${type}`] = metric.currentMax
     })
 
-    console.log('Sending data...')
-    console.log(JSON.stringify(data, null, 2))
+    console.log('ajax: ' + JSON.stringify(data, null, 2))
 
-        // Send AJAX request
-        ajax(data);
-    }
+    loadCasino(data); 
+}
 
     // Attach event handler for AJAX submit
     $('.search-ajax, .filter').click((e) => {
         e.preventDefault();
+        console.log('hey')
         ajaxParams();
     });
 
-    //Loads ajax on load
-    if($('.post-type-archive-casino').length){
-        ajaxParams();
+    resetFilter()
+    function resetFilter() {
+        $('.reset-filter').click(function(e){
+            e.preventDefault();
+            const data = {
+                action: 'filter_casino',        
+            };
+            Object.keys(metrics).forEach(type => {
+                const metric = metrics[type]
+                data[`min_${type}`] = metric.min;
+                data[`max_${type}`] = metric.max;
+            });
+            var usersCountry = $('body').attr('data-user-country');
+            data['country'] = usersCountry;
+            $('#countrySelect').val(usersCountry);
+
+            console.log('ajax' + JSON.stringify(data, null, 2))
+            ajax(data);
+            $('.filter').removeClass('active-sort');
+            $('.filter-bonus').addClass('active-sort');
+        });
     }
 }
 
-function resetFilter() {
-    $('.reset-filter').click(function(e){
-        e.preventDefault();
-        const data = {
-            action: 'filter_casino',        
-        };
-        Object.keys(metrics).forEach(type => {
-            const metric = metrics[type]
-            data[`min_${type}`] = metric.min;
-            data[`max_${type}`] = metric.max;
-        });
-        var usersCountry = $('body').attr('data-user-country');
-        data['country'] = usersCountry;
-        $('#countrySelect').val(usersCountry);
 
-        ajax(data);
-        instantiateSlider();
-        $('.filter').removeClass('active-sort');
-        $('.filter-bonus').addClass('active-sort');
-    });
-}
-
-function ajax(data) {
+function loadCasino(data) {
     $.ajax({
         url: site_vars.ajax_url,
         type: 'post',
@@ -372,15 +520,68 @@ function ajax(data) {
             $('.load-casino').removeClass("loading-posts");
             $('.loaded-posts').html(result);
 
-                //Update the currency on each casino-post
-                var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
-                var chosenCurrency = $('#currencySelect').find(":selected").val();
-                $('.currency-type').text(chosenCurrencyVal);
-                $('.currency-type').attr('data-currency', chosenCurrency);
-                //console.log(result);
-            },
-            error: function(errorThrown){
-             console.log(errorThrown);
-         } 
-     });
+            //Update currency-value on each casino-post
+            var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+            var chosenCurrency = $('#currencySelect').find(":selected").val();
+            $('.currency-type').text(chosenCurrencyVal);
+            $('.currency-type').attr('data-currency', chosenCurrency);
+        },
+        complete: function() {
+            //Update casino-currency value
+            var updateCurrencyLoad = $('#currencySelect').val();
+            const data = {
+                action: 'currency_update',
+                updateCurrencyLoad: updateCurrencyLoad      
+            } 
+            console.log('currencyUpdate' + JSON.stringify(data, null, 2))
+            currencyUpdate(data);
+
+            //Update deeplink
+            var usersCountry = $('#countrySelect').val();
+            console.log('usersCountry: ' + usersCountry)
+            $('.deep-link-button').each(function(index) {
+                if(usersCountry == 'USA') {
+                    var deepLinkUSA = $(this).attr('data-deeplink-usa');
+                    $(this).attr('href', deepLinkUSA);
+                }
+                else if(usersCountry == 'GB'){
+                    var deepLinkGB = $(this).attr('data-deeplink-gb');
+                    $(this).attr('href', deepLinkGB);
+                }
+                else if(usersCountry == 'DK'){
+                    var deepLinkDK = $(this).attr('data-deeplink-dk');
+                    $(this).attr('href', deepLinkDK);
+                }
+                else {
+                    var deepLinkEUR = $(this).attr('data-deeplink-eur');
+                    $(this).attr('href', deepLinkEUR);
+                }
+            });
+        },
+        error: function(errorThrown){
+           console.log(errorThrown);
+       } 
+   });
 }
+
+/*function ajax(data) {
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function(result) {
+            $('.filter').removeClass('filter-active');
+            $('.load-casino').removeClass("loading-posts");
+            $('.loaded-posts').html(result);
+
+            //Update currency-value on each casino-post
+            var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+            var chosenCurrency = $('#currencySelect').find(":selected").val();
+            $('.currency-type').text(chosenCurrencyVal);
+            $('.currency-type').attr('data-currency', chosenCurrency);
+        },
+        error: function(errorThrown){
+           console.log(errorThrown);
+       } 
+   });
+}*/

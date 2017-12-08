@@ -9,6 +9,11 @@
 	$upToBonus = get_field('up_to_signup');
 	$currency = get_field('currency');
 
+	$deepLinkEur = get_field('deep_link_eur');
+	$deepLinkDK = get_field('deep_link_dk');
+	$deepLinkGP = get_field('deep_link_gb');
+	$deepLinkUSA = get_field('deep_link_usa');
+
 
 	$minimumDeposit = get_field('minimum_deposit'); ?>
 	<p class="first"><?php echo $i; ?></p>
@@ -47,7 +52,7 @@
 					</div>
 				</div>
 				<div class="bonus-info button-padding-bottom">
-					<a target="_blank" href="<?php echo $deepUrl; ?>" class="button">Get Bonus</a>
+					<a target="_blank" class="button deep-link-button" <?php if($deepLinkEur): echo 'data-deeplink-eur="' . $deepLinkEur . '"'; endif; ?><?php if($deepLinkDK): echo 'data-deeplink-dk="' . $deepLinkDK . '"'; endif; ?><?php if($deepLinkGP): echo 'data-deeplink-gb="' . $deepLinkGP . '"'; endif; ?><?php if($deepLinkUSA): echo 'data-deeplink-usa="' . $deepLinkUSA . '"'; endif; ?> >Get Bonus</a>
 				</div>
 			</div>
 		</div>
