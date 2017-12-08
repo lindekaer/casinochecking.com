@@ -38,7 +38,7 @@ $details = ip_details("$IPaddress");
                         <div id="menu-right" class="site-navigation columns large-6 large-offset-3">
                             <?php wp_nav_menu(array('theme_location' => 'desktop-menu')); ?>
                         </div><!-- #site-navigation -->
-                    </div>
+                    </div> 
                 </div>
                 <div class="container bg-black height">
                     <div class="row show-for-medium-down hide-for-large mobile-row flex-header">
