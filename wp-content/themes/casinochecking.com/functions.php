@@ -510,19 +510,6 @@ function accept_svg($mimes)
 add_filter('upload_mimes', 'accept_svg');
 
 /**
- * Google fonts
- */
-function google_fonts()
-{
-    $query_args = array(
-        'family' => 'Lato|Roboto|Varela|Cormorant+Garamond'
-    );
-    wp_register_style('google_fonts', add_query_arg($query_args, "//fonts.googleapis.com/css"), array(), null);
-}
-
-add_action('wp_enqueue_scripts', 'google_fonts');
-
-/**
  * Enqueue scripts and styles.
  */
 function checkmate_scripts() {
