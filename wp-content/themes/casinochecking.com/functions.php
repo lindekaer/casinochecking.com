@@ -63,13 +63,13 @@ function currency_update() {
             $currency = 1; 
         }
         if ($updateCurrencyLoad == 'USD') {
-            $currency = 2; 
+            $currency = get_field('eur_in_usd', 'options');
         }
         if ($updateCurrencyLoad == 'DKK') {
-            $currency = 3;
+            $currency = get_field('eur_in_dkk', 'options');
         }
         if ($updateCurrencyLoad == 'GBP') {
-            $currency = 2;
+            $currency = get_field('eur_in_gbp', 'options');
         }
         echo $currency;
     }
