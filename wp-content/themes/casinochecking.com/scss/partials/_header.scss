@@ -4,15 +4,12 @@ header.site-header {
   top: 0;
   width: 100%;
 
-  .background-header {
-    &.scroll-active {
-      background: rgba(51, 50, 56, 0.9);
-      transition: 1s;
-    }
+  &.scroll-active {
+    background: rgba(51, 50, 56, 0.9);
+    transition: 1s;
   }
 
   .desktop-row {
-    z-index: 70;
     .menu-desktop-menu-container {
       text-align: right;
 
@@ -138,7 +135,6 @@ header.site-header {
   .hamburger {
     position: absolute;
     top: 49%;
-    z-index: 100;
     right: 10%;
   }
 

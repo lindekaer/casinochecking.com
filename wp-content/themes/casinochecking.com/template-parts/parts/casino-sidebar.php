@@ -1,4 +1,4 @@
-<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin z-index-high">
+<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
 	<div class="casino-sidebar">
 		<div class="row">
 			<div class="small-12 columns">

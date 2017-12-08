@@ -10,8 +10,8 @@ get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_casino', 'options');
 $casinoImg = get_field('casino_img', 'options'); ?>
 <section class="bg-img casinos <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed">
-	<div class="row welcome-row z-index">
-		<div class="small-12 columns fade-in-slow z-index">
+	<div class="row welcome-row">
+		<div class="small-12 columns fade-in-slow">
 			<h1><?php the_field('heading_first_line_casino', 'options'); ?></h1>
 			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 		</div>
@@ -21,7 +21,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	<div class="container mobile-full-width">
 		<div class="row">
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-		<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-high">
+		<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium">
 			<div class="container">
 				<div class="row align-middle padding-bottom">
 					<div class="small-12 large-6 columns">

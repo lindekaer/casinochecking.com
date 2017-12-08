@@ -101,7 +101,7 @@ function initDom() {
     });
 
     $('.menu-mobile-header-container').click(function(){
-        $('.hamburger').trigger('click');
+        $('#nav-toggle').trigger('click');
     });
 
     $('.filter-bonus, .filter-deposit, .filter-score').click(function(){
@@ -163,7 +163,7 @@ function currencyUpdate(data){
             //Multiply each casino's currency with the exchange rate
             $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
-                var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(2);
+                var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(0);
                 $(this).text(calc);
             });
         },
@@ -175,7 +175,7 @@ function currencyUpdate(data){
 
 $(window).scroll(function(){
     if($(window).scrollTop() > 50) {
-        $('.background-header').addClass('scroll-active');
+        $('header').addClass('scroll-active');
     }
     else {
         $('header').removeClass('scroll-active');

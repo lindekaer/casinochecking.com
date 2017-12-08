@@ -26,33 +26,29 @@ $details = ip_details("$IPaddress");
 ?>
 <body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($details->country)): echo $details->country; endif; ?>">
     <div id="page" class="site">
-        <header id="masthead" class="site-header slide-down">
-            <div class="background-header height">
-                <div class="container show-for-large height desktop-row">
-                    <div class="row flex-header ">
-                        <div class="large-3 columns site-navigation" id="menu-left">
-                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                                <?php include(locate_template('template-parts/parts/logo.php')); ?>
-                            </a>
-                        </div><!-- .site-branding -->
-                        <div id="menu-right" class="site-navigation columns large-6 large-offset-3">
-                            <?php wp_nav_menu(array('theme_location' => 'desktop-menu')); ?>
-                        </div><!-- #site-navigation -->
-                    </div> 
-                </div>
-                <div class="container bg-black height">
-                    <div class="row show-for-medium-down hide-for-large mobile-row flex-header">
-                        <div class="mobile-logo small-8 medium-4 large-2 columns">
-                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                                <?php include(locate_template('template-parts/parts/logo.php')); ?>
-                            </a>
-                        </div>
-                        <div class="hamburger">
-                            <a id="nav-toggle" href="#"><span></span></a>
-                        </div>
+        <header id="masthead" class="site-header slide-down z-index-high">
+            <div class="container height z-index-high">
+                <div class="row flex-header show-for-large desktop-row z-index-high">
+                    <div class="large-3 columns site-navigation" id="menu-left">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                            <?php include(locate_template('template-parts/parts/logo.php')); ?>
+                        </a>
+                    </div><!-- .site-branding -->
+                    <div id="menu-right" class="site-navigation columns large-6 large-offset-3">
+                        <?php wp_nav_menu(array('theme_location' => 'desktop-menu')); ?>
+                    </div><!-- #site-navigation -->
+                </div> 
+                <div class="row show-for-medium-down hide-for-large mobile-row flex-header bg-black">
+                    <div class="mobile-logo small-8 medium-4 large-2 columns">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                            <?php include(locate_template('template-parts/parts/logo.php')); ?>
+                        </a>
+                    </div>
+                    <div class="hamburger z-index-high">
+                        <a id="nav-toggle" href="#"><span></span></a>
                     </div>
                 </div>
-                <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
             </div>
+            <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
         </header><!-- #masthead -->
         <div id="content" class="site-content">

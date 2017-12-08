@@ -54,7 +54,7 @@
 </div>
 
 
-<div class="row show-for-medium-down hide-for-large" id="mobile-footer">
+<div class="row show-for-medium-down hide-for-large z-index-high" id="mobile-footer">
     <?php
     $selectedCasinoID = get_field('choose_selected_casino', 'options')->ID;
     // get_the_ID()

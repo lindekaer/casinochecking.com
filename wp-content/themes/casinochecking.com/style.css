@@ -1985,6 +1985,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .z-index-high { z-index: 60; }
 
+.z-index-medium { z-index: 50; }
+
 section.bg-img.content-casino { height: 100vw; }
 
 @media screen and (min-width: 64em) { .minus-content-sidebar { position: relative; margin-top: -75vw; } }
@@ -2047,17 +2049,13 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
   to { opacity: 1;
     transform: translatey(0); } }
 
-#fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 2s; }
+#fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 1s; animation-delay: 0s; }
 
-.fade-in-casino { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 0s; }
+.slide-up { opacity: 0; animation-delay: 0.2s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
 
-.slide-up { opacity: 0; animation-delay: 1s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
+.slide-down { animation-name: fadeInDown; animation-fill-mode: both; animation-duration: 2s; animation-delay: 0.4; }
 
-.slide-down { animation-name: fadeInDown; animation-fill-mode: both; animation-duration: 2s; animation-delay: 2.4s; }
-
-.fade-in-slow { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 3.4s; }
-
-.slide-up-casino { opacity: 0; animation-delay: 0s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
+.fade-in-slow { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 0.8s; animation-delay: 1s; }
 
 .bg-white { background: #ffffff; }
 
@@ -2113,9 +2111,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 /*Partials*/
 header.site-header { position: fixed; height: 60px; top: 0; width: 100%; }
 
-header.site-header .background-header.scroll-active { background: rgba(51, 50, 56, 0.9); transition: 1s; }
-
-header.site-header .desktop-row { z-index: 70; }
+header.site-header.scroll-active { background: rgba(51, 50, 56, 0.9); transition: 1s; }
 
 header.site-header .desktop-row .menu-desktop-menu-container { text-align: right; }
 
@@ -2159,7 +2155,7 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .mobile-row .nine { width: 74.6%; }
 
-.mobile-row .hamburger { position: absolute; top: 49%; z-index: 100; right: 10%; }
+.mobile-row .hamburger { position: absolute; top: 49%; right: 10%; }
 
 .mobile-row .three { box-sizing: border-box; text-align: right; }
 
@@ -2301,7 +2297,7 @@ footer #desktop-footer .icon-footer { text-align: center; padding-bottom: 10px; 
 
 footer #desktop-footer .icon-footer img { height: 40px; width: auto; }
 
-footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; z-index: 1; padding-top: 10px; padding-bottom: 10px; }
+footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; padding-top: 10px; padding-bottom: 10px; }
 
 footer #mobile-footer .footer-page-button { width: 100%; background: transparent; border: 1px solid #505050; color: #cacaca; }
 
