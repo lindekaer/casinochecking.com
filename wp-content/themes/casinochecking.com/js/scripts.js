@@ -107,13 +107,13 @@ function initDom() {
     });
 
     showDescCasino();
-    changeCurrency();
+    loadCurrency();
 }
 
 /************************
 WHEN USER CHANGE THE CURRENCY
 ************************/
-function changeCurrency() {
+function loadCurrency() {
     var previous;
     $('#currencySelect').on('focus', function() {
         previous = this.value; 
@@ -417,7 +417,7 @@ function updateDeepLink() {
 
     $('.deep-link-button').each(function(index) {
         if(usersCountry == 'US') {
-            var deepLinkUSA = $(this).attr('data-deeplink-usa');
+            var deepLinkUSA = $(this).attr('data-deeplink-us');
             $(this).attr('href', deepLinkUSA);
         }
         else if(usersCountry == 'GB'){
