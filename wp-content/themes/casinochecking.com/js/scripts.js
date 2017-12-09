@@ -65,24 +65,16 @@ function setCurrencyRate(data){
             loadCasinoParams(currencyRate);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
-
-/************************
-AFTER EACH AJAX HAS STOPPED
-************************/
-$( document ).ajaxStop(function() {
-    showDescCasino();
-});
 
 /************************
 DROPDOWN ON EACH CASINO
 ************************/
 function showDescCasino() {
     $('.casino-wrapper').click(function () {
-        $(this).toggleClass('active-desc');
         $(this).find('.desc').slideToggle("slow");
     });
 }
@@ -168,9 +160,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -189,14 +181,14 @@ function infiniteScroll () {
         if ( timer ) clearTimeout(timer);
 
         $(window).scroll(function() {
-         if ( timer ) clearTimeout(timer);
-         var shownPosts = 10;
-         var docHeight = $(document).height();
-         var windowHeight = $(window).height();
-         var footerHeight = $('footer').height();
-         var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-         var headerHeight = $('header').height();
-         var totalPosts = $('.loaded-posts').attr('data-count');
+           if ( timer ) clearTimeout(timer);
+           var shownPosts = 10;
+           var docHeight = $(document).height();
+           var windowHeight = $(window).height();
+           var footerHeight = $('footer').height();
+           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+           var headerHeight = $('header').height();
+           var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
            console.log(totalPosts);
@@ -250,9 +242,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -535,33 +527,59 @@ function loadCasino(data) {
             } 
             console.log('currencyUpdate' + JSON.stringify(data, null, 2))
             currencyUpdate(data);
+            updateDeepLink();
+            showDescCasino();
 
-            //Update deeplink
-            var usersCountry = $('#countrySelect').val();
-            console.log('usersCountry: ' + usersCountry)
-            $('.deep-link-button').each(function(index) {
-                if(usersCountry == 'USA') {
-                    var deepLinkUSA = $(this).attr('data-deeplink-usa');
-                    $(this).attr('href', deepLinkUSA);
-                }
-                else if(usersCountry == 'GB'){
-                    var deepLinkGB = $(this).attr('data-deeplink-gb');
-                    $(this).attr('href', deepLinkGB);
-                }
-                else if(usersCountry == 'DK'){
-                    var deepLinkDK = $(this).attr('data-deeplink-dk');
-                    $(this).attr('href', deepLinkDK);
-                }
-                else {
-                    var deepLinkEUR = $(this).attr('data-deeplink-eur');
-                    $(this).attr('href', deepLinkEUR);
-                }
-            });
+            
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       } 
-   });
+         console.log(errorThrown);
+     } 
+ });
+}
+
+function updateDeepLink() {
+    var usersCountry = $('#countrySelect').val();
+    console.log('usersCountry: ' + usersCountry)
+
+    $('.deep-link-button').each(function(index) {
+        if(usersCountry == 'US') {
+            var deepLinkUSA = $(this).attr('data-deeplink-usa');
+            $(this).attr('href', deepLinkUSA);
+        }
+        else if(usersCountry == 'GB'){
+            var deepLinkGB = $(this).attr('data-deeplink-gb');
+            $(this).attr('href', deepLinkGB);
+        }
+        else if(usersCountry == 'DK'){
+            var deepLinkDK = $(this).attr('data-deeplink-dk');
+            $(this).attr('href', deepLinkDK);
+        }
+        else if(usersCountry == 'SE'){
+            var deepLinkSE = $(this).attr('deep_link_se');
+            $(this).attr('href', deepLinkSE);
+        }
+        else if(usersCountry == 'DE'){
+            var deepLinkDE = $(this).attr('deep_link_de');
+            $(this).attr('href', deepLinkDE);
+        }
+        else if(usersCountry == 'PL'){
+            var deepLinkPL = $(this).attr('deep_link_pl');
+            $(this).attr('href', deepLinkPL);
+        }
+        else if(usersCountry == 'FI'){
+            var deepLinkFI = $(this).attr('deep_link_fi');
+            $(this).attr('href', deepLinkFI);
+        }
+        else if(usersCountry == 'NO'){
+            var deepLinkNO = $(this).attr('deep_link_no');
+            $(this).attr('href', deepLinkNO);
+        }
+        else {
+            var deepLinkEUR = $(this).attr('data-deeplink-eur');
+            $(this).attr('href', deepLinkEUR);
+        }
+    });
 }
 
 /*function ajax(data) {
