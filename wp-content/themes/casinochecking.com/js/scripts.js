@@ -15,6 +15,7 @@ SET CURRENCY BASED ON THE VISITORS COUNTRY
 function setCurrency() {
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
+    console.log(usersCountry)
     $('#countrySelect').val(usersCountry);
 
     //Sets default currency based on the country
@@ -65,9 +66,9 @@ function setCurrencyRate(data){
             loadCasinoParams(currencyRate);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 /************************
@@ -160,9 +161,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -181,14 +182,14 @@ function infiniteScroll () {
         if ( timer ) clearTimeout(timer);
 
         $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var shownPosts = 10;
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
-           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-           var headerHeight = $('header').height();
-           var totalPosts = $('.loaded-posts').attr('data-count');
+         if ( timer ) clearTimeout(timer);
+         var shownPosts = 10;
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
+         var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+         var headerHeight = $('header').height();
+         var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
            console.log(totalPosts);
@@ -242,9 +243,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -308,174 +309,48 @@ function loadCasinoParams(currencyRate) {
         $(metric.displaySelector).val(displayString);
     });
 
-     // Data to submit in request
-     const data = {
-        action: 'filter_casino',        
-    }
+    ajaxParams()
+    function ajaxParams(){
+         // Data to submit in request
+         const data = {
+            action: 'filter_casino',        
+        }
 
-    data['country'] = $('#countrySelect').val();
+        data['country'] = $('#countrySelect').val();
 
-    data['categories'] = [];
-    $('#checkbox-input:checked').each(function(index) {
-        data['categories'].push(this.value);
-    })
+        data['categories'] = [];
+        $('#checkbox-input:checked').each(function(index) {
+            data['categories'].push(this.value);
+        })
 
-    $('.load-casino').addClass('loading-posts');   
-    data.active = $('.filter-active').data('filter');
+        $('.load-casino').addClass('loading-posts');   
+        data.active = $('.filter-active').data('filter');
 
-    Object.keys(metrics).forEach(type => {
-        const metric = metrics[type]
-        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
-        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
-        metric.filterType = elements[type].attr('data-filter-type');
-        console.log(metrics[type]['currentMin'])
-    });
-
-    Object.keys(metrics).forEach(type => {
-        const metric = metrics[type]
-        data[`filter_type_${type}`] = metric.filterType
-        data[`min_${type}`] = metric.currentMin
-        data[`max_${type}`] = metric.currentMax
-    })
-
-    console.log('loadCasino: ' + JSON.stringify(data, null, 2))
-    loadCasino(data);
-
-        // Attach event handler for AJAX submit
-        $('.search-ajax, .filter').click((e) => {
-            e.preventDefault();
-            console.log('hey')
-            sidebarFilterCasino(currencyRate);
+        Object.keys(metrics).forEach(type => {
+            const metric = metrics[type]
+            metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
+            metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
+            metric.filterType = elements[type].attr('data-filter-type');
+            console.log(metrics[type]['currentMin'])
         });
 
-        resetFilter()
-        function resetFilter() {
-            $('.reset-filter').click(function(e){
-                e.preventDefault();
-                const data = {
-                    action: 'filter_casino',        
-                };
-                Object.keys(metrics).forEach(type => {
-                    const metric = metrics[type]
-                    data[`min_${type}`] = metric.min;
-                    data[`max_${type}`] = metric.max;
-                });
-                var usersCountry = $('body').attr('data-user-country');
-                data['country'] = usersCountry;
-                $('#countrySelect').val(usersCountry);
+        Object.keys(metrics).forEach(type => {
+            const metric = metrics[type]
+            data[`filter_type_${type}`] = metric.filterType
+            data[`min_${type}`] = metric.currentMin
+            data[`max_${type}`] = metric.currentMax
+        })
 
-                console.log('ajax' + JSON.stringify(data, null, 2))
-                ajax(data);
-                $('.filter').removeClass('active-sort');
-                $('.filter-bonus').addClass('active-sort');
-            });
-        }
+        console.log('loadCasino: ' + JSON.stringify(data, null, 2))
+        loadCasino(data);
     }
 
-    function sidebarFilterCasino() {
-    //Infinite scroll with ajax-calls
-    infiniteScroll();
-
-    const elements = {
-        score: $('.our_score'),
-        votes: $('.user_votes'),
-        deposit: $('.minimum_deposit'),
-        'signup-bonus': $('.signup_bonus'),
-        filterDeposit: $('.filter-deposit'),
-        filterBonus: $('.filter-bonus'),
-        filterScore: $('.filter-score'),
-    };
-
-    const metrics = {
-        score: {
-            sliderSelector: '#slider-range-our-score',
-            displaySelector: '#our_score',
-            min: elements.score.data("min"),
-            max: elements.score.data("max"),
-            currency: ''
-        },
-        votes: {
-            sliderSelector: '#slider-range-user-votes',
-            displaySelector: '#user_votes',
-            min: elements.votes.data("min"),
-            max: elements.votes.data("max"),
-            currency: ''
-        },
-        deposit: {
-            sliderSelector: '#slider-range-min-deposit',
-            displaySelector: '#minimum_deposit',
-            min: 0,
-            max: 400,
-            currency: $('#currencySelect').find(":selected").attr('data-currency')
-        },
-        'signup-bonus': {
-            sliderSelector: '#slider-range-signup-bonus',
-            displaySelector: '#signup_bonus',
-            min: 0,
-            max: 300,
-            currency: '%'
-        }
-    }
-
-    // Instantiate sliders for each metric
-    Object.keys(metrics).forEach(type => {
-        const metric = metrics[type];
-        $(metric.sliderSelector).slider({
-            range: true,
-            min: metric.min,
-            max: metric.max,
-            values: [ metric.min, metric.max ],
-            slide: function( event, ui ) {
-                $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
-            }
-        }); 
-        const displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
-        $(metric.displaySelector).val(displayString);
-    });
-
-    ajaxParams();
-    function ajaxParams() {
-     // Data to submit in request
-     const data = {
-        action: 'filter_casino',        
-    }
-
-    data['country'] = $('#countrySelect').val();
-
-    data['categories'] = [];
-    $('#checkbox-input:checked').each(function(index) {
-        data['categories'].push(this.value);
-    })
-
-    $('.load-casino').addClass('loading-posts');   
-    data.active = $('.filter-active').data('filter');
-
-    Object.keys(metrics).forEach(type => {
-        const metric = metrics[type]
-        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
-        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
-        metric.filterType = elements[type].attr('data-filter-type');
-        console.log(metrics[type]['currentMin'])
-    });
-
-    Object.keys(metrics).forEach(type => {
-        const metric = metrics[type]
-        data[`filter_type_${type}`] = metric.filterType
-        data[`min_${type}`] = metric.currentMin
-        data[`max_${type}`] = metric.currentMax
-    })
-
-    console.log('ajax: ' + JSON.stringify(data, null, 2))
-
-    loadCasino(data); 
-}
-
-    // Attach event handler for AJAX submit
+        // Attach event handler for AJAX submit
     $('.search-ajax, .filter').click((e) => {
-        e.preventDefault();
-        console.log('hey')
-        ajaxParams();
-    });
+            e.preventDefault();
+            console.log('hey')
+            ajaxParams();
+        });
 
     resetFilter()
     function resetFilter() {
@@ -494,7 +369,7 @@ function loadCasinoParams(currencyRate) {
             $('#countrySelect').val(usersCountry);
 
             console.log('ajax' + JSON.stringify(data, null, 2))
-            ajax(data);
+            ajaxParams(data);
             $('.filter').removeClass('active-sort');
             $('.filter-bonus').addClass('active-sort');
         });
@@ -529,13 +404,11 @@ function loadCasino(data) {
             currencyUpdate(data);
             updateDeepLink();
             showDescCasino();
-
-            
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     } 
- });
+           console.log(errorThrown);
+       } 
+   });
 }
 
 function updateDeepLink() {
