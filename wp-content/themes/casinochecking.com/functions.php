@@ -306,7 +306,7 @@ function filter_casino() {
        $i = 1; 
        while( $the_query->have_posts() ) : $the_query->the_post(); ?>
        <div class="small-12 columns">
-           <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
+        <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
        </div>
        <?php $i++; 
    endwhile;
