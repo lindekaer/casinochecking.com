@@ -1858,7 +1858,9 @@ ul.no-bullet, ol.no-bullet { margin-left: 0; list-style: none; }
 
 body { width: 100%; height: 100%; }
 
-#page { background: #fff; width: 100%; min-height: 100vh; max-width: 100%; margin: 0 auto; overflow-x: hidden; }
+#page { background: #fff; width: 100%; max-width: 100%; margin: 0 auto; overflow-x: hidden; }
+
+@media screen and (min-width: 40em) { #page { min-height: 100vh; } }
 
 /*Global*/
 p { margin: 0; font-family: 'Lato'; line-height: inherit; color: #636363; }
