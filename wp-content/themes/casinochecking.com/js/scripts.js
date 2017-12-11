@@ -15,7 +15,6 @@ SET CURRENCY BASED ON THE VISITORS COUNTRY
 function setCurrency() {
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
-    console.log(usersCountry)
     $('#countrySelect').val(usersCountry);
 
     //Sets default currency based on the country
@@ -66,9 +65,9 @@ function setCurrencyRate(data){
             loadCasinoParams(currencyRate);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -161,9 +160,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -182,14 +181,14 @@ function infiniteScroll () {
         if ( timer ) clearTimeout(timer);
 
         $(window).scroll(function() {
-         if ( timer ) clearTimeout(timer);
-         var shownPosts = 10;
-         var docHeight = $(document).height();
-         var windowHeight = $(window).height();
-         var footerHeight = $('footer').height();
-         var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-         var headerHeight = $('header').height();
-         var totalPosts = $('.loaded-posts').attr('data-count');
+           if ( timer ) clearTimeout(timer);
+           var shownPosts = 10;
+           var docHeight = $(document).height();
+           var windowHeight = $(window).height();
+           var footerHeight = $('footer').height();
+           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+           var headerHeight = $('header').height();
+           var totalPosts = $('.loaded-posts').attr('data-count');
 
            //Check whether scrolled to bottom
            console.log(totalPosts);
@@ -243,14 +242,14 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 function loadCasinoParams(currencyRate) {
     //Infinite scroll with ajax-calls
-    infiniteScroll();
+    //infiniteScroll();
 
     const elements = {
         score: $('.our_score'),
@@ -314,7 +313,7 @@ function loadCasinoParams(currencyRate) {
          // Data to submit in request
          const data = {
             action: 'filter_casino',        
-        }
+        }   
 
         data['country'] = $('#countrySelect').val();
 
@@ -346,46 +345,46 @@ function loadCasinoParams(currencyRate) {
     }
 
         // Attach event handler for AJAX submit
-    $('.search-ajax, .filter').click((e) => {
+        $('.search-ajax, .filter').click((e) => {
             e.preventDefault();
             console.log('hey')
             ajaxParams();
         });
 
-    resetFilter()
-    function resetFilter() {
-        $('.reset-filter').click(function(e){
-            e.preventDefault();
-            const data = {
-                action: 'filter_casino',        
-            };
-            Object.keys(metrics).forEach(type => {
-                const metric = metrics[type]
-                data[`min_${type}`] = metric.min;
-                data[`max_${type}`] = metric.max;
+        resetFilter()
+        function resetFilter() {
+            $('.reset-filter').click(function(e){
+                e.preventDefault();
+                const data = {
+                    action: 'filter_casino',        
+                };
+                Object.keys(metrics).forEach(type => {
+                    const metric = metrics[type]
+                    data[`min_${type}`] = metric.min;
+                    data[`max_${type}`] = metric.max;
+                });
+                var usersCountry = $('body').attr('data-user-country');
+                data['country'] = usersCountry;
+                $('#countrySelect').val(usersCountry);
+
+                console.log('ajax' + JSON.stringify(data, null, 2))
+                ajaxParams(data);
+                $('.filter').removeClass('active-sort');
+                $('.filter-bonus').addClass('active-sort');
             });
-            var usersCountry = $('body').attr('data-user-country');
-            data['country'] = usersCountry;
-            $('#countrySelect').val(usersCountry);
-
-            console.log('ajax' + JSON.stringify(data, null, 2))
-            ajaxParams(data);
-            $('.filter').removeClass('active-sort');
-            $('.filter-bonus').addClass('active-sort');
-        });
+        }
     }
-}
 
 
-function loadCasino(data) {
-    $.ajax({
-        url: site_vars.ajax_url,
-        type: 'post',
-        data: data,
-        success: function(result) {
-            $('.filter').removeClass('filter-active');
-            $('.load-casino').removeClass("loading-posts");
-            $('.loaded-posts').html(result);
+    function loadCasino(data) {
+        $.ajax({
+            url: site_vars.ajax_url,
+            type: 'post',
+            data: data,
+            success: function(result) {
+                $('.filter').removeClass('filter-active');
+                $('.load-casino').removeClass("loading-posts");
+                $('.loaded-posts').html(result);
 
             //Update currency-value on each casino-post
             var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
@@ -406,54 +405,54 @@ function loadCasino(data) {
             showDescCasino();
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       } 
-   });
-}
+         console.log(errorThrown);
+     } 
+ });
+    }
 
-function updateDeepLink() {
-    var usersCountry = $('#countrySelect').val();
-    console.log('usersCountry: ' + usersCountry)
+    function updateDeepLink() {
+        var usersCountry = $('#countrySelect').val();
+        console.log('usersCountry: ' + usersCountry)
 
-    $('.deep-link-button').each(function(index) {
-        if(usersCountry == 'US') {
-            var deepLinkUSA = $(this).attr('data-deeplink-us');
-            $(this).attr('href', deepLinkUSA);
-        }
-        else if(usersCountry == 'GB'){
-            var deepLinkGB = $(this).attr('data-deeplink-gb');
-            $(this).attr('href', deepLinkGB);
-        }
-        else if(usersCountry == 'DK'){
-            var deepLinkDK = $(this).attr('data-deeplink-dk');
-            $(this).attr('href', deepLinkDK);
-        }
-        else if(usersCountry == 'SE'){
-            var deepLinkSE = $(this).attr('deep_link_se');
-            $(this).attr('href', deepLinkSE);
-        }
-        else if(usersCountry == 'DE'){
-            var deepLinkDE = $(this).attr('deep_link_de');
-            $(this).attr('href', deepLinkDE);
-        }
-        else if(usersCountry == 'PL'){
-            var deepLinkPL = $(this).attr('deep_link_pl');
-            $(this).attr('href', deepLinkPL);
-        }
-        else if(usersCountry == 'FI'){
-            var deepLinkFI = $(this).attr('deep_link_fi');
-            $(this).attr('href', deepLinkFI);
-        }
-        else if(usersCountry == 'NO'){
-            var deepLinkNO = $(this).attr('deep_link_no');
-            $(this).attr('href', deepLinkNO);
-        }
-        else {
-            var deepLinkEUR = $(this).attr('data-deeplink-eur');
-            $(this).attr('href', deepLinkEUR);
-        }
-    });
-}
+        $('.deep-link-button').each(function(index) {
+            if(usersCountry == 'US') {
+                var deepLinkUSA = $(this).attr('data-deeplink-us');
+                $(this).attr('href', deepLinkUSA);
+            }
+            else if(usersCountry == 'GB'){
+                var deepLinkGB = $(this).attr('data-deeplink-gb');
+                $(this).attr('href', deepLinkGB);
+            }
+            else if(usersCountry == 'DK'){
+                var deepLinkDK = $(this).attr('data-deeplink-dk');
+                $(this).attr('href', deepLinkDK);
+            }
+            else if(usersCountry == 'SE'){
+                var deepLinkSE = $(this).attr('deep_link_se');
+                $(this).attr('href', deepLinkSE);
+            }
+            else if(usersCountry == 'DE'){
+                var deepLinkDE = $(this).attr('deep_link_de');
+                $(this).attr('href', deepLinkDE);
+            }
+            else if(usersCountry == 'PL'){
+                var deepLinkPL = $(this).attr('deep_link_pl');
+                $(this).attr('href', deepLinkPL);
+            }
+            else if(usersCountry == 'FI'){
+                var deepLinkFI = $(this).attr('deep_link_fi');
+                $(this).attr('href', deepLinkFI);
+            }
+            else if(usersCountry == 'NO'){
+                var deepLinkNO = $(this).attr('deep_link_no');
+                $(this).attr('href', deepLinkNO);
+            }
+            else {
+                var deepLinkEUR = $(this).attr('data-deeplink-eur');
+                $(this).attr('href', deepLinkEUR);
+            }
+        });
+    }
 
 /*function ajax(data) {
     $.ajax({

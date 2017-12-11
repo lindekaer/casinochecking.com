@@ -62,13 +62,13 @@ function currency_update() {
         if ($updateCurrencyLoad == 'EUR') {
             $currency = 1; 
         }
-        if ($updateCurrencyLoad == 'USD') {
+        else if ($updateCurrencyLoad == 'USD') {
             $currency = get_field('eur_in_usd', 'options');
         }
-        if ($updateCurrencyLoad == 'DKK') {
+        else if ($updateCurrencyLoad == 'DKK') {
             $currency = get_field('eur_in_dkk', 'options');
         }
-        if ($updateCurrencyLoad == 'GBP') {
+        else if ($updateCurrencyLoad == 'GBP') {
             $currency = get_field('eur_in_gbp', 'options');
         }
         echo $currency;
@@ -80,13 +80,13 @@ function currency_update() {
             if ($filterArr['after'] == 'USD') {
                 $currency = 1; 
             }
-            if ($filterArr['after'] == 'EUR') {
+            else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('usd_in_eur', 'options'); 
             }
-            if ($filterArr['after'] == 'DKK') {
+            else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('usd_in_dkk', 'options'); 
             }
-            if ($filterArr['after'] == 'GBP') {
+            else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('usd_in_gbp', 'options'); 
             }
         }
@@ -95,13 +95,13 @@ function currency_update() {
             if ($filterArr['after'] == '1') {
                 $currency = 1; 
             }
-            if ($filterArr['after'] == 'USD') {
+            else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('eur_in_usd', 'options'); 
             }
-            if ($filterArr['after'] == 'DKK') {
+            else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('eur_in_dkk', 'options');
             }
-            if ($filterArr['after'] == 'GBP') {
+            else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('eur_in_gbp', 'options');
             }
         }
@@ -110,13 +110,13 @@ function currency_update() {
             if ($filterArr['after'] == 'DKK') {
                 $currency = 1; 
             }
-            if ($filterArr['after'] == 'EUR') {
+            else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('dkk_in_eur', 'options');
             }
-            if ($filterArr['after'] == 'USD') {
+            else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('dkk_in_usd', 'options');
             }
-            if ($filterArr['after'] == 'GBP') {
+            else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('dkk_in_gbp', 'options');
             }
         }
@@ -125,21 +125,19 @@ function currency_update() {
             if ($filterArr['after'] == 'GBP') {
                 $currency = 1; 
             }        
-            if ($filterArr['after'] == 'EUR') {
+            else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('gbp_in_eur', 'options');
             }
-            if ($filterArr['after'] == 'USD') {
+            else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('gbp_in_usd', 'options');
             }
-            if ($filterArr['after'] == 'DKK') {
+            else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('gbp_in_dkk', 'options'); 
             }
         }
         echo $currency;
     }
-
     die();
-
 }
 
 add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
@@ -161,7 +159,6 @@ function filter_casino() {
     foreach ($arrayPosts as $key => $value){
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
-
 
     $args = array(
         'numberposts'   => -1,
@@ -202,7 +199,6 @@ function filter_casino() {
         ); 
         $args['meta_query'][] = $query_vars_country;
     }
-
 
      //Bonus
     if ($filterArr['filter_type_signup-bonus']) {
@@ -302,18 +298,18 @@ function filter_casino() {
    //echo $count;
 
     if($filterArr['country'] == NULL) {
-       echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';   
-   }
+     echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';   
+ }
 
-   else if($filterArr['posts_per_page'] <= 11111){
+ else if($filterArr['posts_per_page'] <= 11111){
     if($the_query->have_posts()) {
-     $i = 1; 
-     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-     <div class="small-12 columns">
-         <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
-     </div>
-     <?php $i++; 
- endwhile;
+       $i = 1; 
+       while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+       <div class="small-12 columns">
+           <?php include(locate_template('template-parts/parts/casino-teaser-custom.php')); ?>
+       </div>
+       <?php $i++; 
+   endwhile;
 }
 else {
     echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';

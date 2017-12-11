@@ -8,12 +8,12 @@
 		<?php if(get_field('activate_country', 'options')): ?>
 			<div class="filter-inner-wrapper">
 				<?php	
-				$countries_available = get_field('available_countries');
+				$countries_available = get_field_object('available_countries');
 				if( $countries_available ): ?>
 				<p>Country</p>
 				<select id="countrySelect">
-					<?php foreach( $countries_available as $country_available): ?>
-						<option value="<?php echo $country_available['value']; ?>"><?php echo $country_available['label']; ?></option>
+					<?php foreach($countries_available['choices'] as $key => $country_available): ?>
+						<option value="<?php echo $key; ?>"><?php echo $country_available; ?></option>
 					<?php endforeach; ?>
 				</select>
 			<?php endif; ?>
