@@ -1943,9 +1943,11 @@ section .casino-wrapper { cursor: pointer; background: #ffffff; position: relati
 
 section .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
 
-section .casino-wrapper .section-padding { padding-bottom: 8px; }
+section .casino-wrapper .image img { width: auto; display: block; margin: 0 auto; }
 
-section .casino-wrapper .section-padding img { width: 100%; }
+@media screen and (min-width: 40em) { section .casino-wrapper .image img { height: 40px; } }
+
+section .casino-wrapper .section-padding { padding-bottom: 8px; }
 
 section .casino-wrapper .section-padding p { font-size: 10px; }
 
@@ -1959,7 +1961,11 @@ section .casino-wrapper .border-right { border-right: 1px solid #eee; }
 
 section .casino-wrapper .image-ratings { text-transform: uppercase; text-align: center; font-size: 12px; }
 
-section .casino-wrapper .image-ratings img { padding-top: 8px; width: 14%; max-width: 20px; height: auto; }
+section .casino-wrapper .image-ratings img { padding-top: 8px; width: auto; max-width: 20px; }
+
+@media screen and (max-width: 39.9375em) { section .casino-wrapper .image-ratings img { height: 18px; } }
+
+@media screen and (min-width: 40em) { section .casino-wrapper .image-ratings img { height: 24px; } }
 
 section .casino-wrapper .bonus-info { text-align: center; }
 

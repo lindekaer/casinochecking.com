@@ -230,12 +230,19 @@ section {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12);
   }
   
+  .image {
+    img {
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      @include breakpoint(medium up){
+        height: 40px;
+      }
+    }
+  }
+
   .section-padding {  
     padding-bottom: 8px;
-    img {
-      width: 100%;
-    }
-
     p {
       font-size: 10px;
     }
@@ -265,9 +272,14 @@ section {
 
     img {
       padding-top: 8px;
-      width: 14%;
+      width: auto;
       max-width: 20px;
-      height: auto;
+      @include breakpoint(small only){
+        height: 18px;
+      }
+      @include breakpoint(medium up){
+        height: 24px;
+      }
     }
   }
 
