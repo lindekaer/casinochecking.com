@@ -15,7 +15,7 @@
  				<h5 class="padding-sidebar-bottom heading"><?php echo _e('We recommend') ?></h5>
  				<?php 
  				$args = array(
- 					'numberposts'   => -1,
+ 					'numberposts'   => 3,
  					'post_type'     => 'casino',
  					'post_status' => 'publish',
  					'meta_key' => 'our_score',
@@ -61,7 +61,7 @@
  					remove_all_filters('posts_orderby');
 
  					$args_user_votes = array(
- 						'posts_per_page' => -1, 
+ 						'posts_per_page' => 3, 
  						'offset'         => 0,    
  						'post_type'      => 'casino',
  						'meta_key' => 'user_votes',

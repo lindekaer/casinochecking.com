@@ -11,7 +11,12 @@ section {
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    background-attachment: scroll !important;  
+    @include breakpoint(medium down){
+      background-attachment: scroll !important;
+    }  
+    @include breakpoint(large up){
+      background-attachment: fixed !important;
+    }  
     transform: none !important;
     /*&:before {
       content: '';
