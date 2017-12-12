@@ -155,7 +155,8 @@ function currencyUpdate(data){
             //Multiply each casino's currency with the exchange rate
             $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
-                var calc = parseFloat(Math.round((signup * result)* 100) / 100).toFixed(0);
+                var calc = Math.ceil(((signup * result)* 100) / 100);
+                console.log(calc)
                 $(this).text(calc);
             });
         },

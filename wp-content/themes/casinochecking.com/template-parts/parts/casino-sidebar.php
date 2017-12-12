@@ -12,6 +12,7 @@
 				if( $countries_available ): ?>
 				<p>Country</p>
 				<select id="countrySelect">
+					<option value="all">All countries</option>
 					<?php foreach($countries_available['choices'] as $key => $country_available): ?>
 						<option value="<?php echo $key; ?>"><?php echo $country_available; ?></option>
 					<?php endforeach; ?>
