@@ -64,9 +64,9 @@ function setCurrencyRate(data){
             loadCasinoParams(currencyRate);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 /************************
@@ -160,9 +160,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -242,9 +242,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -293,20 +293,22 @@ function loadCasinoParams(currencyRate) {
     };
 
     // Instantiate sliders for each metric
-    Object.keys(metrics).forEach(type => {
-        var metric = metrics[type];
-        $(metric.sliderSelector).slider({
-            range: true,
-            min: metric.min,
-            max: metric.max,
-            values: [ metric.min, metric.max ],
-            slide: function( event, ui ) {
-                $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
-            }
-        }); 
-        var displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
-        $(metric.displaySelector).val(displayString);
-    });
+    for (var type in metrics) {
+        if (metrics.hasOwnProperty(type)) {
+            var metric = metrics[type];
+            $(metric.sliderSelector).slider({
+                range: true,
+                min: metric.min,
+                max: metric.max,
+                values: [ metric.min, metric.max ],
+                slide: function( event, ui ) {
+                    $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
+                }
+            }); 
+            var displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
+            $(metric.displaySelector).val(displayString);
+        }
+    }
 
     ajaxParams();
     function ajaxParams(){
@@ -325,19 +327,18 @@ function loadCasinoParams(currencyRate) {
         $('.load-casino').addClass('loading-posts');   
         data.active = $('.filter-active').data('filter');
 
-        Object.keys(metrics).forEach(type => {
-            var metric = metrics[type];
-            metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
-            metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
-            metric.filterType = elements[type].attr('data-filter-type');
-        });
-
-        Object.keys(metrics).forEach(type => {
-            var metric = metrics[type];
-            data[`filter_type_${type}`] = metric.filterType;
-            data[`min_${type}`] = metric.currentMin;
-            data[`max_${type}`] = metric.currentMax;
-        });
+        for (var type in metrics) {
+            if (metrics.hasOwnProperty(type)) {
+                var metric = metrics[type];
+                metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
+                metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
+                metric.filterType = elements[type].attr('data-filter-type');
+                
+                data[`filter_type_${type}`] = metric.filterType;
+                data[`min_${type}`] = metric.currentMin;
+                data[`max_${type}`] = metric.currentMax;
+            }
+        }
 
         console.log('loadCasino: ' + JSON.stringify(data, null, 2));
         loadCasino(data);
@@ -357,11 +358,13 @@ function loadCasinoParams(currencyRate) {
                 var data = {
                     action: 'filter_casino',        
                 };
-                Object.keys(metrics).forEach(type => {
-                    var metric = metrics[type];
-                    data[`min_${type}`] = metric.min;
-                    data[`max_${type}`] = metric.max;
-                });
+                for (var type in metrics) {
+                    if (metrics.hasOwnProperty(type)) {
+                        var metric = metrics[type];
+                        data[`min_${type}`] = metric.min;
+                        data[`max_${type}`] = metric.max;
+                    }
+                };
                 var usersCountry = $('body').attr('data-user-country');
                 data.country = usersCountry;
                 $('#countrySelect').val(usersCountry);
@@ -404,9 +407,9 @@ function loadCasinoParams(currencyRate) {
             showDescCasino();
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     } 
- });
+           console.log(errorThrown);
+       } 
+   });
     }
 
     function updateDeepLink() {
