@@ -17,7 +17,7 @@ function ip_details($IPaddress)
     return $details;
 }
 
-add_action("pre_get_posts", "custom_front_page");
+/*add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query){
     //Ensure this filter isn't applied to the admin area
     if(is_admin()) {
@@ -36,7 +36,7 @@ function custom_front_page($wp_query){
 
     endif;
 
-}
+}*/
 
 add_action('wp_ajax_nopriv_currency_update', 'currency_update');
 add_action('wp_ajax_currency_update', 'currency_update');
@@ -191,14 +191,14 @@ function filter_casino() {
     }*/
 
         //Available countries
-   /* if($filterArr['country'] && $filterArr['country'] !== 'all') {
+    if($filterArr['country'] && $filterArr['country'] !== 'all') {
         $query_vars_country = array (
             'key' => 'available_countries',
             'value' => $filterArr['country'],
             'compare' => 'LIKE'
         );
         $args['meta_query'][] = $query_vars_country;
-    }*/
+    }
 
      //Bonus
     if ($filterArr['filter_type_signup-bonus']) {
@@ -297,19 +297,19 @@ function filter_casino() {
 
    //echo $count;
 
-    /*if($filterArr['country'] == NULL) {
+    if($filterArr['country'] == NULL) {
      echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';
- }*/
+ }
 
- /*else*/ if($filterArr['posts_per_page'] <= 11111){
+ else if($filterArr['posts_per_page'] <= 11111){
     if($the_query->have_posts()) {
        $i = 1;
        while( $the_query->have_posts() ) : $the_query->the_post(); ?>
        <div class="small-12 columns">
         <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-       </div>
-       <?php $i++;
-   endwhile;
+    </div>
+    <?php $i++;
+endwhile;
 }
 else {
     echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';

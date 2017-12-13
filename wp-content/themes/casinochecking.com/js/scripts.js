@@ -1,9 +1,8 @@
-"use strict";
-
 $(document).foundation();
 
-jQuery(function ($) {
-    $(document).ready(() => {
+jQuery(function($) {
+    "use strict";
+    $(document).ready(function(){
         setCurrency();
         initDom();
     });
@@ -20,7 +19,7 @@ function setCurrency() {
     //Sets default currency based on the country
     if(usersCountry == 'DK'){
         $('#currencySelect').val('DKK');
-        console.log($('#currencySelect').val('DKK'))
+        console.log($('#currencySelect').val('DKK'));
     }
 
     else if(usersCountry == 'GB'){
@@ -37,11 +36,11 @@ function setCurrency() {
 
     var currencyOnLoad = $('#currencySelect').val();
 
-    const data = {
+    var data = {
         action: 'currency_update',
         updateCurrencyLoad: currencyOnLoad      
-    } 
-    console.log('setCurrencyRate(): ' + JSON.stringify(data, null, 2))
+    }; 
+    console.log('setCurrencyRate(): ' + JSON.stringify(data, null, 2));
     setCurrencyRate(data);
 }
 
@@ -60,8 +59,8 @@ function setCurrencyRate(data){
         },
         complete: function(){
             //When the currencyrate has been loaded, 
-            var currencyRate = $('#currencySelect').attr('data-currency-rate')
-            console.log('currencyRate: ' + currencyRate)
+            var currencyRate = $('#currencySelect').attr('data-currency-rate');
+            console.log('currencyRate: ' + currencyRate);
             loadCasinoParams(currencyRate);
         },
         error: function(errorThrown){
@@ -117,19 +116,19 @@ function loadCurrency() {
     $('#currencySelect').on('focus', function() {
         previous = this.value; 
     }).change(function(){
-        console.log('before ' + previous)
+        console.log('before ' + previous);
         var after = this.value;
-        console.log('after' + after)
-        $('.currency-type').attr('data-currency', after)
+        console.log('after' + after);
+        $('.currency-type').attr('data-currency', after);
 
         //Update the currency, when the currency is being updated manually
-        const data = {
+        var data = {
             action: 'currency_update',
             previous: previous,
             after: after,        
-        }
-        var currencyRate = $('#currencySelect').attr('data-currency-rate')
-        console.log('currencyUpdate: ' + JSON.stringify(data, null, 2))
+        };
+        var currencyRate = $('#currencySelect').attr('data-currency-rate');
+        console.log('currencyUpdate: ' + JSON.stringify(data, null, 2));
 
         currencyUpdate(data);
 
@@ -156,7 +155,7 @@ function currencyUpdate(data){
             $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
                 var calc = Math.ceil(((signup * result)* 100) / 100);
-                console.log(calc)
+                console.log(calc);
                 $(this).text(calc);
             });
         },
@@ -175,7 +174,7 @@ $(window).scroll(function(){
     }
 });
 
-
+/*
 function infiniteScroll () {
     if ($('.casinos').length) {
         var timer;
@@ -230,7 +229,7 @@ function infiniteScroll () {
         }
     });
     }
-}
+}*/
 
 function morePosts(data){
     $.ajax({
@@ -252,7 +251,7 @@ function loadCasinoParams(currencyRate) {
     //Infinite scroll with ajax-calls
     //infiniteScroll();
 
-    const elements = {
+    var elements = {
         score: $('.our_score'),
         votes: $('.user_votes'),
         deposit: $('.minimum_deposit'),
@@ -262,7 +261,7 @@ function loadCasinoParams(currencyRate) {
         filterScore: $('.filter-score'),
     };
 
-    const metrics = {
+    var metrics = {
         score: {
             sliderSelector: '#slider-range-our-score',
             displaySelector: '#our_score',
@@ -291,11 +290,11 @@ function loadCasinoParams(currencyRate) {
             max: 300,
             currency: '%'
         }
-    }
+    };
 
     // Instantiate sliders for each metric
     Object.keys(metrics).forEach(type => {
-        const metric = metrics[type];
+        var metric = metrics[type];
         $(metric.sliderSelector).slider({
             range: true,
             min: metric.min,
@@ -305,70 +304,69 @@ function loadCasinoParams(currencyRate) {
                 $(metric.displaySelector).val( ui.values[ 0 ] + metric.currency +  " - " + ui.values[ 1 ] + metric.currency );
             }
         }); 
-        const displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
+        var displayString = $(metric.sliderSelector).slider( "values", 0 ) + metric.currency + " - " + $(metric.sliderSelector).slider( "values", 1 ) + metric.currency;
         $(metric.displaySelector).val(displayString);
     });
 
-    ajaxParams()
+    ajaxParams();
     function ajaxParams(){
          // Data to submit in request
-         const data = {
+         var data = {
             action: 'filter_casino',        
-        }   
+        };   
 
-        data['country'] = $('#countrySelect').val();
+        data.country = $('#countrySelect').val();
 
-        data['categories'] = [];
+        data.categories = [];
         $('#checkbox-input:checked').each(function(index) {
-            data['categories'].push(this.value);
-        })
+            data.categories.push(this.value);
+        });
 
         $('.load-casino').addClass('loading-posts');   
         data.active = $('.filter-active').data('filter');
 
         Object.keys(metrics).forEach(type => {
-            const metric = metrics[type]
-            metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 )
-            metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 )
+            var metric = metrics[type];
+            metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
+            metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
             metric.filterType = elements[type].attr('data-filter-type');
-            console.log(metrics[type]['currentMin'])
         });
 
         Object.keys(metrics).forEach(type => {
-            const metric = metrics[type]
-            data[`filter_type_${type}`] = metric.filterType
-            data[`min_${type}`] = metric.currentMin
-            data[`max_${type}`] = metric.currentMax
-        })
+            var metric = metrics[type];
+            data[`filter_type_${type}`] = metric.filterType;
+            data[`min_${type}`] = metric.currentMin;
+            data[`max_${type}`] = metric.currentMax;
+        });
 
-        console.log('loadCasino: ' + JSON.stringify(data, null, 2))
+        console.log('loadCasino: ' + JSON.stringify(data, null, 2));
         loadCasino(data);
     }
 
         // Attach event handler for AJAX submit
         $('.search-ajax, .filter').click((e) => {
             e.preventDefault();
-            console.log('hey')
+            console.log('hey');
             ajaxParams();
         });
 
-        resetFilter()
+        resetFilter();
         function resetFilter() {
             $('.reset-filter').click(function(e){
                 e.preventDefault();
-                const data = {
+                var data = {
                     action: 'filter_casino',        
                 };
                 Object.keys(metrics).forEach(type => {
-                    const metric = metrics[type]
+                    var metric = metrics[type];
                     data[`min_${type}`] = metric.min;
                     data[`max_${type}`] = metric.max;
                 });
                 var usersCountry = $('body').attr('data-user-country');
-                data['country'] = usersCountry;
+                data.country = usersCountry;
                 $('#countrySelect').val(usersCountry);
 
-                console.log('ajax' + JSON.stringify(data, null, 2))
+                console.log('ajax' + JSON.stringify(data, null, 2));
                 ajaxParams(data);
                 $('.filter').removeClass('active-sort');
                 $('.filter-bonus').addClass('active-sort');
@@ -396,11 +394,11 @@ function loadCasinoParams(currencyRate) {
         complete: function() {
             //Update casino-currency value
             var updateCurrencyLoad = $('#currencySelect').val();
-            const data = {
+            var data = {
                 action: 'currency_update',
                 updateCurrencyLoad: updateCurrencyLoad      
-            } 
-            console.log('currencyUpdate' + JSON.stringify(data, null, 2))
+            }; 
+            console.log('currencyUpdate' + JSON.stringify(data, null, 2));
             currencyUpdate(data);
             updateDeepLink();
             showDescCasino();
@@ -413,7 +411,7 @@ function loadCasinoParams(currencyRate) {
 
     function updateDeepLink() {
         var usersCountry = $('#countrySelect').val();
-        console.log('usersCountry: ' + usersCountry)
+        console.log('usersCountry: ' + usersCountry);
 
         $('.deep-link-button').each(function(index) {
             if(usersCountry == 'US') {
@@ -454,25 +452,3 @@ function loadCasinoParams(currencyRate) {
             }
         });
     }
-
-/*function ajax(data) {
-    $.ajax({
-        url: site_vars.ajax_url,
-        type: 'post',
-        data: data,
-        success: function(result) {
-            $('.filter').removeClass('filter-active');
-            $('.load-casino').removeClass("loading-posts");
-            $('.loaded-posts').html(result);
-
-            //Update currency-value on each casino-post
-            var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
-            var chosenCurrency = $('#currencySelect').find(":selected").val();
-            $('.currency-type').text(chosenCurrencyVal);
-            $('.currency-type').attr('data-currency', chosenCurrency);
-        },
-        error: function(errorThrown){
-           console.log(errorThrown);
-       } 
-   });
-}*/
