@@ -17,7 +17,7 @@ function ip_details($IPaddress)
     return $details;
 }
 
-/*add_action("pre_get_posts", "custom_front_page");
+add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query){
     //Ensure this filter isn't applied to the admin area
     if(is_admin()) {
@@ -36,7 +36,7 @@ function custom_front_page($wp_query){
 
     endif;
 
-}*/
+}
 
 add_action('wp_ajax_nopriv_currency_update', 'currency_update');
 add_action('wp_ajax_currency_update', 'currency_update');
