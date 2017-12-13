@@ -61,12 +61,16 @@ function setCurrencyRate(data){
             //When the currencyrate has been loaded, 
             var currencyRate = $('#currencySelect').attr('data-currency-rate');
             console.log('currencyRate: ' + currencyRate);
-            loadCasinoParams(currencyRate);
+
+            //Only loads casino on archive-casino-page
+            if($('.post-type-archive-casino').length){
+                loadCasinoParams(currencyRate);
+            }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -160,9 +164,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -242,9 +246,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -333,7 +337,7 @@ function loadCasinoParams(currencyRate) {
                 metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
                 metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
                 metric.filterType = elements[type].attr('data-filter-type');
-                
+
                 data[`filter_type_${type}`] = metric.filterType;
                 data[`min_${type}`] = metric.currentMin;
                 data[`max_${type}`] = metric.currentMax;
@@ -407,9 +411,9 @@ function loadCasinoParams(currencyRate) {
             showDescCasino();
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       } 
-   });
+         console.log(errorThrown);
+     } 
+ });
     }
 
     function updateDeepLink() {

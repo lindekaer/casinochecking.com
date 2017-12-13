@@ -15,9 +15,9 @@
  				<h5 class="padding-sidebar-bottom heading"><?php echo _e('We recommend') ?></h5>
  				<?php 
  				$args = array(
- 					'numberposts'   => 3,
- 					'post_type'     => 'casino',
- 					'post_status' => 'publish',
+ 					'posts_per_page' => 3, 
+ 					'offset'         => 0,    
+ 					'post_type'      => 'casino',
  					'meta_key' => 'our_score',
  					'orderby' => 'meta_value_num',
  					'order' => 'DESC',
