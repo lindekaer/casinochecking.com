@@ -68,9 +68,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 /************************
@@ -158,15 +158,16 @@ function currencyUpdate(data){
             //Multiply each casino's currency with the exchange rate
             $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
-                var calc = Math.ceil(((signup * result)* 100) / 100);
+                
+                var calc =Math.round((((signup * result)* 100) / 100) / 10) * 10
                 console.log(calc);
                 $(this).text(calc);
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -246,9 +247,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -414,9 +415,9 @@ function loadCasino(data) {
             showDescCasino();
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     } 
- });
+           console.log(errorThrown);
+       } 
+   });
 }
 
 function updateDeepLink() {
