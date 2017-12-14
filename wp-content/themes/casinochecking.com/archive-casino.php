@@ -21,42 +21,27 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	<div class="container mobile-full-width">
 		<div class="row">
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-		<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium">
-			<div class="container">
-				<div class="row align-middle padding-bottom">
-					<div class="small-12 large-6 columns">
-						<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
-					</div>
-					<div class="small-12 large-6 columns align-right filter-wrapper">
-						<div class="row">
-							<div class="small-12 columns">
-								<div class="row">
-									<div class="small-4 large-5">
-										<p>Currency</p>	
-									</div>
-									<div class="small-8 large-7 columns">
-										<p>SORT BY</p>	
-									</div>
-								</div>
+			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium">
+				<div class="container">
+					<div class="row align-middle padding-bottom">
+						<div class="small-12 large-6 columns">
+							<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
+						</div>
+						<div class="small-12 large-6 columns align-right filter-wrapper">
+							<div class="selected-currency">
+								<div class="naming-casino"><p>Currency</p></div>
+								<select id="currencySelect">
+									<option value="USD" data-currency="$">USD ($)</option>
+									<option value="EUR" data-currency="€">EUR (€)</option>
+									<option value="GBP" data-currency="£">GBP (£)</option>
+									<option value="DKK" data-currency="DKK">DKK</option>
+								</select>
 							</div>
-							<div class="small-12 columns">
-								<div class="row position-relative">
-									<div class="small-4 large-5">
-										<div class="selected-currency">
-											<select id="currencySelect">
-												<option value="USD" data-currency="$">USD ($)</option>
-												<option value="EUR" data-currency="€">EUR (€)</option>
-												<option value="GBP" data-currency="£">GBP (£)</option>
-												<option value="DKK" data-currency="DKK">DKK</option>
-											</select>
-										</div>
-									</div>
-									<div class="small-8 large-7 columns">
-										<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
-										<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
-										<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
-									</div>
-								</div>
+							<div class="sorting">
+								<div class="naming-casino"><p>SORT BY</p></div>
+								<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
+								<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
+								<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
 							</div>
 						</div>
 					</div>

@@ -334,13 +334,16 @@ function loadCasinoParams(currencyRate) {
         for (var type in metrics) {
             if (metrics.hasOwnProperty(type)) {
                 var metric = metrics[type];
-                metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
-                metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
-                metric.filterType = elements[type].attr('data-filter-type');
+                if(typeof elements[type].attr('data-filter-type') !== "undefined"){
+                    metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
+                    metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
+                    metric.filterType = elements[type].attr('data-filter-type');
 
-                data['filter_type_' + type] = metric.filterType;
-                data['min_' + type] = metric.currentMin;
-                data['max_' + type] = metric.currentMax;
+                    data['filter_type_' + type] = metric.filterType;
+                    console.log('filterType: ' + metric.filterType)
+                    data['min_' + type] = metric.currentMin;
+                    data['max_' + type] = metric.currentMax;
+                }
             }
         }
 
@@ -348,7 +351,7 @@ function loadCasinoParams(currencyRate) {
         loadCasino(data);
     }
 
-    $('.search-ajax, .filter').click(function () {
+    $('.search-ajax, .filter').click(function (e) {
         // Attach event handler for AJAX submit
         e.preventDefault();
         console.log('hey');
