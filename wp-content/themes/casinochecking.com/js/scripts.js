@@ -338,9 +338,9 @@ function loadCasinoParams(currencyRate) {
                 metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
                 metric.filterType = elements[type].attr('data-filter-type');
 
-                data[`filter_type_${type}`] = metric.filterType;
-                data[`min_${type}`] = metric.currentMin;
-                data[`max_${type}`] = metric.currentMax;
+                data['filter_type_' + type] = metric.filterType;
+                data['min_' + type] = metric.currentMin;
+                data['max_' + type] = metric.currentMax;
             }
         }
 
@@ -365,8 +365,8 @@ function loadCasinoParams(currencyRate) {
             for (var type in metrics) {
                 if (metrics.hasOwnProperty(type)) {
                     var metric = metrics[type];
-                    data[`min_${type}`] = metric.min;
-                    data[`max_${type}`] = metric.max;
+                    data['min_' + type] = metric.min;
+                    data['max_' + type] = metric.max;
                 }
             }
             var usersCountry = $('body').attr('data-user-country');
