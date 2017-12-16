@@ -1901,6 +1901,8 @@ section .active-sort { font-weight: 800; }
 
 section .no-borders { border-bottom: 0 !important; }
 
+section .dropdown-desc { padding-top: 15px; }
+
 section .filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
 
 section .filter-wrapper p:first-child { padding-left: 0; }
@@ -2279,9 +2281,9 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .search-ajax { text-align: center; }
 
-.search-ajax .button { background-color: transparent; color: #cacaca; padding: 10px 30px; font-weight: 500; border: 1px solid #cacaca; }
+.search-ajax .button { background-color: transparent; color: #cacaca; padding: 10px 30px; font-weight: 600; border: 1px solid #cacaca; }
 
-.search-ajax .button:hover { color: #eee; opacity: 0.9; }
+.search-ajax .button:hover { color: #2d2d2d; background: #cacaca; }
 
 /*PARTS*/
 .button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin: 0; font-weight: 600; cursor: pointer; }

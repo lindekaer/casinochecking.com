@@ -480,9 +480,30 @@ function updateDeepLink() {
             var deepLinkNO = $(this).attr('deep_link_no');
             $(this).attr('href', deepLinkNO);
         }
+
+        else if(usersCountry == 'IT'){
+            var deepLinkIT = $(this).attr('deep_link_it');
+            $(this).attr('href', deepLinkIT);
+        }
+
+        else if(usersCountry == 'NL'){
+            var deepLinkNL = $(this).attr('deep_link_nl');
+            $(this).attr('href', deepLinkNL);
+        }
+
+        else if(usersCountry == 'CZ'){
+            var deepLinkCZ = $(this).attr('deep_link_cz');
+            $(this).attr('href', deepLinkCZ);
+        }
+
+        else if(usersCountry == 'PT'){
+            var deepLinkPT = $(this).attr('deep_link_no');
+            $(this).attr('href', deepLinkPT);
+        }
+
         else {
-            var deepLinkEUR = $(this).attr('data-deeplink-eur');
-            $(this).attr('href', deepLinkEUR);
+            var deepLinkGeneral = $(this).attr('data-deeplink-general');
+            $(this).attr('href', deepLinkGeneral);
         }
     });
 }
