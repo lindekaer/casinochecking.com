@@ -170,7 +170,7 @@ function filter_casino() {
     );
 
     if($filterArr['posts_per_page']) {
-        $args['numberposts'] = $filterArr['posts_per_page']
+        $args['numberposts'] = $filterArr['posts_per_page'];
     }
 
     //Checks if sort is chosen, and overwrites meta_key from $args
