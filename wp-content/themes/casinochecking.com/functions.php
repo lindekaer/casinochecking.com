@@ -166,7 +166,7 @@ function filter_casino() {
         'meta_key' => 'our_score',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'posts_per_page'   => 20,
+        'posts_per_page'   => 50,
     );
 
     if($filterArr['posts_per_page']) {
