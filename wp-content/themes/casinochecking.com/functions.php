@@ -167,8 +167,11 @@ function filter_casino() {
         'meta_key' => 'our_score',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'posts_per_page' => $filterArr['posts_per_page']
     );
+
+    if($filterArr['posts_per_page']) {
+        $args['numberposts'] = $filterArr['posts_per_page']
+    }
 
     //Checks if sort is chosen, and overwrites meta_key from $args
     if($filterArr['sort-active']) {
@@ -288,9 +291,9 @@ function filter_casino() {
         $args['meta_query'][] = $query_vars_score;
     }
 
-   // echo '<pre>';
-   // print_r($args);
-   // echo '</pre>';
+    echo '<pre>';
+    print_r($args);
+    echo '</pre>';
 
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
@@ -301,7 +304,7 @@ function filter_casino() {
      echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';
  }
 
- else */ //if($filterArr['posts_per_page'] <= 11111){
+ else */ if($filterArr['posts_per_page'] <= $count){
     if($the_query->have_posts()) {
        $i = 1;
        while( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -314,10 +317,10 @@ endwhile;
 else {
     echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';
 }
-/*}
+}
 else {
     echo '<h6>All results are already shown</h6>';
-}*/
+}
 wp_reset_query();
 die();
 }

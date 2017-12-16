@@ -79,9 +79,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 /************************
@@ -176,9 +176,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -237,20 +237,20 @@ function infiniteScroll () {
         };
 
         $(window).scroll(function() {
-         if ( timer ) clearTimeout(timer);
-         var docHeight = $(document).height();
-         var windowHeight = $(window).height();
-         var footerHeight = $('footer').height();
+           if ( timer ) clearTimeout(timer);
+           var docHeight = $(document).height();
+           var windowHeight = $(window).height();
+           var footerHeight = $('footer').height();
           // var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
           var headerHeight = $('header').height();
           var totalPosts = 40;
          // var count = 10;
-          var shownPosts = $('.comparison-section').data('count');
+         var shownPosts = $('.comparison-section').data('count');
 
-          console.log('totalPosts' + totalPosts)
-          console.log('shownPosts' + shownPosts)
+         console.log('totalPosts' + totalPosts)
+         console.log('shownPosts' + shownPosts)
 
-           if (docHeight - windowHeight - footerHeight  <= $(window).scrollTop() + headerHeight) {
+         if (docHeight - windowHeight - footerHeight  <= $(window).scrollTop() + headerHeight) {
             //Sends ajax if there are more total posts than shownPosts
             console.log(shownPosts >= totalPosts)
             if(totalPosts >= shownPosts ) {
@@ -289,6 +289,8 @@ function infiniteScroll () {
 
                     data['posts_per_page'] = $('.comparison-section').data('count');
                     console.log('morePosts: ' + JSON.stringify(data, null, 2))
+
+                    console.log('loadCasino: ' + JSON.stringify(data, null, 2));
 
 
                     loadCasino(data);
@@ -406,7 +408,7 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-           if (metrics.hasOwnProperty(type)) {
+         if (metrics.hasOwnProperty(type)) {
             var metric = metrics[type];
             metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
             metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
@@ -508,9 +510,9 @@ function loadCasino(data) {
                 infiniteScroll();
             },
             error: function(errorThrown){
-             console.log(errorThrown);
-         } 
-     });
+               console.log(errorThrown);
+           } 
+       });
 }
 
 function updateDeepLink() {
