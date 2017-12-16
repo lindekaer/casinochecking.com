@@ -15,15 +15,17 @@ function setCurrency() {
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
 
+    var flag = false;
     $('#countrySelect option').each(function(){
         if(this.value == usersCountry){
             $('#countrySelect').val(usersCountry);
-        }
-        else {
-            $('#countrySelect').val('all');
+            flag = true;
         }
     });
-    
+
+    if (flag = false){
+        $('#countrySelect').val('all');
+    }
 
     //Sets default currency based on the country
     if(usersCountry == 'DK'){
@@ -384,16 +386,19 @@ function loadCasinoParams(currencyRate) {
             }
             var usersCountry = $('body').attr('data-user-country');
 
+            var flag = false;
             $('#countrySelect option').each(function(){
                 if(this.value == usersCountry){
                     $('#countrySelect').val(usersCountry);
                     data.country = usersCountry;
-                }
-                else {
-                    $('#countrySelect').val('all');
-                    data.country = 'all';
+                    flag = true;
                 }
             });
+
+            if(flag == false){
+                $('#countrySelect').val('all');
+                data.country = 'all';
+            }
 
             console.log('ajax' + JSON.stringify(data, null, 2));
             ajaxParams(data);
