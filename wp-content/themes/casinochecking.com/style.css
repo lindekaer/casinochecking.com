@@ -1907,7 +1907,7 @@ section .filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
 
 section .filter-wrapper p:first-child { padding-left: 0; }
 
-section .filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-size: 12px; }
+section .filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-size: 11px; }
 
 @media screen and (min-width: 64em) { section .align-right { text-align: right; } }
 
@@ -1941,7 +1941,7 @@ section .first { position: absolute; top: 12px; margin-left: -20px; width: 35px;
 
 section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; }
 
-section .padding-bottom { padding-bottom: 15px; }
+section .padding-bottom { padding-bottom: 25px; }
 
 section .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
@@ -1983,7 +1983,7 @@ section .casino-wrapper .user-rating { font-size: 10px; text-align: center; text
 
 section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
-.container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1200px; }
+.container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1000px; }
 
 .hide-custom { display: none; }
 
@@ -2207,7 +2207,7 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 
 .mobile-row #nav-toggle.active span:after { -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
 
-.casino-sidebar { padding-right: 40px; padding-left: 40px; }
+.casino-sidebar { padding-right: 20px; padding-left: 20px; }
 
 #countrySelect { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 8px 12px; text-overflow: ellipsis; white-space: nowrap; width: 100%; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-position: calc(100% - 15px) calc(1em), calc(100% - 10px) calc(1em); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
 

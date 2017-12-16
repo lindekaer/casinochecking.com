@@ -24,7 +24,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
-						<div class="small-12 large-6 columns">
+						<div class="small-12 large-6">
 							<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
 						</div>
 						<div class="small-12 large-6 columns align-right filter-wrapper">

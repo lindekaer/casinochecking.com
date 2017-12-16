@@ -13,7 +13,7 @@
 	$minimumDeposit = get_field('minimum_deposit'); ?>
 	<p class="first"><?php echo $i; ?></p>
 
-	<div class="small-6 columns border-right my-align-center">
+	<div class="small-6 large-7 columns border-right my-align-center">
 		<div style="width: 100%;">
 			<div class="image section-padding">
 				<?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="small-6 columns my-align-center">
+		<div class="small-6 large-5 columns my-align-center">
 			<div style="width: 100%;">
 				<div class="image-ratings section-padding">
 					<div class="row">
