@@ -17,11 +17,11 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 		</div>
 	</div>
 </section>
-<section class="comparison-section bg-dark-gray">
+<section class="comparison-section bg-dark-gray" data-count="10">
 	<div class="container mobile-full-width">
 		<div class="row">
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium">
+			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium" >
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-6">

@@ -79,9 +79,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -176,9 +176,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -190,27 +190,70 @@ $(window).scroll(function(){
     }
 });
 
-/*
 function infiniteScroll () {
     if ($('.casinos').length) {
         var timer;
         if ( timer ) clearTimeout(timer);
 
-        $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var shownPosts = 10;
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
-           var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-           var headerHeight = $('header').height();
-           var totalPosts = $('.loaded-posts').attr('data-count');
+        var elements = {
+            score: $('.our_score'),
+            votes: $('.user_votes'),
+            deposit: $('.minimum_deposit'),
+            'signup-bonus': $('.signup_bonus'),
+            filterDeposit: $('.filter-deposit'),
+            filterBonus: $('.filter-bonus'),
+            filterScore: $('.filter-score'),
+        };
 
-           //Check whether scrolled to bottom
-           console.log(totalPosts);
-           if (docHeight - windowHeight - footerHeight - sectionPaddingBottom <= $(window).scrollTop() + headerHeight) {
+        var metrics = {
+            score: {
+                sliderSelector: '#slider-range-our-score',
+                displaySelector: '#our_score',
+                min: elements.score.data("min"),
+                max: elements.score.data("max"),
+                currency: ''
+            },
+            votes: {
+                sliderSelector: '#slider-range-user-votes',
+                displaySelector: '#user_votes',
+                min: elements.votes.data("min"),
+                max: elements.votes.data("max"),
+                currency: ''
+            },
+            deposit: {
+                sliderSelector: '#slider-range-min-deposit',
+                displaySelector: '#minimum_deposit',
+                min: 0,
+                max: 400,
+                currency: $('#currencySelect').find(":selected").attr('data-currency')
+            },
+            'signup-bonus': {
+                sliderSelector: '#slider-range-signup-bonus',
+                displaySelector: '#signup_bonus',
+                min: 0,
+                max: 300,
+                currency: '%'
+            }
+        };
+
+        $(window).scroll(function() {
+         if ( timer ) clearTimeout(timer);
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
+          // var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
+          var headerHeight = $('header').height();
+          var totalPosts = 40;
+         // var count = 10;
+          var shownPosts = $('.comparison-section').data('count');
+
+          console.log('totalPosts' + totalPosts)
+          console.log('shownPosts' + shownPosts)
+
+           if (docHeight - windowHeight - footerHeight  <= $(window).scrollTop() + headerHeight) {
             //Sends ajax if there are more total posts than shownPosts
-            if(totalPosts >= shownPosts) {
+            console.log(shownPosts >= totalPosts)
+            if(totalPosts >= shownPosts ) {
                 $('.load-more').addClass('loading-posts');
                 //Sets timeout on Ajax call to avoid Ajax request on each scrolled pixel 
                 timer = setTimeout(function(){  
@@ -218,25 +261,37 @@ function infiniteScroll () {
                         action: 'filter_casino',        
                     }
 
-                    Object.keys(metrics).forEach(type => {
-                        const metric = metrics[type];
-                        metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 );
-                        metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 );
-                        metric.filterType = elements[type].attr('data-filter-type');
-                        console.log(metrics[type]['currentMin']);
-                    });
+                    for (var type in metrics) {
+                        if (metrics.hasOwnProperty(type)) {
+                            if(typeof elements[type].attr('data-filter-type') !== "undefined"){
+                                const metric = metrics[type];
+                                metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 );
+                                metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 );
+                                metric.filterType = elements[type].attr('data-filter-type');
+                                console.log(metrics[type]['currentMin']);
+                            }
+                        }
+                    };
 
-                    Object.keys(metrics).forEach(type => {
-                        const metric = metrics[type];
-                        data[`filter_type_${type}`] = metric.filterType;
-                        data[`min_${type}`] = metric.currentMin;
-                        data[`max_${type}`] = metric.currentMax;
-                    });
+                    for (var type in metrics) {
+                        if (metrics.hasOwnProperty(type)) {
+                            if(typeof elements[type].attr('data-filter-type') !== "undefined"){
+                                const metric = metrics[type];
+                                data['filter_type_' + type] = metric.filterType;
+                                data['min_' + type] = metric.currentMin;
+                                data['max_' + type] = metric.currentMax;
+                            }
+                        }
+                    };
+                    $('.comparison-section').data('count',  shownPosts+= 10);
+
+                    data.country = $('#countrySelect').val();
+
                     data['posts_per_page'] = shownPosts;
                     console.log('morePosts: ' + JSON.stringify(data, null, 2))
 
 
-                    morePosts(data);
+                    loadCasino(data);
                 }, 200);
             }
         } 
@@ -245,28 +300,35 @@ function infiniteScroll () {
         }
     });
     }
-}*/
+}
 
-function morePosts(data){
+/*function morePosts(data){
     $.ajax({
         url: site_vars.ajax_url,
         type: 'post',
         data: data,
         success: function(result) {
-            $('.loaded-posts').append(result);
+            $('.loaded-posts').html(result);
             $('.load-more').removeClass('loading-posts'); 
             console.log(result);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
-}
+         console.log(errorThrown);
+     },
+     complete: function(result){
+        var updateCurrencyLoad = $('#currencySelect').val();
+        var data = {
+            action: 'currency_update',
+            updateCurrencyLoad: updateCurrencyLoad      
+        }; 
+        currencyUpdate(data);
+        updateDeepLink();
+        showDescCasino();
+    }
+});
+}*/
 
 function loadCasinoParams(currencyRate) {
-    //Infinite scroll with ajax-calls
-    //infiniteScroll();
-
     var elements = {
         score: $('.our_score'),
         votes: $('.user_votes'),
@@ -344,68 +406,73 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-            if (metrics.hasOwnProperty(type)) {
-                var metric = metrics[type];
-                if(typeof elements[type].attr('data-filter-type') !== "undefined"){
-                    metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
-                    metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
-                    metric.filterType = elements[type].attr('data-filter-type');
-
-                    data['filter_type_' + type] = metric.filterType;
-                    console.log('filterType: ' + metric.filterType)
-                    data['min_' + type] = metric.currentMin;
-                    data['max_' + type] = metric.currentMax;
-                }
-            }
+           if (metrics.hasOwnProperty(type)) {
+            var metric = metrics[type];
+            metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
+            metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
+            metric.filterType = elements[type].attr('data-filter-type');
         }
-
-        console.log('loadCasino: ' + JSON.stringify(data, null, 2));
-        loadCasino(data);
     }
 
-    $('.search-ajax, .filter').click(function (e) {
+    for (var type in metrics) {
+        if (metrics.hasOwnProperty(type)) {
+            var metric = metrics[type];
+            if(typeof elements[type].attr('data-filter-type') !== "undefined"){
+                data['filter_type_' + type] = metric.filterType;
+                console.log('filterType: ' + metric.filterType)
+                data['min_' + type] = metric.currentMin;
+                data['max_' + type] = metric.currentMax;
+            }
+        }
+    }
+
+    console.log('loadCasino: ' + JSON.stringify(data, null, 2));
+    loadCasino(data);
+}
+
+$('.search-ajax, .filter').click(function (e) {
         // Attach event handler for AJAX submit
         e.preventDefault();
         console.log('hey');
         ajaxParams();
     });
 
-    resetFilter();
-    function resetFilter() {
-        $('.reset-filter').click(function(e){
-            e.preventDefault();
-            var data = {
-                action: 'filter_casino',        
-            };
-            for (var type in metrics) {
-                if (metrics.hasOwnProperty(type)) {
-                    var metric = metrics[type];
-                    data['min_' + type] = metric.min;
-                    data['max_' + type] = metric.max;
-                }
+resetFilter();
+function resetFilter() {
+    $('.reset-filter').click(function(e){
+        e.preventDefault();
+        var data = {
+            action: 'filter_casino',        
+        };
+        for (var type in metrics) {
+            if (metrics.hasOwnProperty(type)) {
+                var metric = metrics[type];
+                data['min_' + type] = metric.min;
+                data['max_' + type] = metric.max;
             }
-            var usersCountry = $('body').attr('data-user-country');
+        }
+        var usersCountry = $('body').attr('data-user-country');
 
-            var flag = false;
-            $('#countrySelect option').each(function(){
-                if(this.value == usersCountry){
-                    $('#countrySelect').val(usersCountry);
-                    data.country = usersCountry;
-                    flag = true;
-                }
-            });
-
-            if(flag == false){
-                $('#countrySelect').val('all');
-                data.country = 'all';
+        var flag = false;
+        $('#countrySelect option').each(function(){
+            if(this.value == usersCountry){
+                $('#countrySelect').val(usersCountry);
+                data.country = usersCountry;
+                flag = true;
             }
-
-            console.log('ajax' + JSON.stringify(data, null, 2));
-            ajaxParams(data);
-            $('.filter').removeClass('active-sort');
-            $('.filter-bonus').addClass('active-sort');
         });
-    }
+
+        if(flag == false){
+            $('#countrySelect').val('all');
+            data.country = 'all';
+        }
+
+        console.log('ajax' + JSON.stringify(data, null, 2));
+        ajaxParams(data);
+        $('.filter').removeClass('active-sort');
+        $('.filter-bonus').addClass('active-sort');
+    });
+}
 }
 
 
@@ -417,6 +484,7 @@ function loadCasino(data) {
         success: function(result) {
             $('.filter').removeClass('filter-active');
             $('.load-casino').removeClass("loading-posts");
+            $('.load-more').removeClass('loading-posts'); 
             $('.loaded-posts').html(result);
 
             //Update currency-value on each casino-post
@@ -436,11 +504,13 @@ function loadCasino(data) {
             currencyUpdate(data);
             updateDeepLink();
             showDescCasino();
-        },
-        error: function(errorThrown){
-           console.log(errorThrown);
-       } 
-   });
+                //Infinite scroll with ajax-calls
+                infiniteScroll();
+            },
+            error: function(errorThrown){
+             console.log(errorThrown);
+         } 
+     });
 }
 
 function updateDeepLink() {
