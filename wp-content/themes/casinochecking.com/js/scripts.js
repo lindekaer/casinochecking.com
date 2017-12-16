@@ -507,7 +507,7 @@ function loadCasino(data) {
             updateDeepLink();
             showDescCasino();
                 //Infinite scroll with ajax-calls
-                infiniteScroll();
+               // infiniteScroll();
             },
             error: function(errorThrown){
                console.log(errorThrown);
