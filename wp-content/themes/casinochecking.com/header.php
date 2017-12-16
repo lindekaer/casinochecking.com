@@ -21,10 +21,11 @@
     <?php wp_head(); ?>  
 </head>
 <?php 
-$IPaddress = $_SERVER['REMOTE_ADDR'];
-$details = ip_details("$IPaddress");
+$ip = $_SERVER['REMOTE_ADDR'];
+$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip))['geoplugin_countryCode'];
+//$details = ip_details("$IPaddress");
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($details->country)): echo $details->country; else: echo 'all'; endif; ?>">
+<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($countryCode)): echo $countryCode; else: echo 'all'; endif; ?>">
     <div id="page" class="site">
         <header id="masthead" class="site-header slide-down z-index-high">
             <div class="container height z-index-high">

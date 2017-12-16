@@ -12,7 +12,7 @@ ini_set('display_errors', 1);
 //Requests for user-country
 function ip_details($IPaddress)
 {
-    $json       = file_get_contents("http://ipinfo.io/{$IPaddress}");
+    $json       = file_get_contents('http://www.geoplugin.net/php.gp?ip='.$IPaddress);
     $details    = json_decode($json);
     return $details;
 }

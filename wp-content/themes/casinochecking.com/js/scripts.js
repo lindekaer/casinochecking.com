@@ -14,7 +14,16 @@ SET CURRENCY BASED ON THE VISITORS COUNTRY
 function setCurrency() {
     //Sets default selected value in country-select
     var usersCountry = $('body').attr('data-user-country');
-    $('#countrySelect').val(usersCountry);
+
+    $('#countrySelect option').each(function(){
+        if(this.value == usersCountry){
+            $('#countrySelect').val(usersCountry);
+        }
+        else {
+            $('#countrySelect').val('all');
+        }
+    });
+    
 
     //Sets default currency based on the country
     if(usersCountry == 'DK'){
@@ -68,9 +77,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -158,16 +167,16 @@ function currencyUpdate(data){
             //Multiply each casino's currency with the exchange rate
             $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
-                
+
                 var calc =Math.round((((signup * result)* 100) / 100) / 10) * 10
                 console.log(calc);
                 $(this).text(calc);
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -247,9 +256,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -374,8 +383,17 @@ function loadCasinoParams(currencyRate) {
                 }
             }
             var usersCountry = $('body').attr('data-user-country');
-            data.country = usersCountry;
-            $('#countrySelect').val(usersCountry);
+
+            $('#countrySelect option').each(function(){
+                if(this.value == usersCountry){
+                    $('#countrySelect').val(usersCountry);
+                    data.country = usersCountry;
+                }
+                else {
+                    $('#countrySelect').val('all');
+                    data.country = 'all';
+                }
+            });
 
             console.log('ajax' + JSON.stringify(data, null, 2));
             ajaxParams(data);
@@ -415,9 +433,9 @@ function loadCasino(data) {
             showDescCasino();
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       } 
-   });
+         console.log(errorThrown);
+     } 
+ });
 }
 
 function updateDeepLink() {
