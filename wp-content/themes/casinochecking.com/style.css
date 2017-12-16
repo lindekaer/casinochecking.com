@@ -1973,9 +1973,9 @@ section .casino-wrapper .image-ratings { text-transform: uppercase; text-align: 
 
 section .casino-wrapper .image-ratings img { padding-top: 8px; width: auto; max-width: 20px; }
 
-@media screen and (max-width: 39.9375em) { section .casino-wrapper .image-ratings img { height: 18px; } }
+@media screen and (max-width: 39.9375em) { section .casino-wrapper .image-ratings img { height: 16px; } }
 
-@media screen and (min-width: 40em) { section .casino-wrapper .image-ratings img { height: 24px; } }
+@media screen and (min-width: 40em) { section .casino-wrapper .image-ratings img { height: 20px; } }
 
 section .casino-wrapper .bonus-info { text-align: center; }
 

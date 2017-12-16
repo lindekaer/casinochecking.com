@@ -297,11 +297,11 @@ function filter_casino() {
 
    //echo $count;
 
-    if($filterArr['country'] == NULL) {
+  /*  if($filterArr['country'] == NULL) {
      echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';
  }
 
- else if($filterArr['posts_per_page'] <= 11111){
+ else */if($filterArr['posts_per_page'] <= 11111){
     if($the_query->have_posts()) {
        $i = 1;
        while( $the_query->have_posts() ) : $the_query->the_post(); ?>

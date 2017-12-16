@@ -293,10 +293,10 @@ section {
       width: auto;
       max-width: 20px;
       @include breakpoint(small only){
-        height: 18px;
+        height: 16px;
       }
       @include breakpoint(medium up){
-        height: 24px;
+        height: 20px;
       }
     }
   }
