@@ -287,7 +287,7 @@ function infiniteScroll () {
 
                     data.country = $('#countrySelect').val();
 
-                    data['posts_per_page'] = shownPosts;
+                    data['posts_per_page'] = $('.comparison-section').data('count');
                     console.log('morePosts: ' + JSON.stringify(data, null, 2))
 
 
