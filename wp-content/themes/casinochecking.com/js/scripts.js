@@ -79,9 +79,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 /************************
@@ -176,9 +176,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -258,9 +258,9 @@ function morePosts(data){
             console.log(result);
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 function loadCasinoParams(currencyRate) {
@@ -438,9 +438,9 @@ function loadCasino(data) {
             showDescCasino();
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     } 
- });
+           console.log(errorThrown);
+       } 
+   });
 }
 
 function updateDeepLink() {
@@ -461,43 +461,43 @@ function updateDeepLink() {
             $(this).attr('href', deepLinkDK);
         }
         else if(usersCountry == 'SE'){
-            var deepLinkSE = $(this).attr('deep_link_se');
+            var deepLinkSE = $(this).attr('data-deeplink-se');
             $(this).attr('href', deepLinkSE);
         }
         else if(usersCountry == 'DE'){
-            var deepLinkDE = $(this).attr('deep_link_de');
+            var deepLinkDE = $(this).attr('data-deeplink-de');
             $(this).attr('href', deepLinkDE);
         }
         else if(usersCountry == 'PL'){
-            var deepLinkPL = $(this).attr('deep_link_pl');
+            var deepLinkPL = $(this).attr('data-deeplink-pl');
             $(this).attr('href', deepLinkPL);
         }
         else if(usersCountry == 'FI'){
-            var deepLinkFI = $(this).attr('deep_link_fi');
+            var deepLinkFI = $(this).attr('data-deeplink-fi');
             $(this).attr('href', deepLinkFI);
         }
         else if(usersCountry == 'NO'){
-            var deepLinkNO = $(this).attr('deep_link_no');
+            var deepLinkNO = $(this).attr('data-deeplink-no');
             $(this).attr('href', deepLinkNO);
         }
 
         else if(usersCountry == 'IT'){
-            var deepLinkIT = $(this).attr('deep_link_it');
+            var deepLinkIT = $(this).attr('data-deeplink-it');
             $(this).attr('href', deepLinkIT);
         }
 
         else if(usersCountry == 'NL'){
-            var deepLinkNL = $(this).attr('deep_link_nl');
+            var deepLinkNL = $(this).attr('data-deeplink-nl');
             $(this).attr('href', deepLinkNL);
         }
 
         else if(usersCountry == 'CZ'){
-            var deepLinkCZ = $(this).attr('deep_link_cz');
+            var deepLinkCZ = $(this).attr('data-deeplink-cz');
             $(this).attr('href', deepLinkCZ);
         }
 
         else if(usersCountry == 'PT'){
-            var deepLinkPT = $(this).attr('deep_link_no');
+            var deepLinkPT = $(this).attr('data-deeplink-pt');
             $(this).attr('href', deepLinkPT);
         }
 
