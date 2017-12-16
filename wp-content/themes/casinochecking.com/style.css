@@ -2300,7 +2300,7 @@ header.site-header .menu-mobile-header-container { position: absolute; top: 0; h
 .search-ajax .button:hover { color: #2d2d2d; background: #cacaca; }
 
 /*PARTS*/
-.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin: 0; font-weight: 600; cursor: pointer; }
+.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 11px; margin: 0; font-weight: 600; cursor: pointer; }
 
 .button:hover { opacity: 0.9; }
 
