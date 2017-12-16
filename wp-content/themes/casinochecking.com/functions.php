@@ -161,7 +161,7 @@ function filter_casino() {
     }
 
     $args = array(
-        'numberposts'   => -1,
+        'numberposts'   => 20,
         'post_type'     => 'casino',
         'post_status' => 'publish',
         'meta_key' => 'our_score',
