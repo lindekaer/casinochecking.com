@@ -161,12 +161,12 @@ function filter_casino() {
     }
 
     $args = array(
-        'numberposts'   => 20,
         'post_type'     => 'casino',
         'post_status' => 'publish',
         'meta_key' => 'our_score',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
+        'posts_per_page'   => 20,
     );
 
     if($filterArr['posts_per_page']) {
@@ -306,9 +306,9 @@ function filter_casino() {
 
  else */ if($filterArr['posts_per_page'] <= $count){
     if($the_query->have_posts()) {
-       $i = 1;
-       while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-       <div class="small-12 columns">
+     $i = 1;
+     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+     <div class="small-12 columns">
         <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
     </div>
     <?php $i++;
