@@ -20,11 +20,11 @@
 			</div>
 			<div class="user-rating section-padding-bottom">
 				<div class="row">
-					<div class="small-6">
+					<div class="small-6 large-7">
 						<p><span class="hide-for-small-only">Signup </span>Bonus</p>
 						<h6 class="inline"><?php echo $signUpBonus; ?>%</h6><p class="inline up-to hide-for-small-only">up to</p><h6 class="inline hide-for-small-only"><span class="numeric_currency"><?php echo $upToBonus; ?></span><span class="currency-type"></span></h6>
 						</div>
-						<div class="small-6">
+						<div class="small-6 large-5">
 							<p><span class="hide-for-small-only">Minimum </span>Deposit</p>
 							<h6><span class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></span></h6>
 						</div>
