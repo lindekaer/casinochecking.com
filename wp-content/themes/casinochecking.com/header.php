@@ -49,6 +49,6 @@ $countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip
                     </div>
                 </div>
             </div>
-            <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
         </header><!-- #masthead -->
+        <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
         <div id="content" class="site-content">

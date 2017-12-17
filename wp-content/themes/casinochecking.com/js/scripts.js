@@ -99,7 +99,8 @@ function initDom() {
     });
 
     $(".hamburger").click(function () {
-        $('header').toggleClass("is-active"); 
+        $('.menu-mobile-header-container').toggleClass("is-active"); 
+        $('body').toggleClass("hidden-overflow"); 
     });
 
     $('#mobile-footer').click(function(){

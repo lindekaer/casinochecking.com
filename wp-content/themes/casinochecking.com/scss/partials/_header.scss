@@ -73,57 +73,31 @@ header.site-header {
   #menu-right {
     text-align: right;
   }
+}
 
-  &.is-active {
-    #menu-mobile-header {
-      display: block;
-    }
-  }
-
+.is-active {
   #menu-mobile-header {
-    width: 100%;
-    text-align: center;
-    display: none;
-    margin: 0px;
-    text-transform: uppercase;
-    padding: 100px 20px 100px;
-    perspective: 1000px;
-    lisst-style-type: none;
-    li a {
-      font-size: 1.5rem;
-      color: $light-gray;
-    }
-
-    li.current_page_item a {
-      color: $red;
-    }
-  }
-
-  .menu-mobile-header-container {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    background: $black;
-    opacity: 0;
-    overflow: hidden;
-    visibility: hidden;
-    transition: opacity .3s ease, visibility .3s 0s ease;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -ms-flex-align: center;
-    align-items: center;
+    display: block;
   }
 }
 
-.is-active .menu-mobile-header-container {
-  opacity: 0.96 !important;
-  visibility: visible !important;
-  transition: opacity .3s ease, visibility 0s ease !important;
+#menu-mobile-header {
+  width: 100%;
+  text-align: center;
+  display: none;
+  margin: 0px;
+  text-transform: uppercase;
+  padding: 100px 20px 100px;
+  perspective: 1000px;
+  list-style-type: none;
+  li a {
+    font-size: 1.5rem;
+    color: $light-gray;
+  }
+
+  li.current_page_item a {
+    color: $red;
+  }
 }
 
 .mobile-row {
@@ -131,52 +105,79 @@ header.site-header {
   .nine {
     width: 74.6%;
   }
+}
 
-  .hamburger {
-    position: absolute;
-    top: 49%;
-    right: 10%;
-  }
+.hamburger {
+  position: absolute;
+  top: 49%;
+  right: 10%;
+}
 
-  .three {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: right;
-  }
-  #nav-toggle { 
-    cursor: pointer; 
-  }
-  #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
-    cursor: pointer;
-    border-radius: 1px;
-    height: 3px;
-    width: 30px;
-    background: white;
-    position: absolute;
-    display: block;
-    content: '';
-  }
-  #nav-toggle span:before {
-    top: -8px; 
-  }
-  #nav-toggle span:after {
-    bottom: -8px;
-  }
+.three {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+}
+#nav-toggle { 
+  cursor: pointer; 
+}
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 3px;
+  width: 30px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-toggle span:before {
+  top: -8px; 
+}
+#nav-toggle span:after {
+  bottom: -8px;
+}
 
-  #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
-    transition: all 500ms ease-in-out;
-  }
-  #nav-toggle.active span {
-    background-color: transparent;
-  }
-  #nav-toggle.active span:before, #nav-toggle.active span:after {
-    top: 0;
-  }
-  #nav-toggle.active span:before {
-    transform: rotate(45deg);
-  }
-  #nav-toggle.active span:after {
-    transform: rotate(-45deg);
-  }
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  transition: all 500ms ease-in-out;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+
+.menu-mobile-header-container {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  max-height: 100%;
+  background: $black;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s 0s ease;
+  -webkit-overflow-scrolling: touch;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.is-active.menu-mobile-header-container {
+  opacity: 0.96 !important;
+  z-index: 70;
+  overflow: hidden;
+  visibility: visible !important;
+  transition: opacity .3s ease, visibility 0s ease !important;
 }
