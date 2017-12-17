@@ -11,6 +11,9 @@
   text-decoration: none;
   display: inline-block;
   font-size: 11px;
+  @include breakpoint(small only) {
+    font-size: 10px;
+  }
   margin: 0;
   font-weight: 600;
   cursor: pointer;

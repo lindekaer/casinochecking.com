@@ -21,7 +21,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	<div class="container mobile-full-width">
 		<div class="row">
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium" >
+			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium hidden-overflow">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-6">
@@ -46,7 +46,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						</div>
 					</div>
 				</div>
-				<div class="small-12 columns load-casino">
+				<div class="small-12 columns load-casino hidden-overflow">
 					<div class="load-wrapper">
 						<div class="loader">
 						</div></div>
