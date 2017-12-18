@@ -65,5 +65,27 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	</div>
 </div>
 </section>
-<?php
-get_footer();
+<section class="bg-gray section-padding">
+	<div class="container">
+		<h2 class="cursive-headline text-center section-heading">News & guides</h2>
+		<?php 
+		$args_blog = array(
+			'posts_per_page' => 6, 
+			'offset'         => 0,    
+			'post_type'      => 'blog',
+		);
+		$the_query_blog = new WP_Query( $args_blog );
+		?>
+		<?php if($the_query_blog->have_posts()): ?>
+			<div class="row">
+				<?php while ($the_query_blog->have_posts()) : $the_query_blog->the_post(); ?>
+					<div class="small-6 large-4 columns">
+						<?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
+					</div>
+				<?php endwhile;?>
+			</div>
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
+		</div>
+		</section>
+		<?php get_footer();

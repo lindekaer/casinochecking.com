@@ -41,11 +41,11 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                 <div class="row padding-casino casino-info-wrapper">
                                     <div class="small-3">
                                         <p><span class="hide-for-small-only">Signup </span>bonus</p>
-                                        <h4 class="number"><?php echo $signUpBonus ?>%</h4>
+                                        <h6 class="number"><?php echo $signUpBonus ?>%</h6>
                                     </div>
                                     <div class="small-3">
                                         <p>Deposit</p>
-                                        <h4 class="number"><?php echo $minimumDeposit; ?>$</h4>
+                                        <h6><span class="numeric_currency"><?php echo $signUpBonus; ?></span><span class="currency-type"></h6>
                                     </div>
                                     <div class="small-3">
                                         <p>User rating</p>
@@ -53,13 +53,13 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                     </div>
                                     <div class="small-3">
                                         <p>Score</p>
-                                        <h4 class="number"><?php echo $ourScore; ?>/10</h4>
+                                        <h6 class="number"><?php echo $ourScore; ?>/10</h6>
                                     </div>
                                 </div>
                                 <div class="further-casino-info">
                                     <div class="row">
                                         <div class="small-12">
-                                            <a href="<?php echo $deepUrl; ?>" class="button content-page-button">Get Bonus</a>
+                                            <a target="_blank" <?php include(locate_template('template-parts/parts/deep-link.php')); ?>  class="button content-page-button deep-link-button">Sign up</a>
                                         </div>
                                     </div> 
                                 </div>

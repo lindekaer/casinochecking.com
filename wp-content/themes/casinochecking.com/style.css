@@ -1993,6 +1993,10 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
 
+.section-padding { padding-top: 80px; padding-bottom: 50px; }
+
+.section-heading { padding-bottom: 40px; }
+
 @media screen and (min-width: 64em) { .minus-row-margin-sidebar { margin-top: -25vh; } }
 
 @media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
@@ -2081,6 +2085,8 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 .bg-gray { background: #f6f6f6; }
 
+.bg-medium-gray { background: #cacaca; }
+
 .bg-dark-gray { background: #505050; }
 
 .bg-sidebar { background: #2d2d2d; }
@@ -2108,7 +2114,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
   100% {
     transform: rotate(360deg); } }
 
-.text-wrapper { text-align: center; }
+.text-wrapper { text-align: center; background: #f6f6f6; }
 
 @media screen and (min-width: 64em) { .text-wrapper { padding: 20px; } }
 

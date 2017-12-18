@@ -36,52 +36,20 @@ $blogImg = get_field('blog_img', 'options');  ?>
 						<div class="row">
 							<?php while (have_posts()) : the_post(); ?>
 								<div class="small-6 columns">
-									<a href="<?php the_permalink();?>">
-										<div class="blog-content">
-											<div class="blog-img-wrapper">
-												<?php 
-												$image = get_field('blog_image');
-											$size = 'logo-blog-archive'; // (thumbnail, medium, large, full or custom size)
-											if( $image ) {
-												echo wp_get_attachment_image( $image, $size );
-											}
-											?>
-										</div>
-										<div class="text-wrapper columns">
-											<div class="category">
-												<p><?php the_field('blog_category'); ?></p>
-											</div>
-											<div class="blog-headline">
-												<h3 class="cursive-headline"><?php the_title();?></h3>
-											</div>
-											<div class="blog-icon">
-												<?php 
-												$images = get_field('blog_icon');
-											$sizes = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
-											if( $images ) {
-												echo wp_get_attachment_image( $images, $sizes );
-											}
-											?>
-										</div>
-										<div class="blog-text">
-											<p><?php echo substr(get_the_content(), 0, 100) . ' [...]'; ?></p>
-										</div>
-									</a>
+									<?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
 								</div>
-							</div>
+							<?php endwhile;?>
 						</div>
-					<?php endwhile;?>
+					<?php endif; ?>
 				</div>
-			<?php endif; ?>
+			</div>
+			<div class="small-12 large-order-1 large-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin-sidebar">
+				<div class="filter-inner-wrapper">
+					<?php echo get_sidebar(); ?>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="small-12 large-order-1 large-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin-sidebar">
-		<div class="filter-inner-wrapper">
-			<?php echo get_sidebar(); ?>
-		</div>
-	</div>
-</div>
-</div>
 </div>
 </section>
 <?php

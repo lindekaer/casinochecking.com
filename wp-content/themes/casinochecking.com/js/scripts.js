@@ -5,8 +5,39 @@ jQuery(function($) {
     $(document).ready(function(){
         setCurrency();
         initDom();
+        if($('.single-casino').length){
+            singleCasinoCurrency();
+        }
     });
 });
+
+function singleCasinoCurrency(){
+    //Sets default currency based on the country
+    var usersCountry = $('body').attr('data-user-country');
+    if(usersCountry == 'DK'){
+        $('.numeric_currency').attr('data-currency', 'DKK');
+    }
+
+    else if(usersCountry == 'GB'){
+        $('.numeric_currency').attr('data-currency', 'GBP');
+    }
+
+    else if(usersCountry == 'USA'){
+        $('.numeric_currency').attr('data-currency', 'USD');
+    }
+
+    else {
+        $('.numeric_currency').attr('data-currency', 'EUR');
+    }
+
+    var updateCurrencyLoad = $('.numeric_currency').data('currency');
+    var data = {
+        action: 'currency_update',
+        updateCurrencyLoad: updateCurrencyLoad      
+    }; 
+    console.log('currencyUpdate' + JSON.stringify(data, null, 2));
+    currencyUpdate(data);
+}
 
 /************************
 SET CURRENCY BASED ON THE VISITORS COUNTRY
@@ -22,7 +53,6 @@ function setCurrency() {
             flag = true;
         }
     });
-
     if (flag = false){
         $('#countrySelect').val('all');
     }
@@ -79,9 +109,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -89,7 +119,7 @@ DROPDOWN ON EACH CASINO
 ************************/
 function showDescCasino() {
     $('.casino-wrapper').click(function () {
-        $(this).find('.desc').slideToggle("slow");
+        $(this).find('.desc').slideToggle();
     });
 }
 
@@ -119,6 +149,11 @@ function initDom() {
     $('#nav-toggle').click(function () {
         $(this).toggleClass('active');
     });
+
+    if($('.single-casino').length){
+        var usersCountry = $('body').attr('data-user-country');
+        updateDeepLink(usersCountry);
+    }
 
     showDescCasino();
     loadCurrency();
@@ -164,12 +199,21 @@ function currencyUpdate(data){
             $('.load-casino').removeClass("loading-posts");
 
             //Update currency on each post: $, € etc.
-            var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
-            $('.currency-type').text(chosenCurrencyVal);
+            if($('.post-type-archive-casino').length){
+                var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
+                $('.currency-type').text(chosenCurrencyVal);                
+            }
+
+            if($('.single-casino').length){
+                var chosenCurrencyVal = $('.numeric_currency').attr('data-currency');
+                $('.currency-type').text(chosenCurrencyVal);                
+            }
 
             //Multiply each casino's currency with the exchange rate
             $('.numeric_currency').each(function(index) {
                 var signup = $( this ).html();
+                console.log('signup' + signup)
+                console.log('result' + result)
 
                 var calc =Math.round((((signup * result)* 100) / 100) / 10) * 10
                 console.log(calc);
@@ -177,9 +221,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -238,10 +282,10 @@ function infiniteScroll () {
         };
 
         $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
+         if ( timer ) clearTimeout(timer);
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
           // var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
           var headerHeight = $('header').height();
           var totalPosts = 40;
@@ -409,7 +453,7 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-         if (metrics.hasOwnProperty(type)) {
+           if (metrics.hasOwnProperty(type)) {
             var metric = metrics[type];
             metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
             metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
@@ -505,19 +549,20 @@ function loadCasino(data) {
             }; 
             console.log('currencyUpdate' + JSON.stringify(data, null, 2));
             currencyUpdate(data);
-            updateDeepLink();
+            var usersCountry = $('#countrySelect').val();
+            updateDeepLink(usersCountry);
             showDescCasino();
                 //Infinite scroll with ajax-calls
                // infiniteScroll();
-            },
-            error: function(errorThrown){
-               console.log(errorThrown);
-           } 
-       });
+           },
+           error: function(errorThrown){
+             console.log(errorThrown);
+         } 
+     });
 }
 
-function updateDeepLink() {
-    var usersCountry = $('#countrySelect').val();
+function updateDeepLink(usersCountry) {
+
     console.log('usersCountry: ' + usersCountry);
 
     $('.deep-link-button').each(function(index) {

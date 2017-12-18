@@ -12,7 +12,7 @@
 ?>
 
 </div><!-- #content -->
-<footer id="colophon" class="site-footer bg-gray">
+<footer id="colophon" class="site-footer bg-medium-gray">
     <div class="container" id="desktop-footer">
         <div class="row">
             <div class="small-12 columns">

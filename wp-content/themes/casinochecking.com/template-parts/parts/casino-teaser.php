@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="bonus-info button-padding-bottom">
-					<a target="_blank" class="button deep-link-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> >Get Bonus</a>
+					<a target="_blank" class="button deep-link-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> >Sign up</a>
 				</div>
 			</div>
 		</div>
