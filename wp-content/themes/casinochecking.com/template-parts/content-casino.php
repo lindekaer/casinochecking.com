@@ -45,7 +45,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                     </div>
                                     <div class="small-3">
                                         <p>Deposit</p>
-                                        <h6><span class="numeric_currency"><?php echo $signUpBonus; ?></span><span class="currency-type"></h6>
+                                        <h6><span data-value="<?php echo $minimumDeposit; ?>" class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></h6>
                                     </div>
                                     <div class="small-3">
                                         <p>User rating</p>

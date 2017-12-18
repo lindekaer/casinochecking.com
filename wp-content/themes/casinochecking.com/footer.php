@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="get-bonus small-6 columns align-middle">
-                <a target="_blank" href="<?php the_field('deep_url') ?>" class="button footer-page-button">Get Bonus</a>
+                <a target="_blank" class="button deep-link-button footer-page-butto" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> >Sign up</a>
             </div>
         </div>
         <div class="extra-info">

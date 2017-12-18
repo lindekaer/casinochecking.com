@@ -3,7 +3,9 @@ $(document).foundation();
 jQuery(function($) {
     "use strict";
     $(document).ready(function(){
-        setCurrency();
+        if($('.post-type-archive').length){
+            setCurrency();
+        }
         initDom();
         if($('.single-casino').length){
             singleCasinoCurrency();

@@ -74,7 +74,6 @@ function currency_update() {
         echo $currency;
     }
 
-
     else {
         if ($filterArr['previous'] == 'USD'){
             if ($filterArr['after'] == 'USD') {
