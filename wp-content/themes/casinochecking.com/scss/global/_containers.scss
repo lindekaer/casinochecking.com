@@ -19,14 +19,13 @@
 	}
 }
 
-.section-padding {
+.section-padding-guides {
 	padding-top: 80px;
 	padding-bottom: 50px;
 }
 .section-heading {
 	padding-bottom: 40px;
 }
-
 
 @include breakpoint(large up) {
 	.minus-row-margin-sidebar {

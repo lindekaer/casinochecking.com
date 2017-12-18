@@ -1993,7 +1993,7 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
 
-.section-padding { padding-top: 80px; padding-bottom: 50px; }
+.section-padding-guides { padding-top: 80px; padding-bottom: 50px; }
 
 .section-heading { padding-bottom: 40px; }
 

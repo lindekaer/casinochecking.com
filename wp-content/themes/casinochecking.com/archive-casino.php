@@ -65,7 +65,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	</div>
 </div>
 </section>
-<section class="bg-gray section-padding">
+<section class="bg-gray section-padding-guides">
 	<div class="container">
 		<h2 class="cursive-headline text-center section-heading">News & guides</h2>
 		<?php 
