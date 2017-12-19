@@ -13,11 +13,18 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link href="https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400" rel="stylesheet">
-    <?php wp_head(); ?>  
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M8T2B4D');</script>
+<!-- End Google Tag Manager -->
+<meta charset="<?php bloginfo('charset'); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link href="https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400" rel="stylesheet">
+<?php wp_head(); ?>  
 </head>
 <?php 
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -25,6 +32,9 @@ $countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip
 //$details = ip_details("$IPaddress");
 ?>
 <body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($countryCode)): echo $countryCode; else: echo 'all'; endif; ?>">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8T2B4D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="page" class="site">
         <header id="masthead" class="site-header slide-down z-index-high">
             <div class="container height z-index-high">
