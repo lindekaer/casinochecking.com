@@ -21,11 +21,11 @@
 			<div class="user-rating section-padding-bottom">
 				<div class="row">
 					<div class="small-6 large-7">
-						<p><span class="hide-for-small-only">Signup </span>Bonus</p>
-						<h6 class="inline"><?php echo $signUpBonus; ?>%</h6><p class="inline up-to hide-for-small-only">up to</p><h6 class="inline hide-for-small-only"><span class="numeric_currency"><?php echo $upToBonus; ?></span><span class="currency-type"></span></h6>
+						<p><span class="hide-for-small-only"><?php echo _e('Signup', 'checkmate'); ?></span><?php echo _e('Bonus', 'checkmate'); ?></p>
+						<h6 class="inline"><?php echo $signUpBonus; ?>%</h6><p class="inline up-to hide-for-small-only"><?php  echo _e('up to', 'checkmate'); ?></p><h6 class="inline hide-for-small-only"><span class="numeric_currency"><?php echo $upToBonus; ?></span><span class="currency-type"></span></h6>
 						</div>
 						<div class="small-6 large-5">
-							<p><span class="hide-for-small-only">Minimum </span>Deposit</p>
+							<p><span class="hide-for-small-only"><?php echo _e('Minimum', 'checkmate'); ?> </span><?php echo _e('Deposit', 'checkmate'); ?></p>
 							<h6><span class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></span></h6>
 						</div>
 					</div>
@@ -37,24 +37,30 @@
 				<div class="image-ratings section-padding">
 					<div class="row">
 						<div class="small-6 border-right">
-							<p><span class="hide-for-small-only">User </span>rating</p>
+							<p><span class="hide-for-small-only"><?php echo _e('User', 'checkmate'); ?> </span><?php echo _e('Rating', 'checkmate'); ?></p>
 							<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
 						</div>
 						<div class="small-6 columns">
-							<p><span class="hide-for-small-only">Our </span>score</p>
+							<p><span class="hide-for-small-only"><?php echo _e('Our', 'checkmate'); ?> </span><?php echo _e('score', 'checkmate'); ?></p>
 							<h6><?php echo $ourScore; ?>/10</h6>
 						</div>
 					</div>
 				</div>
 				<div class="bonus-info button-padding-bottom">
-					<a target="_blank" class="button deep-link-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> >Sign up</a>
+					<a target="_blank" class="button deep-link-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> ><?php echo _e('Sign up', 'checkmate'); ?></a>
 				</div>
 			</div>
 		</div>
 		<div class="small-12 hide-custom desc columns">
 			<div class="row">
 				<div class="small-12 columns">
-					<div class="dropdown-desc"><?php echo substr(get_field('description'), 0, 250) . ' [...] <a href="'. get_permalink() .'" class="read-more-btn"> Read more</a>'; ?></div>
+					<div class="dropdown-desc">
+						<?php echo substr(get_field('description'), 0, 250);
+						echo ' [...] <a href="'. get_permalink() . '"';
+						echo ' class="read-more-btn">';
+						echo _e("Read more", "checkmate");
+						echo '</a>'; ?>
+					</div>
 				</div>
 			</div>
 		</div>

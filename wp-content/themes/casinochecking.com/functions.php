@@ -9,6 +9,13 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+function ipAddress(){
+$ip = $_SERVER['REMOTE_ADDR'];
+$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
+    return $countryCode;
+}
+//$details = ip_details("$IPaddress");
+
 //Requests for user-country
 function ip_details($IPaddress)
 {
@@ -71,6 +78,9 @@ function currency_update() {
         else if ($updateCurrencyLoad == 'GBP') {
             $currency = get_field('eur_in_gbp', 'options');
         }
+        else if ($updateCurrencyLoad == 'NOK') {
+            $currency = get_field('eur_in_no', 'options');
+        }
         echo $currency;
     }
 
@@ -88,6 +98,9 @@ function currency_update() {
             else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('usd_in_gbp', 'options');
             }
+            else if ($filterArr['after'] == 'NOK') {
+                $currency = get_field('usd_in_no', 'options');
+            }
         }
 
         if ($filterArr['previous']== 'EUR'){
@@ -102,6 +115,9 @@ function currency_update() {
             }
             else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('eur_in_gbp', 'options');
+            }
+            else if ($filterArr['after'] == 'NOK') {
+                $currency = get_field('eur_in_no', 'options');
             }
         }
 
@@ -118,6 +134,9 @@ function currency_update() {
             else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('dkk_in_gbp', 'options');
             }
+            else if ($filterArr['after'] == 'NOK') {
+                $currency = get_field('dkk_in_no', 'options');
+            }
         }
 
         if ($filterArr['previous'] == 'GBP'){
@@ -132,6 +151,27 @@ function currency_update() {
             }
             else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('gbp_in_dkk', 'options');
+            }
+            else if ($filterArr['after'] == 'NOK') {
+                $currency = get_field('gbp_in_no', 'options');
+            }
+        }
+
+        if ($filterArr['previous'] == 'NOK'){
+            if ($filterArr['after'] == 'NOK') {
+                $currency = 1;
+            }
+            else if ($filterArr['after'] == 'EUR') {
+                $currency = get_field('no_in_eur', 'options');
+            }
+            else if ($filterArr['after'] == 'USD') {
+                $currency = get_field('no_in_usd', 'options');
+            }
+            else if ($filterArr['after'] == 'DKK') {
+                $currency = get_field('no_in_dkk', 'options');
+            }
+            else if ($filterArr['after'] == 'GBP') {
+                $currency = get_field('no_in_gbp', 'options');
             }
         }
         echo $currency;
@@ -526,7 +566,7 @@ function checkmate_scripts() {
     wp_enqueue_script( 'checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true );
 
     // theme scripts
-    wp_enqueue_script( 'checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false );
+    //wp_enqueue_script( 'checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false );
     wp_enqueue_script( 'smartlook', get_template_directory_uri() . '/js/vendor/smartlook.js', array(), '20151215', true );
     wp_enqueue_script( 'checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
     wp_localize_script( 'checkmate-scripts', 'site_vars', array(
@@ -539,6 +579,13 @@ function checkmate_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'checkmate_scripts' );
+
+function wpb_add_google_fonts() {
+
+    wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400', false );
+}
+
+add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 
 /**
  * Implement the Custom Header feature.
@@ -602,4 +649,31 @@ function login_logo()
 <?php
 }
 
-add_action('login_enqueue_scripts', 'login_logo');?>
+add_action('login_enqueue_scripts', 'login_logo');
+
+//Remove Emoji
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+//For Yoast SEO
+function filter_wpseo_replacements( $replacements ) {
+    if( isset( $replacements['%%cf_up_to_signup%%'] ) ){
+        $replacements['%%cf_up_to_signup%%'] = round($replacements['%%cf_up_to_signup%%']);
+    }
+    if( isset( $replacements['%%cf_minimum_deposit%%'] ) ){
+        $replacements['%%cf_minimum_deposit%%'] = round($replacements['%%cf_minimum_deposit%%']);
+    }
+    if( isset( $replacements['%%title%%'] ) ){
+        if (strpos($replacements['%%title%%'], 'Casino') !== false) {
+            $replacements['%%title%%'] = str_replace("Casino", "", $replacements['%%title%%']);
+        }
+        else if (strpos($replacements['%%title%%'], 'casino') !== false) {
+            $replacements['%%title%%'] = str_replace("casino", "", $replacements['%%title%%']);
+        }
+    }
+    return $replacements;
+};
+// Add filter
+add_filter( 'wpseo_replacements', 'filter_wpseo_replacements', 10, 1 );
+
+?>

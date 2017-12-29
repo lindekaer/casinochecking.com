@@ -72,28 +72,28 @@
          <div class="row">
              <div class="footer-casino-name small-6 columns text-center">
                 <div class="footer-name">
-                    <p><span class="red-color">Popular:</span> <?php echo the_field('name'); ?></p>
+                    <p><span class="red-color"><?php echo _e('Popular:', 'checkmate'); ?></span> <?php echo the_field('name'); ?></p>
                 </div>
                 <div class="footer-score">
                     <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
                     <p class="align-middle"><?php echo the_field('our_score'); ?>/10</p>
                 </div>
             </div>
-            <div class="get-bonus small-6 columns align-middle">
-                <a target="_blank" class="button deep-link-button footer-page-butto" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> >Sign up</a>
+            <div class="get-bonus small-6 columns text-center">
+                <a target="_blank" class="button deep-link-button footer-page-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> ><?php echo _e('Sign up', 'checkmate'); ?></a>
             </div>
         </div>
         <div class="extra-info">
             <div class="row">
                 <div class="small-6 columns">
                     <div class="footer-bonus text-center">
-                        <p>SIGN-UP BONUS</p>
+                        <p><?php echo _e('SIGNUP BONUS', 'checkmate'); ?></p>
                         <h5><?php the_field('signup_bonus'); ?>$</h5>
                     </div>
                 </div>
                 <div class="small-6 columns">
                     <div class="footer-deposit text-center">
-                        <p>MINIMUM DEPOSIT</p>
+                        <p><?php echo _e('MINIMUM DEPOSIT', 'checkmate'); ?></p>
                         <h5><?php the_field('minimum_deposit'); ?>$</h5>
                     </div>
                 </div>

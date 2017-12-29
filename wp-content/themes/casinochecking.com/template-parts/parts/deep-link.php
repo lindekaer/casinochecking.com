@@ -27,4 +27,4 @@ if($deepLinkPT){ echo 'data-deeplink-pt="' . $deepLinkPT . '"'; }
 if($deepLinkCZ){ echo 'data-deeplink-cz="' . $deepLinkCZ . '"'; }
 if($deepLinkNL){ echo 'data-deeplink-nl="' . $deepLinkNL . '"'; }
 if($deepLinkIT){ echo 'data-deeplink-it="' . $deepLinkIT . '"'; }
-echo 'data-deeplink-general="' . $deepLinkGeneral . '"';?>
+echo 'rel="nofollow" data-deeplink-general="' . $deepLinkGeneral . '"';?>

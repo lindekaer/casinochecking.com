@@ -18,6 +18,7 @@ $imageSize = 'logo-casino-content';
 $sectionBg = get_field('section_bg');
 $activateOverlay = get_field('activate_overlay');
 $imageLong = get_field('image');
+$upToSignup = get_field('up_to_signup');
 $imageSizeLong = 'logo-casino-archive'; ?>
 <section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
 </section>
@@ -40,15 +41,15 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                             <div class="container">
                                 <div class="row padding-casino casino-info-wrapper">
                                     <div class="small-3">
-                                        <p><span class="hide-for-small-only">Signup </span>bonus</p>
+                                        <p><span class="hide-for-small-only"><?php echo _e('Signup', 'checkmate'); ?></span><?php echo _e('bonus', 'checkmate'); ?></p>
                                         <h6 class="number"><?php echo $signUpBonus ?>%</h6>
                                     </div>
                                     <div class="small-3">
-                                        <p>Deposit</p>
+                                        <p><?php echo _e('Deposit', 'checkmate'); ?></p>
                                         <h6><span data-value="<?php echo $minimumDeposit; ?>" class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></h6>
                                     </div>
                                     <div class="small-3">
-                                        <p>User rating</p>
+                                        <p><?php echo _e('User rating', 'checkmate'); ?></p>
                                         <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
                                     </div>
                                     <div class="small-3">
@@ -59,7 +60,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                 <div class="further-casino-info">
                                     <div class="row">
                                         <div class="small-12">
-                                            <a target="_blank" <?php include(locate_template('template-parts/parts/deep-link.php')); ?>  class="button content-page-button deep-link-button">Sign up</a>
+                                            <a target="_blank" <?php include(locate_template('template-parts/parts/deep-link.php')); ?>  class="button content-page-button deep-link-button"><?php echo _e('Sign up', 'checkmate'); ?></a>
                                         </div>
                                     </div> 
                                 </div>
@@ -74,8 +75,27 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <a href="<?php echo $deepUrl; ?>" class="button content-page-button" id="fixed-button">Get Bonus</a>
-        </div>
     </div>
-</article><!-- #post-<?php the_ID(); ?> 
+</article>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Thing",
+        "name": "<?php echo $name; ?>"
+      },
+      "image": "<?php echo wp_get_attachment_image_url($image['id'], $imageSize); ?>",
+      "author": {
+        "@type": "Organization",
+        "name": "Casinochecking",
+        "url": "https://casinochecking.com/"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "<?php echo $ourScore; ?>",
+        "bestRating": "10",
+        "worstRating": "0"
+      }
+    }
+</script>
