@@ -9,6 +9,33 @@ header.site-header {
     transition: 1s;
   }
 
+  .logo-link {
+    display: block; 
+    height: 60px;
+    position: relative;
+  }
+
+  .svg-logo{
+    svg {
+      margin-left: 15%;
+      width: 85%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    } 
+  }
+
+  img {
+    width: 15%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
   .desktop-row {
     .menu-desktop-menu-container {
       text-align: right;
@@ -48,10 +75,6 @@ header.site-header {
   }
 
   .site-navigation {
-    -webkit-box-flex: 2;
-    -webkit-flex-grow: 2;
-    -ms-flex-positive: 2;
-    flex-grow: 2;
     ul {
       list-style: none;
       padding: 0;
@@ -65,13 +88,15 @@ header.site-header {
 
     a {
       color: $white;
-      font-size: 18px;
+      font-size: 14px;
       text-transform: uppercase;
     }
   }
 
   #menu-right {
-    text-align: right;
+    .menu {
+      text-align: right;
+    }
   }
 }
 

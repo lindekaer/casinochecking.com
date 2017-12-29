@@ -37,8 +37,8 @@ $countryCode = $country['geoplugin_countryCode'];
         <header id="masthead" class="site-header slide-down z-index-high">
             <div class="container height z-index-high">
                 <div class="row flex-header show-for-large desktop-row z-index-high">
-                    <div class="large-3 columns site-navigation" id="menu-left">
-                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                    <div class="large-3 columns site-navigation position-relative" id="menu-left">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="logo-link">
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>
                     </div><!-- .site-branding -->
@@ -48,7 +48,7 @@ $countryCode = $country['geoplugin_countryCode'];
                 </div> 
                 <div class="row show-for-medium-down hide-for-large mobile-row flex-header bg-black">
                     <div class="mobile-logo small-8 medium-4 large-2 columns">
-                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="logo-link">
                             <?php include(locate_template('template-parts/parts/logo.php')); ?>
                         </a>
                     </div>
