@@ -23,13 +23,11 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link href="https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400" rel="stylesheet">
-<?php wp_head(); ?>  
+<?php wp_head(); ?>
 </head>
-<?php 
-$ip = $_SERVER['REMOTE_ADDR'];
-$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip))['geoplugin_countryCode'];
-//$details = ip_details("$IPaddress");
+<?php
+$country = ipAddress();
+$countryCode = $country['geoplugin_countryCode'];
 ?>
 <body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($countryCode)): echo $countryCode; else: echo 'all'; endif; ?>">
     <!-- Google Tag Manager (noscript) -->

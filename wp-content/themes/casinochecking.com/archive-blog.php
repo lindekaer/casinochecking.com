@@ -21,15 +21,8 @@ $blogImg = get_field('blog_img', 'options');  ?>
 			<div class="small-12 large-order-2 large-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
-						<div class="small-12 large-7 columns">
+						<div class="small-12 columns">
 							<h4 class="headline-casino-h4"><?php the_field('heading_blog_comparison', 'options'); ?></h4>
-						</div>
-						<div class="small-12 large-5 columns align-right">
-							<div class="filter-wrapper">
-								<p>SORT BY: </p>
-								<p class="filter-bonus filter active-sort" data-filter="newest">Newest</p>
-								<p class="filter-deposit filter" data-filter="minimum_deposit">Category</p>
-							</div>
 						</div>
 					</div>
 					<?php if(have_posts()): ?>

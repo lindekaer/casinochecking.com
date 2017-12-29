@@ -66,4 +66,34 @@ $activateOverlay = get_field('activate_overlay');
             </div>
     </div>
 </div>
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://casinochecking.com/blog"
+  },
+  "headline": "<?php echo the_title(); ?>",
+  "image": ["<?php echo wp_get_attachment_image_url( $image, 'logo-casino-content');?>",
+  "<?php echo wp_get_attachment_image_url( $image, 'logo-casino-archive');?>",
+  "<?php echo wp_get_attachment_image_url( $image, 'logo-blog-archive');?>"
+  ],
+    "author": {
+    "@type": "Person",
+    "name": "Mads Lundholm"
+  },
+  "datePublished": "<?php echo get_the_date(); ?>",
+  "dateModified": "<?php the_modified_date(); ?>",
+   "publisher": {
+    "@type": "Organization",
+    "name": "Casinochecking",
+    "logo": {
+    "@type": "ImageObject",
+      "url": "https://casinochecking.com/wp-content/uploads/2017/10/casino-logo-white.png"
+    }
+  },
+  "description": "<?php echo substr($description,0,100); ?>"
+}
+</script>

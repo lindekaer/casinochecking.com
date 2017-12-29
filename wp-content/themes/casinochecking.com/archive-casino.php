@@ -12,7 +12,15 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 <section class="bg-img casinos <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed">
 	<div class="row welcome-row">
 		<div class="small-12 columns fade-in-slow z-index-medium">
-			<h1><?php the_field('heading_first_line_casino', 'options'); ?></h1>
+			<?php
+			$country = ipAddress();
+			$countryCode = $country['geoplugin_countryName'];
+			if($countryCode = 'DENMARK'): $countryCode = 'DANMARK';
+			elseif($countryCode = 'NORWAY'): $countryCode = 'NORGE';
+			endif;
+
+			?>
+			<h1><?php the_field('heading_first_line_casino', 'options'); if(isset($countryCode)): echo $countryCode; endif;?></h1>
 			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 		</div>
 	</div>
@@ -29,19 +37,20 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						</div>
 						<div class="small-12 large-6 columns align-right filter-wrapper">
 							<div class="selected-currency">
-								<div class="naming-casino"><p>Currency</p></div>
+								<div class="naming-casino"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
 								<select id="currencySelect">
 									<option value="USD" data-currency="$">USD ($)</option>
 									<option value="EUR" data-currency="€">EUR (€)</option>
 									<option value="GBP" data-currency="£">GBP (£)</option>
 									<option value="DKK" data-currency="DKK">DKK</option>
+									<option value="NOK" data-currency="NOK">NOK</option>
 								</select>
 							</div>
 							<div class="sorting">
-								<div class="naming-casino"><p>SORT BY</p></div>
-								<p class="filter-score filter active-sort" data-filter="our_score">Score</p>
-								<p class="filter-bonus filter" data-filter="signup_bonus">Bonus</p>
-								<p class="filter-deposit filter" data-filter="minimum_deposit">Deposit</p>
+								<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
+								<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
+								<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
+								<p class="filter-deposit filter" data-filter="minimum_deposit"><?php echo _e('Deposit', 'checkmate'); ?></p>
 							</div>
 						</div>
 					</div>
@@ -67,7 +76,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 </section>
 <section class="bg-gray section-padding-guides">
 	<div class="container">
-		<h2 class="cursive-headline text-center section-heading">News & guides</h2>
+		<h2 class="cursive-headline text-center section-heading"><?php echo _e('News & Guides', 'checkmate'); ?></h2>
 		<?php 
 		$args_blog = array(
 			'posts_per_page' => 6, 
