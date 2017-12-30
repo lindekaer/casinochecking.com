@@ -67,7 +67,7 @@ function singleCasinoAvailability() {
             var count = obj.found_posts;
             var country = obj.country;
 
-            if (country = 'all'){
+            if (country == 'all'){
                 console.log(country)
             } 
 
