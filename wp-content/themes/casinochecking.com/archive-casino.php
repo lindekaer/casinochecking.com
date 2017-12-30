@@ -15,66 +15,68 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 			<?php
 			$country = ipAddress();
 			$countryCode = $country['geoplugin_countryName'];
-			if(isset($countryCode)):
-				if($countryCode = 'DENMARK'): 
+			if(isset($countryCode)){
+				if($countryCode = 'DENMARK'){ 
 					$countryCode = 'DANMARK';
-				elseif($countryCode = 'NORWAY'): 
+				}
+				elseif($countryCode = 'NORWAY'){
 					$countryCode = 'NORGE';
-				endif; 
-				endif; ?>
-				<h1><?php the_field('heading_first_line_casino', 'options'); if(isset($countryCode)): echo $countryCode; endif;?></h1>
-				<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
+				}
+			} 
+			?>
+			<h1><?php the_field('heading_first_line_casino', 'options'); if(isset($countryCode)): echo $countryCode; endif;?></h1>
+			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 		</div>
-		</div>
-	</section>
-	<section class="comparison-section bg-dark-gray" data-count="10">
-		<div class="container mobile-full-width">
-			<div class="row">
-				<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-				<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium hidden-overflow">
-					<div class="container">
-						<div class="row align-middle padding-bottom">
-							<div class="small-12 large-6">
-								<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
+	</div>
+</section>
+<section class="comparison-section bg-dark-gray" data-count="10">
+	<div class="container mobile-full-width">
+		<div class="row">
+			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
+			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium hidden-overflow">
+				<div class="container">
+					<div class="row align-middle padding-bottom">
+						<div class="small-12 large-6">
+							<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
+						</div>
+						<div class="small-12 large-6 columns align-right filter-wrapper">
+							<div class="selected-currency">
+								<div class="naming-casino"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
+								<select id="currencySelect">
+									<option value="USD" data-currency="$">USD ($)</option>
+									<option value="EUR" data-currency="€">EUR (€)</option>
+									<option value="GBP" data-currency="£">GBP (£)</option>
+									<option value="DKK" data-currency="DKK">DKK</option>
+									<option value="NOK" data-currency="NOK">NOK</option>
+								</select>
 							</div>
-							<div class="small-12 large-6 columns align-right filter-wrapper">
-								<div class="selected-currency">
-									<div class="naming-casino"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
-									<select id="currencySelect">
-										<option value="USD" data-currency="$">USD ($)</option>
-										<option value="EUR" data-currency="€">EUR (€)</option>
-										<option value="GBP" data-currency="£">GBP (£)</option>
-										<option value="DKK" data-currency="DKK">DKK</option>
-										<option value="NOK" data-currency="NOK">NOK</option>
-									</select>
-								</div>
-								<div class="sorting">
-									<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
-									<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
-									<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
-									<p class="filter-deposit filter" data-filter="minimum_deposit"><?php echo _e('Deposit', 'checkmate'); ?></p>
-								</div>
+							<div class="sorting">
+								<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
+								<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
+								<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
+								<p class="filter-deposit filter" data-filter="minimum_deposit"><?php echo _e('Deposit', 'checkmate'); ?></p>
 							</div>
 						</div>
 					</div>
-					<div class="small-12 columns load-casino hidden-overflow">
+				</div>
+				<div class="small-12 columns load-casino hidden-overflow">
+					<div class="load-wrapper">
+						<div class="loader">
+						</div></div>
+					</div>
+					<div class="loaded-posts" data-count="">
+					</div>
+					<div class="load-more">
 						<div class="load-wrapper">
 							<div class="loader">
 							</div></div>
-						</div>
-						<div class="loaded-posts" data-count="">
-						</div>
-						<div class="load-more">
-							<div class="load-wrapper">
-								<div class="loader">
-								</div></div>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </section>
 <section class="bg-gray section-padding-guides">
 	<div class="container">
