@@ -9,6 +9,7 @@ jQuery(function($) {
         initDom();
         if($('.single-casino').length){
             singleCasinoCurrency();
+            singleCasinoAvailability();
         }
     });
 });
@@ -45,6 +46,44 @@ function singleCasinoCurrency(){
     currencyUpdate(data);
 }
 
+function singleCasinoAvailability() {
+    var usersCountry = $('body').attr('data-user-country');
+    var pageID = $('.rectangle').attr('data-casino-id');
+
+    var data = {
+        action: 'available_casino',
+        country: usersCountry,
+        pageID: pageID      
+    }
+
+    console.log(data)
+
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function(result) {
+            var obj = JSON.parse(result)
+            var count = obj.found_posts;
+            var country = obj.country;
+
+            if (country = 'all'){
+                console.log(country)
+            } 
+
+            else if (count == 1){
+                $('.user-country').text(country);
+                $('.ribbon-wrapper').removeClass('hide-custom');
+                $('.casino-available').removeClass('hide-custom');
+            } 
+            else {
+                $('.user-country').text(country);
+                $('.ribbon-wrapper').removeClass('hide-custom');
+                $('.casino-not-available').removeClass('hide-custom');
+            }
+        }
+    })
+}
 /************************
 SET CURRENCY BASED ON THE VISITORS COUNTRY
 ************************/
@@ -487,9 +526,9 @@ function loadCasinoParams(currencyRate) {
     loadCasino(data);
 }
 
-    $('#countrySelect').on('change', function() {
-        ajaxParams();
-    });
+$('#countrySelect').on('change', function() {
+    ajaxParams();
+});
 
 $('.search-ajax, .filter').click(function (e) {
         // Attach event handler for AJAX submit
@@ -507,9 +546,9 @@ function resetFilter() {
         };
 
         for (var type in metrics) {
-                var metric = metrics[type];
-                data['min_' + type] = metric.min;
-                data['max_' + type] = metric.max;
+            var metric = metrics[type];
+            data['min_' + type] = metric.min;
+            data['max_' + type] = metric.max;
         }
         var usersCountry = $('body').attr('data-user-country');
 

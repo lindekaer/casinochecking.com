@@ -1939,9 +1939,11 @@ section .no-border { border: 0 !important; }
 
 @media screen and (max-width: 63.9375em) { section .headline-casino-h4 { text-align: center; font-size: 1.5rem; padding-bottom: 10px; } }
 
-section .first { position: absolute; top: 12px; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+@media screen and (max-width: 63.9375em) { section .first { position: absolute; top: 12px; margin-left: -13px; width: 24px; background: #e65352; text-indent: 7px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+  section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 102%; border-right: 13px solid #86281E; border-bottom: 8px solid transparent; } }
 
-section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; }
+@media screen and (min-width: 64em) { section .first { position: absolute; top: 12px; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+  section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; } }
 
 section .padding-bottom { padding-bottom: 25px; }
 
@@ -2060,6 +2062,16 @@ article .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px 
 article.casino .desc { padding-top: 10px; padding-bottom: 25px; }
 
 article .desc { padding-top: 25px; padding-bottom: 25px; }
+
+article .rectangle { background: #e65352; width: calc(100% + 30px); left: -15px; position: absolute; -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -khtml-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); z-index: 100; bottom: 25px; padding: 4px 0; text-align: center; }
+
+article .rectangle p { color: #ffffff; text-transform: uppercase; font-size: 12px; display: inline-block; font-weight: 600; margin-right: 5px; }
+
+article .triangle-l { border-color: transparent #e65352 transparent transparent; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; left: -30px; bottom: 10px; z-index: -1; }
+
+article .triangle-r { border-color: transparent transparent transparent #e65352; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; right: -30px; bottom: 10px; z-index: -1; }
+
+article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; margin: 0; display: inline-block; }
 
 @keyframes fadeIn { from { opacity: 0; }
   to { opacity: 1; } }

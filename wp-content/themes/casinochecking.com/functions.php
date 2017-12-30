@@ -10,19 +10,11 @@ ini_set('display_errors', 1);
  */
 
 function ipAddress(){
-$ip = $_SERVER['REMOTE_ADDR'];
-$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
     return $countryCode;
 }
 //$details = ip_details("$IPaddress");
-
-//Requests for user-country
-function ip_details($IPaddress)
-{
-    $json       = file_get_contents('http://www.geoplugin.net/php.gp?ip='.$IPaddress);
-    $details    = json_decode($json);
-    return $details;
-}
 
 add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query){
@@ -32,7 +24,6 @@ function custom_front_page($wp_query){
     }
 
     if($wp_query->get('page_id') == get_option('page_on_front')):
-
         $wp_query->set('post_type', 'casino');
         $wp_query->set('page_id', '');
 
@@ -40,8 +31,38 @@ function custom_front_page($wp_query){
         $wp_query->is_singular = 0;
         $wp_query->is_post_type_archive = 1;
         $wp_query->is_archive = 1;
-
     endif;
+}
+
+add_action('wp_ajax_nopriv_available_casino', 'available_casino');
+add_action('wp_ajax_available_casino', 'available_casino');
+
+
+function available_casino() {
+    $country = $_POST['country'];
+    $id = $_POST['pageID'];
+
+    $args = array(
+        'post_type' => 'casino',
+        'p' => $id,
+        'meta_query' => array(
+            array(
+            'key' => 'available_countries', 
+            'value' => $country, 
+            'compare' => 'LIKE'
+        )
+        )
+    );
+
+    $the_query = new WP_Query( $args );
+    $count = $the_query->found_posts;
+
+    $result = array('found_posts' => $count, 'country' => $country);
+
+    echo json_encode($result);
+
+    wp_reset_query();
+    die();
 
 }
 

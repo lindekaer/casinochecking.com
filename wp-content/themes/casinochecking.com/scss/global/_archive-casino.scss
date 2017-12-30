@@ -199,26 +199,51 @@ section {
   }
 }
 
-
-.first {
-  position: absolute;
-  top: 12px;
-  margin-left: -20px;
-  width: 35px;
-  background: $slider-red;
-  text-indent: 13px;
-  box-shadow: 1px 1px 2px #000;
-  color: $white;
-
-  &:after {
-    content: "";
+@include breakpoint (medium down){
+  .first {
     position: absolute;
-    width: 0;
-    height: 0;
-    left: 0;
-    top: 101%;
-    border-right: 19px solid $srib;
-    border-bottom: 10px solid transparent;
+    top: 12px;
+    margin-left: -13px;
+    width: 24px;
+    background: $slider-red;
+    text-indent: 7px;
+    box-shadow: 1px 1px 2px #000;
+    color: $white;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0;
+      top: 102%;
+      border-right: 13px solid $srib;
+      border-bottom: 8px solid transparent;
+    }
+  }
+}
+
+@include breakpoint (large up){
+  .first {
+    position: absolute;
+    top: 12px;
+    margin-left: -20px;
+    width: 35px;
+    background: $slider-red;
+    text-indent: 13px;
+    box-shadow: 1px 1px 2px #000;
+    color: $white;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0;
+      top: 101%;
+      border-right: 19px solid $srib;
+      border-bottom: 10px solid transparent;
+    }
   }
 }
 

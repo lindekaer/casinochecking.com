@@ -17,9 +17,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 			$countryCode = $country['geoplugin_countryName'];
 			if($countryCode = 'DENMARK'): $countryCode = 'DANMARK';
 			elseif($countryCode = 'NORWAY'): $countryCode = 'NORGE';
-			endif;
-
-			?>
+			endif; ?>
 			<h1><?php the_field('heading_first_line_casino', 'options'); if(isset($countryCode)): echo $countryCode; endif;?></h1>
 			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 		</div>
