@@ -19,12 +19,19 @@
 	}
 }
 
-.section-padding-guides {
-	padding-top: 80px;
+.section-padding-guides {	
 	padding-bottom: 50px;
+	@include breakpoint(medium up){
+		padding-top: 80px;
+	}
 }
 .section-heading {
-	padding-bottom: 40px;
+	@include breakpoint(small only){
+		padding-bottom: 30px;
+	}
+	@include breakpoint(medium up){
+		padding-bottom: 40px;
+	}
 }
 
 @include breakpoint(large up) {

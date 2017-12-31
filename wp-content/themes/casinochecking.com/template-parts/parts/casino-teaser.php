@@ -42,7 +42,7 @@
 						</div>
 						<div class="small-6 columns">
 							<p><span class="hide-for-small-only"><?php echo _e('Our', 'checkmate'); ?> </span><?php echo _e('score', 'checkmate'); ?></p>
-							<h6><?php echo $ourScore; ?>/10</h6>
+							<h6><?php echo $ourScore; ?><span class="rating-ten">/10</span></h6>
 						</div>
 					</div>
 				</div>

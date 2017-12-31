@@ -66,7 +66,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                                 </div>
                                                 <div class="small-3">
                                                     <p>Score</p>
-                                                    <h6 class="number"><?php echo $ourScore; ?>/10</h6>
+                                                    <h6 class="number"><?php echo $ourScore; ?><span class="rating-ten">/10</span></h6>
                                                 </div>
                                             </div>
                                             <div class="further-casino-info">
