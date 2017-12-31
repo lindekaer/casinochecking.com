@@ -13,7 +13,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	<div class="row welcome-row">
 		<div class="small-12 columns fade-in-slow z-index-medium">
 			<?php
-			$country = ipAddress();
+			/*$country = ipAddress();
 			$countryCode = $country['geoplugin_countryName'];
 			if(isset($countryCode)){
 				if($countryCode = 'DENMARK'){ 
@@ -22,9 +22,9 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 				elseif($countryCode = 'NORWAY'){
 					$countryCode = 'NORGE';
 				}
-			} 
+			} */
 			?>
-			<h1><?php the_field('heading_first_line_casino', 'options'); if(isset($countryCode)): echo $countryCode; endif;?></h1>
+			<h1><?php the_field('heading_first_line_casino', 'options');/* if(isset($countryCode)): echo $countryCode; endif;*/?></h1>
 			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 		</div>
 	</div>

@@ -54,13 +54,7 @@
 		<div class="small-12 hide-custom desc columns">
 			<div class="row">
 				<div class="small-12 columns">
-					<div class="dropdown-desc">
-						<?php echo substr(get_field('description'), 0, 250);
-						echo ' [...] <a href="'. get_permalink() . '"';
-						echo ' class="read-more-btn">';
-						echo _e("Read more", "checkmate");
-						echo '</a>'; ?>
-					</div>
+
 				</div>
 			</div>
 		</div>
