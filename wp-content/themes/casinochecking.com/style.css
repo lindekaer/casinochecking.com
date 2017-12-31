@@ -1991,6 +1991,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1000px; }
 
+.rating-ten { font-size: 12px; }
+
 .hide-custom { display: none; }
 
 .hidden-overflow { overflow: hidden; }
