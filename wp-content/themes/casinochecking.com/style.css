@@ -2071,7 +2071,7 @@ article .desc { padding-top: 25px; padding-bottom: 25px; }
 
 article .rectangle { background: #e65352; width: calc(100% + 30px); left: -15px; position: absolute; -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -khtml-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); z-index: 100; bottom: 25px; padding: 4px 0; text-align: center; }
 
-article .rectangle p { color: #ffffff; text-transform: uppercase; font-size: 12px; display: inline-block; font-weight: 600; margin-right: 5px; }
+article .rectangle p { color: #ffffff; font-size: 12px; display: inline-block; margin-right: 5px; }
 
 article .triangle-l { border-color: transparent #e65352 transparent transparent; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; left: -30px; bottom: 10px; z-index: -1; }
 

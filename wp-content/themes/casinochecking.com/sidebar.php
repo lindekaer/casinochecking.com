@@ -41,7 +41,7 @@
  											<?php include(locate_template('template-parts/parts/user-rating.php')); ?>
  										</div>
  										<div class="small-4 columns hide-for-small-only our_score align-middle">
- 											<p><?php echo the_field('our_score'); ?>/10</p>
+ 											<p><?php echo the_field('our_score'); ?><span class="rating-ten">/10</span></p>
  										</div>
  									</div>
  								</a>
