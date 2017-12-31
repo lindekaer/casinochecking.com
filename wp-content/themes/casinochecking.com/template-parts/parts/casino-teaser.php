@@ -55,11 +55,8 @@
 			<div class="row">
 				<div class="small-12 columns">
 					<div class="dropdown-desc">
-						<p><?php echo substr(get_field('description'), 0, 250);
-						echo ' [...] <a href="'. get_permalink() . '"';
-						echo ' class="read-more-btn">';
-						echo _e("Read more", "checkmate");
-						echo '</a>'; ?></p>
+						<p><?php echo substr(get_field('description'), 0, 250) . '[...]';?></p>
+						<p><a href="<?php echo get_permalink(); ?>" class="read-more-btn"><?php echo _e('Read more', 'checkmate'); ?></a></p>
 					</div>
 				</div>
 			</div>
