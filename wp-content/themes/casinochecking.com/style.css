@@ -2163,6 +2163,10 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 /*Partials*/
 header.site-header { position: fixed; height: 60px; top: 0; width: 100%; }
 
+header.site-header .wpml-ls-menu-item .wpml-ls-flag { width: auto; height: 14px; }
+
+header.site-header .wpml-ls-menu-item #menu-item-wpml-ls-2-en { margin-right: 10px; }
+
 header.site-header.scroll-active { background: rgba(51, 50, 56, 0.9); transition: 1s; }
 
 header.site-header .logo-link { display: block; height: 60px; position: relative; }
@@ -2189,7 +2193,7 @@ header.site-header #menu-right li:last-child { margin-right: 0; }
 
 header.site-header .site-navigation ul { list-style: none; padding: 0; margin: 0; }
 
-header.site-header .site-navigation li { display: inline-block; margin: 0 3%; }
+header.site-header .site-navigation li { display: inline-block; margin: 0 2px; }
 
 header.site-header .site-navigation a { color: #ffffff; font-size: 14px; text-transform: uppercase; }
 

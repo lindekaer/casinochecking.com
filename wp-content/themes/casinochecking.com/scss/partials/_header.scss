@@ -4,6 +4,17 @@ header.site-header {
   top: 0;
   width: 100%;
 
+  .wpml-ls-menu-item {
+    .wpml-ls-flag {
+      width: auto;
+      height: 14px;
+    }
+
+    #menu-item-wpml-ls-2-en {
+      margin-right: 10px;
+    }
+  }
+
   &.scroll-active {
     background: rgba(51, 50, 56, 0.9);
     transition: 1s;
@@ -83,7 +94,7 @@ header.site-header {
 
     li {
       display: inline-block;
-      margin: 0 3%;
+      margin: 0 2px;
     }
 
     a {
