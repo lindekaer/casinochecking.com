@@ -53,6 +53,8 @@
 </div>
 </div>
 
+div.container
+
 
 <div class="row show-for-medium-down hide-for-large z-index-high" id="mobile-footer">
     <?php
@@ -68,9 +70,9 @@
         <?php 
         $the_query = new WP_Query( $args );
         if($the_query->have_posts()) {
-         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-         <div class="row">
-             <div class="footer-casino-name small-6 columns text-center">
+           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+           <div class="row">
+               <div class="footer-casino-name small-6 columns text-center">
                 <div class="footer-name">
                     <p><span class="red-color"><?php echo _e('Popular:', 'checkmate'); ?></span> <?php echo the_field('name'); ?></p>
                 </div>

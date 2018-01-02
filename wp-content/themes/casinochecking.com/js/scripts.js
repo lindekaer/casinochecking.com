@@ -11,6 +11,7 @@ jQuery(function($) {
             singleCasinoCurrency();
             singleCasinoAvailability();
         }
+        
     });
 });
 
@@ -176,6 +177,9 @@ function initDom() {
     $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
     });
+
+    //$(".filter-inner-wrapper").stick_in_parent();
+
 
     $(".hamburger").click(function () {
         $('.menu-mobile-header-container').toggleClass("is-active"); 
@@ -604,6 +608,7 @@ function loadCasino(data) {
             var usersCountry = $('#countrySelect').val();
             updateDeepLink(usersCountry);
             showDescCasino();
+            //$(".casino-sidebar").stick_in_parent();
                 //Infinite scroll with ajax-calls
                // infiniteScroll();
            },

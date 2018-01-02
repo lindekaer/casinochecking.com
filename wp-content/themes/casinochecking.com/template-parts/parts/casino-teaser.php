@@ -55,8 +55,8 @@
 			<div class="row">
 				<div class="small-12 columns">
 					<div class="dropdown-desc">
-						<p class="inline"><?php echo substr(get_field('description'), 0, 250) . '[...]';?>
-						<a href="<?php echo get_permalink(); ?>" class="read-more-btn"><?php echo _e('Read more', 'checkmate'); ?></a></p>
+						<?php echo substr(get_field('description'), 0, 250) . '[...]';?>
+						<a href="<?php echo get_permalink(); ?>" class="read-more-btn"><?php echo _e('Read more', 'checkmate'); ?></a>
 					</div>
 				</div>
 			</div>
