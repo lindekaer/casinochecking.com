@@ -27,7 +27,9 @@
 
 .category {
 	text-transform: uppercase;
-	font-size: 12px;
+	p {
+		font-size: 10px;
+	}
 	font-family: 'Lato';
 }
 

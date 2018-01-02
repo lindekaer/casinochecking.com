@@ -603,7 +603,6 @@ function checkmate_scripts() {
 add_action( 'wp_enqueue_scripts', 'checkmate_scripts' );
 
 function wpb_add_google_fonts() {
-
     wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400', false );
 }
 

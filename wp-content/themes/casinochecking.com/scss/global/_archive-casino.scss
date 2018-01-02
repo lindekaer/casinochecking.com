@@ -34,8 +34,25 @@ section {
     } */
   }
 
+  .img-section {
+    width: 250px;
+    height: auto;
+  }
+
+  .section-compare-casino {
+    .section-heading {
+      padding-bottom: 20px;
+    }
+  }
+
   .load-more {
     position: relative;
+  }
+
+  &.bg-image {
+    background-size: auto 100%;
+    background-position: right;
+    background-repeat: no-repeat;
   }
 
   .up-to {

@@ -23,18 +23,30 @@
 	}
 }
 
-.section-padding-guides {	
+.section-padding-guides, .section-compare-casino {	
 	padding-bottom: 50px;
 	@include breakpoint(medium up){
 		padding-top: 80px;
 	}
 }
-.section-heading {
-	@include breakpoint(small only){
-		padding-bottom: 30px;
+.section-padding-guides {
+	.section-heading {
+		@include breakpoint(small only){
+			padding-bottom: 30px;
+		}
+		@include breakpoint(medium up){
+			padding-bottom: 40px;
+		}
 	}
-	@include breakpoint(medium up){
-		padding-bottom: 40px;
+}
+.section-compare-casino {
+	.section-heading {
+		@include breakpoint(small only){
+			padding-bottom: 20px;
+		}
+		@include breakpoint(medium up){
+			padding-bottom: 20px;
+		}
 	}
 }
 
@@ -54,6 +66,10 @@
 .align-middle {
 	display: flex;
 	align-items: center;
+}
+
+.color-red {
+	color: $slider-red;
 }
 
 .inline {
