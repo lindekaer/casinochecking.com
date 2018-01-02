@@ -65,7 +65,14 @@ section {
   }
 
   .dropdown-desc {
+    p {
+      font-size: 12px !important;
+    }
     padding-top: 15px;
+  }
+
+  .read-more-btn {
+    font-size: 12px;
   }
 
   .filter-wrapper {
@@ -201,6 +208,7 @@ section {
 
 @include breakpoint (medium down){
   .first {
+    font-size: 12px !important;
     position: absolute;
     top: 12px;
     margin-left: -13px;
@@ -227,6 +235,7 @@ section {
   .first {
     position: absolute;
     top: 12px;
+    font-size: 14px !important;
     margin-left: -20px;
     width: 35px;
     background: $slider-red;
@@ -276,6 +285,10 @@ section {
 
   &:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  p{
+    font-size: 10px;
   }
   
   .image {

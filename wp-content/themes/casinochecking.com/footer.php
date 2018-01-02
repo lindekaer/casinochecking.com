@@ -12,12 +12,12 @@
 ?>
 
 </div><!-- #content -->
-<footer id="colophon" class="site-footer bg-medium-gray">
+<footer id="colophon" class="site-footer bg-sidebar">
     <div class="container" id="desktop-footer">
         <div class="row">
             <div class="small-12 columns">
                 <div class="footer-heading">
-                    <h2 class="cursive-headline"><?php echo _e('How we compare casinos', 'checkmate'); ?> </h2>
+                    <h2 class="cursive-headline medium-gray"><?php echo _e('How we compare casinos', 'checkmate'); ?> </h2>
                 </div>
                 <div class="footer-subheading"></div>
             </div>
@@ -41,7 +41,7 @@
                             }  ?>
                         </div>
                         <div class="desc-footer">
-                            <div class="headline-footer"><h5><?php echo $headlineDesc; ?></h5></div>
+                            <div class="headline-footer medium-gray"><h6><?php echo $headlineDesc; ?></h6></div>
                             <div class="text-footer"><p><?php echo $textDesc; ?></p></div>
                         </div>
                     </div>
@@ -53,7 +53,31 @@
 </div>
 </div>
 
-div.container
+<div class="bg-sidebar footer-legal">
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="small-12 text-center">
+                <?php the_field('footer_disclaimer_text','options'); ?>
+                <ul>
+                    <?php if( have_rows('footer_img', 'options') ):
+                    while ( have_rows('footer_img', 'options') ) : the_row(); ?>
+                    <?php 
+
+                    $image = get_sub_field('footer_single_img');
+
+                    if( !empty($image) ): ?>
+                    <li class="inline">
+                        <a rel="nofollow" target="_blank" href="<?php echo get_sub_field('footer_single_link') ?>">
+                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+            <?php endwhile; ?>
+        <?php endif; ?>
+    </ul>
+</div>
 
 
 <div class="row show-for-medium-down hide-for-large z-index-high" id="mobile-footer">
@@ -70,9 +94,9 @@ div.container
         <?php 
         $the_query = new WP_Query( $args );
         if($the_query->have_posts()) {
-           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="row">
-               <div class="footer-casino-name small-6 columns text-center">
+         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+         <div class="row">
+             <div class="footer-casino-name small-6 columns text-center">
                 <div class="footer-name">
                     <p><span class="red-color"><?php echo _e('Popular:', 'checkmate'); ?></span> <?php echo the_field('name'); ?></p>
                 </div>

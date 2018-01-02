@@ -1398,12 +1398,15 @@ h5, .h5 { font-size: 1.0625rem; line-height: 1.4; margin-top: 0; margin-bottom: 
 
 h6, .h6 { font-size: 1rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5rem; }
 
+p, .p { font-size: 0.75rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5rem; }
+
 @media print, screen and (min-width: 40em) { h1, .h1 { font-size: 3rem; }
   h2, .h2 { font-size: 2.5rem; }
   h3, .h3 { font-size: 1.9375rem; }
   h4, .h4 { font-size: 1.5625rem; }
   h5, .h5 { font-size: 1.25rem; }
-  h6, .h6 { font-size: 1rem; } }
+  h6, .h6 { font-size: 1rem; }
+  p, .p { font-size: 0.8125rem; } }
 
 a { line-height: inherit; color: #1779ba; text-decoration: none; cursor: pointer; }
 
@@ -1903,6 +1906,10 @@ section .no-borders { border-bottom: 0 !important; }
 
 section .dropdown-desc { padding-top: 15px; }
 
+section .dropdown-desc p { font-size: 12px !important; }
+
+section .read-more-btn { font-size: 12px; }
+
 section .filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
 
 section .filter-wrapper p:first-child { padding-left: 0; }
@@ -1939,10 +1946,10 @@ section .no-border { border: 0 !important; }
 
 @media screen and (max-width: 63.9375em) { section .headline-casino-h4 { text-align: center; font-size: 1.5rem; padding-bottom: 10px; } }
 
-@media screen and (max-width: 63.9375em) { section .first { position: absolute; top: 12px; margin-left: -13px; width: 24px; background: #e65352; text-indent: 7px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+@media screen and (max-width: 63.9375em) { section .first { font-size: 12px !important; position: absolute; top: 12px; margin-left: -13px; width: 24px; background: #e65352; text-indent: 7px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
   section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 102%; border-right: 13px solid #86281E; border-bottom: 8px solid transparent; } }
 
-@media screen and (min-width: 64em) { section .first { position: absolute; top: 12px; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+@media screen and (min-width: 64em) { section .first { position: absolute; top: 12px; font-size: 14px !important; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
   section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; } }
 
 section .padding-bottom { padding-bottom: 25px; }
@@ -1956,6 +1963,8 @@ section .welcome-row h1 { color: #ffffff; text-align: center; font-weight: 900; 
 section .casino-wrapper { cursor: pointer; background: #ffffff; position: relative; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 section .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
+
+section .casino-wrapper p { font-size: 10px; }
 
 section .casino-wrapper .image img { width: auto; display: block; margin: 0 auto; }
 
@@ -2018,6 +2027,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 .z-index-high { z-index: 60; }
 
 .z-index-medium { z-index: 50; }
+
+.medium-gray { color: #cacaca; }
 
 section.bg-img.content-casino { height: 100vw; }
 
@@ -2351,13 +2362,19 @@ header.site-header #menu-right .menu { text-align: right; }
 #fixed-button { position: fixed; bottom: 64px; left: 0; width: 100%; display: none; border-radius: 0; }
 
 /*Footer*/
-@media screen and (min-width: 40em) { footer #desktop-footer { padding-top: 80px; } }
+footer p { color: #888; }
 
-@media screen and (max-width: 39.9375em) { footer #desktop-footer { padding-top: 50px; } }
+footer p:hover { color: #888; }
 
-footer #desktop-footer .footer-heading { padding-bottom: 40px; text-align: center; }
+footer h2, footer h6 { color: #cacaca; }
 
-footer #desktop-footer .footer-heading h2 { color: #23282d; }
+@media screen and (min-width: 40em) { footer .footer-legal { padding-bottom: 50px; } }
+
+@media screen and (max-width: 39.9375em) { footer .footer-legal { padding-bottom: 100px; } }
+
+footer #desktop-footer { padding-top: 50px; }
+
+footer #desktop-footer .footer-heading { padding-bottom: 30px; text-align: center; }
 
 footer #desktop-footer .footer-wrapper { padding-bottom: 30px; }
 
@@ -2379,8 +2396,12 @@ footer #mobile-footer .footer-score img { width: 12px; height: auto; }
 
 footer #mobile-footer .footer-score p { display: inline-block; padding-left: 2px; }
 
-footer #mobile-footer h5 { color: #cacaca; font-size: 14px; }
-
 footer #mobile-footer p { color: #cacaca; font-size: 12px; text-transform: uppercase; }
+
+footer hr { border-bottom: 1px solid #636363; margin-bottom: 30px; margin-top: 0; }
+
+footer ul { list-style: none; margin: 0 auto; -webkit-padding-start: 0px; text-align: center; }
+
+footer ul li img { height: 50px; width: auto; margin-top: 1.25rem; }
 
 /*# sourceMappingURL=maps/style.css.map */

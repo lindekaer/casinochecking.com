@@ -80,12 +80,14 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 </section>
 <section class="bg-gray section-padding-guides">
 	<div class="container">
-		<h2 class="cursive-headline text-center section-heading"><?php echo _e('News & Guides', 'checkmate'); ?></h2>
+		<h2 class="cursive-headline text-center section-heading"><?php echo _e('Tips & Tricks', 'checkmate'); ?></h2>
 		<?php 
 		$args_blog = array(
-			'posts_per_page' => 6, 
+			'posts_per_page' => 3, 
 			'offset'         => 0,    
 			'post_type'      => 'blog',
+			'meta_key'		=> 'blog_category',
+			'meta_value'	=> 'How to play'
 		);
 		$the_query_blog = new WP_Query( $args_blog );
 		?>
