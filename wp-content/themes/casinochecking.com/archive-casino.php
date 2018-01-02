@@ -82,7 +82,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	<div class="container">
 		<div class="row">
 			<div class="small-6">
-				<h3 class="cursive-headline color-red text-left section-heading"><?php echo _e('Compare online casions', 'checkmate'); ?></h3>
+				<h3 class="cursive-headline color-red text-left section-heading"><?php echo _e('Compare online casinos', 'checkmate'); ?></h3>
 				<?php the_field('description_online_casinos', 'options'); ?>
 			</div>
 			<div class="small-6 text-center">
