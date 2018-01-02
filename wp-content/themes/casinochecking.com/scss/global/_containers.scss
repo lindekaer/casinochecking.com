@@ -23,16 +23,19 @@
 	}
 }
 
-.section-padding-guides, .section-compare-casino {	
-	padding-bottom: 50px;
+.section-padding-guides {
+
+	@include breakpoint(small only){
+		padding-top: 50px;
+			padding-bottom: 20px;
+	}
 	@include breakpoint(medium up){
 		padding-top: 80px;
+		padding-bottom: 50px;
 	}
-}
-.section-padding-guides {
 	.section-heading {
 		@include breakpoint(small only){
-			padding-bottom: 30px;
+			padding-bottom: 20px;
 		}
 		@include breakpoint(medium up){
 			padding-bottom: 40px;
@@ -40,6 +43,14 @@
 	}
 }
 .section-compare-casino {
+	@include breakpoint(small only){
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	@include breakpoint(medium up){
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
 	.section-heading {
 		@include breakpoint(small only){
 			padding-bottom: 20px;

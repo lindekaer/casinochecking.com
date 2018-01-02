@@ -78,6 +78,8 @@
         <?php endif; ?>
     </ul>
 </div>
+</div>
+</div>
 
 
 <div class="row show-for-medium-down hide-for-large z-index-high" id="mobile-footer">

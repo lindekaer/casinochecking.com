@@ -1894,8 +1894,6 @@ section.bg-img { width: 100%; min-width: 100%; background-position: center !impo
 
 section .img-section { width: 250px; height: auto; }
 
-section .section-compare-casino .section-heading { padding-bottom: 20px; }
-
 section .load-more { position: relative; }
 
 section.bg-image { background-size: auto 100%; background-position: right; background-repeat: no-repeat; }
@@ -2012,13 +2010,17 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
 
-.section-padding-guides, .section-compare-casino { padding-bottom: 50px; }
+@media screen and (max-width: 39.9375em) { .section-padding-guides { padding-top: 50px; padding-bottom: 20px; } }
 
-@media screen and (min-width: 40em) { .section-padding-guides, .section-compare-casino { padding-top: 80px; } }
+@media screen and (min-width: 40em) { .section-padding-guides { padding-top: 80px; padding-bottom: 50px; } }
 
-@media screen and (max-width: 39.9375em) { .section-padding-guides .section-heading { padding-bottom: 30px; } }
+@media screen and (max-width: 39.9375em) { .section-padding-guides .section-heading { padding-bottom: 20px; } }
 
 @media screen and (min-width: 40em) { .section-padding-guides .section-heading { padding-bottom: 40px; } }
+
+@media screen and (max-width: 39.9375em) { .section-compare-casino { padding-top: 50px; padding-bottom: 50px; } }
+
+@media screen and (min-width: 40em) { .section-compare-casino { padding-top: 80px; padding-bottom: 80px; } }
 
 @media screen and (max-width: 39.9375em) { .section-compare-casino .section-heading { padding-bottom: 20px; } }
 
