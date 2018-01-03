@@ -26,9 +26,9 @@ $blogImg = get_field('blog_img', 'options');  ?>
 						</div>
 					</div>
 					<?php if(have_posts()): ?>
-						<div class="row">
+						<div class="row list">
 							<?php while (have_posts()) : the_post(); ?>
-								<div class="small-6 columns">
+								<div class="small-6 columns list-item">
 									<?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
 								</div>
 							<?php endwhile;?>

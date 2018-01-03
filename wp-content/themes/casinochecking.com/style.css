@@ -2010,6 +2010,10 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
 
+.list { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+
+.list-item { display: -ms-flexbox; display: flex; padding: 0.5em; width: 100%; }
+
 @media screen and (max-width: 39.9375em) { .section-padding-guides { padding-top: 50px; padding-bottom: 20px; } }
 
 @media screen and (min-width: 40em) { .section-padding-guides { padding-top: 80px; padding-bottom: 50px; } }
@@ -2157,7 +2161,7 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
   100% {
     transform: rotate(360deg); } }
 
-.text-wrapper { text-align: center; background: #ffffff; }
+.text-wrapper { text-align: center; }
 
 @media screen and (min-width: 64em) { .text-wrapper { padding: 20px; } }
 
@@ -2165,7 +2169,7 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 .blog-img-wrapper img { width: 100%; }
 
-.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin-bottom: 30px; }
+.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin-bottom: 30px; background: #ffffff; }
 
 .blog-content:hover { box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1), 4px 4px 4px rgba(0, 0, 0, 0.12); }
 

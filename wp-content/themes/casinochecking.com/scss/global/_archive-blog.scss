@@ -6,7 +6,6 @@
 		padding: 20px 10px;
 	}
 	text-align: center;
-	background: $white;
 }
 
 .blog-img-wrapper {
@@ -19,6 +18,7 @@
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 	margin-bottom: 30px;
+	background: $white;
 
 	&:hover {
 		box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1), 4px 4px 4px rgba(0, 0, 0, 0.12);

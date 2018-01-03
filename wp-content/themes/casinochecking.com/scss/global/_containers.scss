@@ -22,12 +22,20 @@
 		margin-top: -25vh;
 	}
 }
+.list {
+	display: flex;
+	flex-wrap: wrap;
+}
+.list-item {
+	display: flex; 
+	padding: 0.5em;
+	width: 100%;
+}
 
 .section-padding-guides {
-
 	@include breakpoint(small only){
 		padding-top: 50px;
-			padding-bottom: 20px;
+		padding-bottom: 20px;
 	}
 	@include breakpoint(medium up){
 		padding-top: 80px;

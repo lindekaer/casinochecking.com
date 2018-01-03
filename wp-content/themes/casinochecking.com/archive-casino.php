@@ -105,9 +105,9 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 		$the_query_blog = new WP_Query( $args_blog );
 		?>
 		<?php if($the_query_blog->have_posts()): ?>
-			<div class="row">
+			<div class="row list">
 				<?php while ($the_query_blog->have_posts()) : $the_query_blog->the_post(); ?>
-					<div class="small-6 large-4 columns">
+					<div class="small-6 large-4 columns list-item">
 						<?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
 					</div>
 				<?php endwhile;?>
