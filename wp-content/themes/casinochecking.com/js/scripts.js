@@ -6,6 +6,7 @@ jQuery(function($) {
         var country;
         $.getJSON('https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77', function (data) {
             var country = data.geoplugin_countryCode;
+            console.log(country)
             $('body').attr('data-user-country', country);
         }).done(function() {
             console.log( "second success" );
