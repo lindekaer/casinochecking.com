@@ -10,6 +10,7 @@ jQuery(function($) {
             url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
             dataType: "json",
             success: function(data) {
+                console.log(data)
                 var country = data.geoplugin_countryCode;
                 console.log(country)
                 $('body').attr('data-user-country', country);
