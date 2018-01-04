@@ -8,7 +8,7 @@
  *
  * @package checkmate
  */
-//session_start();
+session_start();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -28,13 +28,10 @@
 <?php wp_head(); ?>
 </head>
 <?php
-//if (!isset($_SESSION['count'])) {
- // $_SESSION['count'] = 0;
-  $country = ipAddress();
-  $countryCode = $country['geoplugin_countryCode'];
-//} 
+$country = ipAddress();
+$_SESSION["countryCode"] = $country['geoplugin_countryCode'];
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($countryCode)): echo $countryCode; else: echo 'all'; endif; ?>">
+<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($_SESSION["countryCode"])): echo $_SESSION["countryCode"]; else: echo 'all'; endif; ?>">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8T2B4D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
