@@ -25,7 +25,6 @@ session_start();
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="alternate" href="https://casinochecking.com/" hreflang="en-us" />
 <link rel="alternate" href="https://casinochecking.com/da/" hreflang="da" />
-<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 <?php wp_head(); ?>
 </head>
 <?php
