@@ -25,16 +25,17 @@ session_start();
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="alternate" href="https://casinochecking.com/" hreflang="en-us" />
 <link rel="alternate" href="https://casinochecking.com/da/" hreflang="da" />
+<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 <?php wp_head(); ?>
 </head>
 <?php
-if (!isset($_SESSION['countryCode']) || $_SESSION['countryCode'] == ''):
-$ip = $_SERVER['REMOTE_ADDR'];
-$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
-$_SESSION["countryCode"] = $countryCode['geoplugin_countryCode'];
-endif;
+//if (!isset($_SESSION['countryCode']) || $_SESSION['countryCode'] == ''):
+//$ip = $_SERVER['REMOTE_ADDR'];
+//$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
+//$_SESSION["countryCode"] = $countryCode['geoplugin_countryCode'];
+//endif;
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($_SESSION["countryCode"])): echo $_SESSION["countryCode"]; else: echo 'all'; endif; ?>">
+<body <?php body_class(); ?> id="fade-in" data-user-country="<?php //if(isset($_SESSION["countryCode"])): echo $_SESSION["countryCode"]; else: echo 'all'; endif; ?>">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8T2B4D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->

@@ -3,6 +3,8 @@ $(document).foundation();
 jQuery(function($) {
     "use strict";
     $(document).ready(function(){
+        $('body').attr('data-user-country', geoplugin_countryCode());
+        
         if($('.post-type-archive').length){
             setCurrency();
         }
