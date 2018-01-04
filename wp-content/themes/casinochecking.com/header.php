@@ -28,8 +28,11 @@ session_start();
 <?php wp_head(); ?>
 </head>
 <?php
-$country = ipAddress();
-$_SESSION["countryCode"] = $country['geoplugin_countryCode'];
+if (!isset($_SESSION['countryCode']) || $_SESSION['countryCode'] == ''):
+$ip = $_SERVER['REMOTE_ADDR'];
+$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
+$_SESSION["countryCode"] = $countryCode['geoplugin_countryCode'];
+endif;
 ?>
 <body <?php body_class(); ?> id="fade-in" data-user-country="<?php if(isset($_SESSION["countryCode"])): echo $_SESSION["countryCode"]; else: echo 'all'; endif; ?>">
     <!-- Google Tag Manager (noscript) -->

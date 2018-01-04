@@ -9,11 +9,6 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
-function ipAddress(){
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
-    return $countryCode;
-}
 //$details = ip_details("$IPaddress");
 
 add_action("pre_get_posts", "custom_front_page");
