@@ -3,17 +3,21 @@ $(document).foundation();
 jQuery(function($) {
     "use strict";
     $(document).ready(function(){
-        $('body').attr('data-user-country', geoplugin_countryCode());
-        
-        if($('.post-type-archive').length){
-            setCurrency();
-        }
-        initDom();
-        if($('.single-casino').length){
-            singleCasinoCurrency();
-            singleCasinoAvailability();
-        }
-        
+        var country;
+        $.getJSON('https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77', function (data) {
+            var country = data.geoplugin_countryCode;
+            $('body').attr('data-user-country', country);
+        }).done(function() {
+            console.log( "second success" );
+            if($('.post-type-archive').length){
+                setCurrency();
+            }
+            initDom();
+            if($('.single-casino').length){
+                singleCasinoCurrency();
+                singleCasinoAvailability();
+            }
+        })
     });
 });
 

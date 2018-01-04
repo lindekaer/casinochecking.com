@@ -35,7 +35,7 @@ session_start();
 //$_SESSION["countryCode"] = $countryCode['geoplugin_countryCode'];
 //endif;
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="<?php //if(isset($_SESSION["countryCode"])): echo $_SESSION["countryCode"]; else: echo 'all'; endif; ?>">
+<body <?php body_class(); ?> id="fade-in" data-user-country="">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8T2B4D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->

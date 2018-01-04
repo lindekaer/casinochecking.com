@@ -580,7 +580,6 @@ function checkmate_scripts() {
     // foundation scripts
     wp_enqueue_script( 'checkmate-what-input', get_template_directory_uri() . '/bower_components/what-input/dist/what-input.js', array(), '20151215', true );
     wp_enqueue_script( 'checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true );
-    wp_enqueue_script( 'geo-location', 'http://www.geoplugin.net/javascript.gp', array(), '20151215', true );
 
     // theme scripts
     //wp_enqueue_script( 'checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false );
