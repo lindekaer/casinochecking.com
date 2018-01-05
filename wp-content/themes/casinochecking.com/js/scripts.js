@@ -10,25 +10,33 @@ jQuery(function($) {
             url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
             dataType: "json",
             success: function(data) {
-                console.log(dataType)
+                console.log(data)
                 var country = data.geoplugin_countryCode;
                 console.log(country)
                 $('body').attr('data-user-country', country);
             },
             complete: function(data) {
                 console.log( "second success" );
-                if($('.post-type-archive').length){
-                    setCurrency();
-                }
-                initDom();
-                if($('.single-casino').length){
-                    singleCasinoCurrency();
-                    singleCasinoAvailability();
-                }
+                initializePage()
+            },
+            error: function(data) {
+                var country = 'all';
+                initializePage()
             }
         });
     })
 });
+
+function initializePage() {
+    if($('.post-type-archive').length){
+        setCurrency();
+    }
+    initDom();
+    if($('.single-casino').length){
+        singleCasinoCurrency();
+        singleCasinoAvailability();
+    }
+}
 
 function singleCasinoCurrency(){
     //Sets default currency based on the country
