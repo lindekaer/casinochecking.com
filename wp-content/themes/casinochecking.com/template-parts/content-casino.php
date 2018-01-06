@@ -72,7 +72,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                             <div class="further-casino-info">
                                                 <div class="row">
                                                     <div class="small-12">
-                                                        <a target="_blank" <?php include(locate_template('template-parts/parts/deep-link.php')); ?>  class="button content-page-button deep-link-button"><?php echo _e('Sign up', 'checkmate'); ?></a>
+                                                        <a target="_blank" <?php include(locate_template('template-parts/parts/deep-link.php')); ?>  class="button content-page-button cta-button deep-link-button"><?php echo _e('Sign up', 'checkmate'); ?></a>
                                                     </div>
                                                 </div> 
                                             </div>

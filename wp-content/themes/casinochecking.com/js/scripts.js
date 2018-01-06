@@ -21,6 +21,7 @@ jQuery(function($) {
             },
             error: function(data) {
                 var country = 'all';
+                $('body').attr('data-user-country', country);
                 initializePage()
             }
         });
@@ -194,15 +195,13 @@ function showDescCasino() {
     $('.casino-wrapper').click(function () {
         $(this).find('.desc').slideToggle();
     });
+//    $(".casino-sidebar").stick_in_parent();
 }
 
 function initDom() {
     $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
     });
-
-    //$(".filter-inner-wrapper").stick_in_parent();
-
 
     $(".hamburger").click(function () {
         $('.menu-mobile-header-container').toggleClass("is-active"); 
