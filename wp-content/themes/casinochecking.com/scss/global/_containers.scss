@@ -14,12 +14,16 @@
 	display: none;
 }
 
+.full-width {
+	width: 100%;
+}
+
 .hidden-overflow {
 	overflow: hidden;
 }
 @include breakpoint (medium up) {
 	.minus-row-margin {
-		margin-top: -25vh;
+		margin-top: -40vh;
 	}
 }
 .list {

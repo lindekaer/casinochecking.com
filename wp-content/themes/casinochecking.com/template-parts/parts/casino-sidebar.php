@@ -1,33 +1,19 @@
 <div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
 	<div class="casino-sidebar">
-		<?php if(get_field('activate_country', 'options')): ?>
-			<div class="filter-inner-wrapper">
-				<?php	
-				$countries_available = get_field_object('available_countries');
-				if( $countries_available ): ?>
-				<p><?php echo _e('Country', 'checkmate'); ?></p>
-				<select id="countrySelect">
-					<option value="all"><?php echo _e('All countries', 'checkmate'); ?></option>
-					<?php foreach($countries_available['choices'] as $key => $country_available): ?>
-						<option value="<?php echo $key; ?>"><?php echo $country_available; ?></option>
+		<?php include(locate_template('template-parts/parts/content-country.php')); ?>
+		<?php
+		if(get_field('activate_category', 'options')): 
+			$categories = get_field('categories_casino');
+			if( $categories ): ?>
+			<div class="filter-inner-wrapper categories">
+				<p><?php echo _e('I like to play', 'checkmate'); ?></p>
+				<form>
+					<?php foreach( $categories as $category ): ?>
+						<div class="category-input"><input id="checkbox-input" type="checkbox" name="category" value="<?php echo $category; ?>" checked><p><?php echo $category; ?></p></div>
 					<?php endforeach; ?>
-				</select>
-			<?php endif; ?>
-		</div>
-	<?php endif; ?>
-	<?php
-	 if(get_field('activate_category', 'options')): 
-		$categories = get_field('categories_casino');
-		if( $categories ): ?>
-		<div class="filter-inner-wrapper categories">
-			<p><?php echo _e('I like to play', 'checkmate'); ?></p>
-			<form>
-			<?php foreach( $categories as $category ): ?>
-				<div class="category-input"><input id="checkbox-input" type="checkbox" name="category" value="<?php echo $category; ?>" checked><p><?php echo $category; ?></p></div>
-			<?php endforeach; ?>
-			</form>
-		</div>
-	<?php endif; ?>
+				</form>
+			</div>
+		<?php endif; ?>
 	<?php endif; ?>
 	<!-- Our score -->
 	<?php if(get_field('activate_user_votes', 'options')): ?>

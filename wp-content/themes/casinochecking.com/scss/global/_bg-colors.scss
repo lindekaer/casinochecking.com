@@ -18,6 +18,12 @@
     background: $sidebar;
 }
 
+.bg-repeat {
+    background: url('https://casinochecking.com/wp-content/uploads/2018/01/bg-light-repeat.jpg') repeat-y center center fixed;
+    background-size: contain !important;
+    background-color: $bg-color;
+}
+
 .red-color {
     color: $slider-red;
 }
@@ -35,7 +41,7 @@
     opacity: 0.5;
     z-index: 0;
     height: 100vw;
-    }
+}
 }
 
 .comparison-section {

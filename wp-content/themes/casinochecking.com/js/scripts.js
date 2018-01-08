@@ -4,6 +4,7 @@ jQuery(function($) {
     "use strict";
     $(document).ready(function(){
         var country;
+        initDom();
 
         $.ajax({
             cache: false,
@@ -22,7 +23,7 @@ jQuery(function($) {
             error: function(data) {
                 var country = 'all';
                 $('body').attr('data-user-country', country);
-                initializePage()
+                initializePage();
             }
         });
     })
@@ -32,7 +33,6 @@ function initializePage() {
     if($('.post-type-archive').length){
         setCurrency();
     }
-    initDom();
     if($('.single-casino').length){
         singleCasinoCurrency();
         singleCasinoAvailability();
@@ -119,12 +119,12 @@ function setCurrency() {
     var flag = false;
     $('#countrySelect option').each(function(){
         if(this.value == usersCountry){
-            $('#countrySelect').val(usersCountry);
+            $('#countrySelect, #countrySelect-mobile').val(usersCountry);
             flag = true;
         }
     });
     if (flag = false){
-        $('#countrySelect').val('all');
+        $('#countrySelect, #countrySelect-mobile').val('all');
     }
 
     //Sets default currency based on the country
@@ -183,9 +183,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -296,9 +296,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -357,10 +357,10 @@ function infiniteScroll () {
         };
 
         $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
+         if ( timer ) clearTimeout(timer);
+         var docHeight = $(document).height();
+         var windowHeight = $(window).height();
+         var footerHeight = $('footer').height();
           // var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
           var headerHeight = $('header').height();
           var totalPosts = 40;
@@ -528,7 +528,7 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-         if (metrics.hasOwnProperty(type)) {
+           if (metrics.hasOwnProperty(type)) {
             var metric = metrics[type];
             metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
             metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
@@ -555,6 +555,11 @@ function loadCasinoParams(currencyRate) {
 $('#countrySelect').on('change', function() {
     ajaxParams();
 });
+
+$("#countrySelect-mobile").on("change",function(){
+    $("#countrySelect").val($(this).val());
+    ajaxParams();
+})
 
 $('.search-ajax, .filter').click(function (e) {
         // Attach event handler for AJAX submit
@@ -635,9 +640,9 @@ function loadCasino(data) {
                // infiniteScroll();
            },
            error: function(errorThrown){
-               console.log(errorThrown);
-           } 
-       });
+             console.log(errorThrown);
+         } 
+     });
 }
 
 function updateDeepLink(usersCountry) {

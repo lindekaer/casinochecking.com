@@ -11,25 +11,13 @@ get_header(); ?>
 $casinoImg = get_field('casino_img', 'options'); ?>
 <section class="bg-img casinos <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed">
 	<div class="row welcome-row">
-		<div class="small-12 columns fade-in-slow z-index-medium">
-			<?php
-			/*$country = ipAddress();
-			$countryCode = $country['geoplugin_countryName'];
-			if(isset($countryCode)){
-				if($countryCode = 'DENMARK'){ 
-					$countryCode = 'DANMARK';
-				}
-				elseif($countryCode = 'NORWAY'){
-					$countryCode = 'NORGE';
-				}
-			} */
-			?>
+		<div class="small-12 columns fade-in-slow z-index-medium welcome-text ">
 			<h1><?php the_field('heading_first_line_casino', 'options');/* if(isset($countryCode)): echo $countryCode; endif;*/?></h1>
 			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 		</div>
 	</div>
 </section>
-<section class="comparison-section bg-dark-gray" data-count="10">
+<section class="comparison-section bg-repeat">
 	<div class="container mobile-full-width">
 		<div class="row">
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
@@ -40,21 +28,26 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 							<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
 						</div>
 						<div class="small-12 large-6 columns align-right filter-wrapper">
-							<div class="selected-currency">
-								<div class="naming-casino"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
-								<select id="currencySelect">
-									<option value="USD" data-currency="$">USD ($)</option>
-									<option value="EUR" data-currency="€">EUR (€)</option>
-									<option value="GBP" data-currency="£">GBP (£)</option>
-									<option value="DKK" data-currency="DKK">DKK</option>
-									<option value="NOK" data-currency="NOK">NOK</option>
-								</select>
-							</div>
-							<div class="sorting">
-								<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
-								<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
-								<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
-								<p class="filter-deposit filter" data-filter="minimum_deposit"><?php echo _e('Deposit', 'checkmate'); ?></p>
+							<div class="row full-width">
+								<div class="show-for-small-only country small-6 columns margin-mobile">
+									<?php include(locate_template('template-parts/parts/content-country-mobile.php')); ?>
+								</div>
+								<div class="selected-currency small-6 medium-4 columns">
+									<div class="naming-casino margin-mobile"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
+									<select id="currencySelect">
+										<option value="USD" data-currency="$">USD ($)</option>
+										<option value="EUR" data-currency="€">EUR (€)</option>
+										<option value="GBP" data-currency="£">GBP (£)</option>
+										<option value="DKK" data-currency="DKK">DKK</option>
+										<option value="NOK" data-currency="NOK">NOK</option>
+									</select>
+								</div>
+								<div class="sorting hide-for-small-only medium-8 columns">
+									<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
+									<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
+									<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
+									<p class="filter-deposit filter" data-filter="minimum_deposit"><?php echo _e('Deposit', 'checkmate'); ?></p>
+								</div>
 							</div>
 						</div>
 					</div>

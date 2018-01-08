@@ -1920,7 +1920,8 @@ section .filter-wrapper p:first-child { padding-left: 0; }
 
 section .filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-size: 11px; }
 
-@media screen and (max-width: 39.9375em) { section .selected-currency, section .sorting { width: 50%; } }
+@media screen and (max-width: 39.9375em) { section .selected-currency, section .sorting { width: 50%; }
+  section .sorting { text-align: right; margin-top: 20px; } }
 
 @media screen and (min-width: 64em) { section .align-right { text-align: right; } }
 
@@ -1928,7 +1929,13 @@ section .filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-s
 
 section .selected-currency { padding-right: 8px; }
 
-section #currencySelect { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 4px 8px; text-overflow: ellipsis; white-space: nowrap; width: 76px; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
+section #currencySelect, section #countrySelect-mobile { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 4px 8px; text-overflow: ellipsis; white-space: nowrap; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
+
+@media screen and (min-width: 40em) { section #currencySelect, section #countrySelect-mobile { width: 76px; background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px); } }
+
+@media screen and (max-width: 39.9375em) { section #currencySelect, section #countrySelect-mobile { width: 100%; padding: 8px; background-position: calc(100% - 10px) calc(1em + 0px), calc(100% - 5px) calc(1em + 0px); } }
+
+@media screen and (max-width: 39.9375em) { section .margin-mobile p { margin-bottom: 10px; } }
 
 section .filter { cursor: pointer; display: inline-block; }
 
@@ -1956,13 +1963,17 @@ section .no-border { border: 0 !important; }
 @media screen and (min-width: 64em) { section .first { position: absolute; top: 12px; font-size: 14px !important; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
   section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; } }
 
-section .padding-bottom { padding-bottom: 25px; }
+@media screen and (min-width: 40em) { section .padding-bottom { padding-bottom: 25px; } }
+
+@media screen and (max-width: 39.9375em) { section .padding-bottom { padding-bottom: 20px; } }
 
 section .welcome-row { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
 section .welcome-row h1 { color: #ffffff; text-align: center; font-weight: 900; }
 
 @media screen and (min-width: 40em) { section .welcome-row h1 { font-size: 2.5rem; } }
+
+section .welcome-row .welcome-text { margin-bottom: 25vh; }
 
 section .casino-wrapper { cursor: pointer; background: #ffffff; position: relative; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
@@ -2006,9 +2017,11 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .hide-custom { display: none; }
 
+.full-width { width: 100%; }
+
 .hidden-overflow { overflow: hidden; }
 
-@media screen and (min-width: 40em) { .minus-row-margin { margin-top: -25vh; } }
+@media screen and (min-width: 40em) { .minus-row-margin { margin-top: -40vh; } }
 
 .list { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 
@@ -2139,6 +2152,8 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 .bg-dark-gray { background: #505050; }
 
 .bg-sidebar { background: #2d2d2d; }
+
+.bg-repeat { background: url("https://casinochecking.com/wp-content/uploads/2018/01/bg-light-repeat.jpg") repeat-y center center fixed; background-size: contain !important; background-color: #505050; }
 
 .red-color { color: #e65352; }
 
