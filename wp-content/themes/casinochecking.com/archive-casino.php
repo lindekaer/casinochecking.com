@@ -29,12 +29,12 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 						</div>
 						<div class="small-12 large-6 columns align-right filter-wrapper">
 							<div class="row full-width">
-								<div class="show-for-small-only country small-6 columns margin-mobile">
+								<div class="show-for-small-only country small-6 margin-mobile">
 									<?php include(locate_template('template-parts/parts/content-country-mobile.php')); ?>
 								</div>
-								<div class="selected-currency small-6 medium-4 columns">
+								<div class="selected-currency small-6 medium-3">
 									<div class="naming-casino margin-mobile"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
-									<select id="currencySelect">
+									<select id="currencySelect" class="float-left-mobile">
 										<option value="USD" data-currency="$">USD ($)</option>
 										<option value="EUR" data-currency="€">EUR (€)</option>
 										<option value="GBP" data-currency="£">GBP (£)</option>
@@ -42,7 +42,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 										<option value="NOK" data-currency="NOK">NOK</option>
 									</select>
 								</div>
-								<div class="sorting hide-for-small-only medium-8 columns">
+								<div class="sorting hide-for-small-only medium-9">
 									<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
 									<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
 									<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
