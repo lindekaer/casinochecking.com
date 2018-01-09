@@ -1892,8 +1892,6 @@ section.bg-img { width: 100%; min-width: 100%; background-position: center !impo
 
 @media screen and (min-width: 40em) { section.bg-img { height: 100vh; } }
 
-@media screen and (min-width: 64em) { section.bg-img { background-attachment: fixed !important; } }
-
 section .img-section { width: 250px; height: auto; }
 
 section .load-more { position: relative; }
@@ -2045,7 +2043,7 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (min-width: 40em) { .section-compare-casino .section-heading { padding-bottom: 20px; } }
 
-@media screen and (min-width: 64em) { .minus-row-margin-sidebar { margin-top: -25vh; } }
+@media screen and (min-width: 64em) { .minus-row-margin-sidebar { margin-top: -40vh; } }
 
 @media screen and (max-width: 39.9375em) { .mobile-full-width { padding-right: 0; padding-left: 0; } }
 
@@ -2155,7 +2153,7 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 .bg-sidebar { background: #2d2d2d; }
 
-.bg-repeat { background: url("https://casinochecking.com/wp-content/uploads/2018/01/bg-light-repeat.jpg") repeat-y center center fixed; background-size: contain !important; background-color: #505050; }
+.bg-repeat { background: url("https://casinochecking.com/wp-content/uploads/2018/01/bg-casino.jpg") repeat-y center center fixed; background-size: contain !important; background-color: #505050; }
 
 .red-color { color: #e65352; }
 

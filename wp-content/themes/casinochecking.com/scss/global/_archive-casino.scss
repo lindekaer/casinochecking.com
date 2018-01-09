@@ -8,17 +8,13 @@ section {
     z-index: 0;
     transform: translate3d(0, 0, 0);
   }
-
+  
   &.bg-img {
     @include breakpoint (small only) {
       height: 100vw; 
     }
     @include breakpoint (medium up) {
       height: 100vh;
-    }
-
-    @include breakpoint(large up){
-      background-attachment: fixed !important;
     }
 
     width: 100%;
