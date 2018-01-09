@@ -9,7 +9,7 @@
 get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_casino', 'options');
 $casinoImg = get_field('casino_img', 'options'); ?>
-<section class="bg-img casinos <?php if($activateOverlay): echo 'overlay-home'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>) no-repeat center center fixed">
+<section class="bg-img casinos <?php if($activateOverlay): echo 'overlay-home'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>)">
 	<div class="row welcome-row">
 		<div class="small-12 columns fade-in-slow z-index-medium welcome-text ">
 			<h1><?php the_field('heading_first_line_casino', 'options');/* if(isset($countryCode)): echo $countryCode; endif;*/?></h1>
