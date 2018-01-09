@@ -2159,6 +2159,8 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 .overlay:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #505050; opacity: 0.5; z-index: 0; height: 100vw; }
 
+.overlay-home:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #505050; opacity: 0.5; z-index: 0; height: 100vh; }
+
 .comparison-section { padding-bottom: 80px; }
 
 @media screen and (max-width: 63.9375em) { .comparison-section { padding-bottom: 0px; } }
