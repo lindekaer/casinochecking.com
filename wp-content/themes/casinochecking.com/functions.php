@@ -18,12 +18,12 @@ function yoast_remove_canonical_items( $canonical ) {
 return $canonical; /* Do not remove this line */
 }
 
-add_action( 'template_redirect', 'custom_remove_href' );
-function custom_remove_href(){
-    global $sitepress;
+//remove hreflang from the source
+add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
+function custom_lang_code($hreflang_items){
     if(is_post_type_archive('casino')){
-        remove_action('wp_head', array($sitepress, 'head_langs'));
-    }
+      unset ($hreflang_items);
+  }
 }
 
 //$details = ip_details("$IPaddress");
@@ -378,9 +378,9 @@ function filter_casino() {
 
  else */ if($filterArr['posts_per_page'] <= $count){
     if($the_query->have_posts()) {
-     $i = 1;
-     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-     <div class="small-12 columns">
+       $i = 1;
+       while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+       <div class="small-12 columns">
         <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
     </div>
     <?php $i++;
