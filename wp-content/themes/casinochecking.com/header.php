@@ -23,8 +23,6 @@ session_start();
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="alternate" hreflang="da-dk" href="https://casinochecking.com/da/" />
-<link rel="alternate" hreflang="en-us" href="https://casinochecking.com/" />
 
 <?php wp_head(); ?>
 </head>
