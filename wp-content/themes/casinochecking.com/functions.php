@@ -19,12 +19,36 @@ return $canonical; /* Do not remove this line */
 }
 
 //remove hreflang from the source
-/*add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
+add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
 function custom_lang_code($hreflang_items){
     if(is_post_type_archive('casino')){
       unset ($hreflang_items);
   }
-}*/
+  else {
+    return $hreflang_items;
+}
+}
+
+/*
+* REMOVES NEXT AND PREV FROM FRONTPAGE
+*/
+add_filter( 'wpseo_next_rel_link', 'custom_remove_wpseo_next' );
+add_filter( 'wpseo_prev_rel_link', 'custom_remove_wpseo_prev' );
+
+function custom_remove_wpseo_next( $link ) {
+   if(is_post_type_archive('casino')) {
+      return false;
+  } else { 
+      return $link;
+  }
+}
+function custom_remove_wpseo_prev( $link ) {
+  if(is_post_type_archive('casino')) {
+      return false;
+  } else { 
+      return $link;
+  }
+}
 
 //$details = ip_details("$IPaddress");
 
@@ -378,9 +402,9 @@ function filter_casino() {
 
  else */ if($filterArr['posts_per_page'] <= $count){
     if($the_query->have_posts()) {
-       $i = 1;
-       while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-       <div class="small-12 columns">
+     $i = 1;
+     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+     <div class="small-12 columns">
         <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
     </div>
     <?php $i++;
