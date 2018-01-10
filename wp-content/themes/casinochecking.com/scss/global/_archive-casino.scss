@@ -17,15 +17,12 @@ section {
       height: 100vh;
     }
 
-    @include breakpoint (large up) {
-      background-attachment: fixed !important;
-    }
-    
     width: 100%;
     min-width: 100%;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+    background-attachment: scroll;
     transform: none !important;
     /*&:before {
       content: '';
