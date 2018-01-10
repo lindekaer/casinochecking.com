@@ -27,7 +27,6 @@ h1.content-casino {
   color: $slider-red; 
   @include breakpoint(medium up){
     font-size: 28px;
-    margin-top: 20px;
   }
     @include breakpoint(small only){
     font-size: 20px;
@@ -134,7 +133,7 @@ article {
   }
   @include breakpoint(large up) {
     img {
-      margin-top: -4rem;
+      margin-top: -50px;
     }
   }
 }

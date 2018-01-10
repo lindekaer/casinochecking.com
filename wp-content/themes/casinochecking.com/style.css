@@ -2071,7 +2071,7 @@ section.bg-img.content-casino { height: 100vw; }
 
 h1.content-casino { color: #e65352; }
 
-@media screen and (min-width: 40em) { h1.content-casino { font-size: 28px; margin-top: 20px; } }
+@media screen and (min-width: 40em) { h1.content-casino { font-size: 28px; } }
 
 @media screen and (max-width: 39.9375em) { h1.content-casino { font-size: 20px; } }
 
@@ -2113,7 +2113,7 @@ article .logo-wrapper-small img { width: 100%; }
 
 article .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; }
 
-@media screen and (min-width: 64em) { article .casino-logo img { margin-top: -4rem; } }
+@media screen and (min-width: 64em) { article .casino-logo img { margin-top: -50px; } }
 
 article.casino .desc { padding-top: 10px; padding-bottom: 25px; }
 
