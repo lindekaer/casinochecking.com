@@ -2071,9 +2071,9 @@ section.bg-img.content-casino { height: 100vw; }
 
 h1.content-casino { color: #e65352; }
 
-@media screen and (min-width: 40em) { h1.content-casino { font-size: 28px; } }
+@media screen and (min-width: 40em) { h1.content-casino { font-size: 20px; } }
 
-@media screen and (max-width: 39.9375em) { h1.content-casino { font-size: 20px; } }
+@media screen and (max-width: 39.9375em) { h1.content-casino { font-size: 16px; } }
 
 @media screen and (max-width: 63.9375em) { article.type-casino, article.type-blog { padding-bottom: 15px; } }
 

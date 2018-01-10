@@ -26,10 +26,10 @@ section {
 h1.content-casino {
   color: $slider-red; 
   @include breakpoint(medium up){
-    font-size: 28px;
+    font-size: 20px;
   }
     @include breakpoint(small only){
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
