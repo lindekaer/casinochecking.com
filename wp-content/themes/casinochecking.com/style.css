@@ -1886,11 +1886,13 @@ section .sticky-container { position: relative; }
 
 section .sticky { position: relative; z-index: 0; transform: translate3d(0, 0, 0); }
 
-section.bg-img { width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%); } */ }
+section.bg-img { width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; -ms-transform: none !important; transform: none !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%); } */ }
 
 @media screen and (max-width: 39.9375em) { section.bg-img { height: 100vw; } }
 
 @media screen and (min-width: 40em) { section.bg-img { height: 100vh; } }
+
+@media screen and (min-width: 64em) { section.bg-img { background-attachment: fixed !important; } }
 
 section .img-section { width: 250px; height: auto; }
 
@@ -2159,14 +2161,14 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 .bg-sidebar { background: #2d2d2d; }
 
-.bg-repeat { background: url("https://casinochecking.com/wp-content/uploads/2018/01/bg-casino.jpg") repeat-y center center fixed; background-size: contain !important; background-color: #505050; }
+.bg-repeat { background: url("https://casinochecking.com/wp-content/uploads/2018/01/casino-1.jpg") repeat-y center center fixed; background-size: contain !important; background-color: #505050; }
 
 .red-color { color: #e65352; }
 
 .overlay:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #505050; opacity: 0.5; z-index: 0; height: 100vw; }
 
 @media screen and (min-width: 64em) { .overlay-home { /* &:before { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-attachment: fixed; z-index: 0; height: 100vh; background-image: linear-gradient(to bottom, #505050, #505050); //  opacity: .6;  }*/ }
-  .overlay-home:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-attachment: fixed; z-index: 0; opacity: 0.7; height: 100vh; background: linear-gradient(to top, transparent, #e65352), url(https://casinochecking.com/wp-content/uploads/2018/01/bg-light-repeat.jpg) center center fixed; background-size: contain; } }
+  .overlay-home:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-attachment: fixed; z-index: 0; opacity: 0.7; height: 100vh; background: linear-gradient(to top, rgba(0, 0, 0, 0.188235), #e65352), url(https://casinochecking.com/wp-content/uploads/2018/01/hey.jpg) center center fixed; background-size: contain; } }
 
 .comparison-section { padding-bottom: 80px; }
 
