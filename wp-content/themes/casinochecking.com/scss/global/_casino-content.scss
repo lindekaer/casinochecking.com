@@ -22,6 +22,18 @@ section {
   }
 }
 
+
+h1.content-casino {
+  color: $slider-red; 
+  @include breakpoint(medium up){
+    font-size: 28px;
+    margin-top: 20px;
+  }
+    @include breakpoint(small only){
+    font-size: 20px;
+  }
+}
+
 article {
 
   &.type-casino, &.type-blog {
