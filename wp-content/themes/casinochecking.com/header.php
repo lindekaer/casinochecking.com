@@ -26,7 +26,7 @@ session_start();
 <?php if(is_post_type_archive('casino')): ?>
 <link rel="alternate" hreflang="da-dk" href="https://casinochecking.com/da/" />
 <link rel="alternate" hreflang="en-us" href="https://casinochecking.com/" />
-<link rel="canonical" href="https://casinochecking.com/" />
+<!-- <link rel="canonical" href="https://casinochecking.com/" /> -->
 <?php endif; ?>
 
 <?php wp_head(); ?>
