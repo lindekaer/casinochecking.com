@@ -18,12 +18,12 @@ function yoast_remove_canonical_items( $canonical ) {
 return $canonical; /* Do not remove this line */
 }
 
-add_action('init','custom_remove_href');
+add_action( 'template_redirect', 'custom_remove_href' );
 function custom_remove_href(){
-global $sitepress;
-if(is_post_type_archive('casino')){
-remove_action('wp_head', array($sitepress, 'head_langs'));
-}
+    global $sitepress;
+    if(is_post_type_archive('casino')){
+        remove_action('wp_head', array($sitepress, 'head_langs'));
+    }
 }
 
 //$details = ip_details("$IPaddress");
