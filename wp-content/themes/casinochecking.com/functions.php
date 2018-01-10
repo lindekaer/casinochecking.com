@@ -29,7 +29,6 @@ function custom_lang_code($hreflang_items){
 }
 }
 
-
 /*
 * REMOVES NEXT AND PREV FROM FRONTPAGE
 */
