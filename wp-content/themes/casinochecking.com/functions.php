@@ -19,12 +19,12 @@ return $canonical; /* Do not remove this line */
 }
 
 //remove hreflang from the source
-add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
+/*add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
 function custom_lang_code($hreflang_items){
     if(is_post_type_archive('casino')){
       unset ($hreflang_items);
   }
-}
+}*/
 
 //$details = ip_details("$IPaddress");
 
