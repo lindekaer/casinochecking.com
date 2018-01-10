@@ -9,6 +9,15 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+add_filter( 'wpseo_canonical', 'yoast_remove_canonical_items' );
+function yoast_remove_canonical_items( $canonical ) {
+  if(is_post_type_archive('casino')) {
+    return false;
+}
+/* Use a second if statement here when needed */
+return $canonical; /* Do not remove this line */
+}
+
 //$details = ip_details("$IPaddress");
 
 add_action("pre_get_posts", "custom_front_page");
@@ -361,9 +370,9 @@ function filter_casino() {
 
  else */ if($filterArr['posts_per_page'] <= $count){
     if($the_query->have_posts()) {
-       $i = 1;
-       while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-       <div class="small-12 columns">
+     $i = 1;
+     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+     <div class="small-12 columns">
         <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
     </div>
     <?php $i++;
