@@ -69,7 +69,6 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
 <section class="bg-white section-compare-casino">
 	<div class="container">

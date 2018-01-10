@@ -12,7 +12,7 @@
  	<div class="row">
  		<div class="small-12 columns large-disable-padding">
  			<div class="favorites ">
- 				<h5 class="padding-sidebar-bottom heading"><?php echo _e('We recommend', 'checkmate') ?></h5>
+ 				<h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('We recommend', 'checkmate') ?></h5>
  				<?php 
  				$args = array(
  					'posts_per_page' => 5,
