@@ -8,6 +8,7 @@ if( have_rows('flexible_content', 'option') ):
 	$image = get_sub_field('background_image', 'option'); 
 	$bgColor = get_sub_field('bg_color', 'option');
 	$headlineColor = get_sub_field('headline_color', 'option');
+	$size = 'flexible-content';
 	?>
 	<section class="section <?php echo get_row_layout(); ?>" style="background-color:<?php echo $bgColor; ?>">
 		<div class="row collapse">
