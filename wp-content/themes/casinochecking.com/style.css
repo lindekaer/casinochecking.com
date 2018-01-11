@@ -2225,7 +2225,7 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 @media screen and (max-width: 39.9375em) { .split_image_and_text .text { padding: 50px 20px; } }
 
-@media screen and (min-width: 40em) { .split_image_and_text .text { padding: 80px; } }
+@media screen and (min-width: 40em) { .split_image_and_text .text { padding: 50px; } }
 
 .split_image_and_text .bg-img { background-size: cover !important; width: auto; }
 

@@ -16,7 +16,7 @@ if( have_rows('flexible_content', 'option') ):
 			<?php endif; ?>
 			<div class="small-12 medium-12 large-6 columns">
 				<div class="text">
-					<h2 class="cursive-headline text-left" style="color:<?php echo $headlineColor; ?>"><?php echo $headline; ?></h2>
+					<h3 class="cursive-headline text-left" style="color:<?php echo $headlineColor; ?>"><?php echo $headline; ?></h3>
 					<?php echo $text; ?>
 				</div>
 			</div>
