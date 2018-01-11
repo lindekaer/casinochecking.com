@@ -2027,7 +2027,7 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .list-item { display: -ms-flexbox; display: flex; padding: 0.5em; width: 100%; }
 
-@media screen and (max-width: 39.9375em) { .section-padding-guides { padding-top: 50px; padding-bottom: 20px; } }
+@media screen and (max-width: 39.9375em) { .section-padding-guides { padding-top: 50px; padding-bottom: 50px; } }
 
 @media screen and (min-width: 40em) { .section-padding-guides { padding-top: 80px; padding-bottom: 50px; } }
 
@@ -2195,7 +2195,7 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 .blog-img-wrapper img { width: 100%; }
 
-.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin-bottom: 30px; background: #ffffff; }
+.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); background: #ffffff; }
 
 .blog-content:hover { box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1), 4px 4px 4px rgba(0, 0, 0, 0.12); -ms-transform: translateY(-2px); transform: translateY(-2px); }
 
@@ -2222,6 +2222,20 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 .sticky.is-anchored { position: relative; right: auto; left: auto; }
 
 .sticky.is-anchored.is-at-bottom { bottom: 0; }
+
+@media screen and (max-width: 39.9375em) { .split_image_and_text .text { padding: 50px 20px; } }
+
+@media screen and (min-width: 40em) { .split_image_and_text .text { padding: 80px; } }
+
+.split_image_and_text .bg-img { background-size: cover !important; width: auto; }
+
+@media screen and (max-width: 39.9375em) { .split_image_and_text .bg-img { height: 200px; } }
+
+@media screen and (min-width: 40em) and (max-width: 63.9375em) { .split_image_and_text .bg-img { height: 300px; } }
+
+@media screen and (min-width: 64em) and (max-width: 74.9375em) { .split_image_and_text .bg-img { height: 350px; } }
+
+@media screen and (min-width: 75em) { .split_image_and_text .bg-img { height: 400px; } }
 
 /*Partials*/
 header.site-header { position: fixed; height: 60px; top: 0; width: 100%; }

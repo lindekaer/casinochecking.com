@@ -1,0 +1,27 @@
+.split_image_and_text {
+	.text {
+		@include breakpoint(small only){
+			padding: 50px 20px;
+		}
+		@include breakpoint(medium up){
+		padding: 80px;
+		}
+	}
+
+	.bg-img {
+		background-size: cover !important;
+		width: auto;
+		@include breakpoint(small only){
+			height: 200px;
+		}	
+		@include breakpoint(medium only){
+			height: 300px;
+		}	
+		@include breakpoint(large only){
+			height: 350px;
+		}	
+		@include breakpoint(xlarge up){
+			height: 400px;
+		}	
+	}
+}

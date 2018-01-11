@@ -45,7 +45,7 @@
 .section-padding-guides {
 	@include breakpoint(small only){
 		padding-top: 50px;
-		padding-bottom: 20px;
+		padding-bottom: 50px;
 	}
 	@include breakpoint(medium up){
 		padding-top: 80px;

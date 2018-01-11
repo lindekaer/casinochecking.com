@@ -83,20 +83,20 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 		</div>
 	</div>
 </section>
-<section class="bg-gray section-padding-guides">
-	<div class="container">
-		<h2 class="cursive-headline text-center section-heading"><?php echo _e('Tips & Tricks', 'checkmate'); ?></h2>
-		<?php 
-		$args_blog = array(
-			'posts_per_page' => 3, 
-			'offset'         => 0,    
-			'post_type'      => 'blog',
-			'meta_key'		=> 'blog_category',
-			'meta_value'	=> 'How to play'
-		);
-		$the_query_blog = new WP_Query( $args_blog );
-		?>
-		<?php if($the_query_blog->have_posts()): ?>
+<?php 
+$args_blog = array(
+	'posts_per_page' => 3, 
+	'offset'         => 0,    
+	'post_type'      => 'blog',
+	'meta_key'		=> 'blog_category',
+	'meta_value'	=> 'How to play'
+);
+$the_query_blog = new WP_Query( $args_blog );
+?>
+<?php if($the_query_blog->have_posts()): ?>
+	<section class="bg-gray section-padding-guides">
+		<div class="container">
+			<h2 class="cursive-headline text-center section-heading"><?php echo _e('Tips & Tricks', 'checkmate'); ?></h2>
 			<div class="row list">
 				<?php while ($the_query_blog->have_posts()) : $the_query_blog->the_post(); ?>
 					<div class="small-6 large-4 columns list-item">
@@ -104,8 +104,9 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					</div>
 				<?php endwhile;?>
 			</div>
-		<?php endif; ?>
-		<?php wp_reset_query(); ?>
-	</div>
-</section>
+		</div>
+	</section>
+<?php endif; ?>
+<?php wp_reset_query(); ?>
+<?php include(locate_template('template-parts/parts/flexible-content.php')); ?>
 <?php get_footer();
