@@ -230,6 +230,24 @@ function initDom() {
         updateDeepLink(usersCountry);
     }
 
+            // faq toggle
+    $('.faq-element').click(function(){
+        if($(this).find('.plus-faq').hasClass('active-icon')){
+           $(this).find('.plus-faq').removeClass('active-icon');
+           $(this).find('.minus-faq').addClass('active-icon');
+            console.log('plus-faq active')
+      }
+
+           else if ($(this).find('.minus-faq').hasClass('active-icon')){
+           $(this).find('.minus-faq').removeClass('active-icon')
+           $(this).find('.plus-faq').addClass('active-icon')
+            console.log('minsu-faq active')
+           }
+
+            $(this).find('.desc-wrapper .desc p').slideToggle();
+        });
+
+
     showDescCasino();
     loadCurrency();
 }

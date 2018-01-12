@@ -4,7 +4,7 @@
 			padding: 50px 20px;
 		}
 		@include breakpoint(medium up){
-		padding: 50px;
+			padding: 50px;
 		}
 	}
 
@@ -23,5 +23,25 @@
 		@include breakpoint(xlarge up){
 			height: 400px;
 		}	
+	}
+}
+
+.text_faq {
+	.faq-icon {
+		img {
+			display: none;
+			width: auto;
+			height: 30px;
+			display: none;
+		}
+	}
+
+	img.active-icon {
+		display: block;
+	}
+
+	.faq-element {
+		margin-bottom: 1rem;
+		cursor: pointer;
 	}
 }

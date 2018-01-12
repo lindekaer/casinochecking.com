@@ -97,6 +97,18 @@
 	align-items: center;
 }
 
+.align-middle-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.align-justify-center {
+	align-items: baseline;
+	display: flex;
+	justify-content: center;
+}
+
 .color-red {
 	color: $slider-red;
 }

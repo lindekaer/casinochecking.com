@@ -1406,7 +1406,7 @@ p, .p { font-size: 0.75rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5r
   h4, .h4 { font-size: 1.5625rem; }
   h5, .h5 { font-size: 1.25rem; }
   h6, .h6 { font-size: 1rem; }
-  p, .p { font-size: 0.75rem; } }
+  p, .p { font-size: 0.8125rem; } }
 
 a { line-height: inherit; color: #1779ba; text-decoration: none; cursor: pointer; }
 
@@ -2049,6 +2049,10 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .align-middle { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
+.align-middle-center { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; -ms-flex-pack: center; justify-content: center; }
+
+.align-justify-center { -ms-flex-align: baseline; align-items: baseline; display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; }
+
 .color-red { color: #e65352; }
 
 .inline { display: inline-block; }
@@ -2236,6 +2240,12 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 @media screen and (min-width: 64em) and (max-width: 74.9375em) { .split_image_and_text .bg-img { height: 350px; } }
 
 @media screen and (min-width: 75em) { .split_image_and_text .bg-img { height: 400px; } }
+
+.text_faq .faq-icon img { display: none; width: auto; height: 30px; display: none; }
+
+.text_faq img.active-icon { display: block; }
+
+.text_faq .faq-element { margin-bottom: 1rem; cursor: pointer; }
 
 /*Partials*/
 header.site-header { position: fixed; height: 60px; top: 0; width: 100%; }
