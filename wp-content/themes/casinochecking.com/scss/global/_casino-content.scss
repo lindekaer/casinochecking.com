@@ -1,6 +1,11 @@
 section {
   &.bg-img.content-casino {
-    height: 100vw;
+    @include breakpoint(medium up){
+      height: 100%;
+    }
+    @include breakpoint(small only){
+      height: 100vh;
+    } 
   }
 }
 
@@ -28,7 +33,7 @@ h1.content-casino {
   @include breakpoint(medium up){
     font-size: 20px;
   }
-    @include breakpoint(small only){
+  @include breakpoint(small only){
     font-size: 16px;
   }
 }

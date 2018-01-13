@@ -2021,6 +2021,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .full-width { width: 100%; }
 
+@media screen and (min-width: 40em) { .margin-top { margin-top: 25vh; } }
+
 .hidden-overflow { overflow: hidden; }
 
 @media screen and (min-width: 40em) { .minus-row-margin { margin-top: -40vh; } }
@@ -2067,7 +2069,9 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .medium-gray { color: #cacaca; }
 
-section.bg-img.content-casino { height: 100vw; }
+@media screen and (min-width: 40em) { section.bg-img.content-casino { height: 100%; } }
+
+@media screen and (max-width: 39.9375em) { section.bg-img.content-casino { height: 100vh; } }
 
 @media screen and (min-width: 64em) { .minus-content-sidebar { position: relative; margin-top: -85vw; } }
 
