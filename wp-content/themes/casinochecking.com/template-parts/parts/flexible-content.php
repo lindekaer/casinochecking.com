@@ -75,7 +75,7 @@ if( have_rows('flexible_content', 'option') ):
 											<img src="<?php echo get_template_directory_uri() . '/img/minus-faq.svg'; ?>" class="minus-faq">
 										</div>
 										<div class="small-10 medium-11 columns desc-wrapper">
-											<h6 class="text-left" style="color:<?php echo $headingColor; ?>"><?php echo $headlineFaq; ?></h6>
+											<h6 class="text-left transform-initial" style="color:<?php echo $headingColor; ?>"><?php echo $headlineFaq; ?></h6>
 											<div class="desc"><p class="hide-custom"><?php echo $textFaq; ?></p></div>
 										</div>
 									</div>

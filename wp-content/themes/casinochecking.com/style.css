@@ -2017,6 +2017,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 @media screen and (max-width: 39.9375em) { .float-left-mobile { float: left; } }
 
+.transform-initial { text-transform: initial; }
+
 .full-width { width: 100%; }
 
 .hidden-overflow { overflow: hidden; }
