@@ -27,21 +27,22 @@
 .red-color {
     color: $slider-red;
 }
-
-.overlay{
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background: $bg-color;
-    opacity: 0.5;
-    z-index: 0;
-    height: 100%;
-}
+.archive {
+    .overlay {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background: $bg-color;
+        opacity: 0.5;
+        z-index: 0;
+        height: 100%;
+        }
+    }
 }
 @include breakpoint(large up){
     .overlay-home{

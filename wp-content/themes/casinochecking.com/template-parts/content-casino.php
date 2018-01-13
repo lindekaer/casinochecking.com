@@ -16,11 +16,10 @@ $minimumDeposit = get_field('minimum_deposit');
 $description = get_field('description');
 $imageSize = 'logo-casino-content';
 $sectionBg = get_field('section_bg');
-$activateOverlay = get_field('activate_overlay');
 $imageLong = get_field('image');
 $upToSignup = get_field('up_to_signup');
 $imageSizeLong = 'logo-casino-archive'; ?>
-<section class="bg-img content-casino <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
+<section class="bg-img content-casino" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
     <article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index'); ?>>
         <div class="container">
             <div class="row">
