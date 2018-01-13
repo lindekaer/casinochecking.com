@@ -89,6 +89,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                         </div>
                     </div>
                 </article>
+            </div>
             </section>
             <script type="application/ld+json">
                 {
