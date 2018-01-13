@@ -2067,6 +2067,8 @@ section .casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .z-index-medium { z-index: 50; }
 
+.z-index-low { z-index: 1; }
+
 .medium-gray { color: #cacaca; }
 
 @media screen and (min-width: 40em) { section.bg-img.content-casino { height: 100%; } }
