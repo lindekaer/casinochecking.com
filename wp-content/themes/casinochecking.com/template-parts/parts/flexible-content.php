@@ -55,8 +55,8 @@ if( have_rows('flexible_content', 'option') ):
 			<section class="section-compare-casino <?php echo get_row_layout(); ?>" style="background-color:<?php echo $bgColor; ?>">
 				<div class="container">
 					<div class="row">
-						<div class="div-small-12 columns">							
-							<h4 class="cursive-headline text-left" style="color:<?php echo $headingColor; ?>"><?php echo $heading; ?></h4>
+						<div class="small-12 columns">							
+							<h3 class="cursive-headline color-red text-left section-heading" style="color:<?php echo $headingColor; ?>"><?php echo $heading; ?></h3>
 						</div>
 						<div class="medium-6 small-12 columns">
 							<?php echo $text; ?>
