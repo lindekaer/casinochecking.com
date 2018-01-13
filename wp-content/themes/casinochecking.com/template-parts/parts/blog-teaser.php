@@ -1,9 +1,9 @@
 
-	<a href="<?php the_permalink();?>">
-		<div class="blog-content">
-			<div class="blog-img-wrapper">
-				<?php 
-				$image = get_field('blog_image');
+<a href="<?php the_permalink();?>">
+	<div class="blog-content">
+		<div class="blog-img-wrapper">
+			<?php 
+			$image = get_field('blog_image');
 $size = 'logo-blog-archive'; // (thumbnail, medium, large, full or custom size)
 if( $image ) {
 	echo wp_get_attachment_image( $image, $size );
@@ -14,9 +14,7 @@ if( $image ) {
 	<div class="category">
 		<p><?php the_field('blog_category'); ?></p>
 	</div>
-	<div class="blog-headline">
-		<h3 class="cursive-headline"><?php the_title();?></h3>
-	</div>
+	<h5 class="cursive-headline blog-headline"><?php the_title();?></h5>
 	<div class="blog-icon">
 		<?php 
 		$images = get_field('blog_icon');

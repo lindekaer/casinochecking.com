@@ -2241,7 +2241,7 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 @media screen and (min-width: 75em) { .split_image_and_text .bg-img { height: 400px; } }
 
-.text_faq .faq-icon img { display: none; width: auto; height: 30px; display: none; }
+.text_faq .faq-icon img { display: none; width: auto; height: 22px; display: none; }
 
 .text_faq img.active-icon { display: block; }
 

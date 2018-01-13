@@ -56,7 +56,7 @@ if( have_rows('flexible_content', 'option') ):
 				<div class="container">
 					<div class="row">
 						<div class="small-6 columns">
-							<h3 class="cursive-headline text-left" style="color:<?php echo $headingColor; ?>"><?php echo $heading; ?></h3>
+							<h4 class="cursive-headline text-left" style="color:<?php echo $headingColor; ?>"><?php echo $heading; ?></h4>
 							<?php echo $text; ?>
 						</div>
 						<div class="small-6 columns">
@@ -69,11 +69,11 @@ if( have_rows('flexible_content', 'option') ):
 									$headingColor = get_sub_field('heading_color', 'option'); ?>
 									<div class="faq-element row collapse">
 										<div class="small-2 columns faq-icon align-justify-center">
-											<img src="<?php echo get_template_directory_uri() . '/img/plus.svg'; ?>" class="active-icon plus-faq">
-											<img src="<?php echo get_template_directory_uri() . '/img/minus.svg'; ?>" class="minus-faq">
+											<img src="<?php echo get_template_directory_uri() . '/img/plus-faq.svg'; ?>" class="active-icon plus-faq">
+											<img src="<?php echo get_template_directory_uri() . '/img/minus.svg-faq'; ?>" class="minus-faq">
 										</div>
 										<div class="small-10 columns desc-wrapper">
-											<h4 class="cursive-headline text-left" style="color:<?php echo $headingColor; ?>"><?php echo $headlineFaq; ?></h4>
+											<h6 class="text-left" style="color:<?php echo $headingColor; ?>"><?php echo $headlineFaq; ?></h6>
 											<div class="desc"><p class="hide-custom"><?php echo $textFaq; ?></p></div>
 										</div>
 									</div>

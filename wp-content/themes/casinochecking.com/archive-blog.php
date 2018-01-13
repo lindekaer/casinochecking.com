@@ -9,7 +9,7 @@ get_header(); ?>
 $blogImg = get_field('blog_img', 'options');  ?>
 <section class="bg-img <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $blogImg['url']; ?>) no-repeat center center fixed;">
 	<div class="row welcome-row z-index">
-		<div class="small-12 columns fade-in-slow z-index">
+		<div class="small-12 columns fade-in-slow z-index welcome-text">
 			<h1><?php the_field('heading_first_line_blog', 'options'); ?></h1>
 			<h1><?php the_field('heading_second_line_blog', 'options'); ?></h1>
 		</div>
