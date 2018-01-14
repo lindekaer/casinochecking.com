@@ -1,29 +1,54 @@
-section {
-  .sticky-container {
-    position: relative;
-  }
+.post-type-archive-casino, .post-type-archive-blog {
+  section {
+    .sticky-container {
+      position: relative;
+    }
 
-  .sticky {
-    position: relative;
-    z-index: 0;
-    transform: translate3d(0, 0, 0);
-  }
-  
-  &.bg-img {
+    .sticky {
+      position: relative;
+      z-index: 0;
+      transform: translate3d(0, 0, 0);
+    }
+
     @include breakpoint (small only) {
-      height: 100vw; 
-    }
-    @include breakpoint (medium up) {
-      height: 100vh;
+      .mobile-bg {
+        height: 80vw;
+        width: 100%;
+        min-width: 100%;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-attachment: scroll;
+        transform: none !important;
+        display: flex;
+        align-items: center;
+      }
     }
 
-    width: 100%;
-    min-width: 100%;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-attachment: scroll;
-    transform: none !important;
+    @include breakpoint (medium up) {
+      .mobile-bg {
+        background-image: none !important;
+      }
+    }
+
+    @include breakpoint (small only) {
+      &.bg-img {
+        background-image: none !important;
+      }
+    }
+
+    @include breakpoint (medium up) {
+      &.bg-img {
+
+        height: 100%;
+        background-attachment: fixed !important;
+        width: 100%;
+        min-width: 100%;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-attachment: scroll;
+        transform: none !important;
     /*&:before {
       content: '';
       position: absolute;
@@ -34,207 +59,224 @@ section {
       background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%);
     } */
   }
+}
 
-  .img-section {
-    width: 250px;
-    height: auto;
+.img-section {
+  width: 250px;
+  height: auto;
+}
+
+.load-more {
+  position: relative;
+}
+
+&.bg-image {
+  background-size: auto 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.up-to {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.blog-category {
+  width: 1rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.blog-name {
+  display: inline-block;
+  margin-left: 10px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+}
+
+.active-sort {
+  font-weight: 800;
+}
+
+.no-borders {
+  border-bottom: 0 !important;
+}
+
+.dropdown-desc {
+  p {
+    font-size: 12px !important;
   }
+  padding-top: 15px;
+}
 
-  .load-more {
-    position: relative;
+.read-more-btn {
+  font-size: 12px;
+}
+
+.filter-wrapper {
+  display: inline-flex;
+
+  p:first-child {
+    padding-left: 0;
   }
-
-  &.bg-image {
-    background-size: auto 100%;
-    background-position: right;
-    background-repeat: no-repeat;
-  }
-
-  .up-to {
-    padding-right: 4px;
+  p {
     padding-left: 4px;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+}
+@include breakpoint(small only) {
+  .selected-currency, .sorting{
+    width: 50%;
   }
 
-  .blog-category {
-    width: 1rem;
+  .sorting {
+    text-align: right;
+    margin-top: 20px;
+  }
+}
+
+.welcome-row {
+  h1 {
+    color: $white;
     text-align: center;
-    z-index: 2;
-  }
-
-  .blog-name {
-    display: inline-block;
-    margin-left: 10px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-  }
-
-  .active-sort {
-    font-weight: 800;
-  }
-
-  .no-borders {
-    border-bottom: 0 !important;
-  }
-
-  .dropdown-desc {
-    p {
-      font-size: 12px !important;
-    }
-    padding-top: 15px;
-  }
-
-  .read-more-btn {
-    font-size: 12px;
-  }
-
-  .filter-wrapper {
-    display: inline-flex;
-
-    p:first-child {
-      padding-left: 0;
-    }
-    p {
-      padding-left: 4px;
-      text-transform: uppercase;
-      font-size: 11px;
+    font-weight: 900;
+    @include breakpoint(medium up) {
+      font-size: 2.5rem;
     }
   }
-  @include breakpoint(small only) {
-    .selected-currency, .sorting{
-      width: 50%;
-    }
-
-    .sorting {
-      text-align: right;
-      margin-top: 20px;
+  @include breakpoint(medium up){
+    .welcome-text {
+      margin-top: 25vh;
     }
   }
+}
 
-  .align-right {
-    @include breakpoint(large up){
-      text-align: right;
-    }
-    @include breakpoint(medium down) {
-      text-align: center;
-    }
+.align-right {
+  @include breakpoint(large up){
+    text-align: right;
   }
-
-  #currencySelect, #countrySelect-mobile {
-    -webkit-appearance: button;
-    border: 1px solid #cacaca;
-    color: $dark-gray;
-    text-transform: uppercase;
-    font-size: 12px;
-    overflow: hidden;
-    padding: 4px 8px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-image: linear-gradient(45deg, transparent 50%, $dark-gray 50%), linear-gradient(135deg, $dark-gray 50%, transparent 50%);
-    background-size: 5px 5px, 5px 5px, 5px 1.5em;
-    background-repeat: no-repeat;
-    @include breakpoint(medium up){
-      width: 76px;
-      background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px);
-    }
-
-    @include breakpoint(small only){
-      width: 90%;
-      padding: 8px;
-      background-position: calc(100% - 10px) calc(1em + 0px), calc(100% - 5px) calc(1em + 0px);
-    }
-  }
-
-  .margin-mobile {
-    @include breakpoint (small only){
-      p {
-        margin-bottom: 5px;
-      }
-    }
-  }
-
-
-
-  .filter {
-    cursor: pointer;
-    display: inline-block;
-    &:hover {
-      font-weight: 800;
-    }
-  }
-
-  .load-wrapper {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    z-index: 20;
-    background: #fefefe;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease, 0s .5s ease;
-  }
-
-  .loading-posts {
-    .load-wrapper {
-      opacity: 0.9 !important;
-      visibility: visible !important;
-      transition: opacity .5s ease !important;
-    }
-  }
-
-  .loader {
-    font-size: 10px;
-    margin: 50px auto;
-    text-indent: -9999em;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: $slider-red;
-    background: linear-gradient(to right, $slider-red 10%, rgba(47, 75, 90, 0) 42%);
-    position: relative;
-    animation: load3 1s infinite ease-out;
-    -ms-transform: translatez(0);
-    transform: translatez(0);
-    &:after{
-      background: #fefefe;
-      width: 75%;
-      height: 75%;
-      border-radius: 50%;
-      content: '';
-      margin: auto;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-    &:before {
-      width: 50%;
-      height: 50%;
-      background: $slider-red;
-      border-radius: 100% 0 0 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      content: '';
-    }
-  }
-
-  .no-border {
-    border: 0 !important;
-  }
-
-  .headline-casino-h4 {
-   @include breakpoint(large up) {
-    text-align: left;
-  }
-
   @include breakpoint(medium down) {
     text-align: center;
-    font-size: 1.5rem;
-    padding-bottom: 10px;
   }
+}
+
+#currencySelect, #countrySelect-mobile {
+  -webkit-appearance: button;
+  border: 1px solid #cacaca;
+  color: $dark-gray;
+  text-transform: uppercase;
+  font-size: 12px;
+  overflow: hidden;
+  padding: 4px 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-image: linear-gradient(45deg, transparent 50%, $dark-gray 50%), linear-gradient(135deg, $dark-gray 50%, transparent 50%);
+  background-size: 5px 5px, 5px 5px, 5px 1.5em;
+  background-repeat: no-repeat;
+  @include breakpoint(medium up){
+    width: 76px;
+    background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px);
+  }
+
+  @include breakpoint(small only){
+    width: 90%;
+    padding: 8px;
+    background-position: calc(100% - 10px) calc(1em + 0px), calc(100% - 5px) calc(1em + 0px);
+  }
+}
+
+.margin-mobile {
+  @include breakpoint (small only){
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+
+.filter {
+  cursor: pointer;
+  display: inline-block;
+  &:hover {
+    font-weight: 800;
+  }
+}
+
+.load-wrapper {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 20;
+  background: #fefefe;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease, 0s .5s ease;
+}
+
+.loading-posts {
+  .load-wrapper {
+    opacity: 0.9 !important;
+    visibility: visible !important;
+    transition: opacity .5s ease !important;
+  }
+}
+
+.loader {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $slider-red;
+  background: linear-gradient(to right, $slider-red 10%, rgba(47, 75, 90, 0) 42%);
+  position: relative;
+  animation: load3 1s infinite ease-out;
+  -ms-transform: translatez(0);
+  transform: translatez(0);
+  &:after{
+    background: #fefefe;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &:before {
+    width: 50%;
+    height: 50%;
+    background: $slider-red;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+.headline-casino-h4 {
+ @include breakpoint(large up) {
+  text-align: left;
+}
+
+@include breakpoint(medium down) {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+}
 }
 
 @include breakpoint (medium down){
@@ -296,29 +338,7 @@ section {
  }
 }
 
-.welcome-row {
-  height: 100%;
-  display: flex;
- /* @include breakpoint(large up){
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-  }*/
-  align-items: center;
-  h1 {
-    color: $white;
-    text-align: center;
-    font-weight: 900;
-    @include breakpoint(medium up) {
-      font-size: 2.5rem;
-    }
-  }
-  @include breakpoint(medium up) { 
-    .welcome-text {
-      margin-bottom: 25vh;
-    }
-  }
-}
+
 .casino-wrapper {
   cursor: pointer;
   background: $white;
@@ -405,5 +425,6 @@ section {
 
     }
   }
+}
 }
 }

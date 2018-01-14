@@ -45,6 +45,7 @@
     }
 }
 @include breakpoint(large up){
+
     .overlay-home{
    /* &:before {
         content: '';
@@ -60,6 +61,7 @@
         background-image: linear-gradient(to bottom, #505050, #505050);
       //  opacity: .6; 
     }*/
+    /*
     &:after {
         content: '';
         display: block;
@@ -72,10 +74,10 @@
       //  opacity: 0.4;
       z-index: 0;
       opacity: 0.7;
-      height: 100vh;
+      height: 100%;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.13), #e65352), url(https://casinochecking.com/wp-content/uploads/2018/01/hey.jpg) center center fixed;
       background-size: contain;
-  }
+  }*/
 }
 }
 

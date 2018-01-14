@@ -10,18 +10,16 @@ get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_casino', 'options');
 $casinoImg = get_field('casino_img', 'options'); ?>
 <section class="bg-img casinos <?php if($activateOverlay): echo 'overlay-home'; endif;?>" style="background: url(<?php echo $casinoImg['url']; ?>)">
-	<div class="row welcome-row">
-		<div class="small-12 columns fade-in-slow z-index-medium welcome-text ">
-			<h1><?php the_field('heading_first_line_casino', 'options');/* if(isset($countryCode)): echo $countryCode; endif;*/?></h1>
-			<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
-		</div>
-	</div>
-</section>
-<section class="comparison-section bg-repeat">
 	<div class="container mobile-full-width">
-		<div class="row">
+		<div class="row welcome-row mobile-bg" style="background: url(<?php echo $casinoImg['url']; ?>)">
+			<div class="small-12 columns fade-in-slow z-index-medium welcome-text">
+				<h1><?php the_field('heading_first_line_casino', 'options');/* if(isset($countryCode)): echo $countryCode; endif;*/?></h1>
+				<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
+			</div>
+		</div>
+		<div class="row comparison-section">
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-			<div class="small-12 medium-8 bg-gray columns wrapper-casino-comparison slide-up minus-row-margin z-index-medium hidden-overflow">
+			<div class="small-12 medium-8 margin-top-fp bg-gray columns wrapper-casino-comparison slide-up z-index-medium hidden-overflow">
 				<div class="container">
 					<div class="row align-middle padding-bottom">
 						<div class="small-12 large-6">

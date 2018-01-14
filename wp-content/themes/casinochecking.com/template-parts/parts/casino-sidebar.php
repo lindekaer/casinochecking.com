@@ -1,4 +1,4 @@
-<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up minus-row-margin">
+<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up margin-top-fp">
 	<div class="casino-sidebar">
 		<?php include(locate_template('template-parts/parts/content-country.php')); ?>
 		<?php
