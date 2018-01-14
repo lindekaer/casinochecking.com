@@ -123,7 +123,7 @@ header.site-header {
           }
         }
       }
-      li {
+      li[class^="menu-item-type"] {
         position: relative;
         a.active {
           &:after {
