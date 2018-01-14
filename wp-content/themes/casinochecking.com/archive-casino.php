@@ -57,13 +57,14 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					</div>
 					<div class="loaded-posts" data-count="">
 					</div>
+					<p class="text-right"><?php echo _e('T&C apply to each of the offers above, click "Sign up" for more details') ?></p>
 					<div class="load-more">
 						<div class="load-wrapper">
 							<div class="loader">
 							</div></div>
 						</div>
 					</div>
-					<p><?php echo _e('T&C apply to each of the offers above, click ') ?></p>
+
 				</div>
 			</div>
 		</div>

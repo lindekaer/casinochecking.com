@@ -2309,7 +2309,7 @@ header.site-header #menu-right ul li { position: relative; }
 
 header.site-header #menu-right ul li a.active:after { width: 1.5em; }
 
-header.site-header #menu-right ul li a:after { position: absolute; content: ''; display: block; height: 2px; width: 0; top: 30px; left: 0; right: 0; margin: auto; background-color: #e65352; transition: width,.2s; }
+header.site-header #menu-right ul li a:after { position: absolute; content: ''; display: block; height: 2px; width: 0; top: 25px; left: 0; right: 0; margin: auto; background-color: #e65352; transition: width,.2s; }
 
 .is-active #menu-mobile-header { display: block; }
 
