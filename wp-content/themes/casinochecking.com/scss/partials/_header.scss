@@ -112,8 +112,13 @@ header.site-header {
     }
 
     ul {
-      .wpml-ls-menu-item {
-        position: static !important
+      li.wpml-ls-menu-item {
+        position: static !important;
+        a {
+          &:after {
+            content: none !important;
+          }
+        }
       }
 
       li.current-menu-item {
@@ -123,7 +128,7 @@ header.site-header {
           }
         }
       }
-      li[class^="menu-item-type"] {
+      li {
         position: relative;
         a.active {
           &:after {
