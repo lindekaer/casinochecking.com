@@ -8,6 +8,8 @@ header.site-header {
     margin-right: 10px;
   }
 
+
+
   .wpml-ls-menu-item {
     .wpml-ls-flag {
       width: auto;
@@ -107,6 +109,32 @@ header.site-header {
   #menu-right {
     .menu {
       text-align: right;
+    }
+
+    ul {
+      li {
+        position: relative;
+        a.active {
+          &:after {
+            width: 1.5em;
+          }
+        }
+        a {
+          &:after {
+            position: absolute;
+            content: '';
+            display: block;
+            height: 2px;
+            width: 0;
+            top: 30px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: $slider-red;
+            transition: width,.2s;
+          }
+        }
+      }
     }
   }
 }

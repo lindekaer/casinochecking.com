@@ -5,7 +5,7 @@ jQuery(function($) {
     $(document).ready(function(){
         var country;
         initDom();
-                
+
         $('.load-casino').addClass("loading-posts");
         $.ajax({
             cache: false,
@@ -204,6 +204,19 @@ function initDom() {
         $(this).addClass('filter-active');
     });
 
+    $('#menu-right .menu li a').on({
+        mouseenter: function() {
+            $(this).addClass('active');
+        },
+        mouseleave: function() {
+            $(this).removeClass('active');
+        }
+    })
+    var pathname = window.location.pathname;
+    console.log(site_vars.home_url + pathname);
+    console.log($(location).attr('href'))
+
+
     $(".hamburger").click(function () {
         $('.menu-mobile-header-container').toggleClass("is-active"); 
         $('body').toggleClass("hidden-overflow"); 
@@ -232,26 +245,26 @@ function initDom() {
     }
 
             // faq toggle
-    $('.faq-element').click(function(){
-        if($(this).find('.plus-faq').hasClass('active-icon')){
-           $(this).find('.plus-faq').removeClass('active-icon');
-           $(this).find('.minus-faq').addClass('active-icon');
-            console.log('plus-faq active')
-      }
+            $('.faq-element').click(function(){
+                if($(this).find('.plus-faq').hasClass('active-icon')){
+                   $(this).find('.plus-faq').removeClass('active-icon');
+                   $(this).find('.minus-faq').addClass('active-icon');
+                   console.log('plus-faq active')
+               }
 
-           else if ($(this).find('.minus-faq').hasClass('active-icon')){
-           $(this).find('.minus-faq').removeClass('active-icon')
-           $(this).find('.plus-faq').addClass('active-icon')
-            console.log('minsu-faq active')
-           }
+               else if ($(this).find('.minus-faq').hasClass('active-icon')){
+                   $(this).find('.minus-faq').removeClass('active-icon')
+                   $(this).find('.plus-faq').addClass('active-icon')
+                   console.log('minsu-faq active')
+               }
 
-            $(this).find('.desc-wrapper .desc p').slideToggle();
-        });
+               $(this).find('.desc-wrapper .desc p').slideToggle();
+           });
 
 
-    showDescCasino();
-    loadCurrency();
-}
+            showDescCasino();
+            loadCurrency();
+        }
 
 /************************
 WHEN USER CHANGE THE CURRENCY
