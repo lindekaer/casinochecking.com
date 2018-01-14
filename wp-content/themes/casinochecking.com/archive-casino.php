@@ -57,7 +57,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 					</div>
 					<div class="loaded-posts" data-count="">
 					</div>
-					<p class="text-right"><?php echo _e('T&C apply to each of the offers above, click "Sign up" for more details') ?></p>
+					<p class="text-right"><?php echo _e('T&C apply to each of the offers above, click "Sign up" for more details', 'checkmate'); ?></p>
 					<div class="load-more">
 						<div class="load-wrapper">
 							<div class="loader">
