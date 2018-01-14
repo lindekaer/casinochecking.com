@@ -63,6 +63,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 							</div></div>
 						</div>
 					</div>
+					<p><?php echo _e('T&C apply to each of the offers above, click ') ?></p>
 				</div>
 			</div>
 		</div>
