@@ -7,7 +7,7 @@
 get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_blog', 'options');
 $blogImg = get_field('blog_img', 'options');  ?>
-<section class="bg-img <?php if($activateOverlay): echo 'overlay'; endif;?>" style="background: url(<?php echo $blogImg['url']; ?>) no-repeat center center fixed;">
+<section class="bg-img" style="background: url(<?php echo $blogImg['url']; ?>) no-repeat center center fixed;">
 	<div class="container comparison-section mobile-full-width">
 		<div class="row welcome-row mobile-bg z-index" style="background: url(<?php echo $blogImg['url']; ?>)">
 			<div class="small-12 columns fade-in-slow z-index-medium welcome-text">

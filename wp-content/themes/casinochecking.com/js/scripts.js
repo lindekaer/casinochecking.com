@@ -5,7 +5,8 @@ jQuery(function($) {
     $(document).ready(function(){
         var country;
         initDom();
-
+                
+        $('.load-casino').addClass("loading-posts");
         $.ajax({
             cache: false,
             url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
