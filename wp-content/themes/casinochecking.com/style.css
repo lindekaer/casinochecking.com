@@ -1998,65 +1998,65 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1000px; }
 
-.minus-content { position: relative; margin-top: -85vw; }
+.single-blog .minus-content, .single-casino .minus-content { position: relative; margin-top: -85vw; }
 
-@media screen and (min-width: 40em) { .casino-info-wrapper { margin-top: 30px; } }
+@media screen and (min-width: 40em) { .single-blog .casino-info-wrapper, .single-casino .casino-info-wrapper { margin-top: 30px; } }
 
-h1.content-casino { color: #e65352; }
+.single-blog h1.content-casino, .single-casino h1.content-casino { color: #e65352; }
 
-@media screen and (min-width: 40em) { h1.content-casino { font-size: 20px; } }
+@media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 20px; } }
 
-@media screen and (max-width: 39.9375em) { h1.content-casino { font-size: 16px; } }
+@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 16px; } }
 
-@media screen and (max-width: 63.9375em) { section.type-casino, section.type-blog { padding-bottom: 15px; } }
+@media screen and (max-width: 63.9375em) { .single-blog section.type-casino, .single-blog section.type-blog, .single-casino section.type-casino, .single-casino section.type-blog { padding-bottom: 15px; } }
 
-section .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
+.single-blog section .further-casino-info, .single-casino section .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
 
-section .border-right { border-right: 1px solid #eee; }
+.single-blog section .border-right, .single-casino section .border-right { border-right: 1px solid #eee; }
 
-section .padding-casino { padding: 24px 12px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 4px; }
+.single-blog section .padding-casino, .single-casino section .padding-casino { padding: 24px 12px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 4px; }
 
-section .casino-info-wrapper { text-transform: uppercase; font-size: 10px; text-align: center; }
+.single-blog section .casino-info-wrapper, .single-casino section .casino-info-wrapper { text-transform: uppercase; font-size: 10px; text-align: center; }
 
-section .casino-info-wrapper .casino-title { text-transform: uppercase; }
+.single-blog section .casino-info-wrapper .casino-title, .single-casino section .casino-info-wrapper .casino-title { text-transform: uppercase; }
 
-section .casino-info-wrapper img { width: 16%; padding-top: 8px; height: auto; }
+.single-blog section .casino-info-wrapper img, .single-casino section .casino-info-wrapper img { width: 16%; padding-top: 8px; height: auto; }
 
-section .casino-info-wrapper p { font-size: 10px; }
+.single-blog section .casino-info-wrapper p, .single-casino section .casino-info-wrapper p { font-size: 10px; }
 
-section .casino-info-wrapper .our-score { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+.single-blog section .casino-info-wrapper .our-score, .single-casino section .casino-info-wrapper .our-score { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
-section .casino-info-wrapper .our-score h1 { color: #f81c1e; font-weight: 700; }
+.single-blog section .casino-info-wrapper .our-score h1, .single-casino section .casino-info-wrapper .our-score h1 { color: #f81c1e; font-weight: 700; }
 
-section .casino-info-wrapper { text-align: center; }
+.single-blog section .casino-info-wrapper, .single-casino section .casino-info-wrapper { text-align: center; }
 
-section .casino-info-wrapper h1 { color: #e65352; }
+.single-blog section .casino-info-wrapper h1, .single-casino section .casino-info-wrapper h1 { color: #e65352; }
 
-section .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
+.single-blog section .casino-info-wrapper .icon-blog img, .single-casino section .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
 
-@media screen and (max-width: 63.9375em) { section #casino-outer-wrapper { padding-top: 30px; } }
+@media screen and (max-width: 63.9375em) { .single-blog section #casino-outer-wrapper, .single-casino section #casino-outer-wrapper { padding-top: 30px; } }
 
-section .logo-wrapper-small { padding-bottom: 15px; }
+.single-blog section .logo-wrapper-small, .single-casino section .logo-wrapper-small { padding-bottom: 15px; }
 
-section .logo-wrapper-small img { width: 100%; }
+.single-blog section .logo-wrapper-small img, .single-casino section .logo-wrapper-small img { width: 100%; }
 
-section .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; }
+.single-blog section .casino-logo img, .single-casino section .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; }
 
-@media screen and (min-width: 64em) { section .casino-logo img { margin-top: -50px; } }
+@media screen and (min-width: 64em) { .single-blog section .casino-logo img, .single-casino section .casino-logo img { margin-top: -50px; } }
 
-section.casino .desc { padding-top: 10px; padding-bottom: 25px; }
+.single-blog section.casino .desc, .single-casino section.casino .desc { padding-top: 10px; padding-bottom: 25px; }
 
-section .desc { padding-top: 25px; padding-bottom: 25px; }
+.single-blog section .desc, .single-casino section .desc { padding-top: 25px; padding-bottom: 25px; }
 
-section .rectangle { background: #e65352; width: calc(100% + 30px); left: -15px; position: absolute; -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -khtml-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); z-index: 100; bottom: 25px; padding: 4px 0; text-align: center; }
+.single-blog section .rectangle, .single-casino section .rectangle { background: #e65352; width: calc(100% + 30px); left: -15px; position: absolute; -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -khtml-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); z-index: 100; bottom: 25px; padding: 4px 0; text-align: center; }
 
-section .rectangle p { color: #ffffff; font-size: 12px; display: inline-block; margin-right: 5px; }
+.single-blog section .rectangle p, .single-casino section .rectangle p { color: #ffffff; font-size: 12px; display: inline-block; margin-right: 5px; }
 
-section .triangle-l { border-color: transparent #e65352 transparent transparent; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; left: -30px; bottom: 10px; z-index: -1; }
+.single-blog section .triangle-l, .single-casino section .triangle-l { border-color: transparent #e65352 transparent transparent; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; left: -30px; bottom: 10px; z-index: -1; }
 
-section .triangle-r { border-color: transparent transparent transparent #e65352; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; right: -30px; bottom: 10px; z-index: -1; }
+.single-blog section .triangle-r, .single-casino section .triangle-r { border-color: transparent transparent transparent #e65352; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; right: -30px; bottom: 10px; z-index: -1; }
 
-section .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; margin: 0; display: inline-block; }
+.single-blog section .rectangle .checked-svg, .single-casino section .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; margin: 0; display: inline-block; }
 
 @keyframes fadeIn { from { opacity: 0; }
   to { opacity: 1; } }

@@ -1,13 +1,14 @@
-.minus-content {
-  position: relative;
-  margin-top: -85vw;
-}
-
-.casino-info-wrapper {
-  @include breakpoint(medium up){
-    margin-top: 30px;
+.single-blog, .single-casino{
+  .minus-content {
+    position: relative;
+    margin-top: -85vw;
   }
-}
+
+  .casino-info-wrapper {
+    @include breakpoint(medium up){
+      margin-top: 30px;
+    }
+  }
   h1.content-casino {
     color: $slider-red; 
     @include breakpoint(medium up){
@@ -178,4 +179,5 @@
       display: inline-block;
     }
   }
+}
 }
