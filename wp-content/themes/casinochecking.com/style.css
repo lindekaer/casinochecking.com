@@ -2334,7 +2334,7 @@ header.site-header #menu-right ul li a:after { position: absolute; content: ''; 
 
 #menu-mobile-header li a { font-size: 1.5rem; color: #eee; }
 
-#menu-mobile-header li.current_page_item a { color: #f81c1e; }
+#menu-mobile-header li.current-menu-item a { color: #f81c1e; }
 
 .mobile-row { position: relative; }
 
