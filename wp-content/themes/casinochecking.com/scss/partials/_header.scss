@@ -177,6 +177,20 @@ header.site-header {
 
   li.current-menu-item a {
     color: $slider-red;
+    position: relative;
+    &:after {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 2px;
+      width: 1.5em;
+      top: 25px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: $slider-red;
+      transition: width,.2s;
+    }
   }
 }
 
