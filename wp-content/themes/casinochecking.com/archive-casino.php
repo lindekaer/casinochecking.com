@@ -13,7 +13,7 @@ $casinoImg = get_field('casino_img', 'options'); ?>
 	<div class="container mobile-full-width">
 		<div class="row welcome-row mobile-bg" style="background: url(<?php echo $casinoImg['url']; ?>)">
 			<div class="small-12 columns fade-in-slow z-index-medium welcome-text">
-				<h1><?php the_field('heading_first_line_casino', 'options');/* if(isset($countryCode)): echo $countryCode; endif;*/?></h1>
+				<h1><?php the_field('heading_first_line_casino', 'options'); ?></h1>
 				<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
 			</div>
 		</div>

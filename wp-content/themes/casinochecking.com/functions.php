@@ -630,7 +630,6 @@ function checkmate_scripts() {
     wp_localize_script( 'checkmate-scripts', 'site_vars', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         'theme_url' => get_template_directory_uri(),
-        'home_url' => get_site_url()
     ));
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

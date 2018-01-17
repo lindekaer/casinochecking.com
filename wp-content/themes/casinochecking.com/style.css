@@ -1882,144 +1882,125 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .z-index { z-index: 2; }
 
-.post-type-archive-casino section .sticky-container, .post-type-archive-blog section .sticky-container { position: relative; }
+.img-section { width: 250px; height: auto; }
 
-.post-type-archive-casino section .sticky, .post-type-archive-blog section .sticky { position: relative; z-index: 0; transform: translate3d(0, 0, 0); }
+.load-more { position: relative; }
 
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section .mobile-bg, .post-type-archive-blog section .mobile-bg { height: 80vw; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; } }
+.bg-image { background-size: auto 100%; background-position: right; background-repeat: no-repeat; }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section .mobile-bg, .post-type-archive-blog section .mobile-bg { background-image: none !important; } }
+.up-to { padding-right: 4px; padding-left: 4px; }
 
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section.bg-img, .post-type-archive-blog section.bg-img { background-image: none !important; } }
+.blog-category { width: 1rem; text-align: center; z-index: 2; }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section.bg-img, .post-type-archive-blog section.bg-img { height: 100%; background-attachment: fixed !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; /*&:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%); } */ } }
+.blog-name { display: inline-block; margin-left: 10px; padding-bottom: 0; text-transform: uppercase; }
 
-.post-type-archive-casino section .img-section, .post-type-archive-blog section .img-section { width: 250px; height: auto; }
+.active-sort { font-weight: 800; }
 
-.post-type-archive-casino section .load-more, .post-type-archive-blog section .load-more { position: relative; }
+.no-borders { border-bottom: 0 !important; }
 
-.post-type-archive-casino section.bg-image, .post-type-archive-blog section.bg-image { background-size: auto 100%; background-position: right; background-repeat: no-repeat; }
+.dropdown-desc { padding-top: 15px; }
 
-.post-type-archive-casino section .up-to, .post-type-archive-blog section .up-to { padding-right: 4px; padding-left: 4px; }
+.dropdown-desc p { font-size: 12px !important; }
 
-.post-type-archive-casino section .blog-category, .post-type-archive-blog section .blog-category { width: 1rem; text-align: center; z-index: 2; }
+.read-more-btn { font-size: 12px; }
 
-.post-type-archive-casino section .blog-name, .post-type-archive-blog section .blog-name { display: inline-block; margin-left: 10px; padding-bottom: 0; text-transform: uppercase; }
+.filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
 
-.post-type-archive-casino section .active-sort, .post-type-archive-blog section .active-sort { font-weight: 800; }
+.filter-wrapper p:first-child { padding-left: 0; }
 
-.post-type-archive-casino section .no-borders, .post-type-archive-blog section .no-borders { border-bottom: 0 !important; }
+.filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-size: 11px; }
 
-.post-type-archive-casino section .dropdown-desc, .post-type-archive-blog section .dropdown-desc { padding-top: 15px; }
+@media screen and (max-width: 39.9375em) { .selected-currency, .sorting { width: 50%; }
+  .sorting { text-align: right; margin-top: 20px; } }
 
-.post-type-archive-casino section .dropdown-desc p, .post-type-archive-blog section .dropdown-desc p { font-size: 12px !important; }
+@media screen and (min-width: 40em) { .welcome-row .welcome-text { margin-top: 25vh; }
+  .welcome-row .welcome-text h1 { color: #ffffff; text-align: center; font-weight: 900; } }
 
-.post-type-archive-casino section .read-more-btn, .post-type-archive-blog section .read-more-btn { font-size: 12px; }
+@media screen and (min-width: 40em) and (min-width: 40em) { .welcome-row .welcome-text h1 { font-size: 2.5rem; } }
 
-.post-type-archive-casino section .filter-wrapper, .post-type-archive-blog section .filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
+@media screen and (min-width: 64em) { .align-right { text-align: right; } }
 
-.post-type-archive-casino section .filter-wrapper p:first-child, .post-type-archive-blog section .filter-wrapper p:first-child { padding-left: 0; }
+@media screen and (max-width: 63.9375em) { .align-right { text-align: center; } }
 
-.post-type-archive-casino section .filter-wrapper p, .post-type-archive-blog section .filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-size: 11px; }
+#currencySelect, #countrySelect-mobile { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 4px 8px; text-overflow: ellipsis; white-space: nowrap; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
 
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section .selected-currency, .post-type-archive-casino section .sorting, .post-type-archive-blog section .selected-currency, .post-type-archive-blog section .sorting { width: 50%; }
-  .post-type-archive-casino section .sorting, .post-type-archive-blog section .sorting { text-align: right; margin-top: 20px; } }
+@media screen and (min-width: 40em) { #currencySelect, #countrySelect-mobile { width: 76px; background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px); } }
 
-.post-type-archive-casino section .welcome-row h1, .post-type-archive-blog section .welcome-row h1 { color: #ffffff; text-align: center; font-weight: 900; }
+@media screen and (max-width: 39.9375em) { #currencySelect, #countrySelect-mobile { width: 90%; padding: 8px; background-position: calc(100% - 10px) calc(1em + 0px), calc(100% - 5px) calc(1em + 0px); } }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section .welcome-row h1, .post-type-archive-blog section .welcome-row h1 { font-size: 2.5rem; } }
+@media screen and (max-width: 39.9375em) { .margin-mobile p { margin-bottom: 5px; } }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section .welcome-row .welcome-text, .post-type-archive-blog section .welcome-row .welcome-text { margin-top: 25vh; } }
+.filter { cursor: pointer; display: inline-block; }
 
-@media screen and (min-width: 64em) { .post-type-archive-casino section .align-right, .post-type-archive-blog section .align-right { text-align: right; } }
+.filter:hover { font-weight: 800; }
 
-@media screen and (max-width: 63.9375em) { .post-type-archive-casino section .align-right, .post-type-archive-blog section .align-right { text-align: center; } }
+.load-wrapper { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #fefefe; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
 
-.post-type-archive-casino section #currencySelect, .post-type-archive-casino section #countrySelect-mobile, .post-type-archive-blog section #currencySelect, .post-type-archive-blog section #countrySelect-mobile { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 4px 8px; text-overflow: ellipsis; white-space: nowrap; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
+.loading-posts .load-wrapper { opacity: 0.9 !important; visibility: visible !important; transition: opacity .5s ease !important; }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section #currencySelect, .post-type-archive-casino section #countrySelect-mobile, .post-type-archive-blog section #currencySelect, .post-type-archive-blog section #countrySelect-mobile { width: 76px; background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px); } }
+.loader { font-size: 10px; margin: 50px auto; text-indent: -9999em; width: 50px; height: 50px; border-radius: 50%; background: #e65352; background: linear-gradient(to right, #e65352 10%, rgba(47, 75, 90, 0) 42%); position: relative; animation: load3 1s infinite ease-out; -ms-transform: translatez(0); transform: translatez(0); }
 
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section #currencySelect, .post-type-archive-casino section #countrySelect-mobile, .post-type-archive-blog section #currencySelect, .post-type-archive-blog section #countrySelect-mobile { width: 90%; padding: 8px; background-position: calc(100% - 10px) calc(1em + 0px), calc(100% - 5px) calc(1em + 0px); } }
+.loader:after { background: #fefefe; width: 75%; height: 75%; border-radius: 50%; content: ''; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; }
 
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section .margin-mobile p, .post-type-archive-blog section .margin-mobile p { margin-bottom: 5px; } }
+.loader:before { width: 50%; height: 50%; background: #e65352; border-radius: 100% 0 0 0; position: absolute; top: 0; left: 0; content: ''; }
 
-.post-type-archive-casino section .filter, .post-type-archive-blog section .filter { cursor: pointer; display: inline-block; }
+.no-border { border: 0 !important; }
 
-.post-type-archive-casino section .filter:hover, .post-type-archive-blog section .filter:hover { font-weight: 800; }
+@media screen and (min-width: 64em) { .headline-casino-h4 { text-align: left; } }
 
-.post-type-archive-casino section .load-wrapper, .post-type-archive-blog section .load-wrapper { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #fefefe; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
+@media screen and (max-width: 63.9375em) { .headline-casino-h4 { text-align: center; font-size: 1.5rem; padding-bottom: 10px; } }
 
-.post-type-archive-casino section .loading-posts .load-wrapper, .post-type-archive-blog section .loading-posts .load-wrapper { opacity: 0.9 !important; visibility: visible !important; transition: opacity .5s ease !important; }
+@media screen and (max-width: 63.9375em) { .first { font-size: 12px !important; position: absolute; top: 12px; margin-left: -13px; width: 24px; background: #e65352; text-indent: 7px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+  .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 102%; border-right: 13px solid #86281E; border-bottom: 8px solid transparent; } }
 
-.post-type-archive-casino section .loader, .post-type-archive-blog section .loader { font-size: 10px; margin: 50px auto; text-indent: -9999em; width: 50px; height: 50px; border-radius: 50%; background: #e65352; background: linear-gradient(to right, #e65352 10%, rgba(47, 75, 90, 0) 42%); position: relative; animation: load3 1s infinite ease-out; -ms-transform: translatez(0); transform: translatez(0); }
+@media screen and (min-width: 64em) { .first { position: absolute; top: 12px; font-size: 14px !important; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
+  .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; } }
 
-.post-type-archive-casino section .loader:after, .post-type-archive-blog section .loader:after { background: #fefefe; width: 75%; height: 75%; border-radius: 50%; content: ''; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; }
+@media screen and (min-width: 40em) { .padding-bottom { padding-bottom: 25px; } }
 
-.post-type-archive-casino section .loader:before, .post-type-archive-blog section .loader:before { width: 50%; height: 50%; background: #e65352; border-radius: 100% 0 0 0; position: absolute; top: 0; left: 0; content: ''; }
+@media screen and (max-width: 39.9375em) { .padding-bottom { padding-bottom: 20px; } }
 
-.post-type-archive-casino section .no-border, .post-type-archive-blog section .no-border { border: 0 !important; }
+.casino-wrapper { cursor: pointer; background: #ffffff; position: relative; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-@media screen and (min-width: 64em) { .post-type-archive-casino section .headline-casino-h4, .post-type-archive-blog section .headline-casino-h4 { text-align: left; } }
+.casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
 
-@media screen and (max-width: 63.9375em) { .post-type-archive-casino section .headline-casino-h4, .post-type-archive-blog section .headline-casino-h4 { text-align: center; font-size: 1.5rem; padding-bottom: 10px; } }
+.casino-wrapper p { font-size: 10px; }
 
-@media screen and (max-width: 63.9375em) { .post-type-archive-casino section .first, .post-type-archive-blog section .first { font-size: 12px !important; position: absolute; top: 12px; margin-left: -13px; width: 24px; background: #e65352; text-indent: 7px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
-  .post-type-archive-casino section .first:after, .post-type-archive-blog section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 102%; border-right: 13px solid #86281E; border-bottom: 8px solid transparent; } }
+.casino-wrapper .image img { width: auto; display: block; margin: 0 auto; }
 
-@media screen and (min-width: 64em) { .post-type-archive-casino section .first, .post-type-archive-blog section .first { position: absolute; top: 12px; font-size: 14px !important; margin-left: -20px; width: 35px; background: #e65352; text-indent: 13px; box-shadow: 1px 1px 2px #000; color: #ffffff; }
-  .post-type-archive-casino section .first:after, .post-type-archive-blog section .first:after { content: ""; position: absolute; width: 0; height: 0; left: 0; top: 101%; border-right: 19px solid #86281E; border-bottom: 10px solid transparent; } }
+@media screen and (min-width: 40em) { .casino-wrapper .image img { height: 40px; } }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section .padding-bottom, .post-type-archive-blog section .padding-bottom { padding-bottom: 25px; } }
+.casino-wrapper .section-padding { padding-bottom: 8px; }
 
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section .padding-bottom, .post-type-archive-blog section .padding-bottom { padding-bottom: 20px; } }
+.casino-wrapper .section-padding p { font-size: 10px; }
 
-.post-type-archive-casino section .casino-wrapper, .post-type-archive-blog section .casino-wrapper { cursor: pointer; background: #ffffff; position: relative; padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.casino-wrapper .my-align-center { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
-.post-type-archive-casino section .casino-wrapper:hover, .post-type-archive-blog section .casino-wrapper:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12); }
+.casino-wrapper .button-padding-bottom { padding: 0 10px 0 10px; }
 
-.post-type-archive-casino section .casino-wrapper p, .post-type-archive-blog section .casino-wrapper p { font-size: 10px; }
+.casino-wrapper .section-padding-bottom { padding: 10px 10px 0 10px; }
 
-.post-type-archive-casino section .casino-wrapper .image img, .post-type-archive-blog section .casino-wrapper .image img { width: auto; display: block; margin: 0 auto; }
+.casino-wrapper .border-right { border-right: 1px solid #eee; }
 
-@media screen and (min-width: 40em) { .post-type-archive-casino section .casino-wrapper .image img, .post-type-archive-blog section .casino-wrapper .image img { height: 40px; } }
+.casino-wrapper .image-ratings { text-transform: uppercase; text-align: center; font-size: 12px; }
 
-.post-type-archive-casino section .casino-wrapper .section-padding, .post-type-archive-blog section .casino-wrapper .section-padding { padding-bottom: 8px; }
+.casino-wrapper .image-ratings img { padding-top: 8px; width: auto; max-width: 20px; }
 
-.post-type-archive-casino section .casino-wrapper .section-padding p, .post-type-archive-blog section .casino-wrapper .section-padding p { font-size: 10px; }
+@media screen and (max-width: 39.9375em) { .casino-wrapper .image-ratings img { height: 16px; } }
 
-.post-type-archive-casino section .casino-wrapper .my-align-center, .post-type-archive-blog section .casino-wrapper .my-align-center { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+@media screen and (min-width: 40em) { .casino-wrapper .image-ratings img { height: 20px; } }
 
-.post-type-archive-casino section .casino-wrapper .button-padding-bottom, .post-type-archive-blog section .casino-wrapper .button-padding-bottom { padding: 0 10px 0 10px; }
+.casino-wrapper .bonus-info { text-align: center; }
 
-.post-type-archive-casino section .casino-wrapper .section-padding-bottom, .post-type-archive-blog section .casino-wrapper .section-padding-bottom { padding: 10px 10px 0 10px; }
+.casino-wrapper .user-rating { font-size: 10px; text-align: center; text-transform: uppercase; border-top: 1px solid #eee; }
 
-.post-type-archive-casino section .casino-wrapper .border-right, .post-type-archive-blog section .casino-wrapper .border-right { border-right: 1px solid #eee; }
-
-.post-type-archive-casino section .casino-wrapper .image-ratings, .post-type-archive-blog section .casino-wrapper .image-ratings { text-transform: uppercase; text-align: center; font-size: 12px; }
-
-.post-type-archive-casino section .casino-wrapper .image-ratings img, .post-type-archive-blog section .casino-wrapper .image-ratings img { padding-top: 8px; width: auto; max-width: 20px; }
-
-@media screen and (max-width: 39.9375em) { .post-type-archive-casino section .casino-wrapper .image-ratings img, .post-type-archive-blog section .casino-wrapper .image-ratings img { height: 16px; } }
-
-@media screen and (min-width: 40em) { .post-type-archive-casino section .casino-wrapper .image-ratings img, .post-type-archive-blog section .casino-wrapper .image-ratings img { height: 20px; } }
-
-.post-type-archive-casino section .casino-wrapper .bonus-info, .post-type-archive-blog section .casino-wrapper .bonus-info { text-align: center; }
-
-.post-type-archive-casino section .casino-wrapper .user-rating, .post-type-archive-blog section .casino-wrapper .user-rating { font-size: 10px; text-align: center; text-transform: uppercase; border-top: 1px solid #eee; }
-
-.post-type-archive-casino section .casino-wrapper .user-rating h2, .post-type-archive-blog section .casino-wrapper .user-rating h2 { line-height: inherit; }
+.casino-wrapper .user-rating h2 { line-height: inherit; }
 
 .container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; max-width: 1000px; }
 
-@media screen and (min-width: 40em) { section.bg-img.content-casino { height: 100%; } }
-
-@media screen and (max-width: 39.9375em) { section.bg-img.content-casino { height: 100vh; } }
-
-@media screen and (min-width: 64em) { .minus-content-sidebar { position: relative; margin-top: -85vw; } }
-
 .minus-content { position: relative; margin-top: -85vw; }
 
-@media screen and (min-width: 40em) { .casino .casino-info-wrapper { margin-top: 30px; } }
+@media screen and (min-width: 40em) { .casino-info-wrapper { margin-top: 30px; } }
 
 h1.content-casino { color: #e65352; }
 
@@ -2027,59 +2008,55 @@ h1.content-casino { color: #e65352; }
 
 @media screen and (max-width: 39.9375em) { h1.content-casino { font-size: 16px; } }
 
-@media screen and (max-width: 63.9375em) { article.type-casino, article.type-blog { padding-bottom: 15px; } }
+@media screen and (max-width: 63.9375em) { section.type-casino, section.type-blog { padding-bottom: 15px; } }
 
-article .minus-margin { margin-top: 20rem; }
+section .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
 
-article.type-blog .casino-info-wrapper { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+section .border-right { border-right: 1px solid #eee; }
 
-article .further-casino-info { padding-top: 10px; padding-bottom: 10px; }
+section .padding-casino { padding: 24px 12px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 4px; }
 
-article .border-right { border-right: 1px solid #eee; }
+section .casino-info-wrapper { text-transform: uppercase; font-size: 10px; text-align: center; }
 
-article .padding-casino { padding: 24px 12px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 4px; }
+section .casino-info-wrapper .casino-title { text-transform: uppercase; }
 
-article .casino-info-wrapper { text-transform: uppercase; font-size: 10px; text-align: center; }
+section .casino-info-wrapper img { width: 16%; padding-top: 8px; height: auto; }
 
-article .casino-info-wrapper .casino-title { text-transform: uppercase; }
+section .casino-info-wrapper p { font-size: 10px; }
 
-article .casino-info-wrapper img { width: 16%; padding-top: 8px; height: auto; }
+section .casino-info-wrapper .our-score { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
-article .casino-info-wrapper p { font-size: 10px; }
+section .casino-info-wrapper .our-score h1 { color: #f81c1e; font-weight: 700; }
 
-article .casino-info-wrapper .our-score { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+section .casino-info-wrapper { text-align: center; }
 
-article .casino-info-wrapper .our-score h1 { color: #f81c1e; font-weight: 700; }
+section .casino-info-wrapper h1 { color: #e65352; }
 
-article .casino-info-wrapper { text-align: center; }
+section .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
 
-article .casino-info-wrapper h1 { color: #e65352; }
+@media screen and (max-width: 63.9375em) { section #casino-outer-wrapper { padding-top: 30px; } }
 
-article .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
+section .logo-wrapper-small { padding-bottom: 15px; }
 
-@media screen and (max-width: 63.9375em) { article #casino-outer-wrapper { padding-top: 40px; } }
+section .logo-wrapper-small img { width: 100%; }
 
-article .logo-wrapper-small { padding-bottom: 15px; }
+section .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; }
 
-article .logo-wrapper-small img { width: 100%; }
+@media screen and (min-width: 64em) { section .casino-logo img { margin-top: -50px; } }
 
-article .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; }
+section.casino .desc { padding-top: 10px; padding-bottom: 25px; }
 
-@media screen and (min-width: 64em) { article .casino-logo img { margin-top: -50px; } }
+section .desc { padding-top: 25px; padding-bottom: 25px; }
 
-article.casino .desc { padding-top: 10px; padding-bottom: 25px; }
+section .rectangle { background: #e65352; width: calc(100% + 30px); left: -15px; position: absolute; -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -khtml-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); z-index: 100; bottom: 25px; padding: 4px 0; text-align: center; }
 
-article .desc { padding-top: 25px; padding-bottom: 25px; }
+section .rectangle p { color: #ffffff; font-size: 12px; display: inline-block; margin-right: 5px; }
 
-article .rectangle { background: #e65352; width: calc(100% + 30px); left: -15px; position: absolute; -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -khtml-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.55); z-index: 100; bottom: 25px; padding: 4px 0; text-align: center; }
+section .triangle-l { border-color: transparent #e65352 transparent transparent; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; left: -30px; bottom: 10px; z-index: -1; }
 
-article .rectangle p { color: #ffffff; font-size: 12px; display: inline-block; margin-right: 5px; }
+section .triangle-r { border-color: transparent transparent transparent #e65352; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; right: -30px; bottom: 10px; z-index: -1; }
 
-article .triangle-l { border-color: transparent #e65352 transparent transparent; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; left: -30px; bottom: 10px; z-index: -1; }
-
-article .triangle-r { border-color: transparent transparent transparent #e65352; border-style: solid; border-width: 15px; height: 0px; width: 0px; position: absolute; right: -30px; bottom: 10px; z-index: -1; }
-
-article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; margin: 0; display: inline-block; }
+section .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; margin: 0; display: inline-block; }
 
 @keyframes fadeIn { from { opacity: 0; }
   to { opacity: 1; } }
@@ -2117,11 +2094,29 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 
 .archive .overlay:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: #505050; opacity: 0.5; z-index: 0; height: 100%; }
 
-@media screen and (min-width: 64em) { .overlay-home { /* &:before { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-attachment: fixed; z-index: 0; height: 100vh; background-image: linear-gradient(to bottom, #505050, #505050); //  opacity: .6;  }*/ /* &:after { content: ''; display: block; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background-attachment: fixed; //  opacity: 0.4; z-index: 0; opacity: 0.7; height: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.13), #e65352), url(https://casinochecking.com/wp-content/uploads/2018/01/hey.jpg) center center fixed; background-size: contain; }*/ } }
-
 .comparison-section { padding-bottom: 80px; }
 
 @media screen and (max-width: 63.9375em) { .comparison-section { padding-bottom: 0px; } }
+
+.post-type-archive-casino section .sticky-container, .post-type-archive-blog section .sticky-container { position: relative; }
+
+.post-type-archive-casino section .sticky, .post-type-archive-blog section .sticky { position: relative; z-index: 0; transform: translate3d(0, 0, 0); }
+
+@media screen and (max-width: 39.9375em) { .post-type-archive-casino section .mobile-bg, .post-type-archive-blog section .mobile-bg { height: 80vw; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; } }
+
+@media screen and (min-width: 40em) { .post-type-archive-casino section .mobile-bg, .post-type-archive-blog section .mobile-bg { background-image: none !important; } }
+
+@media screen and (max-width: 39.9375em) { .post-type-archive-casino section.bg-img, .post-type-archive-blog section.bg-img { background-image: none !important; } }
+
+@media screen and (min-width: 40em) { .post-type-archive-casino section.bg-img, .post-type-archive-blog section.bg-img { height: 100%; background-attachment: fixed !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; } }
+
+@media screen and (min-width: 64em) { .single-blog section .single-page-padding, .single-casino section .single-page-padding { padding-top: 160px; padding-bottom: 80px; } }
+
+@media screen and (max-width: 63.9375em) { .single-blog section .single-page-padding, .single-casino section .single-page-padding { padding-top: 100px; padding-bottom: 50px; } }
+
+@media screen and (max-width: 39.9375em) { .single-blog section.bg-img, .single-casino section.bg-img { height: 100%; background-attachment: scroll !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; -ms-transform: none !important; transform: none !important; } }
+
+@media screen and (min-width: 40em) { .single-blog section.bg-img, .single-casino section.bg-img { height: 100%; background-attachment: fixed !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; -ms-transform: none !important; transform: none !important; } }
 
 .load-wrapper { position: absolute; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 20; background: #ffffff; opacity: 0; visibility: hidden; transition: opacity .5s ease, 0s .5s ease; }
 
@@ -2201,6 +2196,12 @@ article .rectangle .checked-svg { width: auto; height: 16px; box-shadow: none; m
 .rating-ten { font-size: 12px; }
 
 .hide-custom { display: none; }
+
+@media screen and (min-width: 64em) { .align-right { text-align: right; } }
+
+@media screen and (max-width: 63.9375em) { .align-right { text-align: center; } }
+
+.no-borders { border-bottom: 0 !important; }
 
 @media screen and (max-width: 39.9375em) { .float-left-mobile { float: left; } }
 
@@ -2448,7 +2449,7 @@ header.site-header #menu-right ul li a:after { position: absolute; content: ''; 
 
 .button:hover { opacity: 0.9; }
 
-.read-more-btn { color: #e65352; }
+.read-more-btn { color: #e65352; font-size: 12px; }
 
 .read-more-btn:hover { text-decoration: underline; color: #e65352; }
 

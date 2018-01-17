@@ -1,66 +1,3 @@
-.post-type-archive-casino, .post-type-archive-blog {
-  section {
-    .sticky-container {
-      position: relative;
-    }
-
-    .sticky {
-      position: relative;
-      z-index: 0;
-      transform: translate3d(0, 0, 0);
-    }
-
-    @include breakpoint (small only) {
-      .mobile-bg {
-        height: 80vw;
-        width: 100%;
-        min-width: 100%;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        background-attachment: scroll;
-        transform: none !important;
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    @include breakpoint (medium up) {
-      .mobile-bg {
-        background-image: none !important;
-      }
-    }
-
-    @include breakpoint (small only) {
-      &.bg-img {
-        background-image: none !important;
-      }
-    }
-
-    @include breakpoint (medium up) {
-      &.bg-img {
-
-        height: 100%;
-        background-attachment: fixed !important;
-        width: 100%;
-        min-width: 100%;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        background-attachment: scroll;
-        transform: none !important;
-    /*&:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-image: linear-gradient(to bottom, rgba(80, 80, 80, 0.02) 60%, rgba(80, 80, 80, 0.9) 74%, rgba(80, 80, 80, 0.9) 60%, rgba(80, 80, 80, 0.99) 100%);
-    } */
-  }
-}
-
 .img-section {
   width: 250px;
   height: auto;
@@ -137,17 +74,17 @@
 }
 
 .welcome-row {
-  h1 {
-    color: $white;
-    text-align: center;
-    font-weight: 900;
-    @include breakpoint(medium up) {
-      font-size: 2.5rem;
-    }
-  }
   @include breakpoint(medium up){
     .welcome-text {
       margin-top: 25vh;
+      h1 {
+        color: $white;
+        text-align: center;
+        font-weight: 900;
+        @include breakpoint(medium up) {
+          font-size: 2.5rem;
+        }
+      }
     }
   }
 }
@@ -425,6 +362,4 @@
 
     }
   }
-}
-}
 }

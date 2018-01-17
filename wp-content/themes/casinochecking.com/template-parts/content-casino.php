@@ -19,14 +19,14 @@ $sectionBg = get_field('section_bg');
 $imageLong = get_field('image');
 $upToSignup = get_field('up_to_signup');
 $imageSizeLong = 'logo-casino-archive'; ?>
-<section class="bg-img content-casino" style="background: url('<?php echo $sectionBg; ?>') no-repeat center center fixed;">
-    <article id="post-<?php the_ID(); ?>" <?php post_class('comparison-section z-index'); ?>>
+<section class="bg-img content-casino" style="background-image: url('<?php echo $sectionBg; ?>');">
+    <article id="post-<?php the_ID(); ?>" <?php post_class('single-page-padding z-index'); ?>>
         <div class="container">
             <div class="row">
-                <div class="small-12 large-4 small-order-2 large-order-1 columns z-index-low margin-top bg-sidebar slide-up wrapper-casino-comparison">
+                <div class="small-12 large-4 small-order-2 large-order-1 columns z-index-low bg-sidebar slide-up wrapper-casino-comparison">
                     <?php echo get_sidebar(); ?>
                 </div>
-                <div class="small-12 large-8 small-order-1 bg-gray z-index-low margin-top large-order-2 columns slide-up" id="casino-outer-wrapper">
+                <div class="small-12 large-8 small-order-1 bg-gray z-index-low large-order-2 columns slide-up" id="casino-outer-wrapper">
                     <div class="container">
                         <div class="row">
                             <div class="medium-4 large-5 hide-for-small-only columns casino-logo">

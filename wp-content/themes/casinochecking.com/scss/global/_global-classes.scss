@@ -6,7 +6,17 @@
 	display: none;
 }
 
-
+.align-right {
+  @include breakpoint(large up){
+    text-align: right;
+  }
+  @include breakpoint(medium down) {
+    text-align: center;
+  }
+}
+.no-borders {
+  border-bottom: 0 !important;
+}
 
 .float-left-mobile {
 	@include breakpoint(small only){

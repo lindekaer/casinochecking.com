@@ -1,213 +1,181 @@
-section {
-  &.bg-img.content-casino {
-    @include breakpoint(medium up){
-      height: 100%;
-    }
-    @include breakpoint(small only){
-      height: 100vh;
-    } 
-  }
-}
-
-.minus-content-sidebar {
-  @include breakpoint(large up){
-    position: relative;
-    margin-top: -85vw;
-  }
-}
-
 .minus-content {
   position: relative;
   margin-top: -85vw;
 }
 
-.casino .casino-info-wrapper {
+.casino-info-wrapper {
   @include breakpoint(medium up){
     margin-top: 30px;
   }
 }
-
-
-h1.content-casino {
-  color: $slider-red; 
-  @include breakpoint(medium up){
-    font-size: 20px;
-  }
-  @include breakpoint(small only){
-    font-size: 16px;
-  }
-}
-
-article {
-
-  &.type-casino, &.type-blog {
-   @include breakpoint(medium down) {
-    padding-bottom: 15px;
-  } 
-}
-.minus-margin {
-  margin-top: 20rem;
-}
-
-&.type-blog {
-  .casino-info-wrapper {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.further-casino-info {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.border-right {
-  border-right: 1px solid #eee;
-}
-
-.padding-casino {
-  padding: 24px 12px;
-  background: $white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border-radius: 4px;
-}
-.casino-info-wrapper {
-  text-transform: uppercase;
-  font-size: 10px;
-  text-align: center;
-
-  .casino-title {
-    text-transform: uppercase;
-  }
-  img {
-    width: 16%;
-    padding-top: 8px;
-    height: auto;
-  }
-
-  p {
-    font-size: 10px;
-  }
-
-  .our-score {
-    display: flex;
-    align-items: center;
-
-    h1 {
-      color: $red;
-      font-weight: 700;
+  h1.content-casino {
+    color: $slider-red; 
+    @include breakpoint(medium up){
+      font-size: 20px;
+    }
+    @include breakpoint(small only){
+      font-size: 16px;
     }
   }
-}
 
-.casino-info-wrapper {
-  text-align: center;
-
-  h1 {
-    color: $slider-red;
+  section {
+    &.type-casino, &.type-blog {
+     @include breakpoint(medium down) {
+      padding-bottom: 15px;
+    } 
   }
 
-  .icon-blog {
-    img {
-      height: 25px;
-      padding-top: 0;
-      width: auto;
-    }
+  .further-casino-info {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-}
 
-#casino-outer-wrapper {
-  @include breakpoint(medium down){
-    padding-top: 40px;
+  .border-right {
+    border-right: 1px solid #eee;
   }
-}
 
-.logo-wrapper-small {
-  padding-bottom: 15px; 
-  img {
-    width: 100%;
-  }
-}
-
-.casino-logo {
-  img {
+  .padding-casino {
+    padding: 24px 12px;
+    background: $white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    width: 100%;  
+    border-radius: 4px;
   }
-  @include breakpoint(large up) {
+  .casino-info-wrapper {
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: center;
+
+    .casino-title {
+      text-transform: uppercase;
+    }
     img {
-      margin-top: -50px;
+      width: 16%;
+      padding-top: 8px;
+      height: auto;
+    }
+
+    p {
+      font-size: 10px;
+    }
+
+    .our-score {
+      display: flex;
+      align-items: center;
+
+      h1 {
+        color: $red;
+        font-weight: 700;
+      }
     }
   }
-}
 
-&.casino {
+  .casino-info-wrapper {
+    text-align: center;
+
+    h1 {
+      color: $slider-red;
+    }
+
+    .icon-blog {
+      img {
+        height: 25px;
+        padding-top: 0;
+        width: auto;
+      }
+    }
+  }
+
+  #casino-outer-wrapper {
+    @include breakpoint(medium down){
+      padding-top: 30px;
+    }
+  }
+
+  .logo-wrapper-small {
+    padding-bottom: 15px; 
+    img {
+      width: 100%;
+    }
+  }
+
+  .casino-logo {
+    img {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      width: 100%;  
+    }
+    @include breakpoint(large up) {
+      img {
+        margin-top: -50px;
+      }
+    }
+  }
+
+  &.casino {
+    .desc {
+      padding-top: 10px;
+      padding-bottom: 25px;
+    }
+  }
+
   .desc {
-    padding-top: 10px;
+    padding-top: 25px;
     padding-bottom: 25px;
   }
-}
 
-.desc {
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
+  .rectangle {
+    background: $slider-red;
+    width: calc(100% + 30px);
+    left: -15px;
+    position: absolute;
+    -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    -khtml-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    z-index: 100; 
+    bottom: 25px;
+    padding: 4px 0;
+    text-align: center;
 
-.rectangle {
-  background: $slider-red;
-  width: calc(100% + 30px);
-  left: -15px;
-  position: absolute;
-  -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-  -khtml-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-  z-index: 100; 
-  bottom: 25px;
-  padding: 4px 0;
-  text-align: center;
-
-  p {
-    color: $white;
-    font-size: 12px;
-    display: inline-block;
-    margin-right: 5px;
+    p {
+      color: $white;
+      font-size: 12px;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
-}
 
-.triangle-l {
-  border-color: transparent $slider-red transparent transparent;
-  border-style:solid;
-  border-width:15px;
-  height:0px;
-  width:0px;
-  position: absolute;
-  left: -30px;
-  bottom: 10px;
-  z-index: -1; 
-}
-
-.triangle-r {
-  border-color: transparent transparent transparent $slider-red;
-  border-style:solid;
-  border-width:15px;
-  height:0px;
-  width:0px;
-  position: absolute;
-  right: -30px;
-  bottom: 10px;
-  z-index: -1; 
-}
-
-.rectangle {
-  .checked-svg {
-    width: auto;
-    height: 16px;
-    box-shadow: none;
-    margin: 0;
-    display: inline-block;
+  .triangle-l {
+    border-color: transparent $slider-red transparent transparent;
+    border-style:solid;
+    border-width:15px;
+    height:0px;
+    width:0px;
+    position: absolute;
+    left: -30px;
+    bottom: 10px;
+    z-index: -1; 
   }
-}
 
+  .triangle-r {
+    border-color: transparent transparent transparent $slider-red;
+    border-style:solid;
+    border-width:15px;
+    height:0px;
+    width:0px;
+    position: absolute;
+    right: -30px;
+    bottom: 10px;
+    z-index: -1; 
+  }
+
+  .rectangle {
+    .checked-svg {
+      width: auto;
+      height: 16px;
+      box-shadow: none;
+      margin: 0;
+      display: inline-block;
+    }
+  }
 }

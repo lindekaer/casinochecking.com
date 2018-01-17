@@ -19,12 +19,14 @@
   cursor: pointer;
 
   &:hover {
-  opacity: 0.9;
-    }
+    opacity: 0.9;
+  }
 }
 
 .read-more-btn {
   color: $slider-red;
+  font-size: 12px;
+
 
   &:hover {
     text-decoration: underline;
