@@ -1,15 +1,11 @@
 
 <a href="<?php the_permalink();?>">
 	<div class="blog-content">
-		<div class="blog-img-wrapper">
-			<?php 
-			$image = get_field('blog_image');
-$size = 'logo-blog-archive'; // (thumbnail, medium, large, full or custom size)
-if( $image ) {
-	echo wp_get_attachment_image( $image, $size );
-}
-?>
-</div>
+		<?php 
+		$image = get_field('blog_image');
+$size = 'logo-blog-archive'; ?>
+
+<div class="blog-img-wrapper" style="background-image: url(<?php if( $image ): echo wp_get_attachment_image_url( $image, $size ); endif; ?>);"></div>
 <div class="text-wrapper columns">
 	<div class="category">
 		<p><?php the_field('blog_category'); ?></p>

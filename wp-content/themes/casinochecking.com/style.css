@@ -2177,7 +2177,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .text_faq .faq-element { margin-bottom: 1rem; cursor: pointer; }
 
-.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); background: #ffffff; }
+.blog-content { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); background: #ffffff; width: 100%; }
 
 .blog-content:hover { box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1), 4px 4px 4px rgba(0, 0, 0, 0.12); -ms-transform: translateY(-2px); transform: translateY(-2px); }
 
@@ -2197,7 +2197,17 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 @media screen and (max-width: 63.9375em) { .text-wrapper { padding: 20px 10px; } }
 
-.blog-img-wrapper img { width: 100%; }
+.blog-img-wrapper { background-size: cover; background-position: center; width: auto; }
+
+@media screen and (max-width: 39.9375em) { .blog-img-wrapper { height: 150px; } }
+
+@media screen and (min-width: 40em) { .blog-img-wrapper { height: 185px; } }
+
+@media screen and (min-width: 64em) { .wrapper-blog { padding: 60px; position: relative; } }
+
+@media screen and (min-width: 40em) and (max-width: 63.9375em) { .wrapper-blog { padding: 40px 20px 40px 20px; } }
+
+@media screen and (max-width: 39.9375em) { .wrapper-blog { padding: 40px 0px 40px 0px; } }
 
 .rating-ten { font-size: 12px; }
 
