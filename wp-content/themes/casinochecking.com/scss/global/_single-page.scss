@@ -106,11 +106,6 @@
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       width: 100%;  
     }
-    @include breakpoint(large up) {
-      img {
-        margin-top: -50px;
-      }
-    }
   }
 
   &.casino {
@@ -121,7 +116,12 @@
   }
 
   .desc {
+    @include breakpoint(small only){
+    padding-top: 10px;
+    }
+   @include breakpoint(medium up){
     padding-top: 25px;
+   } 
     padding-bottom: 25px;
   }
 
@@ -180,4 +180,22 @@
     }
   }
 }
+}
+.single-casino {
+  .casino-logo {
+    @include breakpoint(large up) {
+      img {
+        margin-top: -50px;
+      }
+    }
+  }
+}
+.single-blog {
+  .casino-logo {
+    @include breakpoint(large up) {
+      img {
+        margin-top: 30px;
+      }
+    }
+  }
 }
