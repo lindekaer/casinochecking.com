@@ -74,14 +74,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
 body {
 	width: 100%;
 	height: 100%;
+		@include breakpoint (medium up) {
+		min-height: 100vh;
+	}
 }
 
 #page {
 	background: #fff;
 	width: 100%;
-	@include breakpoint (medium up) {
-		min-height: 100vh;
-	}
+
 	max-width: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
