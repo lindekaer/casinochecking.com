@@ -1398,7 +1398,7 @@ h5, .h5 { font-size: 1.0625rem; line-height: 1.4; margin-top: 0; margin-bottom: 
 
 h6, .h6 { font-size: 1rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5rem; }
 
-p, .p { font-size: 0.75rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5rem; }
+p, .p { font-size: 0.8125rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5rem; }
 
 @media print, screen and (min-width: 40em) { h1, .h1 { font-size: 3rem; }
   h2, .h2 { font-size: 2.5rem; }
@@ -2038,7 +2038,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .single-blog section .logo-wrapper-small, .single-casino section .logo-wrapper-small { padding-bottom: 15px; }
 
-.single-blog section .logo-wrapper-small img, .single-casino section .logo-wrapper-small img { width: 100%; }
+.single-blog section .logo-wrapper-small img, .single-casino section .logo-wrapper-small img { width: 95%; }
 
 .single-blog section .casino-logo img, .single-casino section .casino-logo img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); width: 100%; }
 
@@ -2112,9 +2112,9 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 @media screen and (min-width: 64em) { .single-blog section .single-page-padding, .single-casino section .single-page-padding { padding-top: 160px; padding-bottom: 80px; } }
 
-@media screen and (max-width: 63.9375em) { .single-blog section .single-page-padding, .single-casino section .single-page-padding { padding-top: 100px; padding-bottom: 50px; } }
+@media screen and (max-width: 63.9375em) { .single-blog section .single-page-padding, .single-casino section .single-page-padding { padding-top: 70px; padding-bottom: 50px; } }
 
-@media screen and (max-width: 39.9375em) { .single-blog section.bg-img, .single-casino section.bg-img { height: 100%; background-attachment: scroll !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; -ms-transform: none !important; transform: none !important; } }
+@media screen and (max-width: 39.9375em) { .single-blog section.bg-img, .single-casino section.bg-img { background-image: none !important; background: #3f3e46; } }
 
 @media screen and (min-width: 40em) { .single-blog section.bg-img, .single-casino section.bg-img { height: 100%; background-attachment: fixed !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; -ms-transform: none !important; transform: none !important; } }
 

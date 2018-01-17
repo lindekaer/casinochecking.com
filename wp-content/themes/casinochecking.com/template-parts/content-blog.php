@@ -17,7 +17,7 @@ $icon = get_field('blog_icon');
 $sectionBg = get_field('section_bg');
 $activateOverlay = get_field('activate_overlay');
 ?>
-<section class="bg-img content-casino z-index-low" style="background: url('<?php echo $sectionBg['url']; ?>');">
+<section class="bg-img content-casino z-index-low" style="background-image: url('<?php echo $sectionBg['url']; ?>');">
   <div class="container single-page-padding z-index">
     <div class="row">
       <div class="small-12 medium-8 bg-gray columns slide-up z-index hidden-overflow small-order-1 medium-order-2" id="casino-outer-wrapper">
@@ -54,7 +54,7 @@ $activateOverlay = get_field('activate_overlay');
           </div>
           <div class="row">
             <div class="small-12 columns desc">
-              <?php echo $description; ?>
+              <p><?php echo $description; ?></p>
             </div>
           </div>
         </div>

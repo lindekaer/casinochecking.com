@@ -118,20 +118,14 @@
 
     @include breakpoint(medium down){
     .single-page-padding {
-        padding-top: 100px;
+        padding-top: 70px;
         padding-bottom: 50px;
         }
     }
         @include breakpoint (small only) {
           &.bg-img {
-            height: 100%;
-            background-attachment: scroll !important;
-            width: 100%;
-            min-width: 100%;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-            background-size: cover !important;
-            transform: none !important;
+            background-image: none !important;
+            background: $black;
           }
         }
 
