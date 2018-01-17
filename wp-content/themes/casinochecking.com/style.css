@@ -2199,7 +2199,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .blog-img-wrapper { background-size: cover; background-position: center; width: auto; }
 
-@media screen and (max-width: 39.9375em) { .blog-img-wrapper { height: 150px; } }
+@media screen and (max-width: 39.9375em) { .blog-img-wrapper { height: 200px; } }
 
 @media screen and (min-width: 40em) { .blog-img-wrapper { height: 185px; } }
 
