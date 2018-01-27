@@ -734,4 +734,6 @@ function filter_wpseo_replacements( $replacements ) {
 // Add filter
 add_filter( 'wpseo_replacements', 'filter_wpseo_replacements', 10, 1 );
 
+//Disallow edit from backend 
+define( 'DISALLOW_FILE_EDIT', true );
 ?>
