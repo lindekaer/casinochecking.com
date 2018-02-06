@@ -184,9 +184,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 /************************
@@ -203,6 +203,7 @@ function initDom() {
     $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
     });
+    cookiebar();
 
     $('#menu-right .menu li a').on({
         mouseenter: function() {
@@ -247,19 +248,19 @@ function initDom() {
             // faq toggle
             $('.faq-element').click(function(){
                 if($(this).find('.plus-faq').hasClass('active-icon')){
-                   $(this).find('.plus-faq').removeClass('active-icon');
-                   $(this).find('.minus-faq').addClass('active-icon');
-                   console.log('plus-faq active')
-               }
+                 $(this).find('.plus-faq').removeClass('active-icon');
+                 $(this).find('.minus-faq').addClass('active-icon');
+                 console.log('plus-faq active')
+             }
 
-               else if ($(this).find('.minus-faq').hasClass('active-icon')){
-                   $(this).find('.minus-faq').removeClass('active-icon')
-                   $(this).find('.plus-faq').addClass('active-icon')
-                   console.log('minsu-faq active')
-               }
+             else if ($(this).find('.minus-faq').hasClass('active-icon')){
+                 $(this).find('.minus-faq').removeClass('active-icon')
+                 $(this).find('.plus-faq').addClass('active-icon')
+                 console.log('minsu-faq active')
+             }
 
-               $(this).find('.desc-wrapper .desc p').slideToggle();
-           });
+             $(this).find('.desc-wrapper .desc p').slideToggle();
+         });
 
 
             showDescCasino();
@@ -328,9 +329,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     }
- });
+           console.log(errorThrown);
+       }
+   });
 }
 
 $(window).scroll(function(){
@@ -389,10 +390,10 @@ function infiniteScroll () {
         };
 
         $(window).scroll(function() {
-         if ( timer ) clearTimeout(timer);
-         var docHeight = $(document).height();
-         var windowHeight = $(window).height();
-         var footerHeight = $('footer').height();
+           if ( timer ) clearTimeout(timer);
+           var docHeight = $(document).height();
+           var windowHeight = $(window).height();
+           var footerHeight = $('footer').height();
           // var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
           var headerHeight = $('header').height();
           var totalPosts = 40;
@@ -560,7 +561,7 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-           if (metrics.hasOwnProperty(type)) {
+         if (metrics.hasOwnProperty(type)) {
             var metric = metrics[type];
             metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
             metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
@@ -672,9 +673,9 @@ function loadCasino(data) {
                // infiniteScroll();
            },
            error: function(errorThrown){
-             console.log(errorThrown);
-         } 
-     });
+               console.log(errorThrown);
+           } 
+       });
 }
 
 function updateDeepLink(usersCountry) {
@@ -742,139 +743,182 @@ function updateDeepLink(usersCountry) {
     });
 }
 
-
+function cookiebar (){
 /*!
- * jQuery Cookie Plugin v1.4.1
- * https://github.com/carhartl/jquery-cookie
+ * JavaScript Cookie v2.2.0
+ * https://github.com/js-cookie/js-cookie
  *
- * Copyright 2006, 2014 Klaus Hartl
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
  * Released under the MIT license
  */
  (function (factory) {
+    var registeredInModuleLoader = false;
     if (typeof define === 'function' && define.amd) {
-        // AMD (Register as an anonymous module)
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // Node/CommonJS
-        module.exports = factory(require('jquery'));
-    } else {
-        // Browser globals
-        factory(jQuery);
+        define(factory);
+        registeredInModuleLoader = true;
     }
-}(function ($) {
-
-    var pluses = /\+/g;
-
-    function encode(s) {
-        return config.raw ? s : encodeURIComponent(s);
+    if (typeof exports === 'object') {
+        module.exports = factory();
+        registeredInModuleLoader = true;
     }
-
-    function decode(s) {
-        return config.raw ? s : decodeURIComponent(s);
+    if (!registeredInModuleLoader) {
+        var OldCookies = window.Cookies;
+        var api = window.Cookies = factory();
+        api.noConflict = function () {
+            window.Cookies = OldCookies;
+            return api;
+        };
     }
-
-    function stringifyCookieValue(value) {
-        return encode(config.json ? JSON.stringify(value) : String(value));
-    }
-
-    function parseCookieValue(s) {
-        if (s.indexOf('"') === 0) {
-            // This is a quoted cookie as according to RFC2068, unescape...
-            s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+}(function () {
+    function extend () {
+        var i = 0;
+        var result = {};
+        for (; i < arguments.length; i++) {
+            var attributes = arguments[ i ];
+            for (var key in attributes) {
+                result[key] = attributes[key];
+            }
         }
-
-        try {
-            // Replace server-side written pluses with spaces.
-            // If we can't decode the cookie, ignore it, it's unusable.
-            // If we can't parse the cookie, ignore it, it's unusable.
-            s = decodeURIComponent(s.replace(pluses, ' '));
-            return config.json ? JSON.parse(s) : s;
-        } catch(e) {}
+        return result;
     }
 
-    function read(s, converter) {
-        var value = config.raw ? s : parseCookieValue(s);
-        return $.isFunction(converter) ? converter(value) : value;
-    }
-
-    var config = $.cookie = function (key, value, options) {
-
-        // Write
-
-        if (arguments.length > 1 && !$.isFunction(value)) {
-            options = $.extend({}, config.defaults, options);
-
-            if (typeof options.expires === 'number') {
-                var days = options.expires, t = options.expires = new Date();
-                t.setMilliseconds(t.getMilliseconds() + days * 864e+5);
+    function init (converter) {
+        function api (key, value, attributes) {
+            var result;
+            if (typeof document === 'undefined') {
+                return;
             }
 
-            return (document.cookie = [
-                encode(key), '=', stringifyCookieValue(value),
-                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-                options.path    ? '; path=' + options.path : '',
-                options.domain  ? '; domain=' + options.domain : '',
-                options.secure  ? '; secure' : ''
-                ].join(''));
-        }
+            // Write
 
-        // Read
+            if (arguments.length > 1) {
+                attributes = extend({
+                    path: '/'
+                }, api.defaults, attributes);
 
-        var result = key ? undefined : {},
+                if (typeof attributes.expires === 'number') {
+                    var expires = new Date();
+                    expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+                    attributes.expires = expires;
+                }
+
+                // We're using "expires" because "max-age" is not supported by IE
+                attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+                try {
+                    result = JSON.stringify(value);
+                    if (/^[\{\[]/.test(result)) {
+                        value = result;
+                    }
+                } catch (e) {}
+
+                if (!converter.write) {
+                    value = encodeURIComponent(String(value))
+                    .replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+                } else {
+                    value = converter.write(value, key);
+                }
+
+                key = encodeURIComponent(String(key));
+                key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+                key = key.replace(/[\(\)]/g, escape);
+
+                var stringifiedAttributes = '';
+
+                for (var attributeName in attributes) {
+                    if (!attributes[attributeName]) {
+                        continue;
+                    }
+                    stringifiedAttributes += '; ' + attributeName;
+                    if (attributes[attributeName] === true) {
+                        continue;
+                    }
+                    stringifiedAttributes += '=' + attributes[attributeName];
+                }
+                return (document.cookie = key + '=' + value + stringifiedAttributes);
+            }
+
+            // Read
+
+            if (!key) {
+                result = {};
+            }
+
             // To prevent the for loop in the first place assign an empty array
             // in case there are no cookies at all. Also prevents odd result when
-            // calling $.cookie().
-            cookies = document.cookie ? document.cookie.split('; ') : [],
-            i = 0,
-            l = cookies.length;
+            // calling "get()"
+            var cookies = document.cookie ? document.cookie.split('; ') : [];
+            var rdecode = /(%[0-9A-Z]{2})+/g;
+            var i = 0;
 
-            for (; i < l; i++) {
-                var parts = cookies[i].split('='),
-                name = decode(parts.shift()),
-                cookie = parts.join('=');
+            for (; i < cookies.length; i++) {
+                var parts = cookies[i].split('=');
+                var cookie = parts.slice(1).join('=');
 
-                if (key === name) {
-                // If second argument (value) is a function it's a converter...
-                result = read(cookie, value);
-                break;
+                if (!this.json && cookie.charAt(0) === '"') {
+                    cookie = cookie.slice(1, -1);
+                }
+
+                try {
+                    var name = parts[0].replace(rdecode, decodeURIComponent);
+                    cookie = converter.read ?
+                    converter.read(cookie, name) : converter(cookie, name) ||
+                    cookie.replace(rdecode, decodeURIComponent);
+
+                    if (this.json) {
+                        try {
+                            cookie = JSON.parse(cookie);
+                        } catch (e) {}
+                    }
+
+                    if (key === name) {
+                        result = cookie;
+                        break;
+                    }
+
+                    if (!key) {
+                        result[name] = cookie;
+                    }
+                } catch (e) {}
             }
 
-            // Prevent storing a cookie that we couldn't decode.
-            if (!key && (cookie = read(cookie)) !== undefined) {
-                result[name] = cookie;
-            }
+            return result;
         }
 
-        return result;
-    };
+        api.set = api;
+        api.get = function (key) {
+            return api.call(api, key);
+        };
+        api.getJSON = function () {
+            return api.apply({
+                json: true
+            }, [].slice.call(arguments));
+        };
+        api.defaults = {};
 
-    config.defaults = {};
+        api.remove = function (key, attributes) {
+            api(key, '', extend(attributes, {
+                expires: -1
+            }));
+        };
 
-    $.removeCookie = function (key, options) {
-        // Must not alter options, thus extending a fresh object...
-        $.cookie(key, '', $.extend({}, options, { expires: -1 }));
-        return !$.cookie(key);
-    };
+        api.withConverter = init;
+
+        return api;
+    }
+
+    return init(function () {});
 }));
 
-    var cookieHeight = $("#cookiebar").innerHeight();
-    $(".cookiebar-visible").css({
-        "margin-bottom": cookieHeight
-    })
+if (!Cookies.get('casinochecking_cookie')){
+    $('#cookiebar').addClass('cookie-accepted');
+$('#accept-cookies').click(function(e){
+    e.preventDefault();
+    Cookies.set('casinochecking_cookie', true, { expires: 30, path: '/' });
+    $("#cookiebar").remove();
+})
+} else {
+    $('#cookiebar').removeClass('cookie-accepted');
+}
 
-    $(window).resize(function(){
-        cookieHeight = $("#cookiebar").innerHeight();
-        $(".cookiebar-visible").css({
-            "margin-bottom": cookieHeight
-        });
-    });
-
-    $("#accept-cookies").click(function(e){
-        e.preventDefault();
-        $("body").removeClass("cookiebar-visible").css({
-            "margin-bottom": 0
-        });
-        $.cookie('cookie_accept', true, { expires: 40, path: '/' });
-            $("#cookiebar").remove();
-    });
-
+}

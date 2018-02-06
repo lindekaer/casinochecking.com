@@ -2460,9 +2460,15 @@ header.site-header #menu-right ul li a:after { position: absolute; content: ''; 
 
 .search-ajax .button:hover { color: #2d2d2d; background: #cacaca; }
 
-#cookiebar { z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; background: rgba(63, 62, 70, 0.9); }
+#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; background: rgba(63, 62, 70, 0.9); }
+
+#cookiebar.cookie-accepted { display: block; }
 
 #cookiebar p { font-size: 12px; color: #ffffff; }
+
+@media screen and (min-width: 64em) { #cookiebar #cookie-text { text-align: right; } }
+
+@media screen and (max-width: 63.9375em) { #cookiebar #cookie-text { text-align: left; } }
 
 #cookiebar #accept-cookies { background-color: transparent; color: #cacaca; padding: 5px 15px; font-weight: 600; font-size: 12px; border-radius: 4px; border: 1px solid #cacaca; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
