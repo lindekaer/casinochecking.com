@@ -11,6 +11,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 11px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   @include breakpoint(small only) {
     font-size: 10px;
   }
@@ -26,6 +27,7 @@
 .read-more-btn {
   color: $slider-red;
   font-size: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
 
   &:hover {
@@ -39,6 +41,7 @@
   margin-top: 10px;
   padding-top: 12px;
   padding-bottom: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 #fixed-button {
@@ -48,6 +51,7 @@
   width: 100%;
   display: none;
   border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 

@@ -2460,20 +2460,30 @@ header.site-header #menu-right ul li a:after { position: absolute; content: ''; 
 
 .search-ajax .button:hover { color: #2d2d2d; background: #cacaca; }
 
+#cookiebar { z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; background: rgba(63, 62, 70, 0.9); }
+
+#cookiebar p { font-size: 12px; color: #ffffff; }
+
+#cookiebar #accept-cookies { background-color: transparent; color: #cacaca; padding: 5px 15px; font-weight: 600; font-size: 12px; border-radius: 4px; border: 1px solid #cacaca; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+#cookiebar #accept-cookies:hover { background: #cacaca; color: #3f3e46; }
+
+#cookiebar a { color: #ffffff; }
+
 /*PARTS*/
-.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 11px; margin: 0; font-weight: 600; cursor: pointer; }
+.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 11px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin: 0; font-weight: 600; cursor: pointer; }
 
 @media screen and (max-width: 39.9375em) { .button { font-size: 10px; } }
 
 .button:hover { opacity: 0.9; }
 
-.read-more-btn { color: #e65352; font-size: 12px; }
+.read-more-btn { color: #e65352; font-size: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .read-more-btn:hover { text-decoration: underline; color: #e65352; }
 
-.content-page-button { width: 100%; margin-top: 10px; padding-top: 12px; padding-bottom: 12px; }
+.content-page-button { width: 100%; margin-top: 10px; padding-top: 12px; padding-bottom: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-#fixed-button { position: fixed; bottom: 64px; left: 0; width: 100%; display: none; border-radius: 0; }
+#fixed-button { position: fixed; bottom: 64px; left: 0; width: 100%; display: none; border-radius: 0; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .cta-button { text-decoration: none; text-transform: uppercase; position: relative; text-align: center; color: #3f3e46; border: 1px solid #36d47d; border-radius: 4px; box-shadow: 0 0 0 0 transparent; transition: all 0.2s ease-in; }
 

@@ -134,6 +134,7 @@ wp_reset_query();
 </div>
 </div>
 </footer><!-- #colophon -->
+<?php include(locate_template('template-parts/parts/cookiebanner.php')); ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
