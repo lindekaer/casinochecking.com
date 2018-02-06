@@ -79,7 +79,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                     </div>
                                     <div class="row">
                                         <div class="small-12 columns desc">
-                                            <h1 class="text-left content-casino cursive-headline"><?php echo $name . ' '; echo _e('review', 'checkmate');?></h1>
+                                            <h1 class="text-left content-casino cursive-headline"><?php echo $name . ' '; echo _e('bonus code & review', 'checkmate');?></h1>
                                             <?php echo $description; ?>
                                         </div>
                                     </div>
