@@ -721,14 +721,6 @@ function filter_wpseo_replacements( $replacements ) {
     if( isset( $replacements['%%cf_minimum_deposit%%'] ) ){
         $replacements['%%cf_minimum_deposit%%'] = round($replacements['%%cf_minimum_deposit%%']);
     }
-    if( isset( $replacements['%%title%%'] ) ){
-        if (strpos($replacements['%%title%%'], 'Casino') !== false) {
-            $replacements['%%title%%'] = str_replace("Casino", "", $replacements['%%title%%']);
-        }
-        else if (strpos($replacements['%%title%%'], 'casino') !== false) {
-            $replacements['%%title%%'] = str_replace("casino", "", $replacements['%%title%%']);
-        }
-    }
     return $replacements;
 };
 // Add filter
