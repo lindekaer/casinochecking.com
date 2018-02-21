@@ -32,22 +32,20 @@ $activateOverlay = get_field('activate_overlay');
               ?>
             </div>
             <div class="small-6 columns casino-info-wrapper align-middle">
-              <div class="container">
-                <div class="row">
-                  <div class="small-12 columns">
-                    <div class="heading-blog"><p><?php echo $category; ?></p></div>
-                  </div>
-                  <div class="small-12 columns">
-                    <div class="category-blog"><h1 class="cursive-headline"><?php echo the_title(); ?></h1></div>                            
-                  </div>
-                  <div class="small-12 columns icon-blog">
-                    <?php 
-                    $size = 'thumbnail';
-                    if( $image ) {
-                      echo wp_get_attachment_image( $icon, $iconSize );
-                    }
-                    ?>                            
-                  </div>
+              <div class="row">
+                <div class="small-12 columns">
+                  <div class="heading-blog"><p><?php echo $category; ?></p></div>
+                </div>
+                <div class="small-12 columns">
+                  <div class="category-blog"><h1 class="cursive-headline"><?php echo the_title(); ?></h1></div>                            
+                </div>
+                <div class="small-12 columns icon-blog">
+                  <?php 
+                  $size = 'thumbnail';
+                  if( $image ) {
+                    echo wp_get_attachment_image( $icon, $iconSize );
+                  }
+                  ?>                            
                 </div>
               </div>
             </div>

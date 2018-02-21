@@ -25,7 +25,12 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   text-align: center;
   margin: 0;
-  line-height: inherit;
+}
+
+@include breakpoint(large up){
+  h1 {
+    line-height: 3.5rem;
+  }
 }
 
 .headline-casino-h3 {
