@@ -2518,9 +2518,17 @@ header.site-header #menu-right ul li a:after { position: absolute; content: ''; 
     left: 100%; } }
 
 /*Footer*/
-footer p { color: #888; }
+footer p, footer a { color: #888; }
 
-footer p:hover { color: #888; }
+footer p:hover, footer a:hover { color: #888; }
+
+footer a:hover { text-decoration: underline; }
+
+footer .contact-info { margin-top: 15px; }
+
+footer .contact-info ul li { display: inline-block; padding: 0 10px; margin-top: 5px; border-right: 1px solid #888; }
+
+footer .contact-info ul li:last-of-type { margin-left: -5px; border-right: 0; }
 
 footer h2, footer h6 { color: #cacaca; }
 

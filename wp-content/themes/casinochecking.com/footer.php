@@ -10,7 +10,9 @@
  */
 
 ?>
-
+<?php 
+$email = get_field('email', 'options');
+$cpr = get_field('cpr', 'options'); ?>
 </div><!-- #content -->
 <footer id="colophon" class="site-footer bg-sidebar">
     <div class="container" id="desktop-footer">
@@ -78,6 +80,12 @@
         <?php endif; ?>
     </ul>
 </div>
+                <div class="small-12 columns contact-info">
+                    <ul>
+                        <?php if($email): ?><li><p>Email: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p></li><?php endif; ?>
+                        <?php if($cpr): ?><li><p>CPR: <?php echo $cpr; ?></p></li><?php endif; ?>
+                    </ul>
+                </div>
 </div>
 </div>
 
@@ -96,9 +104,9 @@
         <?php 
         $the_query = new WP_Query( $args );
         if($the_query->have_posts()) {
-         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-         <div class="row">
-             <div class="footer-casino-name small-6 columns text-center">
+           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+           <div class="row">
+               <div class="footer-casino-name small-6 columns text-center">
                 <div class="footer-name">
                     <p><span class="red-color"><?php echo _e('Popular:', 'checkmate'); ?></span> <?php echo the_field('name'); ?></p>
                 </div>

@@ -1,9 +1,33 @@
 footer {
-  p {
+  p, a {
     color: $footer-gray;
 
     &:hover {
       color: $footer-gray;
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .contact-info {
+    margin-top: 15px;
+
+    ul {
+      li {
+        display: inline-block;
+        padding: 0 10px ;
+        margin-top: 5px;
+        border-right: 1px solid $footer-gray;
+      }
+
+      li:last-of-type {
+        margin-left: -5px;
+        border-right: 0;
+      }
     }
   }
 
