@@ -15,9 +15,9 @@ $signUpBonus = get_field('signup_bonus');
 $minimumDeposit = get_field('minimum_deposit');
 $description = get_field('description');
 $imageSize = 'logo-casino-content';
-$sectionBg = get_field('section_bg');
+$sectionBg = get_field('section_bg')['sizes']['bg-img'];
 $imageLong = get_field('image');
-$upToSignup = get_field('up_to_signup');
+$upToSignup = get_field('up_to_signup');    
 $imageSizeLong = 'logo-casino-archive'; ?>
 <section class="bg-img content-casino" style="background-image: url('<?php echo $sectionBg; ?>');">
     <article id="post-<?php the_ID(); ?>" <?php post_class('single-page-padding z-index'); ?>>
@@ -89,26 +89,26 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                     </div>
                 </article>
             </div>
-            </section>
-            <script type="application/ld+json">
-                {
-                  "@context": "http://schema.org/",
-                  "@type": "Review",
-                  "itemReviewed": {
-                    "@type": "Thing",
-                    "name": "<?php echo $name; ?>"
-                },
-                "image": "<?php echo wp_get_attachment_image_url($image['id'], $imageSize); ?>",
-                "author": {
-                    "@type": "Organization",
-                    "name": "Casinochecking",
-                    "url": "https://casinochecking.com/"
-                },
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "<?php echo $ourScore; ?>",
-                    "bestRating": "10",
-                    "worstRating": "0"
-                }
+        </section>
+        <script type="application/ld+json">
+            {
+              "@context": "http://schema.org/",
+              "@type": "Review",
+              "itemReviewed": {
+                "@type": "Thing",
+                "name": "<?php echo $name; ?>"
+            },
+            "image": "<?php echo wp_get_attachment_image_url($image['id'], $imageSize); ?>",
+            "author": {
+                "@type": "Organization",
+                "name": "Casinochecking",
+                "url": "https://casinochecking.com/"
+            },
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "<?php echo $ourScore; ?>",
+                "bestRating": "10",
+                "worstRating": "0"
             }
-        </script>
+        }
+    </script>

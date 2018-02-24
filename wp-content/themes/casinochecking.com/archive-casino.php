@@ -8,10 +8,11 @@
  */
 get_header(); ?>
 <?php $activateOverlay = get_field('activate_overlay_casino', 'options');
-$casinoImg = get_field('casino_img', 'options'); ?>
-<section class="bg-img casinos" style="background: url(<?php echo $casinoImg['url']; ?>)">
+$casinoImg = get_field('casino_img', 'options')['sizes']['bg-img'];
+ ?>
+<section class="bg-img casinos" style="background: url(<?php echo $casinoImg; ?>)">
 	<div class="container mobile-full-width">
-		<div class="row welcome-row mobile-bg" style="background: url(<?php echo $casinoImg['url']; ?>)">
+		<div class="row welcome-row mobile-bg" style="background: url(<?php echo $casinoImg; ?>)">
 			<div class="small-12 columns fade-in-slow z-index-medium welcome-text">
 				<h1><?php the_field('heading_first_line_casino', 'options'); ?></h1>
 				<h1><?php the_field('heading_second_line_casino', 'options'); ?></h1>
