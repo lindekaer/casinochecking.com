@@ -2,15 +2,16 @@
 if( have_rows('flexible_content', 'option') ):
 	$i = 1;?>
 	<?php while ( have_rows('flexible_content', 'option') ) : the_row(); ?>
-		<?php if(get_row_layout() == 'split_image_and_text'): ?>
-			<section class="section <?php echo get_row_layout(); ?>" style="background-color:<?php echo $bgColor; ?>">
+		<?php $bgColor = get_sub_field('bg_color', 'option'); ?>
+		<section class="<?php echo get_row_layout(); ?>" style="background-color:<?php if($bgColor): echo $bgColor; endif; ?>">
+			<?php if(get_row_layout() == 'split_image_and_text'): ?>
 				<div class="row collapse">
 					<?php
 					$headline = get_sub_field('headline', 'option');
 					$text = get_sub_field('text', 'option');
 					$imagePosition = get_sub_field('image_position', 'option');
 					$image = get_sub_field('background_image', 'option'); 
-					$bgColor = get_sub_field('bg_color', 'option');
+					
 					$headlineColor = get_sub_field('headline_color', 'option');
 					$size = 'flexible-content';
 					?>
@@ -27,33 +28,29 @@ if( have_rows('flexible_content', 'option') ):
 						<?php include(locate_template('template-parts/parts/bg-img.php')); ?>
 					<?php endif; ?>
 				</div>
-			</section>
-			<?php $i++; ?>
-		<?php elseif(get_row_layout() == 'text_one_column'): ?>
-			<?php 
-			$bgColor = get_sub_field('bg_color', 'option');
-			$heading = get_sub_field('heading', 'option');
-			$headingColor = get_sub_field('heading_color', 'option');
-			$text = get_sub_field('text', 'option');
-			?>
-			<section class="section-compare-casino <?php echo get_row_layout(); ?>" style="background-color:<?php echo $bgColor; ?>">
-				<div class="container">
+				<?php $i++; ?>
+			<?php elseif(get_row_layout() == 'text_one_column'): ?>
+				<?php 
+				$bgColor = get_sub_field('bg_color', 'option');
+				$heading = get_sub_field('heading', 'option');
+				$headingColor = get_sub_field('heading_color', 'option');
+				$text = get_sub_field('text', 'option');
+				?>
+				<div class="container section-compare-casino">
 					<div class="small-12 columns">
 						<h3 class="cursive-headline text-left section-heading" style="color: <?php echo $headingColor; ?>"><?php echo $heading; ?></h3>
 						<?php echo $text; ?>
 					</div>
 				</div>
-			</section>
-		<?php elseif(get_row_layout() == 'text_faq'): ?>
-			<?php 
-			$bgColor = get_sub_field('bg_color', 'option');
-			$heading = get_sub_field('heading', 'option');
-			$headingColor = get_sub_field('heading_color', 'option');
-			$text = get_sub_field('text', 'option');
-			$faqHeading = get_sub_field('faq_heading', 'option');
-			?>
-			<section class="section-compare-casino <?php echo get_row_layout(); ?>" style="background-color:<?php echo $bgColor; ?>">
-				<div class="container">
+			<?php elseif(get_row_layout() == 'text_faq'): ?>
+				<?php 
+				$bgColor = get_sub_field('bg_color', 'option');
+				$heading = get_sub_field('heading', 'option');
+				$headingColor = get_sub_field('heading_color', 'option');
+				$text = get_sub_field('text', 'option');
+				$faqHeading = get_sub_field('faq_heading', 'option');
+				?>
+				<div class="container section-compare-casino">
 					<div class="row">
 						<div class="small-12 columns">							
 							<h3 class="cursive-headline color-red text-left section-heading" style="color:<?php echo $headingColor; ?>"><?php echo $heading; ?></h3>
@@ -83,7 +80,7 @@ if( have_rows('flexible_content', 'option') ):
 							<?php endif; ?>
 						</div>
 					</div>
-				</section>
-			<?php endif;?>
+				<?php endif;?>
+			</section>
 		<?php endwhile; ?>		
 	<?php endif;?>

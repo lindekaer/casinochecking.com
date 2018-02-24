@@ -11,11 +11,11 @@
  <div class="container">
  	<div class="row">
  		<div class="small-12 columns large-disable-padding">
- 			<div class="favorites ">
+ 			<div class="favorites">
  				<h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('We recommend', 'checkmate') ?></h5>
  				<?php 
  				$args = array(
- 					'posts_per_page' => 5,
+ 					'posts_per_page' => 10,
  					'offset'         => 0,    
  					'post_type'      => 'casino',
  					'meta_key' => 'our_score',

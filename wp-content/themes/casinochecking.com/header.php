@@ -24,19 +24,13 @@ session_start();
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <?php if(is_post_type_archive('casino')): ?>
-<link rel="alternate" hreflang="da-dk" href="https://casinochecking.com/da/" />
-<link rel="alternate" hreflang="en-us" href="https://casinochecking.com/" />
-<!-- <link rel="canonical" href="https://casinochecking.com/" /> -->
+    <link rel="alternate" hreflang="da-dk" href="https://casinochecking.com/da/" />
+    <link rel="alternate" hreflang="en-us" href="https://casinochecking.com/" />
 <?php endif; ?>
 
 <?php wp_head(); ?>
 </head>
 <?php
-//if (!isset($_SESSION['countryCode']) || $_SESSION['countryCode'] == ''):
-//$ip = $_SERVER['REMOTE_ADDR'];
-//$countryCode = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
-//$_SESSION["countryCode"] = $countryCode['geoplugin_countryCode'];
-//endif;
 ?>
 <body <?php body_class(); ?> id="fade-in" data-user-country="">
     <!-- Google Tag Manager (noscript) -->
@@ -66,6 +60,8 @@ session_start();
                     </div>
                 </div>
             </div>
+            <div class="casino-submenu"></div>
         </header><!-- #masthead -->
+        
         <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
         <div id="content" class="site-content">

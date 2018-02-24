@@ -251,6 +251,45 @@ function currency_update() {
 }
 
 /*
+* Ajax, load casinos to menu based on IP
+*/
+
+add_action('wp_ajax_nopriv_add_casino_menu', 'add_casino_menu');
+add_action('wp_ajax_add_casino_menu', 'add_casino_menu');
+
+function add_casino_menu() {
+    $country = $_POST['country']; 
+
+    $args = array(
+        'post_type'     => 'casino',
+        'post_status' => 'publish',
+        'meta_query' => array(
+            'key' => 'available_countries',
+            'value' => $country,
+            'compare' => 'LIKE')
+    );
+
+    $the_query = new WP_Query( $args );
+
+    if($the_query->have_posts()):?>
+    <div class="container">
+        <div class="row">
+            <div class="small-12 columns">
+                <ul>
+                    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                        <li><p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<?php endif;
+wp_reset_query();
+die();
+}
+
+
+/*
 * Ajax, filter casinos
 */
 
@@ -624,6 +663,7 @@ function checkmate_scripts() {
     wp_localize_script( 'checkmate-scripts', 'site_vars', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         'theme_url' => get_template_directory_uri(),
+        'site_url' => get_option('siteurl')
     ));
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

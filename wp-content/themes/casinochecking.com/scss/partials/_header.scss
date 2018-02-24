@@ -8,7 +8,35 @@ header.site-header {
     margin-right: 10px;
   }
 
+  .casino-submenu {
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(51, 50, 56, 0.93);
+    transition: 1s;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    
+    li:first-of-type {
+      padding-left: 0;
+    }
 
+    li {
+      padding-right: 0 2px;
+      display: inline-block;
+      a {
+        font-size: 14px;
+        color: $light-gray;
+      }
+    }
+  }
+
+  &.open-submenu {
+    .casino-submenu {
+      visibility: visible;
+      transition: 1s;
+      opacity: 1;
+    }
+  }
 
   .wpml-ls-menu-item {
     .wpml-ls-flag {
@@ -17,8 +45,8 @@ header.site-header {
     }
   }
 
-  &.scroll-active {
-    background: rgba(51, 50, 56, 0.9);
+  &.scroll-active, &.open-submenu {
+    background: rgba(51, 50, 56, 0.93);
     transition: 1s;
   }
 
@@ -153,101 +181,100 @@ header.site-header {
       }
     }
   }
-}
 
-.is-active {
-  #menu-mobile-header {
-    display: block;
-  }
-}
-
-#menu-mobile-header {
-  width: 100%;
-  text-align: center;
-  display: none;
-  margin: 0px;
-  text-transform: uppercase;
-  padding: 100px 20px 100px;
-  perspective: 1000px;
-  list-style-type: none;
-  li a {
-    font-size: 1.5rem;
-    color: $light-gray;
-  }
-
-  li.current-menu-item a {
-    position: relative;
-    &:after {
-      position: absolute;
-      content: '';
+  .is-active {
+    #menu-mobile-header {
       display: block;
-      height: 2px;
-      width: 1em;
-      top: 30px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      background-color: $slider-red;
-      transition: width,.2s;
     }
   }
-}
 
-.mobile-row {
-  position: relative;
-  .nine {
-    width: 74.6%;
+  #menu-mobile-header {
+    width: 100%;
+    text-align: center;
+    display: none;
+    margin: 0px;
+    text-transform: uppercase;
+    padding: 100px 20px 100px;
+    perspective: 1000px;
+    list-style-type: none;
+    li a {
+      font-size: 1.5rem;
+      color: $light-gray;
+    }
+
+    li.current-menu-item a {
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        height: 2px;
+        width: 1em;
+        top: 30px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: $slider-red;
+        transition: width,.2s;
+      }
+    }
+  }
+
+  .mobile-row {
+    position: relative;
+    .nine {
+      width: 74.6%;
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 49%;
+    right: 10%;
+  }
+
+  .three {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: right;
+  }
+  #nav-toggle { 
+    cursor: pointer; 
+  }
+  #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: 30px;
+    background: white;
+    position: absolute;
+    display: block;
+    content: '';
+  }
+  #nav-toggle span:before {
+    top: -8px; 
+  }
+  #nav-toggle span:after {
+    bottom: -8px;
+  }
+
+  #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+    transition: all 500ms ease-in-out;
+  }
+  #nav-toggle.active span {
+    background-color: transparent;
+  }
+  #nav-toggle.active span:before, #nav-toggle.active span:after {
+    top: 0;
+  }
+  #nav-toggle.active span:before {
+    transform: rotate(45deg);
+  }
+  #nav-toggle.active span:after {
+    transform: rotate(-45deg);
   }
 }
-
-.hamburger {
-  position: absolute;
-  top: 49%;
-  right: 10%;
-}
-
-.three {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  text-align: right;
-}
-#nav-toggle { 
-  cursor: pointer; 
-}
-#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
-  cursor: pointer;
-  border-radius: 1px;
-  height: 3px;
-  width: 30px;
-  background: white;
-  position: absolute;
-  display: block;
-  content: '';
-}
-#nav-toggle span:before {
-  top: -8px; 
-}
-#nav-toggle span:after {
-  bottom: -8px;
-}
-
-#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
-  transition: all 500ms ease-in-out;
-}
-#nav-toggle.active span {
-  background-color: transparent;
-}
-#nav-toggle.active span:before, #nav-toggle.active span:after {
-  top: 0;
-}
-#nav-toggle.active span:before {
-  transform: rotate(45deg);
-}
-#nav-toggle.active span:after {
-  transform: rotate(-45deg);
-}
-
 
 .menu-mobile-header-container {
   position: fixed;
@@ -273,4 +300,20 @@ header.site-header {
   overflow: hidden;
   visibility: visible !important;
   transition: opacity .3s ease, visibility 0s ease !important;
+}
+
+.menu-overlay {
+  background: rgba(51, 50, 56, 0.5);
+  position: fixed;
+  top: 0px; right: 0px; bottom: 0px; left: 0px;
+  z-index: 51;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.open-submenu {
+  .menu-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }

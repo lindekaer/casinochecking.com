@@ -24,6 +24,34 @@
 	}
 }
 
+.padding-bottom {
+  @include breakpoint(medium up){
+   padding-bottom: 25px;
+ }
+ @include breakpoint(small only){
+   padding-bottom: 20px;
+ }
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+
+.align-right {
+  @include breakpoint(large up){
+    text-align: right;
+  }
+  @include breakpoint(medium down) {
+    text-align: center;
+  }
+}
+
+.no-borders {
+  border-bottom: 0 !important;
+}
+
+
 .transform-initial {
 	text-transform: initial;
 }
@@ -153,4 +181,4 @@
 
 .medium-gray {
 	color: $medium-gray;
-}
+}	
