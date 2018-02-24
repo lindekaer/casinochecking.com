@@ -693,6 +693,8 @@ function add_casino_menu() {
         country: country,
     } 
 
+    console.log(data)
+
     $.ajax({
         url: site_vars.ajax_url,
         type: 'post',

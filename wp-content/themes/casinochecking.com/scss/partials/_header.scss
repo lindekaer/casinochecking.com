@@ -11,7 +11,7 @@ header.site-header {
   .casino-submenu {
     visibility: hidden;
     opacity: 0;
-    background: rgba(51, 50, 56, 0.93);
+    background: rgba(51, 50, 56, 0.97);
     transition: 1s;
     padding-bottom: 50px;
     padding-top: 50px;
@@ -22,9 +22,14 @@ header.site-header {
 
     li {
       display: block;
+      padding: 0px 30px 20px 0px;
       a {
         font-size: 14px;
         color: $light-gray;
+        &:hover {
+          text-decoration: underline;
+          transition: 0.3s;
+        }
       }
     }
   }
@@ -45,7 +50,7 @@ header.site-header {
   }
 
   &.scroll-active, &.open-submenu {
-    background: rgba(51, 50, 56, 0.93);
+    background: rgba(51, 50, 56, 0.97);
     transition: 1s;
   }
 

@@ -264,9 +264,13 @@ function add_casino_menu() {
         'post_type'     => 'casino',
         'post_status' => 'publish',
         'meta_query' => array(
-            'key' => 'available_countries',
-            'value' => $country,
-            'compare' => 'LIKE')
+            array(
+                'key' => 'available_countries', 
+                'value' => $country, 
+                'compare' => 'LIKE'
+            )
+        ),
+        'orderby' => 'available_countries',
     );
 
     $the_query = new WP_Query( $args );
@@ -281,6 +285,11 @@ function add_casino_menu() {
                             <li><p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></li>
                         </div>
                     <?php endwhile; ?>
+                    <div class="small-2 columns">
+                        <li>
+                            <p><a href="<?php echo get_home_url(); ?>"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
