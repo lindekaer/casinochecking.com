@@ -7,38 +7,46 @@ header.site-header {
   #menu-item-wpml-ls-2-en {
     margin-right: 10px;
   }
-
-  .casino-submenu {
-    visibility: hidden;
-    opacity: 0;
-    background: rgba(51, 50, 56, 0.97);
-    transition: 1s;
-    padding-bottom: 50px;
-    padding-top: 50px;
-
-    ul {
-      margin: 0 !important;
+  @include breakpoint(medium down){
+    .casino-submenu {
+      visibility: hidden;
+      opacity: 0;
     }
+  }
+  
+  @include breakpoint(large up){
+    .casino-submenu {
+      visibility: hidden;
+      opacity: 0;
+      background: rgba(51, 50, 56, 0.97);
+      transition: 1s;
+      padding-bottom: 50px;
+      padding-top: 50px;
 
-    li {
-      display: block;
-      padding: 0px 30px 20px 0px;
-      a {
-        font-size: 14px;
-        color: $light-gray;
-        &:hover {
-          text-decoration: underline;
-          transition: 0.3s;
+      ul {
+        margin: 0 !important;
+      }
+
+      li {
+        display: block;
+        padding: 0px 30px 20px 0px;
+        a {
+          font-size: 14px;
+          color: $light-gray;
+          &:hover {
+            text-decoration: underline;
+            transition: 0.3s;
+          }
         }
       }
     }
-  }
 
-  &.open-submenu {
-    .casino-submenu {
-      visibility: visible;
-      transition: 1s;
-      opacity: 1;
+    &.open-submenu {
+      .casino-submenu {
+        visibility: visible;
+        transition: 1s;
+        opacity: 1;
+      }
     }
   }
 
@@ -235,6 +243,7 @@ header.site-header {
     position: absolute;
     top: 49%;
     right: 10%;
+    z-index: 200;
   }
 
   .three {
@@ -300,24 +309,34 @@ header.site-header {
 
 .is-active.menu-mobile-header-container {
   opacity: 0.96 !important;
-  z-index: 70;
+  z-index: 59;
   overflow: hidden;
   visibility: visible !important;
   transition: opacity .3s ease, visibility 0s ease !important;
+
+  ul {
+    margin-left: 25px;
+    a {
+      color: $light-gray;
+      font-size: 30px;
+    }
+  }
 }
 
-.menu-overlay {
-  background: rgba(51, 50, 56, 0.5);
-  position: fixed;
-  top: 0px; right: 0px; bottom: 0px; left: 0px;
-  z-index: 51;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.open-submenu {
+@include breakpoint(large up){
   .menu-overlay {
-    opacity: 1 !important;
-    visibility: visible !important;
+    background: rgba(51, 50, 56, 0.5);
+    position: fixed;
+    top: 0px; right: 0px; bottom: 0px; left: 0px;
+    z-index: 51;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .open-submenu {
+    .menu-overlay {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
   }
 }
