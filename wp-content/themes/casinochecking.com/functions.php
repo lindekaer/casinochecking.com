@@ -9,16 +9,22 @@ ini_set('display_errors', 1);
  * @package checkmate
  */
 
+/*
+* Remove SEO by Yoast's canonical on archive casino
+*/
+
 add_filter( 'wpseo_canonical', 'yoast_remove_canonical_items' );
 function yoast_remove_canonical_items( $canonical ) {
   if(is_post_type_archive('casino')) {
     return false;
 }
-/* Use a second if statement here when needed */
-return $canonical; /* Do not remove this line */
+return $canonical; 
 }
 
-//remove hreflang from the source
+/*
+* Remove hreflangs from frontpage (archive casino) - instead it's hardcoded in the header
+*/
+
 add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
 function custom_lang_code($hreflang_items){
     if(is_post_type_archive('casino')){
@@ -36,11 +42,11 @@ add_filter( 'wpseo_next_rel_link', 'custom_remove_wpseo_next' );
 add_filter( 'wpseo_prev_rel_link', 'custom_remove_wpseo_prev' );
 
 function custom_remove_wpseo_next( $link ) {
-   if(is_post_type_archive('casino')) {
-      return false;
-  } else { 
-      return $link;
-  }
+ if(is_post_type_archive('casino')) {
+  return false;
+} else { 
+  return $link;
+}
 }
 function custom_remove_wpseo_prev( $link ) {
   if(is_post_type_archive('casino')) {
@@ -50,8 +56,9 @@ function custom_remove_wpseo_prev( $link ) {
   }
 }
 
-//$details = ip_details("$IPaddress");
-
+/*
+* Sets archive casino as frontpage
+*/
 add_action("pre_get_posts", "custom_front_page");
 function custom_front_page($wp_query){
     //Ensure this filter isn't applied to the admin area
@@ -70,9 +77,12 @@ function custom_front_page($wp_query){
     endif;
 }
 
+/*
+* Ajax showing available casinos based on user IP
+*/
+
 add_action('wp_ajax_nopriv_available_casino', 'available_casino');
 add_action('wp_ajax_available_casino', 'available_casino');
-
 
 function available_casino() {
     $country = $_POST['country'];
@@ -101,6 +111,10 @@ function available_casino() {
     die();
 
 }
+
+/*
+* Updates currency based on the users IP
+*/
 
 add_action('wp_ajax_nopriv_currency_update', 'currency_update');
 add_action('wp_ajax_currency_update', 'currency_update');
@@ -236,6 +250,10 @@ function currency_update() {
     die();
 }
 
+/*
+* Ajax, filter casinos
+*/
+
 add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
 add_action('wp_ajax_filter_casino', 'filter_casino');
 
@@ -278,16 +296,6 @@ function filter_casino() {
         }
         $args['meta_key'] = $sortType;
     }
-
-    /*if($filterArr['categories']) {
-        $trimmed_array = array_map('trim',$filterArr['categories']);
-        $query_vars_category = array (
-            'key' => 'categories_casino',
-            'value' => $trimmed_array,
-            'compare' => 'IN'
-        );
-        $args['meta_query'][] = $query_vars_category;
-    }*/
 
         //Available countries
     if($filterArr['country'] && $filterArr['country'] !== 'all') {
@@ -387,28 +395,18 @@ function filter_casino() {
         $args['meta_query'][] = $query_vars_score;
     }
 
-  //  echo '<pre>';
-  //  print_r($args);
-   //  echo '</pre>';
-
     $the_query = new WP_Query( $args );
     $count = $the_query->found_posts;
 
-   //echo $count;
-
-  /*  if($filterArr['country'] == NULL) {
-     echo '<h6 class="text-left">No available casinos in your country. Please adjust your search criterias.</h6>';
- }
-
- else */ if($filterArr['posts_per_page'] <= $count){
-    if($the_query->have_posts()) {
-     $i = 1;
-     while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-     <div class="small-12 columns">
-        <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-    </div>
-    <?php $i++;
-endwhile;
+    if($filterArr['posts_per_page'] <= $count){
+        if($the_query->have_posts()) {
+           $i = 1;
+           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+           <div class="small-12 columns">
+            <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+        </div>
+        <?php $i++;
+    endwhile;
 }
 else {
     echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';
@@ -420,6 +418,10 @@ else {
 wp_reset_query();
 die();
 }
+
+/*
+* Adding tabs in admin-dashboard for Advanced Custom Fields
+*/
 
 if (function_exists('acf_add_options_page')) {
 
@@ -455,6 +457,10 @@ if (function_exists('acf_add_options_page')) {
         'parent_slug' => 'theme-general-settings',
     ));
 }
+
+/*
+* Default setup
+*/
 
 if (!function_exists('checkmate_setup')) :
     /**
@@ -534,6 +540,10 @@ if (!function_exists('checkmate_setup')) :
 endif;
 add_action('after_setup_theme', 'checkmate_setup');
 
+/*
+* Adding post types
+*/
+
 function create_post_type()
 {
     register_post_type('casino',
@@ -576,25 +586,9 @@ function checkmate_content_width()
 
 add_action('after_setup_theme', 'checkmate_content_width', 0);
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function checkmate_widgets_init()
-{
-    register_sidebar(array(
-        'name' => esc_html__('Sidebar', 'checkmate'),
-        'id' => 'sidebar-1',
-        'description' => esc_html__('Add widgets here.', 'checkmate'),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
-    ));
-}
-
-add_action('widgets_init', 'checkmate_widgets_init');
+/*
+* Accepting SVG to media library
+*/
 
 function accept_svg($mimes)
 {
@@ -671,12 +665,18 @@ if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
 }
 
-//Image crop
+/*
+* Image crop
+*/
 add_image_size( 'logo-casino-content', 400, 400, true );
 add_image_size( 'logo-casino-archive', 260, 50, true );
 add_image_size( 'logo-blog-archive', 400, 300, true );
 add_image_size( 'bg-img', 2293, 9999);
 add_image_size( 'flexible-content', 2000, 788, true);
+
+/*
+* Google Analytics tracking script
+*/
 
 add_action('wp_head', 'add_google_analytics');
 function add_google_analytics() { ?>
@@ -691,14 +691,16 @@ function add_google_analytics() { ?>
 </script>
 <?php }
 
-/*Admin*/
+/*
+* Admin login styling
+*/
 function login_logo()
 {
     ?>
     <style type="text/css">
     body.login div#login h1 a {
         background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);
-        / / Add your own logo image in this url padding-bottom: 30 px;
+        padding-bottom: 30px;
         background-size: 100%;
         width: 320px;
         height: 240px;
@@ -709,11 +711,15 @@ function login_logo()
 
 add_action('login_enqueue_scripts', 'login_logo');
 
-//Remove Emoji
+/*
+* Remove default emoji script
+*/
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-//For Yoast SEO
+/*
+* SEO by Yoast adjustments
+*/
 function filter_wpseo_replacements( $replacements ) {
     if( isset( $replacements['%%cf_up_to_signup%%'] ) ){
         $replacements['%%cf_up_to_signup%%'] = round($replacements['%%cf_up_to_signup%%']);
@@ -723,14 +729,18 @@ function filter_wpseo_replacements( $replacements ) {
     }
     return $replacements;
 };
-// Add filter
+
 add_filter( 'wpseo_replacements', 'filter_wpseo_replacements', 10, 1 );
 
-//Disallow edit from backend 
+/*
+* Disallow editing from backend
+*/
 define( 'DISALLOW_FILE_EDIT', true );
 
 
-// Disable support for comments and trackbacks in post types
+/*
+* Disable comments to avoid spam
+*/
 function df_disable_comments_post_types_support() {
     $post_types = get_post_types();
     foreach ($post_types as $post_type) {

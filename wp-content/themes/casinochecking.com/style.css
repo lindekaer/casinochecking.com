@@ -2287,6 +2287,15 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .medium-gray { color: #cacaca; }
 
+@media screen and (max-width: 39.9375em) { .error404 section .mobile-bg { height: 80vw; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; } }
+
+.error404 section h1 { color: #ffffff; text-align: center; font-weight: 900; }
+
+@media screen and (min-width: 40em) { .error404 section .mobile-bg { background-image: none !important; }
+  .error404 section.bg-img { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; -ms-flex-pack: center; justify-content: center; height: 100vh; background-attachment: fixed !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-attachment: scroll; -ms-transform: none !important; transform: none !important; } }
+
+@media screen and (max-width: 39.9375em) { .error404 section.bg-img { background-image: none !important; } }
+
 /*Partials*/
 header.site-header { position: fixed; height: 60px; top: 0; width: 100%; }
 

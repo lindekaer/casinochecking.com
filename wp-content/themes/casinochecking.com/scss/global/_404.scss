@@ -1,0 +1,50 @@
+.error404 {
+	section {
+		@include breakpoint (small only) {
+			.mobile-bg {
+				height: 80vw;
+				width: 100%;
+				min-width: 100%;
+				background-position: center !important;
+				background-repeat: no-repeat !important;
+				background-size: cover !important;
+				background-attachment: scroll;
+				transform: none !important;
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		h1 {
+			color: $white;
+			text-align: center;
+			font-weight: 900;
+		}
+
+		@include breakpoint (medium up) {
+			.mobile-bg {
+				background-image: none !important;
+			}
+			&.bg-img {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				background-attachment: fixed !important;
+				width: 100%;
+				min-width: 100%;
+				background-position: center !important;
+				background-repeat: no-repeat !important;
+				background-size: cover !important;
+				background-attachment: scroll;
+				transform: none !important;
+			}
+		}
+
+		@include breakpoint (small only) {
+			&.bg-img {
+				background-image: none !important;
+			}
+		}
+	}
+}
