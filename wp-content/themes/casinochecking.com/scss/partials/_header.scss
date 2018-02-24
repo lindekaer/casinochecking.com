@@ -20,8 +20,9 @@ header.site-header {
       opacity: 0;
       background: rgba(51, 50, 56, 0.97);
       transition: 1s;
-      padding-bottom: 50px;
+      padding-bottom: 30px;
       padding-top: 50px;
+      border-top: 1px solid #3f3e46;
 
       ul {
         margin: 0 !important;

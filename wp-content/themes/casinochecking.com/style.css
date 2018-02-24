@@ -2299,7 +2299,7 @@ header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
 @media screen and (max-width: 63.9375em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; } }
 
-@media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.97); transition: 1s; padding-bottom: 50px; padding-top: 50px; }
+@media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.97); transition: 1s; padding-bottom: 30px; padding-top: 50px; border-top: 1px solid #3f3e46; }
   header.site-header .casino-submenu ul { margin: 0 !important; }
   header.site-header .casino-submenu li { display: block; padding: 0px 30px 20px 0px; }
   header.site-header .casino-submenu li a { font-size: 14px; color: #eee; }
