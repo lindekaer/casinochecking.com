@@ -1,5 +1,5 @@
 <div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up margin-top-fp">
-	<div class="casino-sidebar">
+	<div class="casino-sidebar sidebar-padding-bottom">
 		<?php include(locate_template('template-parts/parts/content-country.php')); ?>
 		<?php
 		if(get_field('activate_category', 'options')): 
@@ -59,4 +59,5 @@
 		<p><?php echo _e('Reset search', 'checkmate'); ?></p>
 	</div>
 </div>
+<?php get_sidebar(); ?>
 </div>

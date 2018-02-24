@@ -20,6 +20,10 @@
   background-repeat: no-repeat;
 }
 
+.sidebar-padding-bottom {
+  padding-bottom: 40px;
+}
+
 .wrapper-casino-comparison {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -39,7 +43,13 @@
     }
   }
 }
-.favorites {
+.most-read {
+  p {
+    padding-bottom: 15px;
+  }
+}
+
+.favorites, .most-read {
   &.padding-top-sidebar {
     @include breakpoint(large up){
       padding-top: 40px;  
@@ -48,6 +58,13 @@
   .align-middle {
     display: flex;
     align-items: center;
+  }
+
+  a {
+    color: $medium-gray;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   img {
@@ -85,7 +102,6 @@
   p {
     color: $medium-gray;
     display: inline-block;
-    text-transform: uppercase;
   }
 }
 .border-bottom {
@@ -96,6 +112,7 @@
 
 .padding-sidebar-bottom:last-child {
   padding-bottom: 40px;
+  border-bottom: 0;
 }
 
 .padding-sidebar-bottom {

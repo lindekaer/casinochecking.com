@@ -39,6 +39,7 @@ function initializePage() {
         singleCasinoCurrency();
         singleCasinoAvailability();
     }
+    add_casino_sidebar();
 }
 
 function singleCasinoCurrency(){
@@ -185,9 +186,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -248,19 +249,19 @@ function initDom() {
             // faq toggle
             $('.faq-element').click(function(){
                 if($(this).find('.plus-faq').hasClass('active-icon')){
-                 $(this).find('.plus-faq').removeClass('active-icon');
-                 $(this).find('.minus-faq').addClass('active-icon');
-                 console.log('plus-faq active')
-             }
+                   $(this).find('.plus-faq').removeClass('active-icon');
+                   $(this).find('.minus-faq').addClass('active-icon');
+                   console.log('plus-faq active')
+               }
 
-             else if ($(this).find('.minus-faq').hasClass('active-icon')){
-                 $(this).find('.minus-faq').removeClass('active-icon')
-                 $(this).find('.plus-faq').addClass('active-icon')
-                 console.log('minsu-faq active')
-             }
+               else if ($(this).find('.minus-faq').hasClass('active-icon')){
+                   $(this).find('.minus-faq').removeClass('active-icon')
+                   $(this).find('.plus-faq').addClass('active-icon')
+                   console.log('minsu-faq active')
+               }
 
-             $(this).find('.desc-wrapper .desc p').slideToggle();
-         });
+               $(this).find('.desc-wrapper .desc p').slideToggle();
+           });
 
 
             showDescCasino();
@@ -329,9 +330,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -561,7 +562,7 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-         if (metrics.hasOwnProperty(type)) {
+           if (metrics.hasOwnProperty(type)) {
             var metric = metrics[type];
             metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
             metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
@@ -673,15 +674,15 @@ function loadCasino(data) {
                // infiniteScroll();
            },
            error: function(errorThrown){
-               console.log(errorThrown);
-           } 
-       });
+             console.log(errorThrown);
+         } 
+     });
 }
 
 function add_casino_menu() {
     var site_url = site_vars.site_url + '/';
     var site_url_casino = site_vars.site_url + '/casino/';
-    
+
     var site_url_dk = site_vars.site_url + '/da/';
     var site_url_casino_dk = site_vars.site_url + '/da/casino/';
     var country = $('body').attr('data-user-country');
@@ -694,8 +695,12 @@ function add_casino_menu() {
     var data = {
         action: 'add_casino_menu',
         country: country,
+        type: 'menu'
     } 
+    ajax_add_casino_menu(data);
+}
 
+function ajax_add_casino_menu(data){
     $.ajax({
         url: site_vars.ajax_url,
         type: 'post',
@@ -711,13 +716,43 @@ function add_casino_menu() {
 
             $('.menu-overlay').click(function(){
                $('header').toggleClass('open-submenu'); 
-            });
+           });
         },
         error: function(errorThrown){
            console.log(errorThrown);
        } 
    });
 }
+
+function add_casino_sidebar() {
+    if($('.favorites').length){
+        var type = 'sidebar';
+        var country = $('body').attr('data-user-country');
+
+        var data = {
+            action: 'add_casino_menu',
+            country: country,
+            type: type
+        } 
+        ajax_add_casino_sidebar(data);
+    }
+}
+
+function ajax_add_casino_sidebar(data){
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function(result) {
+            console.log(result)
+            $('.favorites-teaser').html(result);
+        },
+        error: function(errorThrown){
+           console.log(errorThrown);
+       } 
+   });
+}
+
 
 function updateDeepLink(usersCountry) {
 

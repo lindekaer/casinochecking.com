@@ -2070,7 +2070,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
   to { opacity: 1;
     transform: translatey(0); } }
 
-#fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 2.6s; animation-delay: 0s; }
+.fade-in { opacity: 0; animation: fadeIn ease-in 1; animation-fill-mode: forwards; animation-duration: 2.6s; animation-delay: 0s; }
 
 .slide-up { opacity: 0; animation-delay: 0.4s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 2s; animation-fill-mode: both; -webkit-animation-duration: 2s; -webkit-animation-fill-mode: both; }
 
@@ -2403,6 +2403,8 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 #countrySelect { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 8px 12px; text-overflow: ellipsis; white-space: nowrap; width: 100%; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-position: calc(100% - 15px) calc(1em), calc(100% - 10px) calc(1em); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
 
+.sidebar-padding-bottom { padding-bottom: 40px; }
+
 .wrapper-casino-comparison { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 @media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 60px; position: relative; } }
@@ -2411,35 +2413,41 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 @media screen and (min-width: 64em) { .wrapper-casino-comparison .large-disable-padding { padding-right: 0; padding-left: 0; } }
 
-@media screen and (min-width: 64em) { .favorites.padding-top-sidebar { padding-top: 40px; } }
+.most-read p { padding-bottom: 15px; }
 
-.favorites .align-middle { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
+@media screen and (min-width: 64em) { .favorites.padding-top-sidebar, .most-read.padding-top-sidebar { padding-top: 40px; } }
 
-.favorites img { width: 20%; max-width: 20px; height: auto; }
+.favorites .align-middle, .most-read .align-middle { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 
-.favorites h4 { color: #cacaca; }
+.favorites a, .most-read a { color: #cacaca; }
 
-.favorites h5 { color: #cacaca; }
+.favorites a:hover, .most-read a:hover { text-decoration: underline; }
 
-.favorites .our_score { text-align: right; }
+.favorites img, .most-read img { width: 20%; max-width: 20px; height: auto; }
 
-.favorites .our_score p { width: 100%; }
+.favorites h4, .most-read h4 { color: #cacaca; }
 
-.favorites .heading { text-align: left; }
+.favorites h5, .most-read h5 { color: #cacaca; }
 
-.favorites .fav-casino:last-of-type { padding-bottom: 0; }
+.favorites .our_score, .most-read .our_score { text-align: right; }
 
-.favorites .fav-casino { padding-bottom: 20px; }
+.favorites .our_score p, .most-read .our_score p { width: 100%; }
 
-.favorites .fav-casino .score-count { font-size: 20px; }
+.favorites .heading, .most-read .heading { text-align: left; }
 
-.favorites .fav-casino p { color: #cacaca; display: inline-block; text-transform: uppercase; }
+.favorites .fav-casino:last-of-type, .most-read .fav-casino:last-of-type { padding-bottom: 0; }
 
-@media screen and (min-width: 64em) { .favorites .border-bottom { border-bottom: 1px dotted #393939; } }
+.favorites .fav-casino, .most-read .fav-casino { padding-bottom: 20px; }
 
-.favorites .padding-sidebar-bottom:last-child { padding-bottom: 40px; }
+.favorites .fav-casino .score-count, .most-read .fav-casino .score-count { font-size: 20px; }
 
-.favorites .padding-sidebar-bottom { padding-bottom: 20px; }
+.favorites .fav-casino p, .most-read .fav-casino p { color: #cacaca; display: inline-block; }
+
+@media screen and (min-width: 64em) { .favorites .border-bottom, .most-read .border-bottom { border-bottom: 1px dotted #393939; } }
+
+.favorites .padding-sidebar-bottom:last-child, .most-read .padding-sidebar-bottom:last-child { padding-bottom: 40px; border-bottom: 0; }
+
+.favorites .padding-sidebar-bottom, .most-read .padding-sidebar-bottom { padding-bottom: 20px; }
 
 .casino-sidebar .reset-filter p { cursor: pointer; text-transform: uppercase; text-align: center; font-size: 12px; padding-top: 12px; }
 

@@ -32,7 +32,7 @@ session_start();
 </head>
 <?php
 ?>
-<body <?php body_class(); ?> id="fade-in" data-user-country="">
+<body <?php body_class('fade-in'); ?>>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8T2B4D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
