@@ -2299,9 +2299,9 @@ header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
 header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.93); transition: 1s; padding-bottom: 50px; padding-top: 50px; }
 
-header.site-header .casino-submenu li:first-of-type { padding-left: 0; }
+header.site-header .casino-submenu ul { margin: 0 !important; }
 
-header.site-header .casino-submenu li { padding-right: 0 2px; display: inline-block; }
+header.site-header .casino-submenu li { display: block; }
 
 header.site-header .casino-submenu li a { font-size: 14px; color: #eee; }
 

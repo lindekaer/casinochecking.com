@@ -15,14 +15,13 @@ header.site-header {
     transition: 1s;
     padding-bottom: 50px;
     padding-top: 50px;
-    
-    li:first-of-type {
-      padding-left: 0;
+
+    ul {
+      margin: 0 !important;
     }
 
     li {
-      padding-right: 0 2px;
-      display: inline-block;
+      display: block;
       a {
         font-size: 14px;
         color: $light-gray;
