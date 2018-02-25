@@ -662,14 +662,11 @@ function add_casino_menu() {
     var site_url = site_vars.site_url + '/';
     var site_url_casino = site_vars.site_url + '/casino/';
 
-    var site_url_dk = site_vars.site_url + '/da/';
-    var site_url_casino_dk = site_vars.site_url + '/da/casino/';
+    console.log(site_url);
     var country = $('body').attr('data-user-country');
     $('.site-navigation li a').each(function(){
-        if(!$(this).parent().find('.wpml-ls-item').length){
-            if($(this).attr('href') == site_url || $(this).attr('href') == site_url_casino || $(this).attr('href') == site_url_casino_dk || $(this).attr('href') == site_url_dk){
-                $(this).addClass('has-submenu');
-            }
+        if($(this).attr('href') == site_url || $(this).attr('href') == site_url_casino){
+            $(this).addClass('has-submenu');
         }
     });
 

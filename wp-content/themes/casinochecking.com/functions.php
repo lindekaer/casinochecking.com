@@ -285,6 +285,7 @@ function add_casino_menu() {
    }
 
    $the_query = new WP_Query( $args );
+  //$my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 
    if($the_query->have_posts()):?>
    <?php if($type == 'menu'): ?>
@@ -299,7 +300,7 @@ function add_casino_menu() {
                     <?php endwhile; ?>
                     <div class="small-2 columns">
                         <li>
-                            <p><a href="<?php echo get_home_url(); ?>"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
+                            <p><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
                         </li>
                     </div>
                 </ul>
@@ -697,7 +698,7 @@ function checkmate_scripts() {
     wp_localize_script( 'checkmate-scripts', 'site_vars', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         'theme_url' => get_template_directory_uri(),
-        'site_url' => get_option('siteurl')
+        'site_url' => get_home_url()
     ));
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
