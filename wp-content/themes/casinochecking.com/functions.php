@@ -283,7 +283,7 @@ function add_casino_menu() {
        $args['orderby'] = 'title';
        $args['order']   = 'ASC';
    }
-   
+
    $the_query = new WP_Query( $args );
 
    if($the_query->have_posts()):?>
@@ -625,6 +625,7 @@ function create_post_type()
             ),
             'public' => true,
             'has_archive' => true,
+            'supports' => array( 'title', 'revisions' ),
             'dash-icon' => 'dashicons-chart-area',
         )
     );
@@ -638,6 +639,7 @@ function create_post_type()
             'public' => true,
             'has_archive' => true,
             'dash-icon' => 'dashicons-chart-area',
+            'supports' => array( 'title', 'revisions' ),
         )
     );
 }
