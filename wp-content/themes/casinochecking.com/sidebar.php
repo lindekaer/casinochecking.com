@@ -19,7 +19,7 @@
  		<div class="row">
  			<div class="small-12 columns large-disable-padding sidebar-padding-bottom">
  				<div class="most-read">
- 					<h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('Most popular acticles', 'checkmate'); ?></h5>
+ 					<h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('Popular acticles', 'checkmate'); ?></h5>
  					<?php while ($the_query_blog->have_posts()) : $the_query_blog->the_post(); ?>
  						<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
  					<?php endwhile;?>
@@ -32,7 +32,7 @@
  	 	<div class="row">
  		<div class="small-12 columns large-disable-padding sidebar-padding-bottom">
  			<div class="favorites">
- 				<h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('Newest casino bonuses', 'checkmate'); ?></h5>
+ 				<h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('New bonuses', 'checkmate'); ?></h5>
  				<div class="favorites-teaser">
  				</div>
  			</div>
