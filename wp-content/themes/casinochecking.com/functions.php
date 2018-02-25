@@ -300,7 +300,7 @@ function add_casino_menu() {
                     <?php endwhile; ?>
                     <div class="small-2 columns">
                         <li>
-                            <p><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
+                            <p><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
                         </li>
                     </div>
                 </ul>
