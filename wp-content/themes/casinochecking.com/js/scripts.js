@@ -666,7 +666,7 @@ function add_casino_menu() {
     var site_url_casino_dk = site_vars.site_url + '/da/casino/';
     var country = $('body').attr('data-user-country');
     $('.site-navigation li a').each(function(){
-        if($(this).parent().not('.wpml-ls-item')){
+        if(!$(this).parent().find('.wpml-ls-item').length){
             if($(this).attr('href') == site_url || $(this).attr('href') == site_url_casino || $(this).attr('href') == site_url_casino_dk || $(this).attr('href') == site_url_dk){
                 $(this).addClass('has-submenu');
             }
