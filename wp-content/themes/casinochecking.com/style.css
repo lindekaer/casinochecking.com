@@ -2000,9 +2000,15 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .single-blog h1.content-casino, .single-casino h1.content-casino { color: #e65352; }
 
-@media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 20px; } }
+@media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 26px; line-height: 26px; } }
 
-@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 16px; } }
+@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 20px; line-height: 20px; } }
+
+.single-blog h2, .single-casino h2 { text-align: left; color: #3f3e46; font-family: 'Cormorant Garamond'; }
+
+@media screen and (min-width: 40em) { .single-blog h2, .single-casino h2 { font-size: 22px; line-height: 22px; } }
+
+@media screen and (max-width: 39.9375em) { .single-blog h2, .single-casino h2 { font-size: 16px; line-height: 16px; } }
 
 @media screen and (max-width: 63.9375em) { .single-blog section.type-casino, .single-blog section.type-blog, .single-casino section.type-casino, .single-casino section.type-blog { padding-bottom: 15px; } }
 

@@ -12,10 +12,26 @@
   h1.content-casino {
     color: $slider-red; 
     @include breakpoint(medium up){
+      font-size: 26px;
+      line-height: 26px;
+    }
+    @include breakpoint(small only){
       font-size: 20px;
+      line-height: 20px;
+    }
+  }
+
+  h2 {
+    text-align: left;
+    color: $black;
+    font-family: 'Cormorant Garamond'; 
+    @include breakpoint(medium up){
+      font-size: 22px;
+      line-height: 22px;
     }
     @include breakpoint(small only){
       font-size: 16px;
+      line-height: 16px;
     }
   }
 
@@ -117,11 +133,11 @@
 
   .desc {
     @include breakpoint(small only){
-    padding-top: 10px;
+      padding-top: 10px;
     }
-   @include breakpoint(medium up){
-    padding-top: 25px;
-   } 
+    @include breakpoint(medium up){
+      padding-top: 25px;
+    } 
     padding-bottom: 40px;
   }
 
