@@ -62,6 +62,6 @@ session_start();
             </div>
             <div class="casino-submenu"></div>
         </header><!-- #masthead -->
-        
+        <div class="menu-overlay"></div>
         <?php wp_nav_menu( array( 'theme_location' => 'mobile-header' ) ); ?>
         <div id="content" class="site-content">

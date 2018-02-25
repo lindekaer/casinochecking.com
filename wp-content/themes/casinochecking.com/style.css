@@ -2299,16 +2299,16 @@ header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
 @media screen and (max-width: 63.9375em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; } }
 
+header.site-header.scroll-active, .open-submenu header.site-header { background: rgba(51, 50, 56, 0.97); transition: 1s; }
+
 @media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.97); transition: 1s; padding-bottom: 30px; padding-top: 50px; border-top: 1px solid #3f3e46; }
   header.site-header .casino-submenu ul { margin: 0 !important; }
   header.site-header .casino-submenu li { display: block; padding: 0px 30px 20px 0px; }
   header.site-header .casino-submenu li a { font-size: 14px; color: #eee; }
   header.site-header .casino-submenu li a:hover { text-decoration: underline; transition: 0.3s; }
-  header.site-header.open-submenu .casino-submenu { visibility: visible; transition: 1s; opacity: 1; } }
+  .open-submenu header.site-header .casino-submenu { visibility: visible; transition: 1s; opacity: 1; } }
 
 header.site-header .wpml-ls-menu-item .wpml-ls-flag { width: auto; height: 14px; }
-
-header.site-header.scroll-active, header.site-header.open-submenu { background: rgba(51, 50, 56, 0.97); transition: 1s; }
 
 header.site-header .logo-link { display: block; height: 60px; position: relative; }
 
@@ -2396,7 +2396,7 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .is-active.menu-mobile-header-container ul a { color: #eee; font-size: 30px; }
 
-@media screen and (min-width: 64em) { .menu-overlay { background: rgba(51, 50, 56, 0.5); position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: 51; opacity: 0; visibility: hidden; }
+@media screen and (min-width: 64em) { .menu-overlay { background: rgba(51, 50, 56, 0.3); position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: 51; opacity: 0; cursor: pointer; visibility: hidden; }
   .open-submenu .menu-overlay { opacity: 1 !important; visibility: visible !important; } }
 
 .casino-sidebar { padding-right: 20px; padding-left: 20px; }

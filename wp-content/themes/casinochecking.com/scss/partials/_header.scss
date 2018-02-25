@@ -13,6 +13,11 @@ header.site-header {
       opacity: 0;
     }
   }
+
+  &.scroll-active, .open-submenu & {
+    background: rgba(51, 50, 56, 0.97);
+    transition: 1s;
+  }
   
   @include breakpoint(large up){
     .casino-submenu {
@@ -42,7 +47,7 @@ header.site-header {
       }
     }
 
-    &.open-submenu {
+    .open-submenu & {
       .casino-submenu {
         visibility: visible;
         transition: 1s;
@@ -56,11 +61,6 @@ header.site-header {
       width: auto;
       height: 14px;
     }
-  }
-
-  &.scroll-active, &.open-submenu {
-    background: rgba(51, 50, 56, 0.97);
-    transition: 1s;
   }
 
   .logo-link {
@@ -326,16 +326,15 @@ header.site-header {
 
 @include breakpoint(large up){
   .menu-overlay {
-    background: rgba(51, 50, 56, 0.5);
+    background: rgba(51, 50, 56, 0.3);
     position: fixed;
     top: 0px; right: 0px; bottom: 0px; left: 0px;
     z-index: 51;
     opacity: 0;
-    visibility: hidden;
-  }
+    cursor: pointer;
+    visibility: hidden;;
 
-  .open-submenu {
-    .menu-overlay {
+    .open-submenu & {
       opacity: 1 !important;
       visibility: visible !important;
     }

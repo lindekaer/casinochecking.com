@@ -42,11 +42,11 @@ add_filter( 'wpseo_next_rel_link', 'custom_remove_wpseo_next' );
 add_filter( 'wpseo_prev_rel_link', 'custom_remove_wpseo_prev' );
 
 function custom_remove_wpseo_next( $link ) {
- if(is_post_type_archive('casino')) {
-  return false;
-} else { 
-  return $link;
-}
+   if(is_post_type_archive('casino')) {
+      return false;
+  } else { 
+      return $link;
+  }
 }
 function custom_remove_wpseo_prev( $link ) {
   if(is_post_type_archive('casino')) {
@@ -280,16 +280,16 @@ function add_casino_menu() {
     }
 
     elseif ($type == 'menu') {
-       $args['orderby'] = 'title';
-       $args['order']   = 'ASC';
-   }
+     $args['orderby'] = 'title';
+     $args['order']   = 'ASC';
+ }
 
-   $the_query = new WP_Query( $args );
-  $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+ $the_query = new WP_Query( $args );
+ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 
-   if($the_query->have_posts()):?>
-   <?php if($type == 'menu'): ?>
-       <div class="container">
+ if($the_query->have_posts()):?>
+ <?php if($type == 'menu'): ?>
+     <div class="container">
         <div class="row">
             <div class="small-12 columns">
                 <ul class="row">
@@ -472,9 +472,9 @@ function filter_casino() {
 
     if($filterArr['posts_per_page'] <= $count){
         if($the_query->have_posts()) {
-           $i = 1;
-           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="small-12 columns">
+         $i = 1;
+         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+         <div class="small-12 columns">
             <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
         </div>
         <?php $i++;

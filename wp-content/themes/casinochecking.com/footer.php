@@ -142,7 +142,6 @@ wp_reset_query();
 </div>
 </div>
 </footer><!-- #colophon -->
-<div class="menu-overlay"></div>
 <?php include(locate_template('template-parts/parts/cookiebanner.php')); ?>
 </div><!-- #page -->
 
