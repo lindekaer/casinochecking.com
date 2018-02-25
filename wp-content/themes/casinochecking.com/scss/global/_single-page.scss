@@ -11,6 +11,7 @@
   }
   h1.content-casino {
     color: $slider-red; 
+    margin-bottom: 6px;
     @include breakpoint(medium up){
       font-size: 26px;
       line-height: 26px; 
@@ -20,18 +21,21 @@
       line-height: 20px;
     }
   }
-
-  h2 {
-    text-align: left;
-    color: $black;
-    font-family: 'Cormorant Garamond'; 
-    @include breakpoint(medium up){
-      font-size: 22px;
-      line-height: 22px;
-    }
-    @include breakpoint(small only){
-      font-size: 16px;
-      line-height: 16px;
+  
+  .desc {
+    h2 {
+      margin-bottom: 6px;
+      text-align: left;
+      color: $black;
+      font-family: 'Cormorant Garamond'; 
+      @include breakpoint(medium up){
+        font-size: 20px;
+        line-height: 20px;
+      }
+      @include breakpoint(small only){
+        font-size: 16px;
+        line-height: 16px;
+      }
     }
   }
 

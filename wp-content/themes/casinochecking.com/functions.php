@@ -640,7 +640,7 @@ function create_post_type()
             'public' => true,
             'has_archive' => true,
             'dash-icon' => 'dashicons-chart-area',
-            'supports' => array( 'title', 'revisions' ),
+            'supports' => array( 'title', 'revisions', 'editor' ),
         )
     );
 }
