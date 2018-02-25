@@ -659,8 +659,8 @@ function loadCasino(data) {
 }
 
 function add_casino_menu() {
-    var site_url = site_vars.site_url + '/';
-    var site_url_casino = site_vars.site_url + '/casino/';
+    var site_url = site_vars.site_url;
+    var site_url_casino = site_vars.site_url + 'casino/';
 
     console.log(site_url);
     var country = $('body').attr('data-user-country');
