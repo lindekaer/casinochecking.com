@@ -285,7 +285,7 @@ function add_casino_menu() {
    }
 
    $the_query = new WP_Query( $args );
-  //$my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+  $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 
    if($the_query->have_posts()):?>
    <?php if($type == 'menu'): ?>
@@ -300,7 +300,7 @@ function add_casino_menu() {
                     <?php endwhile; ?>
                     <div class="small-2 columns">
                         <li>
-                            <p><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
+                            <p><a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
                         </li>
                     </div>
                 </ul>
