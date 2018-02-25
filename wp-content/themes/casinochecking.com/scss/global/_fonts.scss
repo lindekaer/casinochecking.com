@@ -14,6 +14,15 @@ p {
 
 .cursive-headline {
   font-family: 'Cormorant Garamond';
+  .wrapper-casino-comparison & {
+    @include breakpoint(small only){
+      text-align: center;
+      padding-bottom: 15px;
+    }
+    @include breakpoint(large up){
+      text-align: left;
+    }
+  }
 }
 
 a:hover, a:focus {

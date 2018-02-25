@@ -3,23 +3,6 @@
   padding-left: 20px;
 }
 
-#countrySelect {
-  -webkit-appearance: button;
-  border: 1px solid #cacaca;
-  color: $dark-gray;
-  text-transform: uppercase;
-  font-size: 12px;
-  overflow: hidden;
-  padding: 8px 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%);
-  background-position: calc(100% - 15px) calc(1em), calc(100% - 10px) calc(1em);
-  background-size: 5px 5px, 5px 5px, 5px 1.5em;
-  background-repeat: no-repeat;
-}
-
 .sidebar-padding-bottom {
   padding-bottom: 40px;
 }
@@ -62,6 +45,9 @@
 
   a {
     color: $medium-gray;
+  }
+
+  .casino-name {
     &:hover {
       text-decoration: underline;
     }
@@ -91,11 +77,19 @@
   text-align: left;
 }
 
-.fav-casino:last-of-type {
-  padding-bottom: 0;
+.recommendations {
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 }
 .fav-casino {
-  padding-bottom: 20px;
   .score-count {
     font-size: 20px;
   }

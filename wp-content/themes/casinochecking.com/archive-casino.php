@@ -22,17 +22,14 @@ $casinoImg = get_field('casino_img', 'options')['sizes']['bg-img'];
 			<?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
 			<div class="small-12 medium-8 margin-top-fp bg-gray columns wrapper-casino-comparison slide-up z-index-medium hidden-overflow">
 				<div class="container">
-					<div class="row align-middle padding-bottom">
-						<div class="small-12 large-6">
-							<h4 class="headline-casino-h4"><?php the_field('heading_casino_comparison', 'options'); ?></h4>
+					<div class="row">
+						<div class="small-12">
+							<h2 class="cursive-headline text-left"><?php the_field('heading_casino_comparison', 'options'); ?></h2>
 						</div>
-						<div class="small-12 large-6 columns align-right filter-wrapper">
-							<div class="row full-width">
-								<div class="show-for-small-only country small-6 margin-mobile">
-									<?php include(locate_template('template-parts/parts/content-country-mobile.php')); ?>
-								</div>
-								<div class="selected-currency small-6 medium-3">
-									<div class="naming-casino margin-mobile"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
+						<div class="small-12 align-right filter-wrapper columns">
+							<div class="row">
+								<div class="selected-currency small-6 medium-2 medium-offset-5 filter-padding">
+									<div class="naming-casino margin-mobile show-for-small-only"><p><?php echo _e('Currency', 'checkmate'); ?></p></div>
 									<select id="currencySelect" class="float-left-mobile">
 										<option value="USD" data-currency="$">USD ($)</option>
 										<option value="EUR" data-currency="€">EUR (€)</option>
@@ -41,11 +38,15 @@ $casinoImg = get_field('casino_img', 'options')['sizes']['bg-img'];
 										<option value="NOK" data-currency="NOK">NOK</option>
 									</select>
 								</div>
-								<div class="sorting hide-for-small-only medium-9">
-									<div class="naming-casino"><p><?php echo _e('SORT BY', 'checkmate'); ?></p></div>
-									<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
-									<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
-									<p class="filter-deposit filter" data-filter="minimum_deposit"><?php echo _e('Deposit', 'checkmate'); ?></p>
+								<div class="small-6 medium-3 filter-padding">
+									<?php include(locate_template('template-parts/parts/content-country.php')); ?>
+								</div>
+								<div class="sorting hide-for-small-only medium-2 filter-padding align-middle-center">
+									<div>
+										<p class="filter-score filter active-sort" data-filter="our_score"><?php echo _e('Score', 'checkmate'); ?></p>
+										<p class="filter-bonus filter" data-filter="signup_bonus"><?php echo _e('Bonus', 'checkmate'); ?></p>
+										<!-- <p class="filter-deposit filter" data-filter="minimum_deposit"><?php //echo _e('Deposit', 'checkmate'); ?></p> -->
+									</div>
 								</div>
 							</div>
 						</div>

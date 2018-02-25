@@ -1409,7 +1409,7 @@ p, .p { font-size: 0.875rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5
   p, .p { font-size: 0.875rem; } }
 
 @media print, screen and (min-width: 64em) { h1, .h1 { font-size: 2.75rem; }
-  h2, .h2 { font-size: 2.5rem; }
+  h2, .h2 { font-size: 2.1875rem; }
   h3, .h3 { font-size: 1.9375rem; }
   h4, .h4 { font-size: 1.5625rem; }
   h5, .h5 { font-size: 1.25rem; }
@@ -1882,6 +1882,10 @@ p:hover { color: #636363; }
 
 .cursive-headline { font-family: 'Cormorant Garamond'; }
 
+@media screen and (max-width: 39.9375em) { .wrapper-casino-comparison .cursive-headline { text-align: center; padding-bottom: 15px; } }
+
+@media screen and (min-width: 64em) { .wrapper-casino-comparison .cursive-headline { text-align: left; } }
+
 a:hover, a:focus { color: #3f3e46; }
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-align: center; margin: 0; }
@@ -1912,11 +1916,11 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .read-more-btn { font-size: 12px; }
 
-.filter-wrapper { display: -ms-inline-flexbox; display: inline-flex; }
+.filter-wrapper { padding-bottom: 15px; }
 
 .filter-wrapper p:first-child { padding-left: 0; }
 
-.filter-wrapper p { padding-left: 4px; text-transform: uppercase; font-size: 11px; }
+.filter-wrapper p { text-transform: uppercase; font-size: 10px; }
 
 @media screen and (max-width: 39.9375em) { .selected-currency, .sorting { width: 50%; }
   .sorting { text-align: right; margin-top: 20px; } }
@@ -1926,13 +1930,11 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 @media screen and (min-width: 40em) and (min-width: 40em) { .welcome-row .welcome-text h1 { font-size: 2.5rem; } }
 
-#currencySelect, #countrySelect-mobile { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 4px 8px; text-overflow: ellipsis; white-space: nowrap; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
-
-@media screen and (min-width: 40em) { #currencySelect, #countrySelect-mobile { width: 76px; background-position: calc(100% - 10px) calc(1em + -3px), calc(100% - 6px) calc(1em + -3px); } }
-
-@media screen and (max-width: 39.9375em) { #currencySelect, #countrySelect-mobile { width: 90%; padding: 8px; background-position: calc(100% - 10px) calc(1em + 0px), calc(100% - 5px) calc(1em + 0px); } }
-
 @media screen and (max-width: 39.9375em) { .margin-mobile p { margin-bottom: 5px; } }
+
+.filter-padding { padding-left: 10px; }
+
+#countrySelect, #currencySelect { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 10px; overflow: hidden; padding: 8px 12px; text-overflow: ellipsis; white-space: nowrap; width: 100%; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-position: calc(100% - 15px) calc(12px), calc(100% - 10px) calc(12px); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
 
 .filter { cursor: pointer; display: inline-block; }
 
@@ -2229,8 +2231,6 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .transform-initial { text-transform: initial; }
 
-.full-width { width: 100%; }
-
 @media screen and (min-width: 40em) { .margin-top { margin-top: 25vh; } }
 
 @media screen and (min-width: 40em) { .margin-top-fp { margin-top: 10vh; } }
@@ -2401,8 +2401,6 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .casino-sidebar { padding-right: 20px; padding-left: 20px; }
 
-#countrySelect { -webkit-appearance: button; border: 1px solid #cacaca; color: #636363; text-transform: uppercase; font-size: 12px; overflow: hidden; padding: 8px 12px; text-overflow: ellipsis; white-space: nowrap; width: 100%; background-image: linear-gradient(45deg, transparent 50%, #636363 50%), linear-gradient(135deg, #636363 50%, transparent 50%); background-position: calc(100% - 15px) calc(1em), calc(100% - 10px) calc(1em); background-size: 5px 5px, 5px 5px, 5px 1.5em; background-repeat: no-repeat; }
-
 .sidebar-padding-bottom { padding-bottom: 40px; }
 
 .wrapper-casino-comparison { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
@@ -2421,7 +2419,7 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .favorites a, .most-read a { color: #cacaca; }
 
-.favorites a:hover, .most-read a:hover { text-decoration: underline; }
+.favorites .casino-name:hover, .most-read .casino-name:hover { text-decoration: underline; }
 
 .favorites img, .most-read img { width: 20%; max-width: 20px; height: auto; }
 
@@ -2435,9 +2433,11 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .favorites .heading, .most-read .heading { text-align: left; }
 
-.favorites .fav-casino:last-of-type, .most-read .fav-casino:last-of-type { padding-bottom: 0; }
+.favorites .recommendations, .most-read .recommendations { padding-bottom: 20px; padding-top: 20px; }
 
-.favorites .fav-casino, .most-read .fav-casino { padding-bottom: 20px; }
+.favorites .recommendations:first-of-type, .most-read .recommendations:first-of-type { padding-top: 0; }
+
+.favorites .recommendations:last-of-type, .most-read .recommendations:last-of-type { padding-bottom: 0; }
 
 .favorites .fav-casino .score-count, .most-read .fav-casino .score-count { font-size: 20px; }
 

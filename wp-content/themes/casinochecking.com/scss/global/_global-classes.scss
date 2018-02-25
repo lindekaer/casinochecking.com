@@ -56,10 +56,6 @@
 	text-transform: initial;
 }
 
-.full-width {
-	width: 100%;
-}
-
 .margin-top {
  @include breakpoint(medium up){
  	margin-top: 25vh;
