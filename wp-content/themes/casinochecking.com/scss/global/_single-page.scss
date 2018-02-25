@@ -13,7 +13,7 @@
     color: $slider-red; 
     @include breakpoint(medium up){
       font-size: 26px;
-      line-height: 26px;
+      line-height: 26px; 
     }
     @include breakpoint(small only){
       font-size: 20px;
