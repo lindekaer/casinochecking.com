@@ -168,9 +168,9 @@ function setCurrencyRate(data){
             }
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 /************************
@@ -231,19 +231,19 @@ function initDom() {
             // faq toggle
             $('.faq-element').click(function(){
                 if($(this).find('.plus-faq').hasClass('active-icon')){
-                 $(this).find('.plus-faq').removeClass('active-icon');
-                 $(this).find('.minus-faq').addClass('active-icon');
-                 console.log('plus-faq active')
-             }
+                   $(this).find('.plus-faq').removeClass('active-icon');
+                   $(this).find('.minus-faq').addClass('active-icon');
+                   console.log('plus-faq active')
+               }
 
-             else if ($(this).find('.minus-faq').hasClass('active-icon')){
-                 $(this).find('.minus-faq').removeClass('active-icon')
-                 $(this).find('.plus-faq').addClass('active-icon')
-                 console.log('minsu-faq active')
-             }
+               else if ($(this).find('.minus-faq').hasClass('active-icon')){
+                   $(this).find('.minus-faq').removeClass('active-icon')
+                   $(this).find('.plus-faq').addClass('active-icon')
+                   console.log('minsu-faq active')
+               }
 
-             $(this).find('.desc-wrapper .desc p').slideToggle();
-         });
+               $(this).find('.desc-wrapper .desc p').slideToggle();
+           });
 
 
             showDescCasino();
@@ -309,9 +309,9 @@ function currencyUpdate(data){
             });
         },
         error: function(errorThrown){
-           console.log(errorThrown);
-       }
-   });
+         console.log(errorThrown);
+     }
+ });
 }
 
 $(window).scroll(function(){
@@ -541,7 +541,7 @@ function loadCasinoParams(currencyRate) {
         data.active = $('.filter-active').data('filter');
 
         for (var type in metrics) {
-         if (metrics.hasOwnProperty(type)) {
+           if (metrics.hasOwnProperty(type)) {
             var metric = metrics[type];
             metric.currentMin = $(metric.sliderSelector).slider( "values", 0 );
             metric.currentMax = $(metric.sliderSelector).slider( "values", 1 );
@@ -653,9 +653,9 @@ function loadCasino(data) {
                // infiniteScroll();
            },
            error: function(errorThrown){
-               console.log(errorThrown);
-           } 
-       });
+             console.log(errorThrown);
+         } 
+     });
 }
 
 function add_casino_menu() {
@@ -665,9 +665,11 @@ function add_casino_menu() {
     var site_url_dk = site_vars.site_url + '/da/';
     var site_url_casino_dk = site_vars.site_url + '/da/casino/';
     var country = $('body').attr('data-user-country');
-    $('.site-navigation li').not('.wpml-ls-item').each(function(){
-        if($(this).find('a').attr('href') == site_url || (this).find('a').attr('href') == site_url_casino || (this).find('a').attr('href') == site_url_casino_dk || (this).find('a').attr('href') == site_url_dk){
-            $(this).find('a').addClass('has-submenu');
+    $('.site-navigation li a').each(function(){
+        if($(this).parent().not('.wpml-ls-item')){
+            if($(this).attr('href') == site_url || $(this).attr('href') == site_url_casino || $(this).attr('href') == site_url_casino_dk || $(this).attr('href') == site_url_dk){
+                $(this).addClass('has-submenu');
+            }
         }
     });
 
@@ -694,13 +696,13 @@ function ajax_add_casino_menu(data){
             });
 
             $('.menu-overlay').click(function(){
-             $('header').toggleClass('open-submenu'); 
-         });
+               $('header').toggleClass('open-submenu'); 
+           });
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     } 
- });
+           console.log(errorThrown);
+       } 
+   });
 }
 
 function add_casino_sidebar() {
@@ -731,9 +733,9 @@ function ajax_add_casino_sidebar(data){
             }
         },
         error: function(errorThrown){
-         console.log(errorThrown);
-     } 
- });
+           console.log(errorThrown);
+       } 
+   });
 }
 
 
