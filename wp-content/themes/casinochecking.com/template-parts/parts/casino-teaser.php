@@ -22,11 +22,11 @@
 				<div class="row">
 					<div class="small-6 large-7">
 						<p><span class="hide-for-small-only"><?php echo _e('Signup', 'checkmate'); ?></span><?php echo _e('Bonus', 'checkmate'); ?></p>
-						<h6 class="inline"><?php echo $signUpBonus; ?>%</h6><p class="inline up-to hide-for-small-only"><?php  echo _e('up to', 'checkmate'); ?></p><h6 class="inline hide-for-small-only"><span class="numeric_currency"><?php echo $upToBonus; ?></span><span class="currency-type"></span></h6>
+						<h6 class="inline"><?php echo $signUpBonus; ?>%</h6><p class="inline up-to hide-for-small-only"><?php  echo _e('up to', 'checkmate'); ?></p><h6 class="inline hide-for-small-only"><span class="numeric_currency fade-in"><?php echo $upToBonus; ?></span><span class="currency-type"></span></h6>
 					</div>
 					<div class="small-6 large-5">
 						<p><span class="hide-for-small-only"><?php echo _e('Minimum', 'checkmate'); ?> </span><?php echo _e('Deposit', 'checkmate'); ?></p>
-						<h6><span class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></span></h6>
+						<h6><span class="numeric_currency fade-in"><?php echo $minimumDeposit; ?></span><span class="currency-type"></span></h6>
 					</div>
 				</div>
 			</div>
