@@ -685,7 +685,7 @@ function ajax_add_casino_menu(data){
         type: 'post',
         data: data,
         success: function(result) {
-            console.log(result)
+            //console.log(result)
             $('.casino-submenu').append(result);
 
             $('.has-submenu').click(function(e){
