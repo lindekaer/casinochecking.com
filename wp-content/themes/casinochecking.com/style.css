@@ -344,7 +344,7 @@ html { box-sizing: border-box; font-size: 100%; }
 
 *, *::before, *::after { box-sizing: inherit; }
 
-body { margin: 0; padding: 0; background: #505050; font-family: "Open sans", Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: 1.5; color: #3f3e46; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; padding: 0; background: #505050; font-family: "Open sans", Helvetica, Roboto, Arial, sans-serif; font-weight: normal; line-height: 1.5; color: #333; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 img { display: inline-block; vertical-align: middle; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic; }
 
@@ -1414,7 +1414,7 @@ p, .p { font-size: 0.875rem; line-height: 1.4; margin-top: 0; margin-bottom: 0.5
   h4, .h4 { font-size: 1.5625rem; }
   h5, .h5 { font-size: 1.25rem; }
   h6, .h6 { font-size: 1rem; }
-  p, .p { font-size: 1rem; } }
+  p, .p { font-size: 0.9375rem; } }
 
 a { line-height: inherit; color: #1779ba; text-decoration: none; cursor: pointer; }
 
@@ -1446,13 +1446,13 @@ cite { display: block; font-size: 0.8125rem; color: #636363; }
 
 cite:before { content: "— "; }
 
-abbr, abbr[title] { border-bottom: 1px dotted #3f3e46; cursor: help; text-decoration: none; }
+abbr, abbr[title] { border-bottom: 1px dotted #333; cursor: help; text-decoration: none; }
 
 figure { margin: 0; }
 
-code { padding: 0.125rem 0.3125rem 0.0625rem; border: 1px solid #cacaca; background-color: #eee; font-family: "Lato", "Liberation Mono", Courier, monospace; font-weight: normal; color: #3f3e46; }
+code { padding: 0.125rem 0.3125rem 0.0625rem; border: 1px solid #cacaca; background-color: #eee; font-family: "Lato", "Liberation Mono", Courier, monospace; font-weight: normal; color: #333; }
 
-kbd { margin: 0; padding: 0.125rem 0.25rem 0; background-color: #eee; font-family: "Lato", "Liberation Mono", Courier, monospace; color: #3f3e46; }
+kbd { margin: 0; padding: 0.125rem 0.25rem 0; background-color: #eee; font-family: "Lato", "Liberation Mono", Courier, monospace; color: #333; }
 
 .subheader { margin-top: 0.2rem; margin-bottom: 0.5rem; font-weight: normal; line-height: 1.4; color: #636363; }
 
@@ -1874,9 +1874,9 @@ body { width: 100%; height: 100%; }
 #page { background: #fff; width: 100%; max-width: 100%; margin: 0 auto; overflow-x: hidden; }
 
 /*Global*/
-p { margin: 0; font-family: 'Lato'; line-height: 20px; color: #3f3e46; }
+p { margin: 0; font-family: 'Lato'; line-height: 24px; color: #333; }
 
-p:hover { color: #3f3e46; }
+p:hover { color: #333; }
 
 .number { font-family: 'Lato'; }
 
@@ -1886,7 +1886,7 @@ p:hover { color: #3f3e46; }
 
 @media screen and (min-width: 64em) { .wrapper-casino-comparison .cursive-headline { text-align: left; } }
 
-a:hover, a:focus { color: #3f3e46; }
+a:hover, a:focus { color: #333; }
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-align: center; margin: 0; }
 
@@ -2002,9 +2002,9 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 @media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 26px; line-height: 26px; } }
 
-@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 20px; line-height: 20px; } }
+@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 28px; line-height: 26px; } }
 
-.single-blog .desc h2, .single-casino .desc h2 { margin-bottom: 6px; text-align: left; color: #3f3e46; font-family: 'Cormorant Garamond'; }
+.single-blog .desc h2, .single-casino .desc h2 { margin-bottom: 6px; text-align: left; color: #333; font-family: 'Cormorant Garamond'; }
 
 @media screen and (min-width: 40em) { .single-blog .desc h2, .single-casino .desc h2 { font-size: 20px; line-height: 20px; } }
 
@@ -2022,7 +2022,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .single-blog section .casino-info-wrapper .casino-title, .single-casino section .casino-info-wrapper .casino-title { text-transform: uppercase; }
 
-.single-blog section .casino-info-wrapper img, .single-casino section .casino-info-wrapper img { width: 16%; padding-top: 8px; height: auto; }
+.single-blog section .casino-info-wrapper img, .single-casino section .casino-info-wrapper img { width: 16%; height: auto; }
 
 .single-blog section .casino-info-wrapper p, .single-casino section .casino-info-wrapper p { font-size: 10px; }
 
@@ -2036,7 +2036,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 .single-blog section .casino-info-wrapper .icon-blog img, .single-casino section .casino-info-wrapper .icon-blog img { height: 25px; padding-top: 0; width: auto; }
 
-@media screen and (max-width: 63.9375em) { .single-blog section #casino-outer-wrapper, .single-casino section #casino-outer-wrapper { padding-top: 30px; } }
+@media screen and (max-width: 63.9375em) { .single-blog section #casino-outer-wrapper, .single-casino section #casino-outer-wrapper { padding-top: 30px; padding-right: 0; padding-left: 0; } }
 
 .single-blog section .logo-wrapper-small, .single-casino section .logo-wrapper-small { padding-bottom: 15px; }
 
@@ -2122,7 +2122,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 
 @media screen and (max-width: 63.9375em) { .single-blog section .single-page-padding, .single-casino section .single-page-padding { padding-top: 70px; padding-bottom: 50px; } }
 
-@media screen and (max-width: 39.9375em) { .single-blog section.bg-img, .single-casino section.bg-img { background-image: none !important; background: #3f3e46; } }
+@media screen and (max-width: 39.9375em) { .single-blog section.bg-img, .single-casino section.bg-img { background-image: none !important; background: #333; } }
 
 @media screen and (min-width: 40em) { .single-blog section.bg-img, .single-casino section.bg-img { height: 100%; background-attachment: fixed !important; width: 100%; min-width: 100%; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; -ms-transform: none !important; transform: none !important; } }
 
@@ -2382,7 +2382,7 @@ header.site-header #nav-toggle.active span:before { -ms-transform: rotate(45deg)
 
 header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
 
-.menu-mobile-header-container { position: fixed; top: 0; height: 100%; max-height: 100%; background: #3f3e46; opacity: 0; overflow: hidden; visibility: hidden; transition: opacity .3s ease, visibility .3s 0s ease; -webkit-overflow-scrolling: touch; display: -ms-flexbox; display: flex; width: 100%; -ms-flex-align: center; align-items: center; }
+.menu-mobile-header-container { position: fixed; top: 0; height: 100%; max-height: 100%; background: #333; opacity: 0; overflow: hidden; visibility: hidden; transition: opacity .3s ease, visibility .3s 0s ease; -webkit-overflow-scrolling: touch; display: -ms-flexbox; display: flex; width: 100%; -ms-flex-align: center; align-items: center; }
 
 .is-active.menu-mobile-header-container { opacity: 0.96 !important; z-index: 59; overflow: hidden; visibility: visible !important; transition: opacity .3s ease, visibility 0s ease !important; }
 
@@ -2493,7 +2493,7 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .search-ajax .button:hover { color: #363636; background: #cacaca; }
 
-#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; background: rgba(63, 62, 70, 0.9); }
+#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; background: rgba(51, 51, 51, 0.9); }
 
 #cookiebar.cookie-accepted { display: block; }
 
@@ -2505,12 +2505,12 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 #cookiebar #accept-cookies { background-color: transparent; color: #cacaca; padding: 5px 15px; font-weight: 600; font-size: 12px; border-radius: 4px; border: 1px solid #cacaca; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-#cookiebar #accept-cookies:hover { background: #cacaca; color: #3f3e46; }
+#cookiebar #accept-cookies:hover { background: #cacaca; color: #333; }
 
 #cookiebar a { color: #ffffff; }
 
 /*PARTS*/
-.button { background-color: #36d47d; border: none; color: #3f3e46; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 11px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin: 0; font-weight: 600; cursor: pointer; }
+.button { background-color: #36d47d; border: none; color: #333; text-transform: uppercase; border-radius: 4px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 11px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin: 0; font-weight: 600; cursor: pointer; }
 
 @media screen and (max-width: 39.9375em) { .button { font-size: 10px; } }
 
@@ -2524,9 +2524,9 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 #fixed-button { position: fixed; bottom: 64px; left: 0; width: 100%; display: none; border-radius: 0; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-.cta-button { text-decoration: none; text-transform: uppercase; position: relative; text-align: center; color: #3f3e46; border: 1px solid #36d47d; border-radius: 4px; box-shadow: 0 0 0 0 transparent; transition: all 0.2s ease-in; }
+.cta-button { text-decoration: none; text-transform: uppercase; position: relative; text-align: center; color: #333; border: 1px solid #36d47d; border-radius: 4px; box-shadow: 0 0 0 0 transparent; transition: all 0.2s ease-in; }
 
-.cta-button:hover { color: #3f3e46; box-shadow: 0 0 30px 0 rgba(54, 212, 125, 0.5); background-color: #36d47d; transition: all 0.2s ease-out; }
+.cta-button:hover { color: #333; box-shadow: 0 0 30px 0 rgba(54, 212, 125, 0.5); background-color: #36d47d; transition: all 0.2s ease-out; }
 
 .cta-button:hover:before { animation: shine 0.5s 0s linear; }
 
