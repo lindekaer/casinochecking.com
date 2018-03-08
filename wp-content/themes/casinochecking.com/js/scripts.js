@@ -39,9 +39,8 @@ function initializePage() {
     if(!$('.post-type-archive').length){
         singleCasinoCurrency();
         singleCasinoAvailability();
-        add_casino_sidebar();
     }
-    
+    add_casino_sidebar();
 }
 
 function singleCasinoCurrency(){
