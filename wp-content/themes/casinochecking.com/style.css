@@ -2435,7 +2435,7 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .favorites .fav-casino .score-count, .most-read .fav-casino .score-count { font-size: 20px; }
 
-.favorites .fav-casino p, .most-read .fav-casino p { color: #cacaca; display: inline-block; }
+.favorites .fav-casino p, .most-read .fav-casino p { color: #cacaca; display: inline-block; text-transform: uppercase; }
 
 @media screen and (min-width: 64em) { .favorites .border-bottom, .most-read .border-bottom { border-bottom: 1px dotted #393939; } }
 
@@ -2520,7 +2520,7 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .read-more-btn:hover { text-decoration: underline; color: #e65352; }
 
-.content-page-button { width: 100%; margin-top: 10px; padding-top: 12px; padding-bottom: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.content-page-button { width: 100%; margin-top: 2px; padding-top: 12px; padding-bottom: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 #fixed-button { position: fixed; bottom: 64px; left: 0; width: 100%; display: none; border-radius: 0; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 

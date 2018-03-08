@@ -32,7 +32,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                             <div class="medium-4 large-5 hide-for-small-only columns casino-logo">
                                 <div class="position-relative">
                                     <?php echo wp_get_attachment_image($image['id'], $imageSize); ?>
-                                    <div class="ribbon-wrapper hide-custom">
+                                    <div class="ribbon-wrapper hide-custom fade-in">
                                         <div class="rectangle" data-casino-id="<?php echo get_the_ID(); ?>">
                                             <span class="casino-available hide-custom">
                                                 <p>
