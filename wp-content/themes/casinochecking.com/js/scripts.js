@@ -39,8 +39,9 @@ function initializePage() {
     if(!$('.post-type-archive').length){
         singleCasinoCurrency();
         singleCasinoAvailability();
+        add_casino_sidebar();
     }
-    add_casino_sidebar();
+    
 }
 
 function singleCasinoCurrency(){
@@ -704,6 +705,7 @@ function ajax_add_casino_menu(data){
 
 function add_casino_sidebar() {
     if($('.favorites').length){
+
         var type = 'sidebar';
         var country = $('body').attr('data-user-country');
 
@@ -728,11 +730,46 @@ function ajax_add_casino_sidebar(data){
             if(!$('.post-type-archive-casino').length){
                 $('.currency-type').html($('body').attr('data-user-currency'));
             }
+
+            sidebar_currency();
+
         },
         error: function(errorThrown){
          console.log(errorThrown);
      } 
  });
+}
+
+function sidebar_currency(){
+    var after = $('body').attr('data-user-currency');
+
+    var data = {
+        action: 'currency_update',
+        previous: 'EUR',
+        after: after,        
+    };
+
+    ajax_sidebar_currency(data);
+}
+
+function ajax_sidebar_currency(data){
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function(result) {
+            //Multiply each casino's currency with the exchange rate
+            $('.numeric-sidebar-currency').each(function(index) {
+                var signup = $( this ).html();
+                var calc =Math.round((((signup * result)* 100) / 100) / 10) * 10;
+                console.log(calc)
+                $(this).text(calc);
+            });
+        },
+        error: function(errorThrown){
+           console.log(errorThrown);
+       }
+   });
 }
 
 
