@@ -746,7 +746,7 @@ if (defined('JETPACK__VERSION')) {
 add_image_size( 'logo-casino-content', 400, 400, true );
 add_image_size( 'logo-casino-archive', 260, 50, true );
 add_image_size( 'logo-blog-archive', 400, 300, true );
-add_image_size( 'bg-img', 2293, 9999);
+add_image_size( 'bg-img', 2000, 1333);
 add_image_size( 'flexible-content', 2000, 788, true);
 
 /*
