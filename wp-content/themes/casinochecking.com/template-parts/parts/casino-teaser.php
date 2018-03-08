@@ -57,7 +57,7 @@
 				<div class="dropdown-desc">
 					<?php if (get_field('description')): ?>
 						<?php $short_desc = strip_tags(get_field('description')); ?>
-						<?php echo substr($short_desc, 0, 250) . '[...]';?>
+						<p><?php echo substr($short_desc, 0, 250) . '[...]';?></p>
 					<?php endif; ?>
 					<a href="<?php echo get_permalink(); ?>" class="read-more-btn"><?php echo _e('Read more', 'checkmate'); ?></a>
 				</div>
