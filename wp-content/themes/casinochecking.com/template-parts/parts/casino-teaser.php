@@ -44,7 +44,7 @@
 						<p><span class="hide-for-small-only"><?php echo _e('Our', 'checkmate'); ?> </span><?php echo _e('score', 'checkmate'); ?></p>
 						<h6><?php echo $ourScore; ?><span class="rating-ten">/10</span></h6>
 					</div>
-				</div>
+				</div> 
 			</div>
 			<div class="bonus-info button-padding-bottom">
 				<a target="_blank" class="button deep-link-button cta-button" <?php include(locate_template('template-parts/parts/deep-link.php'));?>><?php echo _e('Sign up', 'checkmate'); ?></a>
@@ -57,9 +57,8 @@
 				<div class="dropdown-desc">
 					<?php if (get_field('description')): ?>
 						<?php $short_desc = strip_tags(get_field('description')); ?>
-						<p><?php echo substr($short_desc, 0, 250) . '[...]';?></p>
+						<p><?php echo substr($short_desc, 0, 250) . '[...]';?><a href="<?php echo get_permalink(); ?>" class="read-more-btn"><?php echo _e('Read more', 'checkmate'); ?></a></p>
 					<?php endif; ?>
-					<a href="<?php echo get_permalink(); ?>" class="read-more-btn"><?php echo _e('Read more', 'checkmate'); ?></a>
 				</div>
 			</div>
 		</div>
