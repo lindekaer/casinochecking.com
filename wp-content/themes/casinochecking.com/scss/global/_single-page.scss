@@ -13,8 +13,8 @@
     color: $slider-red; 
     margin-bottom: 6px;
     @include breakpoint(medium up){
-      font-size: 26px;
-      line-height: 26px; 
+      font-size: 30px;
+      line-height: 30px; 
     }
     @include breakpoint(small only){
       font-size: 28px;
@@ -29,12 +29,12 @@
       color: $black;
       font-family: 'Cormorant Garamond'; 
       @include breakpoint(medium up){
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 26px;
+        line-height: 24px;
       }
       @include breakpoint(small only){
-        font-size: 16px;
-        line-height: 16px;
+        font-size: 22px;
+        line-height: 20px;
       }
     }
   }
@@ -161,9 +161,10 @@
 
     p {
       color: $white;
-      font-size: 12px;
+      font-size: 14px;
       display: inline-block;
       margin-right: 5px;
+      font-weight: 600;
     }
   }
 
