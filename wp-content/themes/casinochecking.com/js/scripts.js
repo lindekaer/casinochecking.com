@@ -40,7 +40,7 @@ function initializePage() {
         singleCasinoCurrency();
     }
 
-    if(!$('.single-casino').length){
+    if($('.single-casino').length){
         singleCasinoAvailability();
     }
     add_casino_sidebar();
@@ -103,16 +103,11 @@ function singleCasinoAvailability() {
                 console.log(country)
             } 
 
-            else if (count == 1){
-                $('.user-country').text(country);
-                $('.ribbon-wrapper').removeClass('hide-custom');
-                $('.casino-available').removeClass('hide-custom');
-            } 
-            else {
+            if (count !== 1){
                 $('.user-country').text(country);
                 $('.ribbon-wrapper').removeClass('hide-custom');
                 $('.casino-not-available').removeClass('hide-custom');
-            }
+            } 
         }
     })
 }
