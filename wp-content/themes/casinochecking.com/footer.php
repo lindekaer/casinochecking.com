@@ -80,12 +80,12 @@ $cpr = get_field('cpr', 'options'); ?>
         <?php endif; ?>
     </ul>
 </div>
-                <div class="small-12 columns contact-info">
-                    <ul>
-                        <?php if($email): ?><li><p>Email: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p></li><?php endif; ?>
-                        <?php if($cpr): ?><li><p>CPR: <?php echo $cpr; ?></p></li><?php endif; ?>
-                    </ul>
-                </div>
+<div class="small-12 columns contact-info">
+    <ul>
+        <?php if($email): ?><li><p>Email: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p></li><?php endif; ?>
+        <?php if($cpr): ?><li><p>CPR: <?php echo $cpr; ?></p></li><?php endif; ?>
+    </ul>
+</div>
 </div>
 </div>
 
@@ -104,9 +104,9 @@ $cpr = get_field('cpr', 'options'); ?>
         <?php 
         $the_query = new WP_Query( $args );
         if($the_query->have_posts()) {
-           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="row">
-               <div class="footer-casino-name small-6 columns text-center">
+         while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+         <div class="row">
+             <div class="footer-casino-name small-6 columns text-center">
                 <div class="footer-name">
                     <p><span class="red-color"><?php echo _e('Popular:', 'checkmate'); ?></span> <?php echo the_field('name'); ?></p>
                 </div>
@@ -115,7 +115,7 @@ $cpr = get_field('cpr', 'options'); ?>
                     <p class="align-middle"><?php echo the_field('our_score'); ?>/10</p>
                 </div>
             </div>
-            <div class="get-bonus small-6 columns text-center">
+            <div class="get-bonus small-6 columns text-center align-middle">
                 <a target="_blank" class="button deep-link-button footer-page-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> ><?php echo _e('Sign up', 'checkmate'); ?></a>
             </div>
         </div>
