@@ -3,10 +3,7 @@ header.site-header {
   height: 60px;
   top: 0;
   width: 100%;
-  -moz-transition: opacity 0.4s ease-in-out;
-  -o-transition: opacity 0.4s ease-in-out;
-  -webkit-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
+  transition: 0.3s;
 
   #menu-item-wpml-ls-2-en {
     margin-right: 10px;
@@ -27,7 +24,10 @@ header.site-header {
       visibility: hidden;
       opacity: 0;
       background: rgba(51, 50, 56, 0.97);
-      transition: 0.5s;
+      -moz-transition: opacity 0.4s ease-in-out;
+      -o-transition: opacity 0.4s ease-in-out;
+      -webkit-transition: opacity 0.4s ease-in-out;
+      transition: opacity 0.4s ease-in-out;
       padding-bottom: 30px;
       padding-top: 50px;
       border-top: 1px solid #3f3e46;
