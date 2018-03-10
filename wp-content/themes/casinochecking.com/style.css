@@ -2287,7 +2287,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 @media screen and (max-width: 39.9375em) { .error404 section.bg-img { background-image: none !important; } }
 
 /*Partials*/
-header.site-header { position: fixed; height: 60px; top: 0; width: 100%; transition: 0.5s; }
+header.site-header { position: fixed; height: 60px; top: 0; width: 100%; transition: opacity 0.4s ease-in-out; }
 
 header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
