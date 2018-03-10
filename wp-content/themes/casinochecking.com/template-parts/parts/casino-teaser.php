@@ -1,4 +1,4 @@
-<div class="row casino-wrapper fade-in-casino">
+<a href="<?php echo get_permalink(); ?>" class="row casino-wrapper fade-in-casino">
 	<?php
 	$image = get_field('image');
 	$imageSize = 'logo-casino-archive';
@@ -51,4 +51,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</a>
