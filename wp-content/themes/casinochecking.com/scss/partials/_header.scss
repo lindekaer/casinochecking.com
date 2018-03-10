@@ -3,6 +3,7 @@ header.site-header {
   height: 60px;
   top: 0;
   width: 100%;
+  transition: 0.5s;
 
   #menu-item-wpml-ls-2-en {
     margin-right: 10px;
@@ -16,7 +17,6 @@ header.site-header {
 
   &.scroll-active, .open-submenu & {
     background: rgba(51, 50, 56, 0.97);
-    transition: 0.5s;
   }
   
   @include breakpoint(large up){

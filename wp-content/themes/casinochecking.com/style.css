@@ -2287,13 +2287,13 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 @media screen and (max-width: 39.9375em) { .error404 section.bg-img { background-image: none !important; } }
 
 /*Partials*/
-header.site-header { position: fixed; height: 60px; top: 0; width: 100%; }
+header.site-header { position: fixed; height: 60px; top: 0; width: 100%; transition: 0.5s; }
 
 header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
 @media screen and (max-width: 63.9375em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; } }
 
-header.site-header.scroll-active, .open-submenu header.site-header { background: rgba(51, 50, 56, 0.97); transition: 0.5s; }
+header.site-header.scroll-active, .open-submenu header.site-header { background: rgba(51, 50, 56, 0.97); }
 
 @media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.97); transition: 0.5s; padding-bottom: 30px; padding-top: 50px; border-top: 1px solid #3f3e46; }
   header.site-header .casino-submenu ul { margin: 0 !important; }
