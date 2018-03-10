@@ -171,16 +171,6 @@ function setCurrencyRate(data){
  });
 }
 
-/************************
-DROPDOWN ON EACH CASINO
-************************/
-function showDescCasino() {
-    $('.casino-wrapper').click(function () {
-        $(this).find('.desc').slideToggle();
-    });
-//    $(".casino-sidebar").stick_in_parent();
-}
-
 function initDom() {
     $('.filter-deposit, .filter-bonus, .filter-score').click(function(){
         $(this).addClass('filter-active');
@@ -243,8 +233,6 @@ function initDom() {
                $(this).find('.desc-wrapper .desc p').slideToggle();
            });
 
-
-            showDescCasino();
             loadCurrency();
         }
 
@@ -645,7 +633,6 @@ function loadCasino(data) {
             currencyUpdate(data);
             var usersCountry = $('#countrySelect').val();
             updateDeepLink(usersCountry);
-            showDescCasino();
             //$(".casino-sidebar").stick_in_parent();
                 //Infinite scroll with ajax-calls
                // infiniteScroll();
