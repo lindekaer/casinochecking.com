@@ -2287,7 +2287,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-
 @media screen and (max-width: 39.9375em) { .error404 section.bg-img { background-image: none !important; } }
 
 /*Partials*/
-header.site-header { position: fixed; height: 60px; top: 0; width: 100%; transition: opacity 0.4s ease-in-out; }
+header.site-header { position: fixed; height: 60px; top: 0; width: 100%; transition: 0.3s; }
 
 header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
@@ -2295,7 +2295,7 @@ header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
 header.site-header.scroll-active, .open-submenu header.site-header { background: rgba(51, 50, 56, 0.97); }
 
-@media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.97); transition: opacity 0.4s ease-in-out; padding-bottom: 30px; padding-top: 50px; border-top: 1px solid #3f3e46; }
+@media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; background: rgba(51, 50, 56, 0.97); padding-bottom: 30px; padding-top: 50px; transition: 0.3s; border-top: 1px solid #3f3e46; }
   header.site-header .casino-submenu ul { margin: 0 !important; }
   header.site-header .casino-submenu li { display: block; padding: 0px 30px 20px 0px; }
   header.site-header .casino-submenu li a { font-size: 14px; color: #eee; }
