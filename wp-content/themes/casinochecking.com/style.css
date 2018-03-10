@@ -1886,7 +1886,7 @@ p:hover { color: #333; }
 
 @media screen and (min-width: 64em) { .wrapper-casino-comparison .cursive-headline { text-align: left; } }
 
-a:hover, a:focus { color: #333; }
+a, a:hover, a:focus { color: #333; }
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto'; text-transform: uppercase; text-align: center; margin: 0; }
 
