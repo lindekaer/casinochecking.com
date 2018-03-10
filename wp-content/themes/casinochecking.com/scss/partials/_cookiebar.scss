@@ -18,6 +18,9 @@
 	}
 
 	#cookie-text {
+		p {
+			display: inline-block;
+		}
 		@include breakpoint(large up){
 			text-align: right;
 		}
@@ -32,6 +35,7 @@
 		padding: 5px 15px;
 		font-weight: 600;
 		font-size: 12px;
+		margin-left: 6px;
 		border-radius: 4px;
 		border: 1px solid $medium-gray;
 		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
