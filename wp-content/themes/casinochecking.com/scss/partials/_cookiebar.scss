@@ -25,12 +25,6 @@
 	#cookie-text {
 		p {
 			display: inline-block;
-		}
-		@include breakpoint(large up){
-			text-align: right;
-		}
-		@include breakpoint(medium down){
-			text-align: left;
 		}	
 	}
 

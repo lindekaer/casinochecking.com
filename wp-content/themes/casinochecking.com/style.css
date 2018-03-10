@@ -2505,10 +2505,6 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 #cookiebar #cookie-text p { display: inline-block; }
 
-@media screen and (min-width: 64em) { #cookiebar #cookie-text { text-align: right; } }
-
-@media screen and (max-width: 63.9375em) { #cookiebar #cookie-text { text-align: left; } }
-
 #cookiebar #accept-cookies { background-color: transparent; color: #cacaca; padding: 5px 15px; font-weight: 600; font-size: 12px; margin-left: 6px; border-radius: 4px; border: 1px solid #cacaca; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 #cookiebar #accept-cookies:hover { background: #cacaca; color: #333; }
