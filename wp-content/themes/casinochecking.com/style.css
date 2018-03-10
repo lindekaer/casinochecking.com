@@ -2493,7 +2493,11 @@ header.site-header #nav-toggle.active span:after { -ms-transform: rotate(-45deg)
 
 .search-ajax .button:hover { color: #363636; background: #cacaca; }
 
-#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; background: rgba(51, 51, 51, 0.9); }
+#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; }
+
+@media screen and (max-width: 39.9375em) { #cookiebar { background: #333333; } }
+
+@media screen and (min-width: 40em) { #cookiebar { background: rgba(51, 51, 51, 0.9); } }
 
 #cookiebar.cookie-accepted { display: block; }
 

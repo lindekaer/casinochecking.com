@@ -6,7 +6,12 @@
 	padding: 12px 0px;
 	bottom: 0px;
 	left: 0px;
-	background: rgba($black, 0.9);
+	@include breakpoint(small only){
+		background: rgba($black, 1);
+	}
+	@include breakpoint(medium up){
+		background: rgba($black, 0.9);
+	}
 
 	&.cookie-accepted {
 		display: block;
