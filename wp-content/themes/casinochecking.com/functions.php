@@ -56,6 +56,20 @@ function custom_remove_wpseo_prev( $link ) {
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * Set hreflang="x-default" according to Google content guidelines with WPML
+ * --------------------------------------------------------------------------- */
+add_filter('wpml_alternate_hreflang', 'wps_head_hreflang_xdefault', 10, 2);
+function wps_head_hreflang_xdefault($url, $lang_code) {
+     
+    if($lang_code == apply_filters('wpml_default_language', NULL )) {
+         
+        echo '<link rel="alternate" href="' . $url . '" hreflang="x-default" />';
+    }
+     
+    return $url;
+}
+
 /*
 * Sets archive casino as frontpage
 */
