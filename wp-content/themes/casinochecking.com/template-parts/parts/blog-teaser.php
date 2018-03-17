@@ -21,7 +21,7 @@ if( $images ) {
 ?>
 </div>
 <div class="blog-text">
-	$desc = strip_tags(get_the_content());
+	<?php $desc = strip_tags(get_the_content()); ?>
 	<p><?php echo substr($desc, 0, 100) . ' [...]'; ?></p>
 </div>
 </a>
