@@ -1,42 +1,65 @@
+@font-face {
+  font-family: 'Casino';
+  src: url('font/casino.eot');
+  src: url('font/casino.eot?#iefix') format('embedded-opentype'),
+  url('font/casino.woff2') format('woff2'),
+  url('font/casino.woff') format('woff'),
+  url('font/casino.ttf') format('truetype'),
+  url('font/casino.svg#.') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 p {
   margin: 0;
-  font-family: 'Lato';
-  line-height: 24px;
+  font-family: 'Casino';
+  line-height: 1.5em;
   color: $body-font-color;
+  font-weight: 400;
   &:hover {
     color: $body-font-color;
   }
 }
 
 .number {
-  font-family: 'Lato';
+  font-family: 'Casino';
 }
 
 .cursive-headline {
+  line-height: 1.2em;
+  font-weight: 500;
+  font-family: 'Casino';
+  /*
   font-family: 'Cormorant Garamond';
   .wrapper-casino-comparison & {
-    @include breakpoint(small only){
+    @include breakpoint(small only) {
       text-align: center;
       padding-bottom: 15px;
     }
-    @include breakpoint(large up){
+    @include breakpoint(large up) {
       text-align: left;
     }
-  }
+  }*/
+
 }
 
 a, a:hover, a:focus {
   color: $black;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto';
+h1, h6 {
+  font-family: 'Casino';
   text-transform: uppercase;
   text-align: center;
+  font-weight: 500;
   margin: 0;
 }
 
-@include breakpoint(large up){
+h2, h3, h4, h5 {
+  font-family: 'Cormorant Garamond';
+}
+
+@include breakpoint(large up) {
   h1 {
     line-height: 3.5rem;
   }

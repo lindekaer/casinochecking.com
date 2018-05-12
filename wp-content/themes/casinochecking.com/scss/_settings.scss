@@ -77,7 +77,7 @@ $foundation-palette: (
         success: #3adb76,
         warning: #ffae00,
         alert: #cc4b37,
-        );
+);
 $slider-red: #e65352;
 $blue: #23282d;
 $rib: #e74c3c;
@@ -87,7 +87,7 @@ $gray: #f6f6f6;
 $light-gray: #eee;
 $medium-gray: #cacaca;
 $dark-gray: #636363;
-$black: #333;
+$black: #101010;
 $black-footer: #333238;
 $bg-color: #505050;
 $green: #36d47d;
@@ -98,7 +98,7 @@ $text-bg-color: $gray;
 $red: #f81c1e;
 $body-background: $bg-color;
 $body-font-color: $black;
-$body-font-family: 'Open sans', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Casino', sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -125,7 +125,7 @@ $breakpoints: (
         large: 1024px,
         xlarge: 1200px,
         xxlarge: 1440px,
-        );
+);
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);
 
@@ -137,7 +137,7 @@ $grid-column-count: 12;
 $grid-column-gutter: (
         small: 20px,
         medium: 30px,
-        );
+);
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
 $block-grid-max: 8;
@@ -154,14 +154,14 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
         small: (
-                'h1': ('font-size': 22),
-                'h2': ('font-size': 20),
-                'h3': ('font-size': 19),
-                'h4': ('font-size': 18),
-                'h5': ('font-size': 17),
+                'h1': ('font-size': 28),
+                'h2': ('font-size': 30),
+                'h3': ('font-size': 28),
+                'h4': ('font-size': 25),
+                'h5': ('font-size': 21),
                 'h6': ('font-size': 16),
-                'p': ('font-size': 14),
-                ),
+                'p': ('font-size': 16),
+        ),
         medium: (
                 'h1': ('font-size': 40),
                 'h2': ('font-size': 35),
@@ -169,18 +169,18 @@ $header-styles: (
                 'h4': ('font-size': 25),
                 'h5': ('font-size': 20),
                 'h6': ('font-size': 16),
-                'p': ('font-size': 14),
-                ),
+                'p': ('font-size': 16),
+        ),
         large: (
-                'h1': ('font-size': 44),
+                'h1': ('font-size': 40),
                 'h2': ('font-size': 35),
                 'h3': ('font-size': 31),
                 'h4': ('font-size': 25),
                 'h5': ('font-size': 20),
                 'h6': ('font-size': 16),
-                'p': ('font-size': 15),
-                ),
-        );
+                'p': ('font-size': 16),
+        ),
+);
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
@@ -319,7 +319,7 @@ $button-sizes: (
         small: 0.75rem,
         default: 0.9rem,
         large: 1.25rem,
-        );
+);
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
@@ -367,15 +367,15 @@ $closebutton-position: right top;
 $closebutton-offset-horizontal: (
         small: 0.66rem,
         medium: 1rem,
-        );
+);
 $closebutton-offset-vertical: (
         small: 0.33em,
         medium: 0.5rem,
-        );
+);
 $closebutton-size: (
         small: 1.5em,
         medium: 2em,
-        );
+);
 $closebutton-lineheight: 1;
 $closebutton-color: $dark-gray;
 $closebutton-color-hover: $black;
@@ -406,7 +406,7 @@ $dropdown-sizes: (
         tiny: 100px,
         small: 200px,
         large: 400px,
-        );
+);
 
 /* 18. Dropdown Menu*/
 /* -----------------*/
@@ -584,7 +584,7 @@ $prototype-arrow-directions: (
         up,
         right,
         left
-        );
+);
 $prototype-arrow-size: 0.4375rem;
 $prototype-arrow-color: $black;
 
@@ -616,7 +616,7 @@ $prototype-display: (
         block,
         table,
         table-cell
-        );
+);
 
 /* 34. Prototype Font-Styling*/
 /* --------------------------*/
@@ -634,7 +634,7 @@ $prototype-style-type-unordered: (
         disc,
         circle,
         square
-        );
+);
 $prototype-style-type-ordered: (
         decimal,
         lower-alpha,
@@ -643,7 +643,7 @@ $prototype-style-type-ordered: (
         upper-alpha,
         upper-latin,
         upper-roman
-        );
+);
 
 /* 36. Prototype Overflow*/
 /* ----------------------*/
@@ -653,7 +653,7 @@ $prototype-overflow: (
         visible,
         hidden,
         scroll
-        );
+);
 
 /* 37. Prototype Position*/
 /* ----------------------*/
@@ -664,7 +664,7 @@ $prototype-position: (
         relative,
         absolute,
         fixed
-        );
+);
 $prototype-position-z-index: 975;
 
 /* 38. Prototype Rounded*/
@@ -697,13 +697,13 @@ $prototype-sizing-breakpoints: $global-prototype-breakpoints;
 $prototype-sizing: (
         width,
         height
-        );
+);
 $prototype-sizes: (
         25: 25%,
         50: 50%,
         75: 75%,
         100: 100%
-        );
+);
 
 /* 42. Prototype Spacing*/
 /* ---------------------*/
@@ -719,7 +719,7 @@ $prototype-text-decoration: (
         overline,
         underline,
         line-through,
-        );
+);
 
 /* 44. Prototype Text-Transformation*/
 /* ---------------------------------*/
@@ -729,7 +729,7 @@ $prototype-text-transformation: (
         lowercase,
         uppercase,
         capitalize
-        );
+);
 
 /* 45. Prototype Text-Utilities*/
 /* ----------------------------*/
@@ -744,7 +744,7 @@ $responsive-embed-margin-bottom: rem-calc(16);
 $responsive-embed-ratios: (
         default: 4 by 3,
         widescreen: 16 by 9,
-        );
+);
 
 /* 47. Reveal*/
 /* ----------*/
@@ -882,6 +882,6 @@ $grid-columns: 12;
 $grid-margin-gutters: (
         small: 20px,
         medium: 30px
-        );
+);
 $grid-padding-gutters: $grid-margin-gutters;
-$block-grid-max: 8; 
+$block-grid-max: 8;

@@ -1,45 +1,45 @@
 .rating-ten {
-	font-size: 12px;
+  font-size: 12px;
 }
 
 .hide-custom {
-	display: none;
+  display: none;
 }
 
 .align-right {
-  @include breakpoint(large up){
+  @include breakpoint(large up) {
     text-align: right;
   }
   @include breakpoint(medium down) {
     text-align: center;
   }
 }
+
 .no-borders {
   border-bottom: 0 !important;
 }
 
 .float-left-mobile {
-	@include breakpoint(small only){
-		float: left;
-	}
+  @include breakpoint(small only) {
+    float: left;
+  }
 }
 
 .padding-bottom {
-  @include breakpoint(medium up){
-   padding-bottom: 25px;
- }
- @include breakpoint(small only){
-   padding-bottom: 20px;
- }
+  @include breakpoint(medium up) {
+    padding-bottom: 25px;
+  }
+  @include breakpoint(small only) {
+    padding-bottom: 20px;
+  }
 }
 
 .no-border {
   border: 0 !important;
 }
 
-
 .align-right {
-  @include breakpoint(large up){
+  @include breakpoint(large up) {
     text-align: right;
   }
   @include breakpoint(medium down) {
@@ -51,130 +51,139 @@
   border-bottom: 0 !important;
 }
 
-
 .transform-initial {
-	text-transform: initial;
+  text-transform: initial;
 }
 
 .margin-top {
- @include breakpoint(medium up){
- 	margin-top: 25vh;
- }	
+  @include breakpoint(medium up) {
+    margin-top: 25vh;
+  }
 }
 
 .margin-top-fp {
- @include breakpoint(medium up){
- 	margin-top: 10vh;
- }	}
+  @include breakpoint(medium up) {
+    margin-top: 10vh;
+  }
+}
 
 .hidden-overflow {
-	overflow: hidden;
+  overflow: hidden;
 }
+
 @include breakpoint (medium up) {
-	.minus-row-margin {
-		margin-top: -40vh;
-	}
+  .minus-row-margin {
+    margin-top: -40vh;
+  }
 }
+
 .list {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .list-item {
-	display: flex; 
-	padding: 0.5em;
-	width: 100%;
+  display: flex;
+  padding: 0.5em;
+  width: 100%;
 }
 
 .section-padding-guides {
-	@include breakpoint(small only){
-		padding-top: 50px;
-		padding-bottom: 50px;
-	}
-	@include breakpoint(medium up){
-		padding-top: 80px;
-		padding-bottom: 50px;
-	}
-	.section-heading {
-		@include breakpoint(small only){
-			padding-bottom: 20px;
-		}
-		@include breakpoint(medium up){
-			padding-bottom: 40px;
-		}
-	}
+  @include breakpoint(small only) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @include breakpoint(medium up) {
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+  .section-heading {
+    @include breakpoint(small only) {
+      padding-bottom: 20px;
+    }
+    @include breakpoint(medium up) {
+      padding-bottom: 40px;
+    }
+  }
 }
+
 .section-compare-casino {
-	@include breakpoint(small only){
-		padding-top: 50px;
-		padding-bottom: 50px;
-	}
-	@include breakpoint(medium up){
-		padding-top: 80px;
-		padding-bottom: 80px;
-	}
-	.section-heading {
-		@include breakpoint(small only){
-			padding-bottom: 20px;
-		}
-		@include breakpoint(medium up){
-			padding-bottom: 20px;
-		}
-	}
+  @include breakpoint(small only) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @include breakpoint(medium up) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .section-heading {
+    @include breakpoint(small only) {
+      padding-bottom: 20px;
+    }
+    @include breakpoint(medium up) {
+      padding-bottom: 20px;
+    }
+  }
 }
 
 @include breakpoint(large up) {
-	.minus-row-margin-sidebar {
-		margin-top: -40vh;
-	}
+  .minus-row-margin-sidebar {
+    margin-top: -40vh;
+  }
 }
 
 .mobile-full-width {
-	@include breakpoint(small only) {
-		padding-right: 0;
-		padding-left: 0;
-	}
+  @include breakpoint(small only) {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .align-middle {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .align-middle-center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .align-justify-center {
-	align-items: baseline;
-	display: flex;
-	justify-content: center;
+  align-items: baseline;
+  display: flex;
+  justify-content: center;
 }
 
 .color-red {
-	color: $slider-red;
+  color: $slider-red;
 }
 
 .inline {
-	display: inline-block;
+  display: inline-block;
 }
 
 .position-relative {
-	position: relative;
+  position: relative;
 }
+
 .z-index-high {
-	z-index: 60;
+  z-index: 60;
 }
 
 .z-index-medium {
-	z-index: 50;
+  z-index: 50;
 }
 
 .z-index-low {
-	z-index: 1;
+  z-index: 1;
+}
+
+.z-index {
+  z-index: 2;
 }
 
 .medium-gray {
-	color: $medium-gray;
-}	
+  color: $medium-gray;
+}
