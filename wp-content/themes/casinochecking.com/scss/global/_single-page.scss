@@ -14,6 +14,7 @@
     margin-bottom: 6px;
     text-align: left;
     text-transform: none;
+    font-weight: 600;
     font-family: 'Casino';
     @include breakpoint(medium up) {
       font-size: 1.625rem;
