@@ -18,7 +18,7 @@ $sectionBg = get_field('section_bg')['sizes']['bg-img'];
 $activateOverlay = get_field('activate_overlay');
 ?>
 <section class="bg-img content-casino z-index-low" style="background-image: url('<?php echo $sectionBg; ?>');">
-  <div class="container single-page-padding z-index">
+  <div class="container single-page-padding z-index mobile-full-width">
     <div class="row">
       <div class="small-12 medium-8 bg-gray columns slide-up z-index hidden-overflow small-order-1 medium-order-2" id="casino-outer-wrapper">
         <div class="container">

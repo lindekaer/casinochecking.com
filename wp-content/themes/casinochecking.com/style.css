@@ -1898,7 +1898,7 @@ a, a:hover, a:focus { color: #101010; }
 
 h1, h6 { font-family: 'Casino'; text-transform: uppercase; text-align: center; font-weight: 500; margin: 0; }
 
-h2, h3, h4, h5 { font-family: 'Cormorant Garamond'; }
+h2, h3, h4, h5 { font-family: 'Casino'; }
 
 @media screen and (min-width: 64em) { h1 { line-height: 3.5rem; } }
 
@@ -2008,17 +2008,17 @@ h2, h3, h4, h5 { font-family: 'Cormorant Garamond'; }
 
 @media screen and (min-width: 40em) { .single-blog .casino-info-wrapper, .single-casino .casino-info-wrapper { margin-top: 30px; } }
 
-.single-blog h1.content-casino, .single-casino h1.content-casino { color: #e65352; margin-bottom: 6px; }
+.single-blog h1.content-casino, .single-casino h1.content-casino { color: #e65352; margin-bottom: 6px; text-align: left; text-transform: none; font-family: 'Casino'; }
 
-@media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 30px; line-height: 30px; } }
+@media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 1.625rem; line-height: 1.2em; } }
 
-@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 28px; line-height: 26px; } }
+@media screen and (max-width: 39.9375em) { .single-blog h1.content-casino, .single-casino h1.content-casino { font-size: 1.375rem; line-height: 1.2em; } }
 
-.single-blog .desc h2, .single-casino .desc h2 { margin-bottom: 6px; text-align: left; color: #101010; font-family: 'Cormorant Garamond'; }
+.single-blog .desc h2, .single-casino .desc h2 { margin-bottom: 6px; text-align: left; color: #101010; font-family: 'Casino'; }
 
-@media screen and (min-width: 40em) { .single-blog .desc h2, .single-casino .desc h2 { font-size: 26px; line-height: 24px; } }
+@media screen and (min-width: 40em) { .single-blog .desc h2, .single-casino .desc h2 { font-size: 1.625rem; line-height: 1.2em; } }
 
-@media screen and (max-width: 39.9375em) { .single-blog .desc h2, .single-casino .desc h2 { font-size: 22px; line-height: 20px; } }
+@media screen and (max-width: 39.9375em) { .single-blog .desc h2, .single-casino .desc h2 { font-size: 1.375rem; line-height: 1.2em; } }
 
 @media screen and (max-width: 63.9375em) { .single-blog section.type-casino, .single-blog section.type-blog, .single-casino section.type-casino, .single-casino section.type-blog { padding-bottom: 15px; } }
 

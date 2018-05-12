@@ -21,7 +21,7 @@ $upToSignup = get_field('up_to_signup');
 $imageSizeLong = 'logo-casino-archive'; ?>
 <section class="bg-img content-casino" style="background-image: url('<?php echo $sectionBg; ?>');">
     <article id="post-<?php the_ID(); ?>" <?php post_class('single-page-padding z-index'); ?>>
-        <div class="container">
+        <div class="container mobile-full-width">
             <div class="row">
                 <div class="small-12 large-4 small-order-2 large-order-1 columns z-index-low bg-sidebar slide-up wrapper-casino-comparison">
                     <?php echo get_sidebar(); ?>
