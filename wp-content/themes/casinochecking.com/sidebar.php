@@ -6,7 +6,7 @@
  *
  * @package checkmate
  */ ?>
-<div class="container" id="sticky_item">
+<div class="container">
     <?php if (!is_post_type_archive('blog')) { ?>
         <?php
         $args_blog = array(
@@ -30,10 +30,10 @@
         <?php endif; ?>
     <?php } ?>
     <div class="row">
-        <div class="small-12 columns large-disable-padding sidebar-padding-bottom">
+        <div class="small-12 columns large-disable-padding sidebar-padding-bottom" id="sticky-item-wrapper">
             <div class="favorites">
                 <h5 class="padding-sidebar-bottom heading cursive-headline"><?php echo _e('New bonuses', 'checkmate'); ?></h5>
-                <div class="favorites-teaser">
+                <div class="favorites-teaser" id="sticky-item">
                 </div>
             </div>
         </div>

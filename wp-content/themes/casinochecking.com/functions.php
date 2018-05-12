@@ -13,12 +13,13 @@ ini_set('display_errors', 1);
 * Remove SEO by Yoast's canonical on archive casino
 */
 
-add_filter( 'wpseo_canonical', 'yoast_remove_canonical_items' );
-function yoast_remove_canonical_items( $canonical ) {
-  if(is_post_type_archive('casino')) {
-    return false;
-}
-return $canonical; 
+add_filter('wpseo_canonical', 'yoast_remove_canonical_items');
+function yoast_remove_canonical_items($canonical)
+{
+    if (is_post_type_archive('casino')) {
+        return false;
+    }
+    return $canonical;
 }
 
 /*
@@ -26,66 +27,70 @@ return $canonical;
 */
 
 add_filter('wpml_hreflangs', 'custom_lang_code', 10, 1);
-function custom_lang_code($hreflang_items){
-    if(is_post_type_archive('casino')){
-      unset ($hreflang_items);
-  }
-  else {
-    return $hreflang_items;
-}
+function custom_lang_code($hreflang_items)
+{
+    if (is_post_type_archive('casino')) {
+        unset ($hreflang_items);
+    } else {
+        return $hreflang_items;
+    }
 }
 
 /*
 * REMOVES NEXT AND PREV FROM FRONTPAGE
 */
-add_filter( 'wpseo_next_rel_link', 'custom_remove_wpseo_next' );
-add_filter( 'wpseo_prev_rel_link', 'custom_remove_wpseo_prev' );
+add_filter('wpseo_next_rel_link', 'custom_remove_wpseo_next');
+add_filter('wpseo_prev_rel_link', 'custom_remove_wpseo_prev');
 
-function custom_remove_wpseo_next( $link ) {
- if(is_post_type_archive('casino')) {
-  return false;
-} else { 
-  return $link;
+function custom_remove_wpseo_next($link)
+{
+    if (is_post_type_archive('casino')) {
+        return false;
+    } else {
+        return $link;
+    }
 }
-}
-function custom_remove_wpseo_prev( $link ) {
-  if(is_post_type_archive('casino')) {
-      return false;
-  } else { 
-      return $link;
-  }
+
+function custom_remove_wpseo_prev($link)
+{
+    if (is_post_type_archive('casino')) {
+        return false;
+    } else {
+        return $link;
+    }
 }
 
 /* ---------------------------------------------------------------------------
  * Set hreflang="x-default" according to Google content guidelines with WPML
  * --------------------------------------------------------------------------- */
 add_filter('wpml_alternate_hreflang', 'wps_head_hreflang_xdefault', 10, 2);
-function wps_head_hreflang_xdefault($url, $lang_code) {
+function wps_head_hreflang_xdefault($url, $lang_code)
+{
 
-    if($lang_code == apply_filters('wpml_default_language', NULL )) {
-       if ($url == 'https://casinochecking.com/casino/') {
-           $url = 'https://casinochecking.com/';
-       }
-   elseif ($url == 'https://casinochecking.com/da/casino/') {
-       $url = 'https://casinochecking.com/da';
-   }
-   echo '<link rel="alternate" href="' . $url . '" hreflang="x-default" />';
-}
+    if ($lang_code == apply_filters('wpml_default_language', NULL)) {
+        if ($url == 'https://casinochecking.com/casino/') {
+            $url = 'https://casinochecking.com/';
+        } elseif ($url == 'https://casinochecking.com/da/casino/') {
+            $url = 'https://casinochecking.com/da';
+        }
+        echo '<link rel="alternate" href="' . $url . '" hreflang="x-default" />';
+    }
 
-return $url;
+    return $url;
 }
 
 /*
 * Sets archive casino as frontpage
 */
 add_action("pre_get_posts", "custom_front_page");
-function custom_front_page($wp_query){
+function custom_front_page($wp_query)
+{
     //Ensure this filter isn't applied to the admin area
-    if(is_admin()) {
+    if (is_admin()) {
         return;
     }
 
-    if($wp_query->get('page_id') == get_option('page_on_front')):
+    if ($wp_query->get('page_id') == get_option('page_on_front')):
         $wp_query->set('post_type', 'casino');
         $wp_query->set('page_id', '');
 
@@ -103,7 +108,8 @@ function custom_front_page($wp_query){
 add_action('wp_ajax_nopriv_available_casino', 'available_casino');
 add_action('wp_ajax_available_casino', 'available_casino');
 
-function available_casino() {
+function available_casino()
+{
     $country = $_POST['country'];
     $id = $_POST['pageID'];
 
@@ -112,14 +118,14 @@ function available_casino() {
         'p' => $id,
         'meta_query' => array(
             array(
-                'key' => 'available_countries', 
-                'value' => $country, 
+                'key' => 'available_countries',
+                'value' => $country,
                 'compare' => 'LIKE'
             )
         )
     );
 
-    $the_query = new WP_Query( $args );
+    $the_query = new WP_Query($args);
     $count = $the_query->found_posts;
 
     $result = array('found_posts' => $count, 'country' => $country);
@@ -138,7 +144,8 @@ function available_casino() {
 add_action('wp_ajax_nopriv_currency_update', 'currency_update');
 add_action('wp_ajax_currency_update', 'currency_update');
 
-function currency_update() {
+function currency_update()
+{
 
     //Args for filter
     $arrayPosts = Array(
@@ -148,7 +155,7 @@ function currency_update() {
     );
 
     //If filter is not set, then add null
-    foreach ($arrayPosts as $key => $value){
+    foreach ($arrayPosts as $key => $value) {
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
@@ -158,109 +165,83 @@ function currency_update() {
     if (isset($updateCurrencyLoad)) {
         if ($updateCurrencyLoad == 'EUR') {
             $currency = 1;
-        }
-        else if ($updateCurrencyLoad == 'USD') {
+        } else if ($updateCurrencyLoad == 'USD') {
             $currency = get_field('eur_in_usd', 'options');
-        }
-        else if ($updateCurrencyLoad == 'DKK') {
+        } else if ($updateCurrencyLoad == 'DKK') {
             $currency = get_field('eur_in_dkk', 'options');
-        }
-        else if ($updateCurrencyLoad == 'GBP') {
+        } else if ($updateCurrencyLoad == 'GBP') {
             $currency = get_field('eur_in_gbp', 'options');
-        }
-        else if ($updateCurrencyLoad == 'NOK') {
+        } else if ($updateCurrencyLoad == 'NOK') {
             $currency = get_field('eur_in_no', 'options');
         }
         echo $currency;
-    }
-
-    else {
-        if ($filterArr['previous'] == 'USD'){
+    } else {
+        if ($filterArr['previous'] == 'USD') {
             if ($filterArr['after'] == 'USD') {
                 $currency = 1;
-            }
-            else if ($filterArr['after'] == 'EUR') {
+            } else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('usd_in_eur', 'options');
-            }
-            else if ($filterArr['after'] == 'DKK') {
+            } else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('usd_in_dkk', 'options');
-            }
-            else if ($filterArr['after'] == 'GBP') {
+            } else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('usd_in_gbp', 'options');
-            }
-            else if ($filterArr['after'] == 'NOK') {
+            } else if ($filterArr['after'] == 'NOK') {
                 $currency = get_field('usd_in_no', 'options');
             }
         }
 
-        if ($filterArr['previous']== 'EUR'){
+        if ($filterArr['previous'] == 'EUR') {
             if ($filterArr['after'] == '1') {
                 $currency = 1;
-            }
-            else if ($filterArr['after'] == 'USD') {
+            } else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('eur_in_usd', 'options');
-            }
-            else if ($filterArr['after'] == 'DKK') {
+            } else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('eur_in_dkk', 'options');
-            }
-            else if ($filterArr['after'] == 'GBP') {
+            } else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('eur_in_gbp', 'options');
-            }
-            else if ($filterArr['after'] == 'NOK') {
+            } else if ($filterArr['after'] == 'NOK') {
                 $currency = get_field('eur_in_no', 'options');
             }
         }
 
-        if ($filterArr['previous'] == 'DKK'){
+        if ($filterArr['previous'] == 'DKK') {
             if ($filterArr['after'] == 'DKK') {
                 $currency = 1;
-            }
-            else if ($filterArr['after'] == 'EUR') {
+            } else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('dkk_in_eur', 'options');
-            }
-            else if ($filterArr['after'] == 'USD') {
+            } else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('dkk_in_usd', 'options');
-            }
-            else if ($filterArr['after'] == 'GBP') {
+            } else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('dkk_in_gbp', 'options');
-            }
-            else if ($filterArr['after'] == 'NOK') {
+            } else if ($filterArr['after'] == 'NOK') {
                 $currency = get_field('dkk_in_no', 'options');
             }
         }
 
-        if ($filterArr['previous'] == 'GBP'){
+        if ($filterArr['previous'] == 'GBP') {
             if ($filterArr['after'] == 'GBP') {
                 $currency = 1;
-            }
-            else if ($filterArr['after'] == 'EUR') {
+            } else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('gbp_in_eur', 'options');
-            }
-            else if ($filterArr['after'] == 'USD') {
+            } else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('gbp_in_usd', 'options');
-            }
-            else if ($filterArr['after'] == 'DKK') {
+            } else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('gbp_in_dkk', 'options');
-            }
-            else if ($filterArr['after'] == 'NOK') {
+            } else if ($filterArr['after'] == 'NOK') {
                 $currency = get_field('gbp_in_no', 'options');
             }
         }
 
-        if ($filterArr['previous'] == 'NOK'){
+        if ($filterArr['previous'] == 'NOK') {
             if ($filterArr['after'] == 'NOK') {
                 $currency = 1;
-            }
-            else if ($filterArr['after'] == 'EUR') {
+            } else if ($filterArr['after'] == 'EUR') {
                 $currency = get_field('no_in_eur', 'options');
-            }
-            else if ($filterArr['after'] == 'USD') {
+            } else if ($filterArr['after'] == 'USD') {
                 $currency = get_field('no_in_usd', 'options');
-            }
-            else if ($filterArr['after'] == 'DKK') {
+            } else if ($filterArr['after'] == 'DKK') {
                 $currency = get_field('no_in_dkk', 'options');
-            }
-            else if ($filterArr['after'] == 'GBP') {
+            } else if ($filterArr['after'] == 'GBP') {
                 $currency = get_field('no_in_gbp', 'options');
             }
         }
@@ -276,68 +257,69 @@ function currency_update() {
 add_action('wp_ajax_nopriv_add_casino_menu', 'add_casino_menu');
 add_action('wp_ajax_add_casino_menu', 'add_casino_menu');
 
-function add_casino_menu() {
+function add_casino_menu()
+{
     $country = $_POST['country'];
-    $type = $_POST['type']; 
+    $type = $_POST['type'];
 
     $args = array(
-        'post_type'     => 'casino',
+        'post_type' => 'casino',
         'post_status' => 'publish',
         'meta_query' => array(
             array(
-                'key' => 'available_countries', 
-                'value' => $country, 
+                'key' => 'available_countries',
+                'value' => $country,
                 'compare' => 'LIKE'
             )
         )
     );
 
-    if($type == 'sidebar') {
+    if ($type == 'sidebar') {
         $args['orderby'] = 'date';
         $args['order'] = 'DESC';
         $args['posts_per_page'] = 5;
+    } elseif ($type == 'menu') {
+        $args['orderby'] = 'title';
+        $args['order'] = 'ASC';
     }
 
-    elseif ($type == 'menu') {
-       $args['orderby'] = 'title';
-       $args['order']   = 'ASC';
-   }
+    $the_query = new WP_Query($args);
+    $my_home_url = apply_filters('wpml_home_url', get_option('home'));
 
-   $the_query = new WP_Query( $args );
-   $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
-
-   if($the_query->have_posts()):?>
-   <?php if($type == 'menu'): ?>
-       <div class="container">
-        <div class="row">
-            <div class="small-12 columns">
-                <ul class="row">
-                    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                        <div class="small-2 columns">
-                            <li><p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></li>
-                        </div>
-                    <?php endwhile; ?>
-                    <div class="small-2 columns">
-                        <li>
-                            <p><a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a></p>
-                        </li>
+    if ($the_query->have_posts()):?>
+        <?php if ($type == 'menu'): ?>
+            <div class="container">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <ul class="row">
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <div class="small-2 columns">
+                                    <li><p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></li>
+                                </div>
+                            <?php endwhile; ?>
+                            <div class="small-2 columns">
+                                <li>
+                                    <p>
+                                        <a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a>
+                                    </p>
+                                </li>
+                            </div>
+                        </ul>
                     </div>
-                </ul>
+                </div>
             </div>
-        </div>
-    </div>
-<?php elseif($type == 'sidebar'): ?>
-    <?php $i = 1; ?>
-    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-        <div class="border-bottom padding-sidebar-bottom recommendations fade-in">
-            <?php include(locate_template('template-parts/parts/featured-casinos.php')); ?>
-        </div>
-        <?php $i++; ?>
-    <?php endwhile; ?>
-<?php endif; ?>
-<?php endif;
-wp_reset_query();
-die();
+        <?php elseif ($type == 'sidebar'): ?>
+            <?php $i = 1; ?>
+            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                <div class="border-bottom padding-sidebar-bottom recommendations">
+                    <?php include(locate_template('template-parts/parts/featured-casinos.php')); ?>
+                </div>
+                <?php $i++; ?>
+            <?php endwhile; ?>
+        <?php endif; ?>
+    <?php endif;
+    wp_reset_query();
+    die();
 }
 
 
@@ -348,7 +330,8 @@ die();
 add_action('wp_ajax_nopriv_filter_casino', 'filter_casino');
 add_action('wp_ajax_filter_casino', 'filter_casino');
 
-function filter_casino() {
+function filter_casino()
+{
     $arrayPosts = Array(
         'categories' => 'categories',
         'filter_type_score' => 'filter_type_score',
@@ -361,36 +344,36 @@ function filter_casino() {
     );
 
     //If filter is not set, then add null
-    foreach ($arrayPosts as $key => $value){
+    foreach ($arrayPosts as $key => $value) {
         $filterArr[$key] = (isset($_POST[$value])) ? $_POST[$value] : null;
     }
 
     $args = array(
-        'post_type'     => 'casino',
+        'post_type' => 'casino',
         'post_status' => 'publish',
         'meta_key' => 'our_score',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'posts_per_page'   => 50,
+        'posts_per_page' => 50,
     );
 
-    if($filterArr['posts_per_page']) {
+    if ($filterArr['posts_per_page']) {
         $args['numberposts'] = $filterArr['posts_per_page'];
     }
 
     //Checks if sort is chosen, and overwrites meta_key from $args
-    if($filterArr['sort-active']) {
+    if ($filterArr['sort-active']) {
         $sortType = $filterArr['sort-active'];
 
-        if($sortType == 'minimum_deposit') {
+        if ($sortType == 'minimum_deposit') {
             $args['order'] = 'ASC';
         }
         $args['meta_key'] = $sortType;
     }
 
-        //Available countries
-    if($filterArr['country'] && $filterArr['country'] !== 'all') {
-        $query_vars_country = array (
+    //Available countries
+    if ($filterArr['country'] && $filterArr['country'] !== 'all') {
+        $query_vars_country = array(
             'key' => 'available_countries',
             'value' => $filterArr['country'],
             'compare' => 'LIKE'
@@ -398,7 +381,7 @@ function filter_casino() {
         $args['meta_query'][] = $query_vars_country;
     }
 
-     //Bonus
+    //Bonus
     if ($filterArr['filter_type_signup-bonus']) {
         $min_signup_bonus = $_POST['min_signup-bonus'];
         $max_signup_bonus = $_POST['max_signup-bonus'];
@@ -486,28 +469,26 @@ function filter_casino() {
         $args['meta_query'][] = $query_vars_score;
     }
 
-    $the_query = new WP_Query( $args );
+    $the_query = new WP_Query($args);
     $count = $the_query->found_posts;
 
-    if($filterArr['posts_per_page'] <= $count){
-        if($the_query->have_posts()) {
-           $i = 1;
-           while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="small-12 columns">
-            <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
-        </div>
-        <?php $i++;
-    endwhile;
-}
-else {
-    echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';
-}
-}
-else {
-    echo '<h6>All results are already shown</h6>';
-}
-wp_reset_query();
-die();
+    if ($filterArr['posts_per_page'] <= $count) {
+        if ($the_query->have_posts()) {
+            $i = 1;
+            while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                <div class="small-12 columns">
+                    <?php include(locate_template('template-parts/parts/casino-teaser.php')); ?>
+                </div>
+                <?php $i++;
+            endwhile;
+        } else {
+            echo '<h6 class="text-left">No results. Please adjust your criterias.</h6>';
+        }
+    } else {
+        echo '<h6>All results are already shown</h6>';
+    }
+    wp_reset_query();
+    die();
 }
 
 /*
@@ -645,7 +626,7 @@ function create_post_type()
             ),
             'public' => true,
             'has_archive' => true,
-            'supports' => array( 'title', 'revisions' ),
+            'supports' => array('title', 'revisions'),
             'dash-icon' => 'dashicons-chart-area',
         )
     );
@@ -659,10 +640,11 @@ function create_post_type()
             'public' => true,
             'has_archive' => true,
             'dash-icon' => 'dashicons-chart-area',
-            'supports' => array( 'title', 'revisions', 'editor' ),
+            'supports' => array('title', 'revisions', 'editor'),
         )
     );
 }
+
 add_action('init', 'create_post_type');
 
 /**
@@ -694,10 +676,11 @@ add_filter('upload_mimes', 'accept_svg');
 /**
  * Enqueue scripts and styles.
  */
-function checkmate_scripts() {
+function checkmate_scripts()
+{
 
-    wp_enqueue_style( 'checkmate-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css' );
-    wp_enqueue_style( 'checkmate-style', get_stylesheet_uri() );
+    wp_enqueue_style('checkmate-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css');
+    wp_enqueue_style('checkmate-style', get_stylesheet_uri());
 
     // jquery
     wp_deregister_script('jquery');
@@ -706,31 +689,32 @@ function checkmate_scripts() {
 
 
     // foundation scripts
-    wp_enqueue_script( 'checkmate-what-input', get_template_directory_uri() . '/bower_components/what-input/dist/what-input.js', array(), '20151215', true );
-    wp_enqueue_script( 'checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true );
+    wp_enqueue_script('checkmate-what-input', get_template_directory_uri() . '/bower_components/what-input/dist/what-input.js', array(), '20151215', true);
+    wp_enqueue_script('checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true);
 
     // theme scripts
-    //wp_enqueue_script( 'checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false );
-    wp_enqueue_script( 'smartlook', get_template_directory_uri() . '/js/vendor/smartlook.js', array(), '20151215', true );
-    wp_enqueue_script( 'sticky', get_template_directory_uri() . '/js/vendor/sticky.min.js', array(), '20151215', true );
-    wp_enqueue_script( 'checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
-    wp_localize_script( 'checkmate-scripts', 'site_vars', array(
-        'ajax_url' => admin_url( 'admin-ajax.php' ),
+    wp_enqueue_script('checkmate-waypoints', get_template_directory_uri() . '/js/vendor/waypoints.min.js', array(), '20151215', true);
+    wp_enqueue_script('smartlook', get_template_directory_uri() . '/js/vendor/smartlook.js', array(), '20151215', true);
+    wp_enqueue_script('checkmate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    wp_localize_script('checkmate-scripts', 'site_vars', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
         'theme_url' => get_template_directory_uri(),
-        'site_url' => apply_filters( 'wpml_home_url', get_option( 'home' ) )
+        'site_url' => apply_filters('wpml_home_url', get_option('home'))
     ));
 
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
     }
 }
-add_action( 'wp_enqueue_scripts', 'checkmate_scripts' );
 
-function wpb_add_google_fonts() {
-    wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400', false );
+add_action('wp_enqueue_scripts', 'checkmate_scripts');
+
+function wpb_add_google_fonts()
+{
+    wp_enqueue_style('wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Varela|Cormorant+Garamond|Roboto|Lato:300,400', false);
 }
 
-add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+add_action('wp_enqueue_scripts', 'wpb_add_google_fonts');
 
 /**
  * Implement the Custom Header feature.
@@ -762,27 +746,32 @@ if (defined('JETPACK__VERSION')) {
 /*
 * Image crop
 */
-add_image_size( 'logo-casino-content', 400, 400, true );
-add_image_size( 'logo-casino-archive', 260, 50, true );
-add_image_size( 'logo-blog-archive', 400, 300, true );
-add_image_size( 'bg-img', 2000, 1333);
-add_image_size( 'flexible-content', 2000, 788, true);
+add_image_size('logo-casino-content', 400, 400, true);
+add_image_size('logo-casino-archive', 260, 50, true);
+add_image_size('logo-blog-archive', 400, 300, true);
+add_image_size('bg-img', 2000, 1333);
+add_image_size('flexible-content', 2000, 788, true);
 
 /*
 * Google Analytics tracking script
 */
 
 add_action('wp_head', 'add_google_analytics');
-function add_google_analytics() { ?>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108087950-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+function add_google_analytics()
+{ ?>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108087950-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'UA-108087950-2');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108087950-2');
+    </script>
 <?php }
 
 /*
@@ -792,15 +781,15 @@ function login_logo()
 {
     ?>
     <style type="text/css">
-    body.login div#login h1 a {
-        background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);
-        padding-bottom: 30px;
-        background-size: 100%;
-        width: 320px;
-        height: 240px;
-    }
-</style>
-<?php
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_template_directory_uri() . '/screenshot.png'; ?>);
+            padding-bottom: 30px;
+            background-size: 100%;
+            width: 320px;
+            height: 240px;
+        }
+    </style>
+    <?php
 }
 
 add_action('login_enqueue_scripts', 'login_logo');
@@ -814,79 +803,97 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 /*
 * SEO by Yoast adjustments
 */
-function filter_wpseo_replacements( $replacements ) {
-    if( isset( $replacements['%%cf_up_to_signup%%'] ) ){
+function filter_wpseo_replacements($replacements)
+{
+    if (isset($replacements['%%cf_up_to_signup%%'])) {
         $replacements['%%cf_up_to_signup%%'] = round($replacements['%%cf_up_to_signup%%']);
     }
-    if( isset( $replacements['%%cf_minimum_deposit%%'] ) ){
+    if (isset($replacements['%%cf_minimum_deposit%%'])) {
         $replacements['%%cf_minimum_deposit%%'] = round($replacements['%%cf_minimum_deposit%%']);
     }
     return $replacements;
-};
+}
 
-add_filter( 'wpseo_replacements', 'filter_wpseo_replacements', 10, 1 );
+;
+
+add_filter('wpseo_replacements', 'filter_wpseo_replacements', 10, 1);
 
 /*
 * Disallow editing from backend
 */
-define( 'DISALLOW_FILE_EDIT', true );
+define('DISALLOW_FILE_EDIT', true);
 
 
 /*
 * Disable comments to avoid spam
 */
-function df_disable_comments_post_types_support() {
+function df_disable_comments_post_types_support()
+{
     $post_types = get_post_types();
     foreach ($post_types as $post_type) {
-        if(post_type_supports($post_type, 'comments')) {
+        if (post_type_supports($post_type, 'comments')) {
             remove_post_type_support($post_type, 'comments');
             remove_post_type_support($post_type, 'trackbacks');
         }
     }
 }
+
 add_action('admin_init', 'df_disable_comments_post_types_support');
 
 // Close comments on the front-end
-function df_disable_comments_status() {
+function df_disable_comments_status()
+{
     return false;
 }
+
 add_filter('comments_open', 'df_disable_comments_status', 20, 2);
 add_filter('pings_open', 'df_disable_comments_status', 20, 2);
 
 // Hide existing comments
-function df_disable_comments_hide_existing_comments($comments) {
+function df_disable_comments_hide_existing_comments($comments)
+{
     $comments = array();
     return $comments;
 }
+
 add_filter('comments_array', 'df_disable_comments_hide_existing_comments', 10, 2);
 
 // Remove comments page in menu
-function df_disable_comments_admin_menu() {
+function df_disable_comments_admin_menu()
+{
     remove_menu_page('edit-comments.php');
 }
+
 add_action('admin_menu', 'df_disable_comments_admin_menu');
 
 // Redirect any user trying to access comments page
-function df_disable_comments_admin_menu_redirect() {
+function df_disable_comments_admin_menu_redirect()
+{
     global $pagenow;
     if ($pagenow === 'edit-comments.php') {
-        wp_redirect(admin_url()); exit;
+        wp_redirect(admin_url());
+        exit;
     }
 }
+
 add_action('admin_init', 'df_disable_comments_admin_menu_redirect');
 
 // Remove comments metabox from dashboard
-function df_disable_comments_dashboard() {
+function df_disable_comments_dashboard()
+{
     remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
 }
+
 add_action('admin_init', 'df_disable_comments_dashboard');
 
 // Remove comments links from admin bar
-function df_disable_comments_admin_bar() {
+function df_disable_comments_admin_bar()
+{
     if (is_admin_bar_showing()) {
         remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
     }
 }
+
 add_action('init', 'df_disable_comments_admin_bar');
 
 ?>

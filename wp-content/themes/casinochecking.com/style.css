@@ -1906,6 +1906,8 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 .z-index { z-index: 2; }
 
+@media screen and (min-width: 40em) { .small-font { font-size: 0.8rem; } }
+
 .img-section { width: 250px; height: auto; }
 
 .load-more { position: relative; }
@@ -2077,34 +2079,44 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
   to { opacity: 1; } }
 
 @keyframes fadeInUp { from { -webkit-transform: translate3d(0, 40px, 0); transform: translate3d(0, 40px, 0); }
-  to { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0);
+  to { -webkit-transform: none; transform: none;
     opacity: 1; } }
 
 @-webkit-keyframes fadeInUp { from { -webkit-transform: translate3d(0, 40px, 0); transform: translate3d(0, 40px, 0); }
-  to { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0);
+  to { -webkit-transform: none; transform: none;
     opacity: 1; } }
 
 @-webkit-keyframes fadeInDown { from { opacity: 0;
     -webkit-transform: translatey(-40px);
     transform: translatey(-40px); }
   to { opacity: 1;
-    -webkit-transform: translatey(0);
-    transform: translatey(0); } }
+    -webkit-transform: none;
+    transform: none; } }
 
 @keyframes fadeInDown { from { opacity: 0;
     -webkit-transform: translatey(-40px);
     transform: translatey(-40px); }
   to { opacity: 1;
-    -webkit-transform: translatey(0);
-    transform: translatey(0); } }
+    -webkit-transform: none;
+    transform: none; } }
 
 .fade-in { opacity: 0; -webkit-animation: fadeIn ease-in; animation: fadeIn ease-in; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; -webkit-animation-duration: 0.3s; animation-duration: 0.3s; -webkit-animation-delay: 0s; animation-delay: 0s; }
 
 .slide-up { opacity: 0; -webkit-animation-delay: 0.2s; animation-delay: 0.2s; animation-name: fadeInUp; -webkit-animation-name: fadeInUp; animation-duration: 0.3s; animation-fill-mode: both; -webkit-animation-duration: 0.3s; -webkit-animation-fill-mode: both; }
 
-.slide-down { -webkit-animation-name: fadeInDown; animation-name: fadeInDown; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-duration: 0.3s; animation-duration: 0.3s; -webkit-animation-delay: 0.2; animation-delay: 0.2; }
+.slide-down { -webkit-animation-name: fadeInDown; animation-name: fadeInDown; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-duration: 0.3s; animation-duration: 0.3s; -webkit-animation-delay: 0.2s; animation-delay: 0.2s; }
 
 .fade-in-slow { opacity: 0; -webkit-animation: fadeIn ease-in; animation: fadeIn ease-in; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
+
+.fade-in-left { opacity: 0; -webkit-transition: opacity 1s ease, -webkit-transform 1s ease; transition: opacity 1s ease, -webkit-transform 1s ease; transition: opacity 1s ease, transform 1s ease; transition: opacity 1s ease, transform 1s ease, -webkit-transform 1s ease; -webkit-transform: translateX(50px); -ms-transform: translateX(50px); transform: translateX(50px); }
+
+.fade-in-left.visible-fade { opacity: 1; -webkit-transform: translateX(0px); -ms-transform: translateX(0px); transform: translateX(0px); }
+
+.fade-in-child, .fade-in-up { opacity: 0; -webkit-transition: opacity 1s ease, -webkit-transform 1s ease; transition: opacity 1s ease, -webkit-transform 1s ease; transition: opacity 1s ease, transform 1s ease; transition: opacity 1s ease, transform 1s ease, -webkit-transform 1s ease; -webkit-transform: translateY(50px); -ms-transform: translateY(50px); transform: translateY(50px); }
+
+.fade-in-child.visible-fade, .fade-in-up.visible-fade { opacity: 1; -webkit-transform: translateY(0px); -ms-transform: translateY(0px); transform: translateY(0px); }
+
+.fade-in-child.visible-fade-complete, .fade-in-up.visible-fade-complete { -webkit-transform: none; -ms-transform: none; transform: none; }
 
 .bg-white { background: #ffffff; }
 
@@ -2426,7 +2438,7 @@ header.site-header #nav-toggle.active span:after { -webkit-transform: rotate(-45
 
 .wrapper-casino-comparison { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-@media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 60px; position: relative; } }
+@media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 60px; } }
 
 @media screen and (max-width: 63.9375em) { .wrapper-casino-comparison { padding: 40px 20px 40px 20px; } }
 

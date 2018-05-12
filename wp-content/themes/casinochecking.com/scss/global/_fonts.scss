@@ -73,3 +73,9 @@ h2, h3, h4, h5 {
 .z-index {
   z-index: 2;
 }
+
+.small-font {
+  @include breakpoint(medium up) {
+    font-size: 0.8rem;
+  }
+}

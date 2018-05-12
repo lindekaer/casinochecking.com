@@ -185,7 +185,8 @@ function initDom() {
         mouseleave: function () {
             $(this).removeClass('active');
         }
-    })
+    });
+
     var pathname = window.location.pathname;
     console.log(site_vars.home_url + pathname);
     console.log($(location).attr('href'));
@@ -287,7 +288,7 @@ function currencyUpdate(data) {
             $('.numeric_currency').each(function (index) {
                 var signup = $(this).html();
                 var calc = Math.round((((signup * result) * 100) / 100) / 10) * 10;
-                console.log(calc)
+                console.log(calc);
                 $(this).text(calc);
             });
         },
@@ -305,146 +306,6 @@ $(window).scroll(function () {
         $('header').removeClass('scroll-active');
     }
 });
-
-/*function infiniteScroll () {
-    if ($('.casinos').length) {
-        var timer;
-        if ( timer ) clearTimeout(timer);
-
-        var elements = {
-            score: $('.our_score'),
-            votes: $('.user_votes'),
-            deposit: $('.minimum_deposit'),
-            'signup-bonus': $('.signup_bonus'),
-            filterDeposit: $('.filter-deposit'),
-            filterBonus: $('.filter-bonus'),
-            filterScore: $('.filter-score'),
-        };
-
-        var metrics = {
-            score: {
-                sliderSelector: '#slider-range-our-score',
-                displaySelector: '#our_score',
-                min: elements.score.data("min"),
-                max: elements.score.data("max"),
-                currency: ''
-            },
-            votes: {
-                sliderSelector: '#slider-range-user-votes',
-                displaySelector: '#user_votes',
-                min: elements.votes.data("min"),
-                max: elements.votes.data("max"),
-                currency: ''
-            },
-            deposit: {
-                sliderSelector: '#slider-range-min-deposit',
-                displaySelector: '#minimum_deposit',
-                min: 0,
-                max: 400,
-                currency: $('#currencySelect').find(":selected").attr('data-currency')
-            },
-            'signup-bonus': {
-                sliderSelector: '#slider-range-signup-bonus',
-                displaySelector: '#signup_bonus',
-                min: 0,
-                max: 300,
-                currency: '%'
-            }
-        };
-
-        $(window).scroll(function() {
-           if ( timer ) clearTimeout(timer);
-           var docHeight = $(document).height();
-           var windowHeight = $(window).height();
-           var footerHeight = $('footer').height();
-          // var sectionPaddingBottom = $('.comparison-section').css('padding-bottom').replace('px', '');
-          var headerHeight = $('header').height();
-          var totalPosts = 40;
-         // var count = 10;
-         var shownPosts = $('.comparison-section').data('count');
-
-         console.log('totalPosts' + totalPosts)
-         console.log('shownPosts' + shownPosts)
-
-         if (docHeight - windowHeight - footerHeight  <= $(window).scrollTop() + headerHeight) {
-            //Sends ajax if there are more total posts than shownPosts
-            console.log(shownPosts >= totalPosts)
-            if(totalPosts >= shownPosts ) {
-                $('.load-more').addClass('loading-posts');
-                //Sets timeout on Ajax call to avoid Ajax request on each scrolled pixel 
-                timer = setTimeout(function(){  
-                    const data = {
-                        action: 'filter_casino',        
-                    }
-
-                    for (var type in metrics) {
-                        if (metrics.hasOwnProperty(type)) {
-                            if(typeof elements[type].attr('data-filter-type') !== "undefined"){
-                                const metric = metrics[type];
-                                metric['currentMin'] = $(metric.sliderSelector).slider( "values", 0 );
-                                metric['currentMax'] = $(metric.sliderSelector).slider( "values", 1 );
-                                metric.filterType = elements[type].attr('data-filter-type');
-                                console.log(metrics[type]['currentMin']);
-                            }
-                        }
-                    };
-
-                    for (var type in metrics) {
-                        if (metrics.hasOwnProperty(type)) {
-                            if(typeof elements[type].attr('data-filter-type') !== "undefined"){
-                                const metric = metrics[type];
-                                data['filter_type_' + type] = metric.filterType;
-                                data['min_' + type] = metric.currentMin;
-                                data['max_' + type] = metric.currentMax;
-                            }
-                        }
-                    };
-                    $('.comparison-section').data('count',  shownPosts+= 10);
-
-                    data.country = $('#countrySelect').val();
-
-                    data['posts_per_page'] = $('.comparison-section').data('count');
-                    console.log('morePosts: ' + JSON.stringify(data, null, 2))
-
-                    console.log('loadCasino: ' + JSON.stringify(data, null, 2));
-
-
-                    loadCasino(data);
-                }, 200);
-            }
-        } 
-        else {
-            //console.log('not the end');
-        }
-    });
-    }
-}*/
-
-/*function morePosts(data){
-    $.ajax({
-        url: site_vars.ajax_url,
-        type: 'post',
-        data: data,
-        success: function(result) {
-            $('.loaded-posts').html(result);
-            $('.load-more').removeClass('loading-posts'); 
-            console.log(result);
-        },
-        error: function(errorThrown){
-         console.log(errorThrown);
-     },
-     complete: function(result){
-        var updateCurrencyLoad = $('#currencySelect').val();
-        var data = {
-            action: 'currency_update',
-            updateCurrencyLoad: updateCurrencyLoad      
-        }; 
-        currencyUpdate(data);
-        updateDeepLink();
-        showDescCasino();
-    }
-});
-}*/
 
 function loadCasinoParams(currencyRate) {
     var elements = {
@@ -635,6 +496,11 @@ function loadCasino(data) {
             //$(".casino-sidebar").stick_in_parent();
             //Infinite scroll with ajax-calls
             // infiniteScroll();
+
+            //Fixed sidebar
+            //The element that needs to be fixed on scroll
+            fixed_sidebar('#sidebar', '#sticky-item', 'header', '#sticky-item-wrapper');
+            fade_in_elements();
         },
         error: function (errorThrown) {
             console.log(errorThrown);
@@ -1002,4 +868,88 @@ function cookiebar() {
     } else {
         $('#cookiebar').removeClass('cookie-accepted');
     }
+}
+
+
+function fixed_sidebar(content_element, fixed_element, header_element, fixed_wrapper_element) {
+    //Disable on mobile
+    var mobile_breakpoint = 425;
+    if ($(window).width() > mobile_breakpoint) {
+
+        //If fixed element exists
+        if ($(fixed_element).length) {
+            var view_height = $(window).height();
+            console.log('view height: ' + (view_height - $(header_element).height() - 30));
+            console.log('sidebar height: ' + $(fixed_element).height());
+
+            /*
+            * Not fixed if sidebar is higher than view height
+            */
+            if ($(fixed_element).height() < (view_height - $(header_element).height() - 30)) {
+                //Constants
+                var sidebar_top_offset = $(fixed_element).offset().top;
+                var sidebar_bottom = $('.casinos').height() - ($(fixed_element).height() * 2);
+
+                console.log('fixed_element height: ' + $(fixed_element).height());
+                console.log('sidebar offset top: ' + sidebar_top_offset);
+
+                /*
+                * Width and position right of the fixed element.
+                * Added with inline styling in order to keep the right dimensions on scroll
+                */
+                var sidebar_width = $(fixed_wrapper_element).width();
+                var sidebar_right = $(window).width() - ($(fixed_element).offset().left + sidebar_width);
+                $(fixed_element).css("right", sidebar_right + 'px');
+                $(fixed_element).css("width", sidebar_width + 'px');
+
+                console.log('sidebar right' + sidebar_right);
+
+                //On scroll, the sidebar becomes sticky
+                $(window).bind('scroll load', function () {
+                    var header_height = $(header_element).height() + 30;
+                    var sidebar_right_scroll = $(window).width() - ($(fixed_element).offset().left + sidebar_width);
+
+                    console.log('sidebar right' + sidebar_right_scroll);
+                    $(fixed_element).css("right", sidebar_right_scroll + 'px');
+                    $(fixed_element).css("width", sidebar_width + 'px');
+
+                    if ($(window).scrollTop() >= (sidebar_bottom - header_height)) {
+                        $(fixed_element).css('position', 'absolute');
+                        $(fixed_element).css('top', sidebar_bottom - 30 + 'px');
+                    }
+                    else if ($(window).scrollTop() >= (sidebar_top_offset - header_height)) {
+                        $(fixed_element).css('position', 'fixed');
+                        $(fixed_element).css('top', header_height + 'px');
+                    }
+                    else {
+                        $(fixed_element).css('position', 'static');
+                    }
+                });
+
+                /*
+                * On window resize, add the width of the parent element to the fixed element and adjust right position
+                */
+                $(window).resize(function (e) {
+                    var sidebar_width = $(fixed_wrapper_element).width();
+                    var sidebar_right = $(window).width() - ($(fixed_wrapper_element).offset().left + sidebar_width + 15);
+                    $(fixed_element).css("right", sidebar_right + 'px');
+                    $(fixed_element).css("width", sidebar_width + 'px');
+                });
+            }
+        }
+    }
+}
+
+function fade_in_elements() {
+    $(".fade-in-child, .fade-in-left, .fade-in-up").waypoint({
+        handler: function (direction) {
+            if (direction == 'down') {
+
+                var element = this.element;
+                $(this.element).addClass("visible-fade");
+                $(this.element).addClass("visible-fade-complete");
+            }
+        },
+        offset: '90%'
+    });
 }

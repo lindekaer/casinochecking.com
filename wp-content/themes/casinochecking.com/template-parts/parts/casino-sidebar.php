@@ -6,7 +6,7 @@ $activate_signup_bonus = get_field('activate_signup_bonus', 'options');
 $activate_minimum_deposit_filter = get_field('activate_minimum_deposit_filter', 'options');
 
 ?>
-<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up margin-top-fp">
+<div class="hide-for-small-only medium-4 bg-sidebar columns wrapper-casino-comparison slide-up margin-top-fp" id="sidebar">
 	<div class="casino-sidebar">
 		<?php
 		if($activate_category): 

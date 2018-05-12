@@ -59,7 +59,7 @@ $casinoImg = get_field('casino_img', 'options')['sizes']['bg-img'];
                     </div>
                     <div class="loaded-posts" data-count="">
                     </div>
-                    <p class="text-right"><?php echo _e('T&C apply to each of the offers above, click "Sign up" for more details', 'checkmate'); ?></p>
+                    <p class="text-right small-font"><?php echo _e('T&C apply to each of the offers above, click "Sign up" for more details.', 'checkmate'); ?></p>
                     <div class="load-more">
                         <div class="load-wrapper">
                             <div class="loader">
@@ -73,11 +73,11 @@ $casinoImg = get_field('casino_img', 'options')['sizes']['bg-img'];
     <section class="bg-white section-compare-casino">
         <div class="container">
             <div class="row">
-                <div class="small-12 large-6">
+                <div class="small-12 large-6 columns fade-in-child">
                     <h3 class="cursive-headline color-red text-left section-heading"><?php echo _e('Compare online casinos', 'checkmate'); ?></h3>
                     <?php the_field('description_online_casinos', 'options'); ?>
                 </div>
-                <div class="small-6 text-center hide-for-small-only hide-for-medium-only">
+                <div class="small-6 columns text-center hide-for-small-only hide-for-medium-only">
                     <img class="img-section" src="<?php the_field('casino-container-bg', 'options'); ?>">
                 </div>
             </div>
@@ -96,10 +96,10 @@ $the_query_blog = new WP_Query($args_blog);
 <?php if ($the_query_blog->have_posts()): ?>
     <section class="bg-gray section-padding-guides">
         <div class="container">
-            <h2 class="cursive-headline text-center section-heading"><?php echo _e('Tips & Tricks', 'checkmate'); ?></h2>
+            <h2 class="cursive-headline text-center section-heading fade-in-child"><?php echo _e('Tips & Tricks', 'checkmate'); ?></h2>
             <div class="row list">
                 <?php while ($the_query_blog->have_posts()) : $the_query_blog->the_post(); ?>
-                    <div class="small-6 large-4 columns list-item">
+                    <div class="small-6 large-4 columns list-item fade-in-child">
                         <?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
                     </div>
                 <?php endwhile; ?>

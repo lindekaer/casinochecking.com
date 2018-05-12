@@ -51,8 +51,8 @@ if( have_rows('flexible_content', 'option') ):
 				$faqHeading = get_sub_field('faq_heading', 'option');
 				?>
 				<div class="container section-compare-casino">
-					<div class="row">
-						<div class="small-12 columns">							
+					<div class="row fade-in-child">
+						<div class="small-12 columns">
 							<h3 class="cursive-headline color-red text-left section-heading" style="color:<?php echo $headingColor; ?>"><?php echo $heading; ?></h3>
 						</div>
 						<div class="medium-6 small-12 columns">
@@ -66,7 +66,7 @@ if( have_rows('flexible_content', 'option') ):
 									$textFaq = get_sub_field('text_faq', 'option');
 									$headlineFaq = get_sub_field('headline_faq', 'option');
 									$headingColor = get_sub_field('heading_color', 'option'); ?>
-									<div class="faq-element row collapse">
+									<div class="faq-element row collapse fade-in-child">
 										<div class="small-2 medium-1 columns faq-icon align-justify-center">
 											<img src="<?php echo get_template_directory_uri() . '/img/plus-faq.svg'; ?>" class="active-icon plus-faq">
 											<img src="<?php echo get_template_directory_uri() . '/img/minus-faq.svg'; ?>" class="minus-faq">
