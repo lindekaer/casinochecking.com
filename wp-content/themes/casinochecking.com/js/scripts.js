@@ -165,10 +165,6 @@ function setCurrencyRate(data) {
             if ($('.post-type-archive-casino').length) {
                 loadCasinoParams(currencyRate);
             }
-            else {
-                fixed_sidebar('#sidebar', '#sticky-item', 'header', '#sticky-item-wrapper');
-                fade_in_elements();
-            }
         },
         error: function (errorThrown) {
             console.log(errorThrown);
