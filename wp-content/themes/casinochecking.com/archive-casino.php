@@ -99,7 +99,7 @@ $the_query_blog = new WP_Query($args_blog);
             <h2 class="cursive-headline text-center section-heading fade-in-child"><?php echo _e('Tips & Tricks', 'checkmate'); ?></h2>
             <div class="row list">
                 <?php while ($the_query_blog->have_posts()) : $the_query_blog->the_post(); ?>
-                    <div class="small-6 large-4 columns list-item fade-in-child">
+                    <div class="small-12 large-4 columns list-item fade-in-child">
                         <?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
                     </div>
                 <?php endwhile; ?>
