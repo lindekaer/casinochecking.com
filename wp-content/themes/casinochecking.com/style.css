@@ -2012,7 +2012,7 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 @media screen and (min-width: 40em) { .single-blog .casino-info-wrapper, .single-casino .casino-info-wrapper { margin-top: 30px; } }
 
-.single-blog h1.content-casino, .single-blog .desc h2, .single-casino h1.content-casino, .single-casino .desc h2 { color: #101010; margin-bottom: 6px; text-align: left; text-transform: none; font-weight: 500; font-family: 'Casino'; }
+.single-blog h1.content-casino, .single-blog .desc h2, .single-casino h1.content-casino, .single-casino .desc h2 { color: #101010; margin-bottom: 6px; text-align: left; font-weight: 600; text-transform: none; font-family: 'Casino'; }
 
 @media screen and (min-width: 40em) { .single-blog h1.content-casino, .single-blog .desc h2, .single-casino h1.content-casino, .single-casino .desc h2 { font-size: 1.625rem; line-height: 1.2em; } }
 

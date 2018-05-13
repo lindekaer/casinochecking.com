@@ -13,8 +13,8 @@
     color: $black;
     margin-bottom: 6px;
     text-align: left;
+    font-weight: 600;
     text-transform: none;
-    font-weight: 500;
     font-family: 'Casino';
     @include breakpoint(medium up) {
       font-size: 1.625rem;
