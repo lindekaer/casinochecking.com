@@ -14,7 +14,11 @@
     padding: 60px;
   }
 
-  @include breakpoint(medium down) {
+  @include breakpoint(medium only) {
+    padding: 40px 20px;
+  }
+
+  @include breakpoint(medium only) {
     padding: 40px 0;
   }
 
