@@ -18,7 +18,7 @@
     padding: 40px 20px;
   }
 
-  @include breakpoint(medium only) {
+  @include breakpoint(small only) {
     padding: 40px 0;
   }
 
