@@ -1908,6 +1908,8 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 @media screen and (min-width: 40em) { .small-font { font-size: 0.8rem; } }
 
+@media screen and (max-width: 39.9375em) { .small-font { font-size: 10px; } }
+
 .img-section { width: 250px; height: auto; }
 
 .load-more { position: relative; }
@@ -2136,7 +2138,7 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 .comparison-section { padding-bottom: 80px; }
 
-@media screen and (max-width: 63.9375em) { .comparison-section { padding-bottom: 0px; } }
+@media screen and (max-width: 39.9375em) { .comparison-section { padding-bottom: 0px; } }
 
 .post-type-archive-casino section .sticky-container, .post-type-archive-blog section .sticky-container { position: relative; }
 
@@ -2436,7 +2438,9 @@ header.site-header #nav-toggle.active span:after { -webkit-transform: rotate(-45
 
 .sidebar-padding-bottom { padding-bottom: 40px; }
 
-.wrapper-casino-comparison { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.wrapper-casino-comparison { -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+@media screen and (min-width: 40em) { .wrapper-casino-comparison { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); } }
 
 @media screen and (min-width: 64em) { .wrapper-casino-comparison { padding: 60px; } }
 

@@ -14,7 +14,7 @@
 	$minimumDeposit = get_field('minimum_deposit'); ?>
 	<p class="first"><?php echo $i; ?></p>
 
-	<div class="small-6 large-7 columns border-right my-align-center">
+	<div class="small-6 medium-8 large-7 columns border-right my-align-center">
 		<div style="width: 100%;">
 			<a href="<?php echo $link; ?>">
 				<div class="image section-padding">
@@ -35,7 +35,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="small-6 large-5 columns my-align-center">
+	<div class="small-6 medium-4 large-5 columns my-align-center">
 		<div style="width: 100%;">
 			<a href="<?php echo $link; ?>">
 				<div class="image-ratings section-padding">

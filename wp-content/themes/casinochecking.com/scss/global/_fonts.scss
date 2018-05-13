@@ -78,4 +78,8 @@ h2, h3, h4, h5 {
   @include breakpoint(medium up) {
     font-size: 0.8rem;
   }
+  @include breakpoint(small only) {
+    font-size: 10px;
+  }
+
 }

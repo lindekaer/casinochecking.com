@@ -1,55 +1,56 @@
 .bg-white {
-    background: $white;
+  background: $white;
 }
 
 .bg-gray {
-    background: #f6f6f6;
+  background: #f6f6f6;
 }
 
 .bg-medium-gray {
-    background: $medium-gray;
+  background: $medium-gray;
 }
 
 .bg-dark-gray {
-    background: $bg-color;
+  background: $bg-color;
 }
 
 .bg-sidebar {
-    background: $sidebar;
+  background: $sidebar;
 }
 
 .bg-repeat {
-    background: url('https://casinochecking.com/wp-content/uploads/2018/01/casino-1.jpg') repeat-y center center fixed;
-    background-size: contain !important;
-    background-color: $bg-color;
+  background: url('https://casinochecking.com/wp-content/uploads/2018/01/casino-1.jpg') repeat-y center center fixed;
+  background-size: contain !important;
+  background-color: $bg-color;
 }
 
 .red-color {
-    color: $slider-red;
+  color: $slider-red;
 }
+
 .archive {
-    .overlay {
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        background: $bg-color;
-        opacity: 0.5;
-        z-index: 0;
-        height: 100%;
-        }
+  .overlay {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      background: $bg-color;
+      opacity: 0.5;
+      z-index: 0;
+      height: 100%;
     }
+  }
 }
 
 .comparison-section {
-    @include breakpoint(medium down) {
-        padding-bottom: 0px;
-    }
-    padding-bottom: 80px;
+  @include breakpoint(small only) {
+    padding-bottom: 0px;
+  }
+  padding-bottom: 80px;
 }
 
 .post-type-archive-casino, .post-type-archive-blog {
@@ -102,44 +103,44 @@
         background-size: cover !important;
         background-attachment: scroll;
         transform: none !important;
+      }
     }
-}
-}
+  }
 }
 
 .single-blog, .single-casino {
   section {
-    @include breakpoint(large up){
-    .single-page-padding {
+    @include breakpoint(large up) {
+      .single-page-padding {
         padding-top: 160px;
         padding-bottom: 80px;
-        }
+      }
     }
 
-    @include breakpoint(medium down){
-    .single-page-padding {
+    @include breakpoint(medium down) {
+      .single-page-padding {
         padding-top: 70px;
         padding-bottom: 50px;
-        }
+      }
     }
-        @include breakpoint (small only) {
-          &.bg-img {
-            background-image: none !important;
-            background: $black;
-          }
-        }
+    @include breakpoint (small only) {
+      &.bg-img {
+        background-image: none !important;
+        background: $black;
+      }
+    }
 
-        @include breakpoint (medium up) {
-          &.bg-img {
-            height: 100%;
-            background-attachment: fixed !important;
-            width: 100%;
-            min-width: 100%;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-            background-size: cover !important;
-            transform: none !important;
-            }
-        }
+    @include breakpoint (medium up) {
+      &.bg-img {
+        height: 100%;
+        background-attachment: fixed !important;
+        width: 100%;
+        min-width: 100%;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        transform: none !important;
+      }
     }
+  }
 }
