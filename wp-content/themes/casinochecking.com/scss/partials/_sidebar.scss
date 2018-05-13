@@ -16,12 +16,8 @@
     padding: 60px;
   }
 
-  @include breakpoint(medium only) {
+  @include breakpoint(medium down) {
     padding: 40px 20px;
-  }
-
-  @include breakpoint(small only) {
-    padding: 40px 0;
   }
 
   .large-disable-padding {
