@@ -8,11 +8,12 @@ jQuery(function ($) {
             cache: false,
             url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
             dataType: "json",
+            crossDomain: true,
             success: function (data) {
-                console.log(data)
+                console.log(data);
                 var country = data.geoplugin_countryCode;
                 var currency = data.geoplugin_currencyCode;
-                console.log(country)
+                console.log(country);
                 $('body').attr('data-user-country', country);
                 $('body').attr('data-user-currency', currency);
             },
@@ -157,7 +158,7 @@ function setCurrencyRate(data) {
             $('#currencySelect').attr('data-currency-rate', result);
         },
         complete: function () {
-            //When the currencyrate has been loaded, 
+            //When the currencyrate has been loaded,
             var currencyRate = $('#currencySelect').attr('data-currency-rate');
             console.log('currencyRate: ' + currencyRate);
 
