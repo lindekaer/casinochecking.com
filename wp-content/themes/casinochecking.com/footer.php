@@ -95,11 +95,17 @@ $cpr = get_field('cpr', 'options'); ?>
 
         <div class="row show-for-medium-down hide-for-large z-index-medium" id="mobile-footer">
             <?php
-            $selectedCasinoID = get_field('choose_selected_casino', 'options')->ID;
-            // get_the_ID()
+            if (is_singular('casino')):
+                $id = $post->ID;
+                $text = __('Get bonus:', 'checkmate');
+            else:
+                $id = get_field('choose_selected_casino', 'options')->ID;
+                $text = __('Popular:', 'checkmate');
+            endif;
+
             $args = array(
                 'post_type' => 'casino',
-                'p' => $selectedCasinoID
+                'p' => $id
             );
 
             ?>
@@ -112,7 +118,7 @@ $cpr = get_field('cpr', 'options'); ?>
                             <div class="footer-casino-name small-6 columns text-center">
                                 <div class="footer-name">
                                     <p>
-                                        <span class="red-color"><?php echo _e('Popular:', 'checkmate'); ?></span> <?php echo the_field('name'); ?>
+                                        <span class="red-color"><?php echo $text; ?></span> <?php echo the_field('name'); ?>
                                     </p>
                                 </div>
                                 <div class="footer-score">

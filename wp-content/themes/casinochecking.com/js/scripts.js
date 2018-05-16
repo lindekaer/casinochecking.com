@@ -19,7 +19,7 @@ jQuery(function ($) {
             },
             complete: function (data) {
                 console.log("second success");
-                initializePage()
+                initializePage();
                 initDom();
             },
             error: function (data) {
@@ -178,6 +178,7 @@ function initDom() {
         $(this).addClass('filter-active');
     });
     cookiebar();
+    footer_bonus_banner();
 
     $('#menu-right .menu li a').on({
         mouseenter: function () {
@@ -953,4 +954,22 @@ function fade_in_elements() {
         },
         offset: '90%'
     });
+}
+
+function footer_bonus_banner() {
+    if ($('.single-casino').length) {
+        var btn_selector = '.cta-button';
+        $(window).on('scroll', function (e) {
+            var offset_top = $(btn_selector).offset().top + $(btn_selector).height() + 6 - $('header').height();
+            var scroll = $(window).scrollTop();
+            console.log('scroll position: ' + scroll);
+            console.log('button offset: ' + offset_top);
+            if (offset_top <= scroll) {
+                $('#mobile-footer').addClass('slide-up-footer');
+            } else {
+                $('#mobile-footer').removeClass('slide-up-footer');
+            }
+        });
+
+    }
 }

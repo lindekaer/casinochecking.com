@@ -67,6 +67,18 @@ footer {
     }
   }
   #mobile-footer {
+    .single-casino & {
+      bottom: -100vh;
+      -webkit-transition: all 1s ease-out;
+      -moz-transition: all 1s ease-out;
+      -ms-transition: all 1s ease-out;
+      -o-transition: all 1s ease-out;
+      transition: all 1s ease-out;
+    }
+
+    &.slide-up-footer {
+      bottom: 0;
+    }
     background: $black-footer;
     position: fixed;
     width: 100%;
@@ -118,6 +130,7 @@ footer {
       img {
         height: 50px;
         width: auto;
+        padding: 0 5px;
         margin-top: 1.25rem;
       }
     }
