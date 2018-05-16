@@ -56,8 +56,9 @@
     font-size: 10px;
   }
 }
+
 @include breakpoint(small only) {
-  .selected-currency, .sorting{
+  .selected-currency, .sorting {
     width: 50%;
   }
 
@@ -68,7 +69,12 @@
 }
 
 .welcome-row {
-  @include breakpoint(medium up){
+  @include breakpoint(small only) {
+    .welcome-text {
+      margin-top: 30px;
+    }
+  }
+  @include breakpoint(medium up) {
     .welcome-text {
       margin-top: 25vh;
       h1 {
@@ -84,7 +90,7 @@
 }
 
 .margin-mobile {
-  @include breakpoint (small only){
+  @include breakpoint (small only) {
     p {
       margin-bottom: 5px;
     }
@@ -111,7 +117,6 @@
   background-size: 5px 5px, 5px 5px, 5px 1.5em;
   background-repeat: no-repeat;
 }
-
 
 .filter {
   cursor: pointer;
@@ -155,7 +160,7 @@
   animation: load3 1s infinite ease-out;
   -ms-transform: translatez(0);
   transform: translatez(0);
-  &:after{
+  &:after {
     background: #fefefe;
     width: 75%;
     height: 75%;
@@ -181,18 +186,18 @@
 }
 
 .headline-casino-h4 {
- @include breakpoint(large up) {
-  text-align: left;
+  @include breakpoint(large up) {
+    text-align: left;
+  }
+
+  @include breakpoint(medium down) {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+  }
 }
 
-@include breakpoint(medium down) {
-  text-align: center;
-  font-size: 1.5rem;
-  padding-bottom: 10px;
-}
-}
-
-@include breakpoint (medium down){
+@include breakpoint (medium down) {
   .first {
     font-size: 12px !important;
     position: absolute;
@@ -217,7 +222,7 @@
   }
 }
 
-@include breakpoint (large up){
+@include breakpoint (large up) {
   .first {
     position: absolute;
     top: 12px;
@@ -242,7 +247,6 @@
   }
 }
 
-
 .casino-wrapper {
   cursor: pointer;
   background: $white;
@@ -257,22 +261,22 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.12);
   }
 
-  p{
+  p {
     font-size: 10px;
   }
-  
+
   .image {
     img {
       width: auto;
       display: block;
       margin: 0 auto;
-      @include breakpoint(medium up){
+      @include breakpoint(medium up) {
         height: 40px;
       }
     }
   }
 
-  .section-padding {  
+  .section-padding {
     padding-bottom: 8px;
     p {
       font-size: 10px;
@@ -320,6 +324,6 @@
 
     h2 {
       line-height: inherit;
-    } 
+    }
   }
 }
