@@ -3,9 +3,9 @@
 	z-index: 100;
 	position: fixed;
 	right: 0px;
-	padding: 12px 0px;
-	bottom: 0px;
-	left: 0px;
+	padding: 10px 0;
+	bottom: 0;
+	left: 0;
 	@include breakpoint(small only){
 		background: rgba($black, 1);
 	}

@@ -2544,7 +2544,7 @@ header.site-header #nav-toggle.active span:after { -webkit-transform: rotate(-45
 
 .search-ajax .button:hover { color: #363636; background: #cacaca; }
 
-#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 12px 0px; bottom: 0px; left: 0px; }
+#cookiebar { display: none; z-index: 100; position: fixed; right: 0px; padding: 10px 0; bottom: 0; left: 0; }
 
 @media screen and (max-width: 39.9375em) { #cookiebar { background: #101010; } }
 
