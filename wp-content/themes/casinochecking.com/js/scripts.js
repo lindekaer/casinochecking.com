@@ -960,7 +960,7 @@ function footer_bonus_banner() {
     if ($('.single-casino').length) {
         var btn_selector = '.cta-button';
         $(window).on('scroll', function (e) {
-            var offset_top = $(btn_selector).offset().top + $(btn_selector).height() + 6 - $('header').height();
+            var offset_top = $(btn_selector).offset().top + $(btn_selector).height() - $('header').height() + ($('header').height() / 2) - 4;
             var scroll = $(window).scrollTop();
             console.log('scroll position: ' + scroll);
             console.log('button offset: ' + offset_top);

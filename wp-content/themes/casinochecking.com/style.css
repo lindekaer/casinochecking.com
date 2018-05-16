@@ -2636,7 +2636,7 @@ footer #desktop-footer .icon-footer img { height: 40px; width: auto; }
 
 footer #mobile-footer { background: #333238; position: fixed; width: 100%; bottom: 0; padding-top: 10px; padding-bottom: 10px; }
 
-.single-casino footer #mobile-footer { bottom: -100vh; -webkit-transition: all 1s ease-out; transition: all 1s ease-out; }
+.single-casino footer #mobile-footer { bottom: -100px; -webkit-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
 
 footer #mobile-footer.slide-up-footer { bottom: 0; }
 

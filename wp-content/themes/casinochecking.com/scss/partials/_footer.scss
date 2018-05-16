@@ -68,12 +68,12 @@ footer {
   }
   #mobile-footer {
     .single-casino & {
-      bottom: -100vh;
-      -webkit-transition: all 1s ease-out;
-      -moz-transition: all 1s ease-out;
-      -ms-transition: all 1s ease-out;
-      -o-transition: all 1s ease-out;
-      transition: all 1s ease-out;
+      bottom: -100px;
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
     }
 
     &.slide-up-footer {
