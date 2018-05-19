@@ -12,21 +12,15 @@ $blogImg = get_field('blog_img', 'options')['sizes']['bg-img'];  ?>
 		<div class="row welcome-row mobile-bg z-index" style="background: url(<?php echo $blogImg; ?>)">
 			<div class="small-12 columns fade-in-slow z-index-medium welcome-text">
 				<h1><?php the_field('heading_first_line_blog', 'options');?></h1>
-				<h1><?php the_field('heading_second_line_blog', 'options'); ?></h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="small-12 medium-8 margin-top-fp medium-order-2 bg-gray columns wrapper-blog slide-up z-index-medium hidden-overflow">
 				<div class="container">
-					<div class="row align-middle padding-bottom">
-						<div class="small-12 columns">
-							<h4 class="headline-casino-h4"><?php the_field('heading_blog_comparison', 'options'); ?></h4>
-						</div>
-					</div>
 					<?php if(have_posts()): ?>
 						<div class="row list">
 							<?php while (have_posts()) : the_post(); ?>
-								<div class="small-6 columns list-item">
+								<div class="small-12 medium-6 columns list-item">
 									<?php include(locate_template('template-parts/parts/blog-teaser.php')); ?>
 								</div>
 							<?php endwhile;?>

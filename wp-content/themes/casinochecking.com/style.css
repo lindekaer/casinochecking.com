@@ -2218,7 +2218,7 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 .category p { font-size: 10px; }
 
-.blog-headline { text-transform: uppercase; font-family: "Cormorant Garamond"; color: #e65352; }
+.blog-headline { text-transform: uppercase; font-family: "Cormorant Garamond"; color: #e65352; margin: 3px 0; }
 
 .blog-icon { padding-bottom: 10px; }
 
