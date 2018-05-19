@@ -2334,7 +2334,7 @@ header.site-header #menu-item-wpml-ls-2-en { margin-right: 10px; }
 
 header.site-header.scroll-active, .open-submenu header.site-header { background: rgba(51, 50, 56, 0.97); }
 
-@media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; -webkit-transition: all .3s ease; transition: all .3s ease; position: fixed; top: 60px; left: 50%; padding: 40px 20px; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); max-width: calc(1200px - 45px); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); z-index: 200; width: 100vw; background: rgba(51, 50, 56, 0.97); }
+@media screen and (min-width: 64em) { header.site-header .casino-submenu { visibility: hidden; opacity: 0; -webkit-transition: all .3s ease; transition: all .3s ease; position: fixed; top: 60px; left: 50%; padding: 40px 20px; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); max-width: 968px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); z-index: 200; width: 100vw; background: rgba(51, 50, 56, 0.97); }
   header.site-header .casino-submenu ul { margin: 0 !important; }
   header.site-header .casino-submenu li { display: block; padding: 0px 30px 20px 0px; }
   header.site-header .casino-submenu li a { font-size: 14px; color: #eee; }
