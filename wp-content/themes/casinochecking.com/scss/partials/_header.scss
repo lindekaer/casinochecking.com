@@ -188,7 +188,9 @@ header.site-header {
 
   #menu-right {
     .menu {
-      text-align: right;
+      & > li {
+        margin-right: 5px;
+      }
     }
 
     ul {
@@ -203,7 +205,6 @@ header.site-header {
 
       li {
         position: relative;
-        margin-right: 5px;
 
         &.current-menu-item {
           & > a {
