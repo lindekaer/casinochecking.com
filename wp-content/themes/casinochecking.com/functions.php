@@ -289,23 +289,19 @@ function add_casino_menu()
     if ($the_query->have_posts()):?>
         <?php if ($type == 'menu'): ?>
             <div class="container">
-                <div class="row">
-                    <div class="small-12 columns">
-                        <ul class="row">
-                            <li class="small-2 columns">
-                                <p class="text-left">
-                                    <a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a>
-                                </p>
-                            </li>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li class="small-2 columns">
-                                    <p class="text-left"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    </p>
-                                </li>
-                            <?php endwhile; ?>
-                        </ul>
-                    </div>
-                </div>
+                <ul class="row">
+                    <li class="small-2 columns">
+                        <p class="text-left">
+                            <a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a>
+                        </p>
+                    </li>
+                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <li class="small-2 columns">
+                            <p class="text-left"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </p>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
             </div>
         <?php elseif ($type == 'sidebar'): ?>
             <?php $i = 1; ?>

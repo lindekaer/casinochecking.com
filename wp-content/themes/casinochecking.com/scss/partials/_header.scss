@@ -10,7 +10,7 @@ header.site-header {
   transition: all .3s ease;
 
   #menu-item-wpml-ls-2-en {
-    margin-right: 10px;
+    margin-right: 5px;
   }
   @include breakpoint(medium down) {
     .casino-submenu {
@@ -31,18 +31,19 @@ header.site-header {
       position: fixed;
       top: 60px;
       left: 50%;
-      padding: 40px 20px;
+      padding: 40px 20px 20px 20px;
       -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
       transform: translateX(-50%);
-      max-width: 968px;
-    //  -webkit-transition: opacity .3s ease, visibility 0s .3s ease;
-    //  transition: opacity .3s ease, visibility 0s .3s ease;
+      max-width: 970px;
+      //  -webkit-transition: opacity .3s ease, visibility 0s .3s ease;
+      //  transition: opacity .3s ease, visibility 0s .3s ease;
       -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
       z-index: 200;
       width: 100vw;
-      background: rgba(51, 50, 56, 0.97);
+      border-bottom: 5px solid $slider-red;
+      background: rgba(51, 50, 56, 1);
 
       ul {
         margin: 0 !important;
@@ -50,12 +51,37 @@ header.site-header {
 
       li {
         display: block;
-        padding: 0px 30px 20px 0px;
+        padding: 0 30px 20px 0;
         a {
           font-size: 14px;
+          display: block;
+          position: relative;
           color: $light-gray;
           &:hover {
-            text-decoration: underline;
+            &:after {
+              right: -3px;
+            }
+          }
+
+          &:after {
+            background-image: url(img/arrow-right.svg);
+            fill: currentColor;
+            background-size: 15px 15px;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            content: "";
+            -webkit-transition: right .3s ease-in-out;
+            transition: right .3s ease-in-out;
+            position: absolute;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            top: 50%;
+            -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+            transform-origin: left;
           }
         }
       }
@@ -106,11 +132,8 @@ header.site-header {
   .desktop-row {
     .menu-desktop-menu-container {
       text-align: right;
-
-      a {
-        color: $white;
+      li > a {
         padding: 25px 0;
-        text-transform: uppercase;
       }
     }
 
@@ -160,7 +183,6 @@ header.site-header {
     a {
       color: $white;
       font-size: 14px;
-      text-transform: uppercase;
     }
   }
 
@@ -179,15 +201,18 @@ header.site-header {
         }
       }
 
-      li.current-menu-item {
-        a {
-          &:after {
-            width: 1.5em;
-          }
-        }
-      }
       li {
         position: relative;
+        margin-right: 5px;
+
+        &.current-menu-item {
+          & > a {
+            &:after {
+              width: 1.5em;
+            }
+          }
+        }
+
         a.active {
           &:after {
             width: 1.5em;
@@ -212,24 +237,21 @@ header.site-header {
     }
   }
 
-  .is-active {
-    #menu-mobile-header {
-      display: block;
-    }
-  }
-
   #menu-mobile-header {
     width: 100%;
     text-align: center;
     display: none;
     margin: 0px;
-    text-transform: uppercase;
     padding: 100px 20px 100px;
     perspective: 1000px;
     list-style-type: none;
     li a {
       font-size: 1.5rem;
       color: $light-gray;
+    }
+
+    .is-active & {
+      display: block;
     }
 
     li.current-menu-item a {
@@ -330,7 +352,7 @@ header.site-header {
   z-index: 59;
   overflow: hidden;
   visibility: visible !important;
- // transition: opacity .3s ease, visibility 0s ease !important;
+  // transition: opacity .3s ease, visibility 0s ease !important;
 
   ul {
     margin-left: 25px;
@@ -357,8 +379,8 @@ header.site-header {
     .open-submenu & {
       opacity: 1 !important;
       visibility: visible !important;
-    //  -webkit-transition: opacity .3s ease, visibility 0s .3s ease;
-    //  transition: opacity .3s ease, visibility 0s .3s ease;
+      //  -webkit-transition: opacity .3s ease, visibility 0s .3s ease;
+      //  transition: opacity .3s ease, visibility 0s .3s ease;
     }
   }
 
