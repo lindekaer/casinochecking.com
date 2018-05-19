@@ -3,106 +3,68 @@ $(document).foundation();
 jQuery(function ($) {
     "use strict";
     $(document).ready(function () {
-        $('.load-casino').addClass("loading-posts");
-        $.ajax({
-            cache: false,
-            url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
-            dataType: "json",
-            crossDomain: true,
-            success: function (data) {
-           //     console.log(data);
-                var country = data.geoplugin_countryCode;
-                var currency = data.geoplugin_currencyCode;
-            //    console.log(country);
-                $('body').attr('data-user-country', country);
-                $('body').attr('data-user-currency', currency);
-            },
-            complete: function (data) {
-          //      console.log("second success");
-                initializePage();
-                initDom();
-            },
-            error: function (data) {
-                var country = 'all';
-                $('body').attr('data-user-country', country);
-                initializePage();
-                initDom();
-            }
-        });
+        if (typeof $.cookie('cc_currency') === 'undefined' || typeof $.cookie('cc_country') === 'undefined') {
+            $.ajax({
+                cache: false,
+                url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
+                dataType: "json",
+                crossDomain: true,
+                beforeSend: function (e) {
+                    $('.load-casino').addClass("loading-posts");
+                },
+                success: function (data) {
+                    var country = data.geoplugin_countryCode;
+                    var currency = data.geoplugin_currencyCode;
+
+                    $.cookie('cc_currency', currency, {expires: 30, path: '/'});
+                    $.cookie('cc_country', country, {expires: 30, path: '/'});
+                },
+                complete: function (data) {
+                    initDom();
+                },
+                error: function (data) {
+                    $.cookie('cc_country', 'all', {expires: 30, path: '/'});
+                    initDom();
+                }
+            });
+        } else {
+            initDom();
+        }
     })
 });
 
-function initializePage() {
-    add_casino_menu();
-    if ($('.post-type-archive').length) {
-        setCurrency();
-    }
-    if (!$('.post-type-archive').length) {
-        singleCasinoCurrency();
-    }
-
-    if ($('.single-casino').length) {
-        singleCasinoAvailability();
-    }
-    add_casino_sidebar();
-}
-
 function singleCasinoCurrency() {
     //Sets default currency based on the country
-    var usersCountry = $('body').attr('data-user-country');
-    if (usersCountry == 'DK') {
-        $('.numeric_currency').attr('data-currency', 'DKK');
-    }
-
-    else if (usersCountry == 'GB') {
-        $('.numeric_currency').attr('data-currency', 'GBP');
-    }
-
-    else if (usersCountry == 'USA') {
-        $('.numeric_currency').attr('data-currency', 'USD');
-    }
-
-    else if (usersCountry == 'NO') {
-        $('.numeric_currency').attr('data-currency', 'NOK');
-    }
-
-    else {
-        $('.numeric_currency').attr('data-currency', 'EUR');
-    }
+    var usersCountry = $.cookie("cc_currency");
+    $('.numeric_currency').attr('data-currency', usersCountry);
 
     var updateCurrencyLoad = $('.numeric_currency').data('currency');
     var data = {
         action: 'currency_update',
         updateCurrencyLoad: updateCurrencyLoad
     };
-  //  console.log('currencyUpdate' + JSON.stringify(data, null, 2));
+    //  console.log('currencyUpdate' + JSON.stringify(data, null, 2));
     currencyUpdate(data);
 }
 
 function singleCasinoAvailability() {
-    var usersCountry = $('body').attr('data-user-country');
+    var usersCountry = $.cookie("cc_country");
     var pageID = $('.rectangle').attr('data-casino-id');
 
     var data = {
         action: 'available_casino',
         country: usersCountry,
         pageID: pageID
-    }
-
-  //  console.log(data)
+    };
 
     $.ajax({
         url: site_vars.ajax_url,
         type: 'post',
         data: data,
         success: function (result) {
-            var obj = JSON.parse(result)
+            var obj = JSON.parse(result);
             var count = obj.found_posts;
             var country = obj.country;
-
-            if (country == 'all') {
-         //       console.log(country)
-            }
 
             if (count !== 1) {
                 $('.user-country').text(country);
@@ -118,7 +80,7 @@ function singleCasinoAvailability() {
  ************************/
 function setCurrency() {
     //Sets default selected value in country-select
-    var usersCountry = $('body').attr('data-user-country');
+    var usersCountry = $.cookie("cc_country");
 
     var flag = false;
     $('#countrySelect option').each(function () {
@@ -132,15 +94,15 @@ function setCurrency() {
         $('#countrySelect').val('all');
     }
 
-    var currencyOnLoad = $('body').attr('data-user-currency');
-    $('#currencySelect').val($('body').attr('data-user-currency'));
+    var currencyOnLoad = $.cookie("cc_currency");
+    $('#currencySelect').val(currencyOnLoad);
 
     var data = {
         action: 'currency_update',
         updateCurrencyLoad: currencyOnLoad
     };
 
-   // console.log('setCurrencyRate(): ' + JSON.stringify(data, null, 2));
+    // console.log('setCurrencyRate(): ' + JSON.stringify(data, null, 2));
     setCurrencyRate(data);
 }
 
@@ -160,7 +122,7 @@ function setCurrencyRate(data) {
         complete: function () {
             //When the currencyrate has been loaded,
             var currencyRate = $('#currencySelect').attr('data-currency-rate');
-      //      console.log('currencyRate: ' + currencyRate);
+            //      console.log('currencyRate: ' + currencyRate);
 
             //Only loads casino on archive-casino-page
             if ($('.post-type-archive-casino').length) {
@@ -174,15 +136,30 @@ function setCurrencyRate(data) {
 }
 
 function initDom() {
+    add_casino_menu();
+    if ($('.post-type-archive').length) {
+        setCurrency();
+    }
+    if (!$('.post-type-archive').length) {
+        singleCasinoCurrency();
+    }
+
+    if ($('.single-casino').length) {
+        singleCasinoAvailability();
+    }
+    add_casino_sidebar();
+
+
     $('.filter-deposit, .filter-bonus, .filter-score').click(function () {
         $(this).addClass('filter-active');
     });
+
     cookiebar();
     footer_bonus_banner();
 
     var pathname = window.location.pathname;
-  //  console.log(site_vars.home_url + pathname);
-  //  console.log($(location).attr('href'));
+    //  console.log(site_vars.home_url + pathname);
+    //  console.log($(location).attr('href'));
 
     $(".hamburger").click(function () {
         $('.menu-mobile-header-container').toggleClass("is-active");
@@ -203,7 +180,7 @@ function initDom() {
     });
 
     if ($('.single-casino').length) {
-        var usersCountry = $('body').attr('data-user-country');
+        var usersCountry = $.cookie("cc_country");
         updateDeepLink(usersCountry);
     }
 
@@ -218,7 +195,7 @@ function initDom() {
         else if ($(this).find('.minus-faq').hasClass('active-icon')) {
             $(this).find('.minus-faq').removeClass('active-icon')
             $(this).find('.plus-faq').addClass('active-icon')
-     //       console.log('minsu-faq active')
+            //       console.log('minsu-faq active')
         }
 
         $(this).find('.desc-wrapper .desc p').slideToggle();
@@ -237,7 +214,7 @@ function loadCurrency() {
     }).change(function () {
         console.log('before ' + previous);
         var after = this.value;
-    //    console.log('after' + after);
+        //    console.log('after' + after);
         $('.currency-type').attr('data-currency', after);
 
         //Update the currency, when the currency is being updated manually
@@ -247,7 +224,7 @@ function loadCurrency() {
             after: after,
         };
         var currencyRate = $('#currencySelect').attr('data-currency-rate');
-     //   console.log('currencyUpdate: ' + JSON.stringify(data, null, 2));
+        //   console.log('currencyUpdate: ' + JSON.stringify(data, null, 2));
 
         currencyUpdate(data);
 
@@ -286,7 +263,7 @@ function currencyUpdate(data) {
             });
         },
         error: function (errorThrown) {
-     //       console.log(errorThrown);
+            //       console.log(errorThrown);
         }
     });
 }
@@ -392,14 +369,14 @@ function loadCasinoParams(currencyRate) {
                 var metric = metrics[type];
                 if (typeof elements[type].attr('data-filter-type') !== "undefined") {
                     data['filter_type_' + type] = metric.filterType;
-                 //   console.log('filterType: ' + metric.filterType)
+                    //   console.log('filterType: ' + metric.filterType)
                     data['min_' + type] = metric.currentMin;
                     data['max_' + type] = metric.currentMax;
                 }
             }
         }
 
-       // console.log('loadCasino: ' + JSON.stringify(data, null, 2));
+        // console.log('loadCasino: ' + JSON.stringify(data, null, 2));
         loadCasino(data);
     }
 
@@ -432,7 +409,7 @@ function loadCasinoParams(currencyRate) {
                 data['min_' + type] = metric.min;
                 data['max_' + type] = metric.max;
             }
-            var usersCountry = $('body').attr('data-user-country');
+            var usersCountry = $.cookie("cc_country");
 
             var flag = false;
             $('#countrySelect option').each(function () {
@@ -448,7 +425,7 @@ function loadCasinoParams(currencyRate) {
                 data.country = 'all';
             }
 
-         //   console.log('ajax' + JSON.stringify(data, null, 2));
+            //   console.log('ajax' + JSON.stringify(data, null, 2));
             ajaxParams(data);
             $('.filter').removeClass('active-sort');
             $('.filter-bonus').addClass('active-sort');
@@ -481,7 +458,7 @@ function loadCasino(data) {
                 action: 'currency_update',
                 updateCurrencyLoad: updateCurrencyLoad
             };
-         //   console.log('currencyUpdate' + JSON.stringify(data, null, 2));
+            //   console.log('currencyUpdate' + JSON.stringify(data, null, 2));
             currencyUpdate(data);
             var usersCountry = $('#countrySelect').val();
             updateDeepLink(usersCountry);
@@ -500,8 +477,8 @@ function add_casino_menu() {
     var site_url = site_vars.site_url;
     var site_url_casino = site_vars.site_url + 'casino/';
 
- //   console.log(site_url);
-    var country = $('body').attr('data-user-country');
+    //   console.log(site_url);
+    var country = $.cookie("cc_country");
     $('.site-navigation li a').each(function () {
         if ($(this).attr('href') == site_url || $(this).attr('href') == site_url_casino) {
             $(this).parent().addClass('has-submenu');
@@ -550,7 +527,7 @@ function add_casino_sidebar() {
     if ($('.favorites').length) {
 
         var type = 'sidebar';
-        var country = $('body').attr('data-user-country');
+        var country = $.cookie("cc_country");
 
         var data = {
             action: 'add_casino_menu',
@@ -571,7 +548,7 @@ function ajax_add_casino_sidebar(data) {
             $('.favorites-teaser').html(result);
 
             if (!$('.post-type-archive-casino').length) {
-                $('.currency-type').html($('body').attr('data-user-currency'));
+                $('.currency-type').html($.cookie("cc_currency"));
             }
 
             sidebar_currency();
@@ -583,12 +560,12 @@ function ajax_add_casino_sidebar(data) {
 }
 
 function sidebar_currency() {
-    var after = $('body').attr('data-user-currency');
+    var after = $.cookie("cc_currency");
 
     var data = {
         action: 'currency_update',
         previous: 'EUR',
-        after: after,
+        after: after
     };
 
     ajax_sidebar_currency(data);
@@ -617,7 +594,7 @@ function ajax_sidebar_currency(data) {
 
 function updateDeepLink(usersCountry) {
 
-   // console.log('usersCountry: ' + usersCountry);
+    // console.log('usersCountry: ' + usersCountry);
 
     $('.deep-link-button').each(function (index) {
         if (usersCountry == 'US') {
@@ -953,8 +930,8 @@ function footer_bonus_banner() {
         $(window).on('scroll', function (e) {
             var offset_top = $(btn_selector).offset().top + $(btn_selector).height() - $('header').height() + ($('header').height() / 2) - 4;
             var scroll = $(window).scrollTop();
-         //   console.log('scroll position: ' + scroll);
-         //   console.log('button offset: ' + offset_top);
+            //   console.log('scroll position: ' + scroll);
+            //   console.log('button offset: ' + offset_top);
             if (offset_top <= scroll) {
                 $('#mobile-footer').addClass('slide-up-footer');
             } else {
