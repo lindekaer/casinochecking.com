@@ -19,7 +19,7 @@ $casinoImg = get_field('casino_img', 'options')['sizes']['bg-img'];
             </div>
             <div class="row comparison-section">
                 <?php include(locate_template('template-parts/parts/casino-sidebar.php')); ?>
-                <div class="small-12 medium-8 margin-top-fp bg-gray columns wrapper-casino-comparison slide-up z-index-medium hidden-overflow">
+                <div class="small-12 medium-8 margin-top-fp bg-gray columns wrapper-casino-comparison slide-up z-index-medium content-casino">
                     <div class="container">
                         <div class="row">
                             <div class="small-12 align-right filter-wrapper columns">
