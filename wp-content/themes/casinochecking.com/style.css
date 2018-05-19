@@ -2240,7 +2240,7 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 @media screen and (min-width: 40em) and (max-width: 63.9375em) { .wrapper-blog { padding: 40px 20px 40px 20px; } }
 
-@media screen and (max-width: 39.9375em) { .wrapper-blog { padding: 40px 0px 40px 0px; } }
+@media screen and (max-width: 39.9375em) { .wrapper-blog { padding: 40px 15px 40px 15px; } }
 
 .rating-ten { font-size: 12px; }
 
