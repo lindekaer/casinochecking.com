@@ -3,12 +3,16 @@ header.site-header {
   height: 60px;
   top: 0;
   width: 100%;
-  transition: 0.3s;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 
   #menu-item-wpml-ls-2-en {
     margin-right: 10px;
   }
-  @include breakpoint(medium down){
+  @include breakpoint(medium down) {
     .casino-submenu {
       visibility: hidden;
       opacity: 0;
@@ -18,16 +22,27 @@ header.site-header {
   &.scroll-active, .open-submenu & {
     background: rgba(51, 50, 56, 0.97);
   }
-  
-  @include breakpoint(large up){
+
+  @include breakpoint(large up) {
     .casino-submenu {
       visibility: hidden;
       opacity: 0;
+      transition: all .3s ease;
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      padding: 40px 20px;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      max-width: calc(1200px - 45px);
+    //  -webkit-transition: opacity .3s ease, visibility 0s .3s ease;
+    //  transition: opacity .3s ease, visibility 0s .3s ease;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+      z-index: 200;
+      width: 100vw;
       background: rgba(51, 50, 56, 0.97);
-      padding-bottom: 30px;
-      padding-top: 50px;
-      transition: 0.3s;
-      border-top: 1px solid #3f3e46;
 
       ul {
         margin: 0 !important;
@@ -62,12 +77,12 @@ header.site-header {
   }
 
   .logo-link {
-    display: block; 
+    display: block;
     height: 60px;
     position: relative;
   }
 
-  .svg-logo{
+  .svg-logo {
     svg {
       margin-left: 15%;
       width: 85%;
@@ -76,7 +91,7 @@ header.site-header {
       top: 50%;
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
-    } 
+    }
   }
 
   img {
@@ -94,6 +109,7 @@ header.site-header {
 
       a {
         color: $white;
+        padding: 25px 0;
         text-transform: uppercase;
       }
     }
@@ -135,6 +151,9 @@ header.site-header {
 
     li {
       display: inline-block;
+    }
+
+    & > li {
       margin: 0 2px;
     }
 
@@ -174,7 +193,7 @@ header.site-header {
             width: 1.5em;
           }
         }
-        a {
+        & > a {
           &:after {
             position: absolute;
             content: '';
@@ -186,7 +205,7 @@ header.site-header {
             right: 0;
             margin: auto;
             background-color: $slider-red;
-            transition: width,.2s;
+            transition: width, .2s;
           }
         }
       }
@@ -226,7 +245,7 @@ header.site-header {
         right: 0;
         margin: auto;
         background-color: $slider-red;
-        transition: width,.2s;
+        transition: width, .2s;
       }
     }
   }
@@ -251,8 +270,8 @@ header.site-header {
     box-sizing: border-box;
     text-align: right;
   }
-  #nav-toggle { 
-    cursor: pointer; 
+  #nav-toggle {
+    cursor: pointer;
   }
   #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
     cursor: pointer;
@@ -265,7 +284,7 @@ header.site-header {
     content: '';
   }
   #nav-toggle span:before {
-    top: -8px; 
+    top: -8px;
   }
   #nav-toggle span:after {
     bottom: -8px;
@@ -297,7 +316,7 @@ header.site-header {
   opacity: 0;
   overflow: hidden;
   visibility: hidden;
-  transition: opacity .3s ease, visibility .3s 0s ease;
+  //transition: opacity .3s ease, visibility .3s 0s ease;
   -webkit-overflow-scrolling: touch;
   display: -ms-flexbox;
   display: flex;
@@ -311,7 +330,7 @@ header.site-header {
   z-index: 59;
   overflow: hidden;
   visibility: visible !important;
-  transition: opacity .3s ease, visibility 0s ease !important;
+ // transition: opacity .3s ease, visibility 0s ease !important;
 
   ul {
     margin-left: 25px;
@@ -322,19 +341,43 @@ header.site-header {
   }
 }
 
-@include breakpoint(large up){
+@include breakpoint(large up) {
   .menu-overlay {
     background: rgba(51, 50, 56, 0.3);
     position: fixed;
-    top: 0px; right: 0px; bottom: 0px; left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
     z-index: 51;
     opacity: 0;
     cursor: pointer;
-    visibility: hidden;;
+    visibility: hidden;
 
     .open-submenu & {
       opacity: 1 !important;
       visibility: visible !important;
+    //  -webkit-transition: opacity .3s ease, visibility 0s .3s ease;
+    //  transition: opacity .3s ease, visibility 0s .3s ease;
+    }
+  }
+
+  header.site-header {
+    li.has-submenu {
+      &:hover {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+      &:after {
+        transition: all 300ms 0s ease-in-out;
+        content: "\f107";
+        margin-left: 5px;
+        font-size: 10px;
+        color: $white;
+        display: inline-block;
+        font-family: FontAwesome;
+      }
     }
   }
 }

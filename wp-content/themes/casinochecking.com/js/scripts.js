@@ -180,15 +180,6 @@ function initDom() {
     cookiebar();
     footer_bonus_banner();
 
-    $('#menu-right .menu li a').on({
-        mouseenter: function () {
-            $(this).addClass('active');
-        },
-        mouseleave: function () {
-            $(this).removeClass('active');
-        }
-    });
-
     var pathname = window.location.pathname;
     console.log(site_vars.home_url + pathname);
     console.log($(location).attr('href'));
@@ -518,7 +509,7 @@ function add_casino_menu() {
     var country = $('body').attr('data-user-country');
     $('.site-navigation li a').each(function () {
         if ($(this).attr('href') == site_url || $(this).attr('href') == site_url_casino) {
-            $(this).addClass('has-submenu');
+            $(this).parent().addClass('has-submenu');
         }
     });
 
@@ -537,11 +528,17 @@ function ajax_add_casino_menu(data) {
         data: data,
         success: function (result) {
             //console.log(result)
-            $('.casino-submenu').append(result);
+            $('.has-submenu.menu-item-object-casino').append("<div class='casino-submenu'>" + result + "</div>");
 
-            $('.has-submenu').click(function (e) {
-                e.preventDefault();
-                $('body').toggleClass('open-submenu');
+            $('.has-submenu').on({
+                mouseenter: function () {
+                    $(this).addClass('active');
+                    $('body').addClass('open-submenu');
+                },
+                mouseleave: function () {
+                    $(this).removeClass('active');
+                    $('body').removeClass('open-submenu');
+                }
             });
 
             $('.menu-overlay').click(function () {

@@ -110,9 +110,8 @@ $cpr = get_field('cpr', 'options'); ?>
 
             ?>
             <div class="small-12 columns">
-                <?php
-                $the_query = new WP_Query($args);
-                if ($the_query->have_posts()) {
+                <?php $the_query = new WP_Query($args);
+                if ($the_query->have_posts()):
                     while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <div class="row">
                             <div class="footer-casino-name small-6 columns text-center">
@@ -132,9 +131,8 @@ $cpr = get_field('cpr', 'options'); ?>
                             </div>
                         </div>
                     <?php endwhile;
-                }
-                wp_reset_query();
-                ?>
+                endif;
+                wp_reset_query(); ?>
             </div>
         </div>
 </footer><!-- #colophon -->

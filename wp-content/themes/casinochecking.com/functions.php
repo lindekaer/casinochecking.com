@@ -292,18 +292,17 @@ function add_casino_menu()
                 <div class="row">
                     <div class="small-12 columns">
                         <ul class="row">
+                            <li class="small-2 columns">
+                                <p class="text-left">
+                                    <a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a>
+                                </p>
+                            </li>
                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <div class="small-2 columns">
-                                    <li><p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p></li>
-                                </div>
-                            <?php endwhile; ?>
-                            <div class="small-2 columns">
-                                <li>
-                                    <p>
-                                        <a href="<?php echo $my_home_url; ?>"><?php echo _e('All casinos', 'checkmate'); ?></a>
+                                <li class="small-2 columns">
+                                    <p class="text-left"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                     </p>
                                 </li>
-                            </div>
+                            <?php endwhile; ?>
                         </ul>
                     </div>
                 </div>
@@ -691,6 +690,9 @@ function checkmate_scripts()
     // foundation scripts
     wp_enqueue_script('checkmate-what-input', get_template_directory_uri() . '/bower_components/what-input/dist/what-input.js', array(), '20151215', true);
     wp_enqueue_script('checkmate-foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/js/foundation.js', array(), '20151215', true);
+
+    //FontAwesome
+    wp_enqueue_script('checkmate-fontawesome', 'https://use.fontawesome.com/ccfb9ddc23.js', array(), '20151215', false);
 
     // theme scripts
     wp_enqueue_script('checkmate-waypoints', get_template_directory_uri() . '/js/vendor/waypoints.min.js', array(), '20151215', true);
