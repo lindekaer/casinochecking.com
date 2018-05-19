@@ -2380,6 +2380,8 @@ header.site-header .site-navigation > li { margin: 0 2px; }
 
 header.site-header .site-navigation a { color: #ffffff; font-size: 14px; }
 
+header.site-header #menu-right .menu { text-align: right; }
+
 header.site-header #menu-right .menu > li { margin-right: 5px; }
 
 header.site-header #menu-right ul li.wpml-ls-menu-item { position: static !important; }
