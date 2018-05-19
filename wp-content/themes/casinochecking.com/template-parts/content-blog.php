@@ -37,7 +37,7 @@ $activateOverlay = get_field('activate_overlay');
                   <div class="heading-blog"><p><?php echo $category; ?></p></div>
                 </div>
                 <div class="small-12 columns">
-                  <div class="category-blog"><h1 class="cursive-headline"><?php echo the_title(); ?></h1></div>                            
+                  <div class="category-blog"><h1><?php echo the_title(); ?></h1></div>
                 </div>
                 <div class="small-12 columns icon-blog">
                   <?php 

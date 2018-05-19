@@ -2072,6 +2072,12 @@ h2, h3, h4, h5 { font-family: 'Casino'; }
 
 @media screen and (min-width: 64em) { .single-blog .casino-logo img { margin-top: 30px; } }
 
+.single-blog h1 { font-family: 'Cormorant Garamond'; margin: 10px 0 12px 0; }
+
+@media screen and (min-width: 40em) { .single-blog h1 { line-height: 40px; } }
+
+@media screen and (max-width: 39.9375em) { .single-blog h1 { line-height: 30px; } }
+
 @-webkit-keyframes fadeIn { from { opacity: 0; }
   to { opacity: 1; } }
 

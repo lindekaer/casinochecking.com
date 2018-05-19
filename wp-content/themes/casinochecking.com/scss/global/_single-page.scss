@@ -204,4 +204,16 @@
       }
     }
   }
+
+  h1 {
+    font-family: 'Cormorant Garamond';
+    margin: 10px 0 12px 0;
+    @include breakpoint(medium up) {
+      line-height: 40px;
+    }
+
+    @include breakpoint(small down) {
+      line-height: 30px;
+    }
+  }
 }
