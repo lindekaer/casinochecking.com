@@ -248,15 +248,7 @@ function currencyUpdate(data) {
             $('.load-casino').removeClass("loading-posts");
 
             //Update currency on each post: $, € etc.
-            if ($('.post-type-archive-casino').length) {
-                var chosenCurrencyVal = $('#currencySelect').find(":selected").attr('data-currency');
-                $('.currency-type').text(chosenCurrencyVal);
-            }
-
-            if (!$('.post-type-archive-casino').length) {
-                var chosenCurrencyVal = $('.numeric_currency').attr('data-currency');
-                $('.currency-type').text(chosenCurrencyVal);
-            }
+            $('.currency-type').html($.cookie('cc_currency_symbol'));
 
             //Multiply each casino's currency with the exchange rate
             $('.numeric_currency').each(function (index) {
@@ -974,7 +966,12 @@ function footer_slider() {
             };
 
             currencyUpdate(data_currency);
-            $('.currency-type').html($.cookie('cc_currency_symbol'));
+
+            $('.currency-type').each(function (index) {
+                if ($(this).html().length > 0) {
+                    $(this).html($.cookie('cc_currency_symbol'));
+                }
+            });
         }
     });
 
