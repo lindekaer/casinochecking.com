@@ -922,8 +922,6 @@ function footer_slider()
             'p' => $id
         );
     else:
-        $text = __('Most popular:', 'checkmate');
-
         $args = array(
             'post_type' => 'casino',
             'post_status' => 'publish',

@@ -1,7 +1,7 @@
 <div class="footer-casino-name small-6 columns text-center">
     <div class="footer-name">
-        <p>
-            <span class="red-color"><?php echo $text; ?></span> <?php echo the_field('name'); ?>
+        <p class="red-color">
+            <?php echo the_field('name'); ?>
         </p>
     </div>
     <div class="footer-score">
