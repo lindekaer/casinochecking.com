@@ -5,8 +5,9 @@
         </p>
     </div>
     <div class="footer-score">
-        <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
-        <p class="align-middle"><?php echo the_field('our_score'); ?>/10</p>
+        <p class="align-middle"><?php the_field('signup_bonus'); ?>%<span
+                    style="font-size: 12px;"> up to </span><span
+                    class="numeric_currency"><?php the_field('up_to_signup'); ?></span><span class="currency-type"></p>
     </div>
 </div>
 <div class="get-bonus small-6 columns text-center align-middle">
