@@ -3,7 +3,7 @@ $(document).foundation();
 jQuery(function ($) {
     "use strict";
     $(document).ready(function () {
-        if (typeof $.cookie('cc_currency') === 'undefined' || typeof $.cookie('cc_country') === 'undefined') {
+        if (typeof $.cookie('cc_currency_converter') === 'undefined' || typeof $.cookie('cc_currency') === 'undefined' || typeof $.cookie('cc_country') === 'undefined' || typeof $.cookie('cc_currency_symbol') === 'undefined') {
             $.ajax({
                 cache: false,
                 url: "https://ssl.geoplugin.net/json.gp?k=4d3e05fdf923bc77",
@@ -13,11 +13,17 @@ jQuery(function ($) {
                     $('.load-casino').addClass("loading-posts");
                 },
                 success: function (data) {
+                    console.log(data);
                     var country = data.geoplugin_countryCode;
                     var currency = data.geoplugin_currencyCode;
+                    var currencySymbol = data.geoplugin_currencySymbol_UTF8;
+                    var currencyConverter = data.geoplugin_currencyConverter;
 
                     $.cookie('cc_currency', currency, {expires: 30, path: '/'});
                     $.cookie('cc_country', country, {expires: 30, path: '/'});
+                    $.cookie('cc_currency_symbol', currencySymbol, {expires: 30, path: '/'});
+                    $.cookie('cc_currency_converter', currencyConverter, {expires: 30, path: '/'});
+
                 },
                 complete: function (data) {
                     initDom();
@@ -958,6 +964,17 @@ function footer_slider() {
             });
         }, complete: function () {
             updateDeepLink(data.country);
+
+            var after = $.cookie("cc_currency");
+
+            var data_currency = {
+                action: 'currency_update',
+                previous: 'EUR',
+                after: after
+            };
+
+            currencyUpdate(data_currency);
+            $('.currency-type').html($.cookie('cc_currency_symbol'));
         }
     });
 

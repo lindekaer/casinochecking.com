@@ -7,7 +7,8 @@
     <div class="footer-score">
         <p class="align-middle"><?php the_field('signup_bonus'); ?>%<span
                     style="font-size: 12px;"> up to </span><span
-                    class="numeric_currency"><?php the_field('up_to_signup'); ?></span><span class="currency-type"></p>
+                    class="numeric-sidebar-currency"><?php the_field('up_to_signup'); ?></span><span
+                    class="currency-type"></span></p>
     </div>
 </div>
 <div class="get-bonus small-6 columns text-center align-middle">
