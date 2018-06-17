@@ -56,7 +56,7 @@ $imageSizeLong = 'logo-casino-archive'; ?>
                                                 </div>
                                                 <div class="small-3">
                                                     <p><?php echo _e('Deposit', 'checkmate'); ?></p>
-                                                    <h6><span data-value="<?php echo $minimumDeposit; ?>" class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></h6>
+                                                    <h6><span data-value="<?php echo $minimumDeposit; ?>" class="numeric_currency"><?php echo $minimumDeposit; ?></span><span class="currency-type"></span></h6>
                                                     </div>
                                                     <div class="small-3">
                                                         <p><?php echo _e('User rating', 'checkmate'); ?></p>
