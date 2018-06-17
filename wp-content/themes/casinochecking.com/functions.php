@@ -682,6 +682,9 @@ function checkmate_scripts()
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
     wp_enqueue_script('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array(), null, true);
 
+    //BxSlider
+    wp_enqueue_script('checkmate-bxslider', get_template_directory_uri() . '/js/vendor/bxslider.min.js', array(), null, true);
+
     //jQuery cookie
     wp_enqueue_script('jquery-cookie', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array(), null, true);
 
@@ -896,4 +899,51 @@ function df_disable_comments_admin_bar()
 
 add_action('init', 'df_disable_comments_admin_bar');
 
-?>
+
+/***********************
+ *
+ * FOOTER SLIDER
+ *
+ ***********************/
+
+add_action('wp_ajax_nopriv_footer_slider', 'footer_slider');
+add_action('wp_ajax_footer_slider', 'footer_slider');
+function footer_slider()
+{
+    $country = $_POST['country'];
+
+    if (is_singular('casino')):
+        global $post;
+        $id = $post->ID;
+        $text = __('Get bonus:', 'checkmate');
+
+        $args = array(
+            'post_type' => 'casino',
+            'p' => $id
+        );
+    else:
+        $text = __('Most popular:', 'checkmate');
+
+        $args = array(
+            'post_type' => 'casino',
+            'post_status' => 'publish',
+            'meta_query' => array(
+                array(
+                    'key' => 'available_countries',
+                    'value' => $country,
+                    'compare' => 'LIKE'
+                )
+            )
+        );
+    endif; ?>
+    <?php $the_query = new WP_Query($args);
+    if ($the_query->have_posts()): ?>
+        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+            <div class="row footer-slider">
+                <?php include(locate_template('template-parts/parts/footer-slider.php')); ?>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+    <?php wp_reset_query();
+    die(); ?>
+<?php }

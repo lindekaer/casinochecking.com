@@ -53,7 +53,6 @@ $cpr = get_field('cpr', 'options'); ?>
             <?php wp_reset_query(); ?>
         </div>
     </div>
-
     <div class="bg-sidebar footer-legal">
         <div class="container">
             <hr>
@@ -93,47 +92,8 @@ $cpr = get_field('cpr', 'options'); ?>
         </div>
 
 
-        <div class="row show-for-medium-down hide-for-large z-index-medium" id="mobile-footer">
-            <?php
-            if (is_singular('casino')):
-                $id = $post->ID;
-                $text = __('Get bonus:', 'checkmate');
-            else:
-                $id = get_field('choose_selected_casino', 'options')->ID;
-                $text = __('Popular:', 'checkmate');
-            endif;
-
-            $args = array(
-                'post_type' => 'casino',
-                'p' => $id
-            );
-
-            ?>
-            <div class="small-12 columns">
-                <?php $the_query = new WP_Query($args);
-                if ($the_query->have_posts()):
-                    while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                        <div class="row">
-                            <div class="footer-casino-name small-6 columns text-center">
-                                <div class="footer-name">
-                                    <p>
-                                        <span class="red-color"><?php echo $text; ?></span> <?php echo the_field('name'); ?>
-                                    </p>
-                                </div>
-                                <div class="footer-score">
-                                    <?php include(locate_template('template-parts/parts/user-rating.php')); ?>
-                                    <p class="align-middle"><?php echo the_field('our_score'); ?>/10</p>
-                                </div>
-                            </div>
-                            <div class="get-bonus small-6 columns text-center align-middle">
-                                <a target="_blank"
-                                   class="button deep-link-button footer-page-button" <?php include(locate_template('template-parts/parts/deep-link.php')); ?> ><?php echo _e('Sign up', 'checkmate'); ?></a>
-                            </div>
-                        </div>
-                    <?php endwhile;
-                endif;
-                wp_reset_query(); ?>
-            </div>
+        <div class="show-for-medium-down hide-for-large z-index-medium" id="mobile-footer">
+            <div id="inner-mobile-footer"></div>
         </div>
 </footer><!-- #colophon -->
 <?php include(locate_template('template-parts/parts/cookiebanner.php')); ?>

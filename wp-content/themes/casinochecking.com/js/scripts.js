@@ -148,7 +148,7 @@ function initDom() {
         singleCasinoAvailability();
     }
     add_casino_sidebar();
-
+    footer_slider();
 
     $('.filter-deposit, .filter-bonus, .filter-score').click(function () {
         $(this).addClass('filter-active');
@@ -158,8 +158,6 @@ function initDom() {
     footer_bonus_banner();
 
     var pathname = window.location.pathname;
-    //  console.log(site_vars.home_url + pathname);
-    //  console.log($(location).attr('href'));
 
     $(".hamburger").click(function () {
         $('.menu-mobile-header-container').toggleClass("is-active");
@@ -221,7 +219,7 @@ function loadCurrency() {
         var data = {
             action: 'currency_update',
             previous: previous,
-            after: after,
+            after: after
         };
         var currencyRate = $('#currencySelect').attr('data-currency-rate');
         //   console.log('currencyUpdate: ' + JSON.stringify(data, null, 2));
@@ -261,9 +259,6 @@ function currencyUpdate(data) {
                 console.log(calc);
                 $(this).text(calc);
             });
-        },
-        error: function (errorThrown) {
-            //       console.log(errorThrown);
         }
     });
 }
@@ -383,11 +378,6 @@ function loadCasinoParams(currencyRate) {
     $('#countrySelect').on('change', function () {
         ajaxParams();
     });
-
-    /*$("#countrySelect-mobile").on("change",function(){
-        $("#countrySelect").val($(this).val());
-        ajaxParams();
-    })*/
 
     $('.search-ajax, .filter').click(function (e) {
         // Attach event handler for AJAX submit
@@ -940,4 +930,35 @@ function footer_bonus_banner() {
         });
 
     }
+}
+
+function footer_slider() {
+    var data = {
+        action: 'footer_slider',
+        country: $.cookie('cc_country')
+    };
+
+    $.ajax({
+        url: site_vars.ajax_url,
+        type: 'post',
+        data: data,
+        success: function (result) {
+            var selector = "#inner-mobile-footer";
+            $(selector).html(result);
+
+            $(selector).bxSlider({
+                mode: 'horizontal',
+                controls: false,
+                pager: false,
+                startSlide: 0,
+                auto: ($(selector + ' .footer-slider').length > 1) ? true : false,
+                speed: 500,
+                pause: 5000,
+                keyboardEnabled: false
+            });
+        }, complete: function () {
+            updateDeepLink(data.country);
+        }
+    });
+
 }
