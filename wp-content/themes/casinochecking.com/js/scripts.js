@@ -952,7 +952,7 @@ function footer_slider() {
                 pager: false,
                 startSlide: 0,
                 auto: ($(selector + ' .footer-slider').length > 1) ? true : false,
-                speed: 500,
+                speed: 1000,
                 pause: 5000,
                 keyboardEnabled: false
             });
